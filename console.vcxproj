@@ -113,6 +113,13 @@
       <AdditionalDependencies>dzcore.lib;QtCore4.lib;QtGui4.lib;Qt3Support4.lib;QtScript4.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>./console.def</ModuleDefinitionFile>
     </Link>
+    <PostBuildEvent>
+      <Command>./scripts/deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -129,6 +136,13 @@
       <AdditionalDependencies>dzcore.lib;QtCore4.lib;QtGui4.lib;Qt3Support4.lib;QtScript4.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>./console.def</ModuleDefinitionFile>
     </Link>
+    <PostBuildEvent>
+      <Command>./scripts/deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -149,6 +163,13 @@
       <AdditionalDependencies>dzcore.lib;QtCore4.lib;QtGui4.lib;Qt3Support4.lib;QtScript4.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>./console.def</ModuleDefinitionFile>
     </Link>
+    <PostBuildEvent>
+      <Command>./scripts/deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -169,6 +190,13 @@
       <AdditionalDependencies>dzcore.lib;QtCore4.lib;QtGui4.lib;Qt3Support4.lib;QtScript4.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>./console.def</ModuleDefinitionFile>
     </Link>
+    <PostBuildEvent>
+      <Command>./scripts/deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="consolepane.h">
@@ -212,6 +240,7 @@
   <ItemGroup>
     <None Include=".gitignore" />
     <None Include="console.def" />
+    <None Include="scripts\deploy.bat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
