@@ -1,0 +1,8 @@
+# Builds
+/build/
+
+# Meta Objects
+/moc/
+
+# Laboratory
+/lab/
