@@ -7,10 +7,6 @@
 // Qt SDK Headers
 #include "QtCore\qfile.h"
 
-#define CONSOLE_PANE_LOG_FILE "C:/Users/todde/AppData/Roaming/DAZ 3D/Studio4/log.txt"
-#define CONSOLE_PANE_MSG_OPEN_FAILED "The log file could not be opened."
-
-
 /*
  * Class: ConsolePane
  * Description: Main class for the console pane.
@@ -27,7 +23,7 @@ public:
 
 private:
 
-  QFile m_logfile;
+  QFile logFile;
 
 };
 

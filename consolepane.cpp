@@ -6,9 +6,9 @@
 #include "QtCore\qobject.h"
 #include "QtCore\qstring.h"
 #include "QtCore\qtextstream.h"
-#include "QtGui\qtextbrowser.h"
 #include "QtGui\qboxlayout.h"
 #include "QtGui\qmessagebox.h"
+#include "QtGui\qtextbrowser.h"
 #include "QtGui\qtextcursor.h"
 
 // DAZ Studio SDK Headers
@@ -29,22 +29,22 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   paneContent->setObjectName("Console");
   paneContent->setMinimumSize(200, 150);
 
-  m_logfile.setFileName(CONSOLE_PANE_LOG_FILE);
+  // Getting App data path and building full path to log file
+  // (QFile expects only slashes and no backslashes in paths).
+  QString dataPath(dzApp->getAppDataPath().replace(QString("\\"), QString("/")));
+  QString logFullPath(QString("%1/log.txt").arg(dataPath));
+  logFile.setFileName(logFullPath);
 
-  if (m_logfile.open(QFile::ReadOnly | QFile::Text)) {
-    QTextStream stream(&m_logfile);
+  // Opening log file
+  if (logFile.open(QFile::ReadOnly | QFile::Text)) {
+    QTextStream stream(&logFile);
     paneContent->setPlainText(stream.readAll());
     paneContent->moveCursor(QTextCursor::End, QTextCursor::MoveAnchor);
   }
   else {
-    QMessageBox::warning(
-      0,
-      tr("I/O-Error"),
-      tr(CONSOLE_PANE_MSG_OPEN_FAILED),
-      QMessageBox::Ok
-    );
-
-    paneContent->setPlainText(tr(CONSOLE_PANE_MSG_OPEN_FAILED));
+    QString msg(QString(tr("The log file %1 could not be opened.")).arg(logFullPath));
+    QMessageBox::warning(0, tr("I/O-Error"), msg, QMessageBox::Ok);
+    paneContent->setPlainText(msg);
   }
 
   paneLayout->addWidget(paneContent);
@@ -56,7 +56,7 @@ ConsolePane::ConsolePane() : DzPane("Console") {
 
 ConsolePane::~ConsolePane() {
 
-  m_logfile.flush();
-  m_logfile.close();
+  logFile.flush();
+  logFile.close();
 
 }
