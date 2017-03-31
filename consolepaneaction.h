@@ -5,9 +5,10 @@
 #include "dzaction.h"
 
 /*
-* Class: ConsolePaneAction
-* Description: Registration of a menu action for toggling console pane on/off.
-*/
+ * Class: ConsolePaneAction
+ * Description: Registration of a menu action for toggling console pane on/off.
+ *
+ */
 class ConsolePaneAction : public DzPaneAction {
 
   Q_OBJECT

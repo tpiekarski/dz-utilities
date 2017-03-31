@@ -5,9 +5,8 @@
 #include "dzversion.h"
 
 /*
-* Version Definition
-*/
-
+ * Version Definition
+ */
 #define PLUGIN_MAJOR 1
 #define PLUGIN_MINOR 0
 #define PLUGIN_REV 0

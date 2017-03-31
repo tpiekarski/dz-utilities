@@ -5,9 +5,10 @@
 #include "dzpane.h"
 
 /*
-* Class: ConsolePane
-* Description: Main class for the console pane.
-*/
+ * Class: ConsolePane
+ * Description: Main class for the console pane.
+ *
+ */
 class ConsolePane : public DzPane {
 
   Q_OBJECT

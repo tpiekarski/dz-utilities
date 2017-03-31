@@ -19,6 +19,7 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   paneLayout->setMargin(margin);
   paneLayout->setSpacing(margin);
 
+  // Setting up and adding a qTextBrowser object for testing pane
   QTextBrowser *paneContent = new QTextBrowser();
   paneContent->setObjectName("Console");
   paneContent->setMinimumSize(200, 150);

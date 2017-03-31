@@ -8,8 +8,8 @@
 #include "version.h"
 
 /*
-* Plugin Meta Information
-*/
+ * Plugin Meta Information
+ */
 DZ_PLUGIN_DEFINITION("Console");
 DZ_PLUGIN_AUTHOR("Thomas Piekarski");
 DZ_PLUGIN_VERSION(PLUGIN_MAJOR, PLUGIN_MINOR, PLUGIN_REV, PLUGIN_BUILD);
@@ -27,7 +27,7 @@ DZ_PLUGIN_DESCRIPTION(
 );
 
 /*
-* Plugin Class GUID
-*/
+ * Plugin Class GUID
+ */
 DZ_PLUGIN_CLASS_GUID(ConsolePane, CONSOLE_PANE_CLASS_GUID);
 DZ_PLUGIN_CLASS_GUID(ConsolePaneAction, CONSOLE_PANE_ACTION_CLASS_GUID);
