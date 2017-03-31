@@ -2,9 +2,14 @@
 #include "consolepane.h"
 
 // Qt SDK Headers
+#include "QtCore\qfile.h"
 #include "QtCore\qobject.h"
+#include "QtCore\qstring.h"
+#include "QtCore\qtextstream.h"
 #include "QtGui\qtextbrowser.h"
 #include "QtGui\qboxlayout.h"
+#include "QtGui\qmessagebox.h"
+#include "QtGui\qtextcursor.h"
 
 // DAZ Studio SDK Headers
 #include "dzapp.h"
@@ -24,6 +29,24 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   paneContent->setObjectName("Console");
   paneContent->setMinimumSize(200, 150);
 
+  m_logfile.setFileName(CONSOLE_PANE_LOG_FILE);
+
+  if (m_logfile.open(QFile::ReadOnly | QFile::Text)) {
+    QTextStream stream(&m_logfile);
+    paneContent->setPlainText(stream.readAll());
+    paneContent->moveCursor(QTextCursor::End, QTextCursor::MoveAnchor);
+  }
+  else {
+    QMessageBox::warning(
+      0,
+      tr("I/O-Error"),
+      tr(CONSOLE_PANE_MSG_OPEN_FAILED),
+      QMessageBox::Ok
+    );
+
+    paneContent->setPlainText(tr(CONSOLE_PANE_MSG_OPEN_FAILED));
+  }
+
   paneLayout->addWidget(paneContent);
 
   setLayout(paneLayout);
@@ -31,4 +54,9 @@ ConsolePane::ConsolePane() : DzPane("Console") {
 
 }
 
-ConsolePane::~ConsolePane() {}
+ConsolePane::~ConsolePane() {
+
+  m_logfile.flush();
+  m_logfile.close();
+
+}
