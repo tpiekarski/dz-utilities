@@ -36,24 +36,26 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   buttonGroupBoxLayout->setSpacing(margin);
   buttonGroupBox->setLayout(buttonGroupBoxLayout);
 
-  // Definiton of control buttons and 
+  // Definiton of control buttons
   QPushButton *reloadButton = new QPushButton("&Reload", this);
   QPushButton *clearButton = new QPushButton("&Clear", this);
   buttonGroupBoxLayout->addWidget(reloadButton);
   buttonGroupBoxLayout->addWidget(clearButton);
-  connect(reloadButton, SIGNAL(clicked()), this, SLOT(reloadLog()));
-  connect(clearButton, SIGNAL(clicked()), this, SLOT(clearLog()));
 
   paneMainLayout->addWidget(buttonGroupBox);
   
   // Setting up a QTextBrowser for displaying the log file
-  QTextBrowser *paneContent = new QTextBrowser();
-  paneContent->setObjectName("Console");
-  paneContent->setMinimumSize(200, 150);
+  logBrowser = new QTextBrowser();
+  logBrowser->setObjectName("Console");
+  logBrowser->setMinimumSize(200, 150);
 
-  displayLog(paneContent);
+  displayLog();
 
-  paneMainLayout->addWidget(paneContent);
+  // Connecting signals to slots of the control buttons
+  connect(reloadButton, SIGNAL(clicked()), this, SLOT(reloadLog()));
+  connect(clearButton, SIGNAL(clicked()), this, SLOT(clearLog()));
+
+  paneMainLayout->addWidget(logBrowser);
 }
 
 ConsolePane::~ConsolePane() {
@@ -61,11 +63,11 @@ ConsolePane::~ConsolePane() {
   console->closeLog();
 }
 
-void ConsolePane::displayLog(QTextBrowser* textBrowser) {
-  // Opening log file
+void ConsolePane::displayLog() {
+
   if (console->openLog()) {
-    textBrowser->setPlainText(console->getLog());
-    textBrowser->moveCursor(QTextCursor::End, QTextCursor::MoveAnchor);
+    logBrowser->setPlainText(console->getLog());
+    logBrowser->moveCursor(QTextCursor::End, QTextCursor::MoveAnchor);
     console->closeLog();
   }
   else {
@@ -74,12 +76,14 @@ void ConsolePane::displayLog(QTextBrowser* textBrowser) {
     );
 
     QMessageBox::warning(0, tr("I/O-Error"), msg, QMessageBox::Ok);
-    textBrowser->setPlainText(msg);
+    logBrowser->setPlainText(msg);
   }
+
 }
 
 void ConsolePane::reloadLog() {
-  // todo: Implement method for reloading log file
+  logBrowser->clear();
+  displayLog();
 }
 
 void ConsolePane::clearLog() { 

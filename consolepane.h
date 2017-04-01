@@ -31,8 +31,9 @@ private slots:
 private:
 
   Console* console;
+  QTextBrowser* logBrowser;
 
-  void displayLog(QTextBrowser* textBrowser);
+  void displayLog();
 
 };
 
