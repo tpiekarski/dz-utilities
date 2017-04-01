@@ -17,9 +17,15 @@
 #include "dzapp.h"
 #include "dzstyle.h"
 
+// Constants
+static const float fontPointSize = 12.0;
+static const int minWidth = 200;
+static const int minHeight = 150;
+
 ConsolePane::ConsolePane() : DzPane("Console") {
 
   console = new Console(dzApp->getAppDataPath());
+
   int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
 
   // Definition of panes main layout
@@ -27,7 +33,7 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   paneMainLayout->setMargin(margin);
   paneMainLayout->setSpacing(margin);
   setLayout(paneMainLayout);
-  setMinimumSize(200, 150);
+  setMinimumSize(minWidth, minHeight);
 
   // Definition of panes button group box
   QGroupBox *buttonGroupBox = new QGroupBox();
@@ -47,7 +53,8 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   // Setting up a QTextBrowser for displaying the log file
   logBrowser = new QTextBrowser();
   logBrowser->setObjectName("Console");
-  logBrowser->setMinimumSize(200, 150);
+  logBrowser->setMinimumSize(minWidth, minHeight);
+  logBrowser->setFontPointSize(fontPointSize);
 
   displayLog();
 
