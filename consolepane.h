@@ -21,6 +21,11 @@ public:
   ConsolePane();
   ~ConsolePane();
 
+private slots:
+  
+  void reloadLog();
+  void clearLog();
+
 private:
 
   QFile logFile;
