@@ -78,8 +78,10 @@ void ConsolePane::displayLog() {
     console->closeLog();
   }
   else {
-    QString msg(QString(
-      tr("The log file %1 could not be opened.")).arg(console->getLogFullPath())
+    QString msg(
+      QString(
+        tr("The log file %1 could not be opened.")
+      ).arg(console->getLogFullPath())
     );
 
     QMessageBox::warning(0, tr("I/O-Error"), msg, QMessageBox::Ok);
@@ -94,5 +96,17 @@ void ConsolePane::reloadLog() {
 }
 
 void ConsolePane::clearLog() { 
-  // todo: Implement method for clearing (deleting) log file
+  if (console->clearLog()) {
+    logBrowser->clear();
+    displayLog();
+  }
+  else {
+    QString msg(
+      QString(
+        tr("The log file %1 could not be cleared.")
+      ).arg(console->getLogFullPath())
+    );
+    QMessageBox::warning(0, tr("I/O-Error"), msg, QMessageBox::Ok);
+  }
+ 
 }

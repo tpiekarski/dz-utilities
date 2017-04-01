@@ -17,7 +17,7 @@ Console::~Console() {
 
 bool Console::openLog() {
 
-  if (!logFile.open(QFile::ReadOnly | QFile::Text)) {
+  if (!logFile.open(QFile::ReadWrite | QFile::Text)) {
     return false;
   }
 
@@ -27,8 +27,11 @@ bool Console::openLog() {
 }
 
 bool Console::clearLog() {
+  closeLog();
   
-  return false;
+  if (!logFile.remove()) return false;
+
+  return true;
 }
 
 void Console::closeLog() {
