@@ -1,16 +1,18 @@
 #ifndef H_CONSOLE_PANE
 #define H_CONSOLE_PANE
 
-// DAZ Studio SDK Headers
-#include "dzpane.h"
+// Console Headers
+#include "console.h"
 
 // Qt SDK Headers
-#include "QtCore\qfile.h"
+#include "QtGui\qtextbrowser.h"
+
+// DAZ Studio SDK Headers
+#include "dzpane.h"
 
 /*
  * Class: ConsolePane
  * Description: Main class for the console pane.
- *
  */
 class ConsolePane : public DzPane {
 
@@ -28,7 +30,9 @@ private slots:
 
 private:
 
-  QFile logFile;
+  Console* console;
+
+  void displayLog(QTextBrowser* textBrowser);
 
 };
 

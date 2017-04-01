@@ -19,6 +19,7 @@
 
 ConsolePane::ConsolePane() : DzPane("Console") {
 
+  console = new Console(dzApp->getAppDataPath());
   int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
 
   // Definition of panes main layout
@@ -44,41 +45,37 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   connect(clearButton, SIGNAL(clicked()), this, SLOT(clearLog()));
 
   paneMainLayout->addWidget(buttonGroupBox);
-
-  // Setting up and adding a qTextBrowser object for testing pane
+  
+  // Setting up a QTextBrowser for displaying the log file
   QTextBrowser *paneContent = new QTextBrowser();
   paneContent->setObjectName("Console");
   paneContent->setMinimumSize(200, 150);
 
-  // Getting App data path and building full path to log file
-  // (QFile expects only slashes and no backslashes in paths).
-  QString dataPath(dzApp->getAppDataPath().replace(QString("\\"), QString("/")));
-  QString logFullPath(QString("%1/log.txt").arg(dataPath));
-  logFile.setFileName(logFullPath);
-
-  // Opening log file
-  if (logFile.open(QFile::ReadOnly | QFile::Text)) {
-    QTextStream stream(&logFile);
-    paneContent->setPlainText(stream.readAll());
-    paneContent->moveCursor(QTextCursor::End, QTextCursor::MoveAnchor);
-  }
-  else {
-    QString msg(QString(tr("The log file %1 could not be opened.")).arg(logFullPath));
-    QMessageBox::warning(0, tr("I/O-Error"), msg, QMessageBox::Ok);
-    paneContent->setPlainText(msg);
-  }
+  displayLog(paneContent);
 
   paneMainLayout->addWidget(paneContent);
-
 }
 
 ConsolePane::~ConsolePane() {
-
-  logFile.flush();
-  logFile.close();
-
   // todo: disconnect buttons from click signal
+  console->closeLog();
+}
 
+void ConsolePane::displayLog(QTextBrowser* textBrowser) {
+  // Opening log file
+  if (console->openLog()) {
+    textBrowser->setPlainText(console->getLog());
+    textBrowser->moveCursor(QTextCursor::End, QTextCursor::MoveAnchor);
+    console->closeLog();
+  }
+  else {
+    QString msg(QString(
+      tr("The log file %1 could not be opened.")).arg(console->getLogFullPath())
+    );
+
+    QMessageBox::warning(0, tr("I/O-Error"), msg, QMessageBox::Ok);
+    textBrowser->setPlainText(msg);
+  }
 }
 
 void ConsolePane::reloadLog() {

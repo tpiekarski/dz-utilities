@@ -227,10 +227,12 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
+    <ClInclude Include="console.h" />
     <ClInclude Include="guid.h" />
     <ClInclude Include="version.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="console.cpp" />
     <ClCompile Include="consolepane.cpp" />
     <ClCompile Include="consolepaneaction.cpp" />
     <ClCompile Include="moc\consolepaneaction_moc.cpp" />
