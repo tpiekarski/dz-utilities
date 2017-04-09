@@ -5,7 +5,11 @@
 #include "dzbasicdialog.h"
 
 // Qt SDK Headers
+#include "QtGui\qlabel.h"
+#include "QtGui\qlineedit.h"
 
+// Constants
+static const float defaultFontPointSize = 10.0;
 
 class ConsolePropertiesDialog : public DzBasicDialog {
 
@@ -14,6 +18,12 @@ class ConsolePropertiesDialog : public DzBasicDialog {
 public:
   ConsolePropertiesDialog(QWidget *parent);
   virtual ~ConsolePropertiesDialog();
+
+  float getFontPointSize();
+
+private:
+  QLabel *fontSizeLabel;
+  QLineEdit *fontSizeEdit;
 
 };
 

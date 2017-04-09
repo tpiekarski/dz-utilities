@@ -21,7 +21,6 @@
 
 
 // Constants
-static const float fontPointSize = 12.0;
 static const int minWidth = 200;
 static const int minHeight = 150;
 
@@ -49,6 +48,7 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   QPushButton *reloadButton = new QPushButton("&Reload", this);
   QPushButton *clearButton = new QPushButton("&Clear", this);
   QPushButton *propertiesButton = new QPushButton("&Properties", this);
+
   buttonGroupBoxLayout->addWidget(reloadButton);
   buttonGroupBoxLayout->addWidget(clearButton);
   buttonGroupBoxLayout->addWidget(propertiesButton);
@@ -59,7 +59,7 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   logBrowser = new QTextBrowser();
   logBrowser->setObjectName("Console");
   logBrowser->setMinimumSize(minWidth, minHeight);
-  logBrowser->setFontPointSize(fontPointSize);
+  logBrowser->setFontPointSize(defaultFontPointSize);
 
   displayLog();
 
@@ -132,6 +132,10 @@ void ConsolePane::showProperties() {
 
   dialogResult = dialog->exec();
   
+  if (dialogResult == 1) {
+    logBrowser->setFontPointSize(dialog->getFontPointSize());
+    reloadLog();
+  }
 
 }
 

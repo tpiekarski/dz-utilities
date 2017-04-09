@@ -2,9 +2,9 @@
 #include "consolepropertiesdialog.h"
 
 // Qt SDK Headers
-#include "QtCore\qstring.h"
+#include "QtGui\qlabel.h"
 #include "QtGui\qlayout.h"
-
+#include "QtGui\qlineedit.h"
 
 // DAZ Studio SDK Headers
 #include "dzapp.h"
@@ -14,17 +14,36 @@
 ConsolePropertiesDialog::ConsolePropertiesDialog(QWidget *parent) :
   DzBasicDialog(parent, "ConsoleProperties") {
 
-  
-  int generalMargin = style()->pixelMetric(DZ_PM_GeneralMargin);
-  int buttonHeight = style()->pixelMetric(DZ_PM_ButtonHeight);
-  int buttonMinWidth = style()->pixelMetric(DZ_PM_ButtonMinWidth);
+  int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
 
-  QSize windowSize = QSize(500, 100);
+  layout()->setMargin(margin);
+  layout()->setSpacing(margin);
+  layout()->setSizeConstraint(QLayout::SetNoConstraint);
+
+  // Definition of dialog elements
+  fontSizeLabel = new QLabel(tr("Font Size"), this);
+  fontSizeEdit = new QLineEdit("12", this);
+
+  fontSizeLabel->setObjectName("ConsolePropertiesFontSizeLabel");
+  fontSizeEdit->setObjectName("ConsolePropertiesFontSizeEdit");
+  fontSizeLabel->setBuddy(fontSizeEdit);
+
+  addWidget(fontSizeLabel);
+  addWidget(fontSizeEdit);
 
   setWindowTitle(tr("Console Properties"));
-
-  resize(windowSize);
-  
+  resize(QSize(200, 0).expandedTo(minimumSizeHint()));
+  setFixedWidth(width());
+  setFixedHeight(height());
 }
 
 ConsolePropertiesDialog::~ConsolePropertiesDialog() { }
+
+float ConsolePropertiesDialog::getFontPointSize() {
+  bool conversion;
+  float fontSize;
+  
+  fontSize = fontSizeEdit->text().toFloat(&conversion);
+
+  return (conversion) ? fontSize : defaultFontPointSize;
+}
