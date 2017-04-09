@@ -12,11 +12,11 @@
 ConsoleSettings::ConsoleSettings() { 
   settings = new DzAppSettings(SETTINGS_PATH);
   loadFontSize();
+
+  connect(dzApp, SIGNAL(closing()), this, SLOT(saveFontSize()));
 }
 
-ConsoleSettings::~ConsoleSettings() { 
-  saveFontSize();
-}
+ConsoleSettings::~ConsoleSettings() { }
 
 void ConsoleSettings::getFontSize(float *pFontSize) {
   bool ok;
@@ -32,12 +32,10 @@ void ConsoleSettings::getFontSize(QString *pFontSize) {
 
 void ConsoleSettings::setFontSize(float fontSize) {
   this->fontSize = QString::number(fontSize, 'f', 2);
-  saveFontSize();
 }
 
 void ConsoleSettings::setFontSize(QString fontSize) {
   this->fontSize = fontSize;
-  saveFontSize();
 }
 
 void ConsoleSettings::loadFontSize() {
