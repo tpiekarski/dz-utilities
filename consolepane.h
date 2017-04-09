@@ -31,6 +31,8 @@ private slots:
   void clearLog();
   void showProperties();
 
+  void connectMajorSignals();
+
 private:
 
   Console *console;

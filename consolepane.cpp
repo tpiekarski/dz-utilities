@@ -18,8 +18,12 @@
 
 // DAZ Studio SDK Headers
 #include "dzapp.h"
+#include "dzexportmgr.h"
+#include "dzimportmgr.h"
 #include "dzmainwindow.h"
+#include "dzrendermgr.h"
 #include "dzstyle.h"
+#include "dzscene.h"
 
 
 ConsolePane::ConsolePane() : DzPane("Console") {
@@ -74,11 +78,30 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   // Connecting to starting signal to display the log
   connect(dzApp, SIGNAL(starting()), this, SLOT(displayLog()));
 
+  // Connecting to major signals for reloading the log file
+  connectMajorSignals();
 }
 
 ConsolePane::~ConsolePane() {
   // todo: disconnect buttons from click signal
   console->closeLog();
+}
+
+void ConsolePane::connectMajorSignals() {
+  // Connecting to logging signals
+  connect(dzApp, SIGNAL(debugMsg()), this, SLOT(reloadLog()));
+  connect(dzApp, SIGNAL(warning()), this, SLOT(reloadLog()));
+
+  // Connecting to manager signals
+  connect(dzApp->getRenderMgr(), SIGNAL(renderFinished(bool)), this, SLOT(reloadLog()));
+  connect(dzApp->getExportMgr(), SIGNAL(fileExported()), this, SLOT(reloadLog()));
+  connect(dzApp->getImportMgr(), SIGNAL(fileImported()), this, SLOT(reloadLog()));
+
+  // Connecting to scene signals
+  connect(dzScene, SIGNAL(sceneLoaded()), this, SLOT(reloadLog()));
+  connect(dzScene, SIGNAL(sceneLoadStarting()), this, SLOT(reloadLog()));
+  connect(dzScene, SIGNAL(sceneSaved(QString&)), this, SLOT(reloadLog()));
+  connect(dzScene, SIGNAL(sceneSaveStarting(QString&)), this, SLOT(reloadLog()));
 }
 
 void ConsolePane::displayLog() {
