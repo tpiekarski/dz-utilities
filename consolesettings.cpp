@@ -8,9 +8,9 @@
 // Qt SDK Headers
 #include "QtCore\qstring.h"
 
-// Constants
+
 static float defaultFontSizeFloat = 10.0;
-static QString defaultFontSizeString = "10.00";
+static const QString defaultFontSizeString = "10.00";
 
 ConsoleSettings::ConsoleSettings() { 
   settings = new DzAppSettings("Console");
@@ -21,7 +21,7 @@ ConsoleSettings::~ConsoleSettings() {
   saveFontSize();
 }
 
-void ConsoleSettings::getFontSize(float* pFontSize) {
+void ConsoleSettings::getFontSize(float *pFontSize) {
   bool ok;
 
   *pFontSize = this->fontSize.toFloat(&ok);
@@ -29,7 +29,7 @@ void ConsoleSettings::getFontSize(float* pFontSize) {
   if (!ok) *pFontSize = defaultFontSizeFloat;
 }
 
-void ConsoleSettings::getFontSize(QString* pFontSize) {
+void ConsoleSettings::getFontSize(QString *pFontSize) {
   *pFontSize = this->fontSize;
 }
 

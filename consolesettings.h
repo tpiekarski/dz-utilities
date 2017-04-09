@@ -17,15 +17,15 @@ public:
   ConsoleSettings();
   ~ConsoleSettings();
 
-  void getFontSize(float* fontSize);
-  void getFontSize(QString* fontSize);
+  void getFontSize(float *fontSize);
+  void getFontSize(QString *fontSize);
   
   void setFontSize(float fontSize);
   void setFontSize(QString fontSize);
 
 
 private:
-  DzAppSettings* settings;
+  DzAppSettings *settings;
 
   void loadFontSize();
   void saveFontSize();
