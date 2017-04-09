@@ -30,6 +30,9 @@
     <ClInclude Include="console.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="consolesettings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pluginmain.cpp">
@@ -55,6 +58,9 @@
     </ClCompile>
     <ClCompile Include="moc\consolepropertiesdialog_moc.cpp">
       <Filter>Meta Object Files</Filter>
+    </ClCompile>
+    <ClCompile Include="consolesettings.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -3,6 +3,7 @@
 
 // Console Headers
 #include "console.h"
+#include "consolesettings.h"
 
 // Qt SDK Headers
 #include "QtGui\qtextbrowser.h"
@@ -32,6 +33,7 @@ private slots:
 private:
 
   Console* console;
+  ConsoleSettings* settings;
   QTextBrowser* logBrowser;
 
   void displayLog();

@@ -238,6 +238,7 @@
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
+    <ClInclude Include="consolesettings.h" />
     <ClInclude Include="guid.h" />
     <ClInclude Include="version.h" />
   </ItemGroup>
@@ -246,6 +247,7 @@
     <ClCompile Include="consolepane.cpp" />
     <ClCompile Include="consolepaneaction.cpp" />
     <ClCompile Include="consolepropertiesdialog.cpp" />
+    <ClCompile Include="consolesettings.cpp" />
     <ClCompile Include="moc\consolepaneaction_moc.cpp" />
     <ClCompile Include="moc\consolepane_moc.cpp" />
     <ClCompile Include="moc\consolepropertiesdialog_moc.cpp" />

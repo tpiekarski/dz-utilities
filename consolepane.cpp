@@ -1,6 +1,7 @@
 // Console Headers
 #include "consolepane.h"
 #include "consolepropertiesdialog.h"
+#include "consolesettings.h"
 
 // Qt SDK Headers
 #include "QtCore\qfile.h"
@@ -27,8 +28,10 @@ static const int minHeight = 150;
 ConsolePane::ConsolePane() : DzPane("Console") {
 
   console = new Console(dzApp->getAppDataPath());
+  settings = new ConsoleSettings();
 
   int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
+  float fontSize;
 
   // Definition of panes main layout
   QVBoxLayout *paneMainLayout = new QVBoxLayout();
@@ -59,7 +62,9 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   logBrowser = new QTextBrowser();
   logBrowser->setObjectName("Console");
   logBrowser->setMinimumSize(minWidth, minHeight);
-  logBrowser->setFontPointSize(defaultFontPointSize);
+  
+  settings->getFontSize(&fontSize);
+  logBrowser->setFontPointSize(fontSize);
 
   displayLog();
 
@@ -119,7 +124,7 @@ void ConsolePane::showProperties() {
   }
 
   
-  if (!(dialog = new ConsolePropertiesDialog(mainWindow))) {
+  if (!(dialog = new ConsolePropertiesDialog(mainWindow, settings))) {
     QMessageBox::warning(
       0,
       tr("Error"),
@@ -133,7 +138,12 @@ void ConsolePane::showProperties() {
   dialogResult = dialog->exec();
   
   if (dialogResult == 1) {
-    logBrowser->setFontPointSize(dialog->getFontPointSize());
+    settings->setFontSize(dialog->getNewFontSize());
+
+    float fontSize;
+    settings->getFontSize(&fontSize);
+
+    logBrowser->setFontPointSize(fontSize);
     reloadLog();
   }
 

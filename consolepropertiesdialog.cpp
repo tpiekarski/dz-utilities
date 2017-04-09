@@ -11,10 +11,12 @@
 #include "dzstyle.h"
 #include "dzmainwindow.h"
 
-ConsolePropertiesDialog::ConsolePropertiesDialog(QWidget *parent) :
-  DzBasicDialog(parent, "ConsoleProperties") {
+ConsolePropertiesDialog::ConsolePropertiesDialog(
+  QWidget *parent, ConsoleSettings *settings
+) : DzBasicDialog(parent, "ConsoleProperties") {
 
   int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
+  QString fontSize;
 
   layout()->setMargin(margin);
   layout()->setSpacing(margin);
@@ -22,7 +24,8 @@ ConsolePropertiesDialog::ConsolePropertiesDialog(QWidget *parent) :
 
   // Definition of dialog elements
   fontSizeLabel = new QLabel(tr("Font Size"), this);
-  fontSizeEdit = new QLineEdit("12", this);
+  settings->getFontSize(&fontSize);
+  fontSizeEdit = new QLineEdit(fontSize, this);
 
   fontSizeLabel->setObjectName("ConsolePropertiesFontSizeLabel");
   fontSizeEdit->setObjectName("ConsolePropertiesFontSizeEdit");
@@ -39,11 +42,6 @@ ConsolePropertiesDialog::ConsolePropertiesDialog(QWidget *parent) :
 
 ConsolePropertiesDialog::~ConsolePropertiesDialog() { }
 
-float ConsolePropertiesDialog::getFontPointSize() {
-  bool conversion;
-  float fontSize;
-  
-  fontSize = fontSizeEdit->text().toFloat(&conversion);
-
-  return (conversion) ? fontSize : defaultFontPointSize;
+QString ConsolePropertiesDialog::getNewFontSize() {
+  return fontSizeEdit->text();
 }
