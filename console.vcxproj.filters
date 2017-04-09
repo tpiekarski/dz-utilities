@@ -50,6 +50,12 @@
     <ClCompile Include="console.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="consolepropertiesdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\consolepropertiesdialog_moc.cpp">
+      <Filter>Meta Object Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="console.def">
@@ -65,6 +71,9 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="consolepaneaction.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="consolepropertiesdialog.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

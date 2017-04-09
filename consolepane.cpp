@@ -1,5 +1,6 @@
 // Console Headers
 #include "consolepane.h"
+#include "consolepropertiesdialog.h"
 
 // Qt SDK Headers
 #include "QtCore\qfile.h"
@@ -15,7 +16,9 @@
 
 // DAZ Studio SDK Headers
 #include "dzapp.h"
+#include "dzmainwindow.h"
 #include "dzstyle.h"
+
 
 // Constants
 static const float fontPointSize = 12.0;
@@ -45,8 +48,10 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   // Definiton of control buttons
   QPushButton *reloadButton = new QPushButton("&Reload", this);
   QPushButton *clearButton = new QPushButton("&Clear", this);
+  QPushButton *propertiesButton = new QPushButton("&Properties", this);
   buttonGroupBoxLayout->addWidget(reloadButton);
   buttonGroupBoxLayout->addWidget(clearButton);
+  buttonGroupBoxLayout->addWidget(propertiesButton);
 
   paneMainLayout->addWidget(buttonGroupBox);
   
@@ -61,6 +66,7 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   // Connecting signals to slots of the control buttons
   connect(reloadButton, SIGNAL(clicked()), this, SLOT(reloadLog()));
   connect(clearButton, SIGNAL(clicked()), this, SLOT(clearLog()));
+  connect(propertiesButton, SIGNAL(clicked()), this, SLOT(showProperties()));
 
   paneMainLayout->addWidget(logBrowser);
 }
@@ -93,6 +99,40 @@ void ConsolePane::displayLog() {
 void ConsolePane::reloadLog() {
   logBrowser->clear();
   displayLog();
+}
+
+void ConsolePane::showProperties() {
+  
+  DzMainWindow *mainWindow;
+  ConsolePropertiesDialog *dialog;
+  int dialogResult;
+  
+  if (!(mainWindow = dzApp->getInterface())) {
+    QMessageBox::warning(
+      0,
+      tr("Error"),
+      tr("The main window is not available."),
+      QMessageBox::Ok
+    );
+
+    return;
+  }
+
+  
+  if (!(dialog = new ConsolePropertiesDialog(mainWindow))) {
+    QMessageBox::warning(
+      0,
+      tr("Error"),
+      tr("The dialog for console settings could not be created."),
+      QMessageBox::Ok
+    );
+
+    return;
+  }
+
+  dialogResult = dialog->exec();
+  
+
 }
 
 void ConsolePane::clearLog() { 

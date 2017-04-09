@@ -27,6 +27,7 @@ private slots:
   
   void reloadLog();
   void clearLog();
+  void showProperties();
 
 private:
 

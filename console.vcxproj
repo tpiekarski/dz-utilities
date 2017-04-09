@@ -228,6 +228,16 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
     <ClInclude Include="console.h" />
+    <CustomBuild Include="consolepropertiesdialog.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating Meta Object File for %(Filename)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
+    </CustomBuild>
     <ClInclude Include="guid.h" />
     <ClInclude Include="version.h" />
   </ItemGroup>
@@ -235,8 +245,10 @@
     <ClCompile Include="console.cpp" />
     <ClCompile Include="consolepane.cpp" />
     <ClCompile Include="consolepaneaction.cpp" />
+    <ClCompile Include="consolepropertiesdialog.cpp" />
     <ClCompile Include="moc\consolepaneaction_moc.cpp" />
     <ClCompile Include="moc\consolepane_moc.cpp" />
+    <ClCompile Include="moc\consolepropertiesdialog_moc.cpp" />
     <ClCompile Include="pluginmain.cpp" />
   </ItemGroup>
   <ItemGroup>
