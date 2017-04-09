@@ -15,6 +15,11 @@
 // Constants
 static const float defaultFontPointSize = 10.0;
 
+/*
+ * Class: ConsolePropertiesDialog
+ * Description: Dialog for setting up properties like font size.
+ *
+ */
 class ConsolePropertiesDialog : public DzBasicDialog {
 
   Q_OBJECT

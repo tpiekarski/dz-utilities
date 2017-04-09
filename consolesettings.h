@@ -15,6 +15,11 @@
 static float defaultFontSizeFloat = 10.0;
 static const QString defaultFontSizeString = "10.00";
 
+/*
+ * Class: ConsoleSettings
+ * Description: Container class for all settings.
+ *
+ */
 class ConsoleSettings : public QObject {
 
   Q_OBJECT
@@ -25,6 +30,7 @@ public:
   ConsoleSettings();
   virtual ~ConsoleSettings();
 
+  // Getter by reference
   void getFontSize(float *fontSize);
   void getFontSize(QString *fontSize);
   
@@ -32,7 +38,6 @@ public:
   void setFontSize(QString fontSize);
 
 private slots:
-  
   void saveFontSize();
 
 private:
