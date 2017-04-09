@@ -29,6 +29,7 @@ ConsolePane::ConsolePane() : DzPane("Console") {
 
   console = new Console(dzApp->getAppDataPath());
   settings = new ConsoleSettings();
+  settings->setLogFilePath(console->getLogFullPath());
 
   int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
   float fontSize;

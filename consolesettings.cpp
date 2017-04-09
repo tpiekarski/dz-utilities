@@ -58,3 +58,11 @@ void ConsoleSettings::loadFontSize() {
 void ConsoleSettings::saveFontSize() {
   settings->setStringValue(SETTINGS_FONT_SIZE_KEY, fontSize);
 }
+
+QString ConsoleSettings::getLogFilePath() {
+  return logFilePath;
+}
+
+void ConsoleSettings::setLogFilePath(QString logFilePath) {
+  this->logFilePath = logFilePath;
+}

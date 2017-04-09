@@ -26,16 +26,22 @@ class ConsoleSettings : public QObject {
 
 public:
   QString fontSize;
+  QString logFilePath;
 
   ConsoleSettings();
   virtual ~ConsoleSettings();
 
-  // Getter by reference
+  // Getter for font size by reference
   void getFontSize(float *fontSize);
   void getFontSize(QString *fontSize);
   
+  // Setter for font size
   void setFontSize(float fontSize);
   void setFontSize(QString fontSize);
+
+  // Getter & Setter for the log file path
+  QString getLogFilePath();
+  void setLogFilePath(QString logFilePath);
 
 private slots:
   void saveFontSize();

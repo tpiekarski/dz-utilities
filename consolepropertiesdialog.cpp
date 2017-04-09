@@ -22,20 +22,27 @@ ConsolePropertiesDialog::ConsolePropertiesDialog(
   layout()->setSpacing(margin);
   layout()->setSizeConstraint(QLayout::SetNoConstraint);
 
-  // Definition of dialog elements
+  logFilePathLabel = new QLabel(tr("Log File"), this);
+  logFilePathLabel->setObjectName("ConsolePropertiesFilePathLabel");
+  addWidget(logFilePathLabel);
+
+  logFilePathDisplayBox = new QLineEdit(settings->getLogFilePath(), this);
+  logFilePathDisplayBox->setObjectName("ConsolePropertiesFilePathBox");
+  logFilePathDisplayBox->setReadOnly(true);
+  addWidget(logFilePathDisplayBox);
+
   fontSizeLabel = new QLabel(tr("Font Size"), this);
-  settings->getFontSize(&fontSize);
-  fontSizeEdit = new QLineEdit(fontSize, this);
-
   fontSizeLabel->setObjectName("ConsolePropertiesFontSizeLabel");
-  fontSizeEdit->setObjectName("ConsolePropertiesFontSizeEdit");
-  fontSizeLabel->setBuddy(fontSizeEdit);
-
   addWidget(fontSizeLabel);
-  addWidget(fontSizeEdit);
+
+  settings->getFontSize(&fontSize);
+  fontSizeEditBox = new QLineEdit(fontSize, this);
+  fontSizeEditBox->setObjectName("ConsolePropertiesFontSizeEdit");
+  fontSizeLabel->setBuddy(fontSizeEditBox);
+  addWidget(fontSizeEditBox);
 
   setWindowTitle(tr("Console Properties"));
-  resize(QSize(200, 0).expandedTo(minimumSizeHint()));
+  resize(QSize(DEFAULT_DIALOG_WIDTH, 0).expandedTo(minimumSizeHint()));
   setFixedWidth(width());
   setFixedHeight(height());
 }
@@ -43,5 +50,5 @@ ConsolePropertiesDialog::ConsolePropertiesDialog(
 ConsolePropertiesDialog::~ConsolePropertiesDialog() { }
 
 QString ConsolePropertiesDialog::getNewFontSize() {
-  return fontSizeEdit->text();
+  return fontSizeEditBox->text();
 }

@@ -12,8 +12,7 @@
 #include "QtGui\qlabel.h"
 #include "QtGui\qlineedit.h"
 
-// Constants
-static const float defaultFontPointSize = 10.0;
+#define DEFAULT_DIALOG_WIDTH 300
 
 /*
  * Class: ConsolePropertiesDialog
@@ -32,7 +31,9 @@ public:
 
 private:
   QLabel *fontSizeLabel;
-  QLineEdit *fontSizeEdit;
+  QLineEdit *fontSizeEditBox;
+  QLabel *logFilePathLabel;
+  QLineEdit *logFilePathDisplayBox;
 
 };
 
