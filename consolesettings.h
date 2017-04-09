@@ -1,19 +1,15 @@
 #ifndef H_CONSOLE_SETTINGS
 #define H_CONSOLE_SETTINGS
 
+// Console Headers
+#include "constants.h"
+
 // DAZ Studio SDK Headers
 #include "dzappsettings.h"
 
 // Qt SDK Headers
 #include "QtCore\qobject.h"
 #include "QtCore\qstring.h"
-
-#define SETTINGS_PATH "Console"
-#define SETTINGS_FONT_SIZE_KEY "fontSize"
-
-// Fallback values
-static float defaultFontSizeFloat = 10.0;
-static const QString defaultFontSizeString = "10.00";
 
 /*
  * Class: ConsoleSettings

@@ -3,6 +3,7 @@
 
 // Console Headers
 #include "consolesettings.h"
+#include "constants.h"
 
 // DAZ Studio SDK Headers
 #include "dzbasicdialog.h"
@@ -11,8 +12,6 @@
 #include "QtCore\qstring.h"
 #include "QtGui\qlabel.h"
 #include "QtGui\qlineedit.h"
-
-#define DEFAULT_DIALOG_WIDTH 300
 
 /*
  * Class: ConsolePropertiesDialog

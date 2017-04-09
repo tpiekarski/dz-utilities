@@ -42,7 +42,7 @@ ConsolePropertiesDialog::ConsolePropertiesDialog(
   addWidget(fontSizeEditBox);
 
   setWindowTitle(tr("Console Properties"));
-  resize(QSize(DEFAULT_DIALOG_WIDTH, 0).expandedTo(minimumSizeHint()));
+  resize(QSize(SETTINGS_DIALOG_WIDTH, 0).expandedTo(minimumSizeHint()));
   setFixedWidth(width());
   setFixedHeight(height());
 }

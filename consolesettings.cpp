@@ -23,7 +23,10 @@ void ConsoleSettings::getFontSize(float *pFontSize) {
 
   *pFontSize = this->fontSize.toFloat(&ok);
 
-  if (!ok) *pFontSize = defaultFontSizeFloat;
+  if (!ok) {
+    float defaultFontSize = DEFAULT_FONT_SIZE_FLOAT;
+    *pFontSize = defaultFontSize;
+  }
 }
 
 void ConsoleSettings::getFontSize(QString *pFontSize) {
@@ -43,7 +46,7 @@ void ConsoleSettings::loadFontSize() {
 
   fontSize = settings->getStringValue(
     SETTINGS_FONT_SIZE_KEY, 
-    defaultFontSizeString, 
+    DEFAULT_FONT_SIZE_STRING,
     &readSuccess
   );
 

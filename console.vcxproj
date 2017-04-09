@@ -243,6 +243,7 @@
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
+    <ClInclude Include="constants.h" />
     <ClInclude Include="guid.h" />
     <ClInclude Include="version.h" />
   </ItemGroup>

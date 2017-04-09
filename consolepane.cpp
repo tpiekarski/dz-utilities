@@ -2,6 +2,7 @@
 #include "consolepane.h"
 #include "consolepropertiesdialog.h"
 #include "consolesettings.h"
+#include "constants.h"
 
 // Qt SDK Headers
 #include "QtCore\qfile.h"
@@ -21,10 +22,6 @@
 #include "dzstyle.h"
 
 
-// Constants
-static const int minWidth = 200;
-static const int minHeight = 150;
-
 ConsolePane::ConsolePane() : DzPane("Console") {
 
   console = new Console(dzApp->getAppDataPath());
@@ -39,7 +36,7 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   paneMainLayout->setMargin(margin);
   paneMainLayout->setSpacing(margin);
   setLayout(paneMainLayout);
-  setMinimumSize(minWidth, minHeight);
+  setMinimumSize(PANE_MIN_WIDTH, PANE_MIN_HEIGHT);
 
   // Definition of panes button group box
   QGroupBox *buttonGroupBox = new QGroupBox();
@@ -62,7 +59,7 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   // Setting up a QTextBrowser for displaying the log file
   logBrowser = new QTextBrowser();
   logBrowser->setObjectName("Console");
-  logBrowser->setMinimumSize(minWidth, minHeight);
+  logBrowser->setMinimumSize(PANE_MIN_WIDTH, PANE_MIN_HEIGHT);
   
   settings->getFontSize(&fontSize);
   logBrowser->setFontPointSize(fontSize);
