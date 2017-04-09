@@ -111,6 +111,7 @@ void ConsolePane::showProperties() {
   DzMainWindow *mainWindow;
   ConsolePropertiesDialog *dialog;
   int dialogResult;
+  QString newFontSize;
   
   if (!(mainWindow = dzApp->getInterface())) {
     QMessageBox::warning(
@@ -136,8 +137,9 @@ void ConsolePane::showProperties() {
   }
 
   dialogResult = dialog->exec();
-  
-  if (dialogResult == 1) {
+  newFontSize = dialog->getNewFontSize();
+
+  if (dialogResult == 1 && settings->fontSize != newFontSize ) {
     settings->setFontSize(dialog->getNewFontSize());
 
     float fontSize;

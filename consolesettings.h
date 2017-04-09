@@ -12,6 +12,8 @@
 class ConsoleSettings {
 
 public:
+  QString fontSize;
+
   ConsoleSettings();
   ~ConsoleSettings();
 
@@ -21,9 +23,9 @@ public:
   void setFontSize(float fontSize);
   void setFontSize(QString fontSize);
 
+
 private:
   DzAppSettings* settings;
-  QString fontSize;
 
   void loadFontSize();
   void saveFontSize();
