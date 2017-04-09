@@ -64,14 +64,16 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   settings->getFontSize(&fontSize);
   logBrowser->setFontPointSize(fontSize);
 
-  displayLog();
-
   // Connecting signals to slots of the control buttons
   connect(reloadButton, SIGNAL(clicked()), this, SLOT(reloadLog()));
   connect(clearButton, SIGNAL(clicked()), this, SLOT(clearLog()));
   connect(propertiesButton, SIGNAL(clicked()), this, SLOT(showProperties()));
 
   paneMainLayout->addWidget(logBrowser);
+
+  // Connecting to starting signal to display the log
+  connect(dzApp, SIGNAL(starting()), this, SLOT(displayLog()));
+
 }
 
 ConsolePane::~ConsolePane() {

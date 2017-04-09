@@ -26,6 +26,7 @@ public:
 
 private slots:
   
+  void displayLog();
   void reloadLog();
   void clearLog();
   void showProperties();
@@ -35,8 +36,6 @@ private:
   Console *console;
   ConsoleSettings *settings;
   QTextBrowser *logBrowser;
-
-  void displayLog();
 
 };
 
