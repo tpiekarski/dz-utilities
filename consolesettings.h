@@ -5,17 +5,25 @@
 #include "dzappsettings.h"
 
 // Qt SDK Headers
+#include "QtCore\qobject.h"
 #include "QtCore\qstring.h"
 
-#define FONT_SIZE_KEY "fontSize"
+#define SETTINGS_PATH "Console"
+#define SETTINGS_FONT_SIZE_KEY "fontSize"
 
-class ConsoleSettings {
+// Fallback values
+static float defaultFontSizeFloat = 10.0;
+static const QString defaultFontSizeString = "10.00";
+
+class ConsoleSettings : public QObject {
+
+  Q_OBJECT
 
 public:
   QString fontSize;
 
   ConsoleSettings();
-  ~ConsoleSettings();
+  virtual ~ConsoleSettings();
 
   void getFontSize(float *fontSize);
   void getFontSize(QString *fontSize);
@@ -23,13 +31,15 @@ public:
   void setFontSize(float fontSize);
   void setFontSize(QString fontSize);
 
+private slots:
+  
+  void saveFontSize();
 
 private:
   DzAppSettings *settings;
 
   void loadFontSize();
-  void saveFontSize();
-
+  
 };
 
 #endif

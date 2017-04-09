@@ -9,11 +9,8 @@
 #include "QtCore\qstring.h"
 
 
-static float defaultFontSizeFloat = 10.0;
-static const QString defaultFontSizeString = "10.00";
-
 ConsoleSettings::ConsoleSettings() { 
-  settings = new DzAppSettings("Console");
+  settings = new DzAppSettings(SETTINGS_PATH);
   loadFontSize();
 }
 
@@ -46,13 +43,20 @@ void ConsoleSettings::setFontSize(QString fontSize) {
 void ConsoleSettings::loadFontSize() {
   bool readSuccess;
 
-  fontSize = settings->getStringValue(FONT_SIZE_KEY, defaultFontSizeString, &readSuccess);
+  fontSize = settings->getStringValue(
+    SETTINGS_FONT_SIZE_KEY, 
+    defaultFontSizeString, 
+    &readSuccess
+  );
 
   if (!readSuccess) {
-    dzApp->log("Console: Could not read custom font size, falling back to default.");
+    dzApp->log(
+      "Console: Could not read custom font size, "
+      "falling back to default."
+    );
   }
 }
 
 void ConsoleSettings::saveFontSize() {
-  settings->setStringValue(FONT_SIZE_KEY, fontSize);
+  settings->setStringValue(SETTINGS_FONT_SIZE_KEY, fontSize);
 }
