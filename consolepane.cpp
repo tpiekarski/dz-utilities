@@ -26,6 +26,7 @@
 #include "dzscene.h"
 
 
+
 ConsolePane::ConsolePane() : DzPane("Console") {
 
   console = new Console(dzApp->getAppDataPath());
