@@ -1,8 +1,14 @@
 #ifndef H_RENDERSTATISTICS_PANE
 #define H_RENDERSTATISTICS_PANE
 
+#include<vector>
+
 // Render Statistics Headers
 #include "logger.h"
+#include "statistics.h"
+
+// // Qt SDK Headers
+#include "QtGui\qtextbrowser.h"
 
 // DAZ Studio SDK Headers
 #include "dzpane.h"
@@ -30,10 +36,14 @@ private slots:
   void connectSignals();
 
 private:
+  std::vector<RenderStatistics> statistics;
   RenderStatisticsLogger logger;
   DzRenderMgr *renderManager;
+  QTextBrowser *statisticsBrowser;
 
   void setupPaneLayout();
+  void updateStatisticsBrowser();
+  QString getStatisticOutput();
 
 };
 

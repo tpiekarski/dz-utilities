@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+
+  <!-- 
+    Sources for custom native objects visualizations
+      https://msdn.microsoft.com/en-us/library/jj620914.aspx
+      http://ib-krajewski.blogspot.de/2014/05/qstring-and-qbytearray-in-visualstudio.html 
+  -->
+  
+  <Type Name="QString">
+    <DisplayString>{d->data,su}</DisplayString>
+    <StringView>d->data,su</StringView>
+    <Expand>
+      <Item Name="[size]">d-&gt;size</Item>
+      <Item Name="[referenced]">d-&gt;ref._q_value</Item>
+      <ArrayItems>
+        <Size>d-&gt;size</Size>
+        <ValuePointer>d->data,c</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+
+</AutoVisualizer>

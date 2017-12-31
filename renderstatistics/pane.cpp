@@ -1,6 +1,7 @@
 // Render Statistics Headers
 #include "logger.h"
 #include "pane.h"
+#include "statistics.h"
 #include "version.h"
 
 // Qt SDK Headers
@@ -14,6 +15,8 @@
 // DAZ Studio SDK Headers
 #include "dzapp.h"
 #include "dzstyle.h"
+#include "dzscene.h"
+#include "dzrenderer.h"
 #include "dzrendermgr.h"
 
 RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
@@ -32,10 +35,19 @@ void RenderStatisticsPane::connectSignals() {
 
 void RenderStatisticsPane::processStartRendering() {
   logger.log("Rendering started.");
+  
+  DzRenderer* renderer = renderManager->getActiveRenderer();
+  statistics.push_back(RenderStatistics(renderer->getName(), dzScene->getNumNodes()));
 }
 
 void RenderStatisticsPane::processFinishRendering() {
   logger.log("Rendering finished.");
+
+  RenderStatistics* currentStatistics = &statistics.back();
+  currentStatistics->stopClock();
+  
+  logger.log(*currentStatistics);
+  updateStatisticsBrowser();
 }
 
 void RenderStatisticsPane::setupPaneLayout() {
@@ -45,17 +57,30 @@ void RenderStatisticsPane::setupPaneLayout() {
   paneLayout->setMargin(margin);
   paneLayout->setSpacing(margin);
 
-  QTextBrowser *paneContent = new QTextBrowser();
-  paneContent->setObjectName(QString("%1Browser").arg(PLUGIN_NAME));
-  paneContent->setMinimumSize(200, 150);
-
-  paneContent->setHtml(
-    "<h1>Render Statistics</h1>"
-    "<p>Not enough lines of code to gather all possible statistical data.</p>"
-  );
-
-  paneLayout->addWidget(paneContent);
+  statisticsBrowser = new QTextBrowser();
+  statisticsBrowser->setObjectName(QString("%1Browser").arg(PLUGIN_NAME));
+  statisticsBrowser->setMinimumSize(200, 150);
+  statisticsBrowser->setHtml(getStatisticOutput());
+  
+  paneLayout->addWidget(statisticsBrowser);
 
   setLayout(paneLayout);
   setMinimumSize(200, 150);
+}
+
+void RenderStatisticsPane::updateStatisticsBrowser() {
+  statisticsBrowser->clear();
+  statisticsBrowser->setHtml(getStatisticOutput());
+}
+
+QString RenderStatisticsPane::getStatisticOutput() {
+  QStringList renderingStatistics;
+
+  for (RenderStatistics currentStatistics : statistics) {
+    renderingStatistics.append(QString("<li>%1</li>")
+      .arg(currentStatistics.toString()));
+  }
+
+  return QString("<h1>Render Statistics</h1>\n<ul>%1</ul>")
+    .arg(renderingStatistics.join(QString("\n")));
 }

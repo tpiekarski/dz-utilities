@@ -1,5 +1,6 @@
 // Render Statistics Headers
 #include "logger.h"
+#include "statistics.h"
 #include "version.h"
 
 // Qt SDK Headers
@@ -18,4 +19,8 @@ RenderStatisticsLogger::~RenderStatisticsLogger() {
 
 void RenderStatisticsLogger::log(QString message) {
   dzApp->log(QString("%1: %2").arg(PLUGIN_NAME).arg(message));
+}
+
+void RenderStatisticsLogger::log(RenderStatistics statistics) {
+  this->log(statistics.toString());
 }
