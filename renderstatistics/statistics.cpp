@@ -22,6 +22,10 @@ RenderStatistics::RenderStatistics(QString engine, int nodes) {
 
 RenderStatistics::~RenderStatistics() {}
 
+void RenderStatistics::setCounter(int counter) {
+  this->counter = counter;
+}
+
 void RenderStatistics::stopClock() {
   endTime = high_resolution_clock::now();
   renderingDuration = calculateDuration();
@@ -40,8 +44,15 @@ QString RenderStatistics::toString() {
   return QString("Engine: %1, Nodes: %2, Duration [s]: %3")
     .arg(engine)
     .arg(nodes)
-    .arg(getDurationInSeconds()
-  );
+    .arg(getDurationInSeconds());
+}
+
+QString RenderStatistics::toRow() {
+  return QString("<tr><td>%1</td><td>%2</td><td>%3</td><td>%4</td>")
+    .arg(counter)
+    .arg(engine)
+    .arg(nodes)
+    .arg(getDurationInSeconds());
 }
 
 duration<double> RenderStatistics::calculateDuration() {

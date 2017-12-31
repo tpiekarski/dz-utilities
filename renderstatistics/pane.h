@@ -40,6 +40,7 @@ private:
   RenderStatisticsLogger logger;
   DzRenderMgr *renderManager;
   QTextBrowser *statisticsBrowser;
+  int renderingCounter;
 
   void setupPaneLayout();
   void updateStatisticsBrowser();

@@ -19,13 +19,16 @@ public:
   RenderStatistics(QString engine, int nodes);
   ~RenderStatistics();
 
+  void setCounter(int counter);
   void stopClock();
   QString getDurationInSeconds();
   QString toString();
+  QString toRow();
 
 private:
   QString engine;
   int nodes;
+  int counter;
   bool finished;
   high_resolution_clock::time_point startTime;
   high_resolution_clock::time_point endTime;

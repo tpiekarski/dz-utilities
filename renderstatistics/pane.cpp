@@ -24,6 +24,7 @@ RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
   renderManager = dzApp->getRenderMgr();
   connectSignals();
   setupPaneLayout();
+  renderingCounter = 0;
 }
 
 RenderStatisticsPane::~RenderStatisticsPane() { }
@@ -45,6 +46,7 @@ void RenderStatisticsPane::processFinishRendering() {
 
   RenderStatistics* currentStatistics = &statistics.back();
   currentStatistics->stopClock();
+  currentStatistics->setCounter(++renderingCounter);
   
   logger.log(*currentStatistics);
   updateStatisticsBrowser();
@@ -78,9 +80,16 @@ QString RenderStatisticsPane::getStatisticOutput() {
 
   for (RenderStatistics currentStatistics : statistics) {
     renderingStatistics.append(QString("<li>%1</li>")
-      .arg(currentStatistics.toString()));
+      .arg(currentStatistics.toRow()));
   }
 
-  return QString("<h1>Render Statistics</h1>\n<ul>%1</ul>")
-    .arg(renderingStatistics.join(QString("\n")));
+  return QString(
+    "<h1>Render Statistics</h1>"
+    "<div>"
+    "<table style=\"font-size:14px\" border=\"0\" width=\"100%\">"
+    "<tr><th align=\"left\">#</th><th align=\"left\">Engine</th><th align=\"left\">Nodes</th><th align=\"left\">Duration[s]</th></tr>"
+    "%1"
+    "</table>"
+    "</div>"
+  ).arg(renderingStatistics.join(QString("\n")));
 }
