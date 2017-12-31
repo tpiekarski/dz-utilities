@@ -1,7 +1,7 @@
 dzUtilities
 ---
 
-*A collcetion of miscellaneous utilities for [DAZ Studio](https://www.daz3d.com/get_studio).*
+*A collection of miscellaneous utilities for [DAZ Studio](https://www.daz3d.com/get_studio).*
 
 1. [Console](#console)
 2. [Renderstatistics](#renderstatistics)

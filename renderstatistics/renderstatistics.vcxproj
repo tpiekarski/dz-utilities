@@ -125,7 +125,8 @@
       <ModuleDefinitionFile>renderstatistics.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>./scripts/deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
+      <Command>$(SolutionDir)scripts\deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
+      <Message>Deploying DAZ Studio plugin...</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -197,7 +198,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="renderstatistics.def" />
-    <None Include="scripts\deploy.bat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

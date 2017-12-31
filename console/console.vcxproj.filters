@@ -16,9 +16,6 @@
     <Filter Include="Meta Object Files">
       <UniqueIdentifier>{ab2fffa3-db66-4e7f-a17a-9bc75cc1a34f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Script Files">
-      <UniqueIdentifier>{e04edbd0-03c7-499a-ae65-7456af39c00d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="version.h">
@@ -69,10 +66,6 @@
   <ItemGroup>
     <None Include="console.def">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include=".gitignore" />
-    <None Include="scripts\deploy.bat">
-      <Filter>Script Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

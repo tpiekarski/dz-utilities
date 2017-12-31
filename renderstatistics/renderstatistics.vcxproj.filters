@@ -16,9 +16,6 @@
     <Filter Include="Meta Object Files">
       <UniqueIdentifier>{9eb7decf-e06f-491b-bb77-32c150b8e481}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Script Files">
-      <UniqueIdentifier>{032bc290-d61e-40ad-9d47-6a5c00091e54}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pluginmain.cpp">
@@ -46,9 +43,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="scripts\deploy.bat">
-      <Filter>Script Files</Filter>
-    </None>
     <None Include="renderstatistics.def">
       <Filter>Source Files</Filter>
     </None>
