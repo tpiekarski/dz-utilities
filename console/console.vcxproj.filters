@@ -64,11 +64,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="console.def">
-      <Filter>Source Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <CustomBuild Include="consolepane.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
@@ -81,5 +76,10 @@
     <CustomBuild Include="consolesettings.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="console.def">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
