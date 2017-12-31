@@ -1,8 +1,14 @@
+# Visual Studio Meta & Cache
+/.vs/
+
 # Builds
-/build/
+/console/build/
+/renderstatistics/build/
 
 # Meta Objects
-/moc/
+/console/moc/
+/renderstatistics/moc/
 
 # Laboratory
-/lab/
+/console/lab/
+/renderstatistics/lab/
