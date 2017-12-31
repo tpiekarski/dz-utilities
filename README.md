@@ -1,18 +1,15 @@
 dzUtilities
 ---
+
+*A collcetion of miscellaneous utilities for [DAZ Studio](https://www.daz3d.com/get_studio).*
+
 1. [Console](#console)
 2. [Renderstatistics](#renderstatistics)
 
-#### Requirements
-- Visual Studio 2017 (Developed and tested with v141)
-- DAZ Studio SDK > 4.5.x
-- DAZ Studio > 4.5.x
-- Qt 4.x (is not needed, the DAZ Studio SDK contains Qt)
-
 #### Build process
-For the build process Visual Studio is used and the project configuration is
-provided inside this repository. This configuration can be attached to solution
-and can be compiled into a dynamically linked library. 
+For the build process Visual Studio is used and all project configurations are
+provided inside this repository. There is one solution provided which keeps all
+single projects and can be compiled into individual dynamically linked libraries. 
 
 In the scripts directory is a little deployment batch file, which is triggered by
 post-built event to copy the final DLL into DAZ Studios plugin directory. 
@@ -21,17 +18,23 @@ especially when the DLL is to be replaced. Do not run this batch file directly,
 it is supposed to be started by VC build process.
 
 ##### Environment Variables
-Following environment variables are necessary for the build process
+Following environment variables are necessary for the build process.
 
 Variable|Description
 ---|---
 DAZ_SDK|The full path to DAZ Studio SDK (Used for generating metaobjects with moc)
 DAZ_STUDIO|The full path to DAZ Studio (Used for post-built deployment)
 
+#### Requirements
+- [Visual Studio 2017](https://www.visualstudio.com/) (Developed and tested with v141)
+- [DAZ Studio SDK](https://www.daz3d.com/daz-studio-4-5-sdk) > 4.5.x
+- [DAZ Studio](https://www.daz3d.com/get_studio) > 4.5.x
+- [Qt](https://www.qt.io/) 4.x (not needed, the DAZ Studio SDK contains Qt)
+
 ### Console
 #### Introduction
 Console is a plugin for DAZ Studio for displaying the internal log file
-in a convenient window pane, which is size- and dockable. By a few events
+in a convenient window pane, which is size- and dock-able. By a few events
 provided by Qt signal and slot concept the display is automatically updated,
 like after finishing a rendering. Next to these signals it is possible to update
 it manually, clear the displayed lines and set the font size in a property
@@ -46,9 +49,9 @@ for possibilities to develop a rendering interface for the CLI - making (schedul
 batch rendering possible.
 
 This journey for developing a rendering interface for the CLI stopped when I
-encountered following message: *Rendering cannot be performed without the interace.*
+encountered following message: *Rendering cannot be performed without the interface.*
 
-Nevertheless, this disillusioning result I wanted to provide this utility an�d
+Nevertheless, this disillusioning result I wanted to provide this utility and
 encourage users to dive into developing plugins. It is challenging to work only
 with an SDK without being able to ask Google for help and turning often to the
 Header files itself and it is rewarding after hours of try-and-error to finally
