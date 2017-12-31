@@ -1,12 +1,12 @@
+// Render Statistics Headers
+#include "guid.h"
+#include "pane.h"
+#include "paneaction.h"
+#include "version.h"
+
 // DAZ Studio SDK Headers
 #include "dzplugin.h"
 #include "dzapp.h"
-
-// Render Statistics Headers
-#include "guid.h"
-#include "renderstatisticspane.h"
-#include "renderstatisticspaneaction.h"
-#include "version.h"
 
 /*
 * Plugin Meta Information

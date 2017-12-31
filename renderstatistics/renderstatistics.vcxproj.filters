@@ -21,16 +21,19 @@
     <ClCompile Include="pluginmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="renderstatisticspane.cpp">
+    <ClCompile Include="pane.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="renderstatisticspaneaction.cpp">
+    <ClCompile Include="paneaction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="moc\renderstatisticspane_moc.cpp">
+    <ClCompile Include="logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\pane_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
-    <ClCompile Include="moc\renderstatisticspaneaction_moc.cpp">
+    <ClCompile Include="moc\paneaction_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,18 +44,21 @@
     <ClInclude Include="guid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="pane.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="paneaction.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <None Include="renderstatistics.def">
       <Filter>Source Files</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="renderstatisticspane.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="renderstatisticspaneaction.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
   </ItemGroup>
 </Project>

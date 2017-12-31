@@ -4,4 +4,3 @@ EXPORTS
 	getPluginDefinition		@2
 SECTIONS
 	.data READ WRITE
-
