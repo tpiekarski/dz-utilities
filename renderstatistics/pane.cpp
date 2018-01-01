@@ -67,6 +67,7 @@ void RenderStatisticsPane::setupPaneLayout() {
   labels.append(new QLabel("#"));
   labels.append(new QLabel("Engine"));
   labels.append(new QLabel("Nodes"));
+  labels.append(new QLabel("Date"));
   labels.append(new QLabel("Duration [s]"));
 
   int row = 0;
@@ -82,7 +83,7 @@ void RenderStatisticsPane::setupPaneLayout() {
   bottomBorder->setFrameShape(QFrame::HLine);
   bottomBorder->setPalette(QPalette(QColor(0, 0, 0)));
 
-  statisticsLayout->addWidget(bottomBorder, 1, 0, 1, 4);
+  statisticsLayout->addWidget(bottomBorder, 1, 0, 1, 5);
 
   paneLayout->addLayout(statisticsLayout);
   paneLayout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Expanding));
@@ -108,6 +109,7 @@ QList<QLabel*> RenderStatisticsPane::getStatisticOutputLabels() {
   outputLabels.append(new QLabel(QString::number(lastStatistics.getCounter())));
   outputLabels.append(new QLabel(lastStatistics.getEngine()));
   outputLabels.append(new QLabel(QString::number(lastStatistics.getNodes())));
+  outputLabels.append(new QLabel(lastStatistics.getDate()));
   outputLabels.append(new QLabel(lastStatistics.getDurationInSeconds()));
 
   return outputLabels;

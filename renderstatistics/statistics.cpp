@@ -1,5 +1,8 @@
+// C++ STL Headers
+#include <chrono>
 
-#include<chrono>
+// boost Headers
+#include <boost\date_time\gregorian\gregorian.hpp>
 
 // Render Statistics Headers
 #include "statistics.h"
@@ -13,6 +16,7 @@ RenderStatistics::RenderStatistics(QString engine, int nodes) {
   this->engine = engine;
   this->nodes = nodes;
   this->finished = false;
+  this->renderingDate = day_clock::local_day();
 
   startTime = high_resolution_clock::now();
 }
