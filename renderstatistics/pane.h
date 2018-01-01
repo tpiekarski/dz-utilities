@@ -47,7 +47,7 @@ private:
   int renderingCounter;
 
   void setupPaneLayout();
-  void insertSeparator(QGridLayout *layout, int rowSpan);
+  void insertSeparator(QGridLayout *layout, int row, int columnSpan);
   void updateStatistics();
   QList<QLabel*> getStatisticOutputLabels();
 
