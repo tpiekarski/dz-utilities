@@ -8,16 +8,18 @@
 #include "QtCore\qobject.h"
 #include "QtCore\qstring.h"
 #include "QtGui\qboxlayout.h"
-#include "QtGui\qmessagebox.h"
-#include "QtGui\qtextbrowser.h"
-#include "QtGui\qtextcursor.h"
+#include "QtGui\qcolor.h"
+#include "QtGui\qframe.h"
+#include "QtGui\qgridlayout.h"
+#include "QtGui\qlabel.h"
+#include "QtGui\qpalette.h"
 
 // DAZ Studio SDK Headers
 #include "dzapp.h"
-#include "dzstyle.h"
-#include "dzscene.h"
 #include "dzrenderer.h"
 #include "dzrendermgr.h"
+#include "dzscene.h"
+#include "dzstyle.h"
 
 RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
   logger = RenderStatisticsLogger();
@@ -36,7 +38,7 @@ void RenderStatisticsPane::connectSignals() {
 
 void RenderStatisticsPane::processStartRendering() {
   logger.log("Rendering started.");
-  
+
   DzRenderer* renderer = renderManager->getActiveRenderer();
   statistics.push_back(RenderStatistics(renderer->getName(), dzScene->getNumNodes()));
 }
@@ -47,49 +49,66 @@ void RenderStatisticsPane::processFinishRendering() {
   RenderStatistics* currentStatistics = &statistics.back();
   currentStatistics->stopClock();
   currentStatistics->setCounter(++renderingCounter);
-  
+
   logger.log(*currentStatistics);
-  updateStatisticsBrowser();
+  updateStatistics();
 }
 
 void RenderStatisticsPane::setupPaneLayout() {
   int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
 
-  QVBoxLayout *paneLayout = new QVBoxLayout();
+  paneLayout = new QVBoxLayout();
   paneLayout->setMargin(margin);
   paneLayout->setSpacing(margin);
 
-  statisticsBrowser = new QTextBrowser();
-  statisticsBrowser->setObjectName(QString("%1Browser").arg(PLUGIN_NAME));
-  statisticsBrowser->setMinimumSize(200, 150);
-  statisticsBrowser->setHtml(getStatisticOutput());
-  
-  paneLayout->addWidget(statisticsBrowser);
+  statisticsLayout = new QGridLayout();
 
-  setLayout(paneLayout);
-  setMinimumSize(200, 150);
-}
+  QList<QLabel*> labels;
+  labels.append(new QLabel("#"));
+  labels.append(new QLabel("Engine"));
+  labels.append(new QLabel("Nodes"));
+  labels.append(new QLabel("Duration [s]"));
 
-void RenderStatisticsPane::updateStatisticsBrowser() {
-  statisticsBrowser->clear();
-  statisticsBrowser->setHtml(getStatisticOutput());
-}
+  int row = 0;
 
-QString RenderStatisticsPane::getStatisticOutput() {
-  QStringList renderingStatistics;
-
-  for (RenderStatistics currentStatistics : statistics) {
-    renderingStatistics.append(QString("<li>%1</li>")
-      .arg(currentStatistics.toRow()));
+  for (QLabel* label : labels) {
+    label->setFixedHeight(15);
+    statisticsLayout->addWidget(label, 0, row++);
   }
 
-  return QString(
-    "<h1>Render Statistics</h1>"
-    "<div>"
-    "<table style=\"font-size:14px\" border=\"0\" width=\"100%\">"
-    "<tr><th align=\"left\">#</th><th align=\"left\">Engine</th><th align=\"left\">Nodes</th><th align=\"left\">Duration[s]</th></tr>"
-    "%1"
-    "</table>"
-    "</div>"
-  ).arg(renderingStatistics.join(QString("\n")));
+  QFrame *bottomBorder = new QFrame(this);
+  bottomBorder->setLineWidth(1);
+  bottomBorder->setMidLineWidth(1);
+  bottomBorder->setFrameShape(QFrame::HLine);
+  bottomBorder->setPalette(QPalette(QColor(0, 0, 0)));
+
+  statisticsLayout->addWidget(bottomBorder, 1, 0, 1, 4);
+
+  paneLayout->addLayout(statisticsLayout);
+  paneLayout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Expanding));
+
+  setLayout(paneLayout);
+}
+
+void RenderStatisticsPane::updateStatistics() {
+  int currentColumn = 0;
+  int currentRow = statisticsLayout->rowCount();
+
+  for (QLabel* label : getStatisticOutputLabels()) {
+    statisticsLayout->addWidget(label, currentRow, currentColumn++);
+  }
+
+}
+
+QList<QLabel*> RenderStatisticsPane::getStatisticOutputLabels() {
+  QList<QLabel*> outputLabels;
+
+  RenderStatistics lastStatistics = statistics.back();
+
+  outputLabels.append(new QLabel(QString::number(lastStatistics.getCounter())));
+  outputLabels.append(new QLabel(lastStatistics.getEngine()));
+  outputLabels.append(new QLabel(QString::number(lastStatistics.getNodes())));
+  outputLabels.append(new QLabel(lastStatistics.getDurationInSeconds()));
+
+  return outputLabels;
 }

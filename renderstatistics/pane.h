@@ -8,7 +8,9 @@
 #include "statistics.h"
 
 // // Qt SDK Headers
-#include "QtGui\qtextbrowser.h"
+#include "QtCore\qlist.h"
+#include "QtGui\qgridlayout.h"
+#include "QtGui\qlabel.h"
 
 // DAZ Studio SDK Headers
 #include "dzpane.h"
@@ -39,12 +41,15 @@ private:
   std::vector<RenderStatistics> statistics;
   RenderStatisticsLogger logger;
   DzRenderMgr *renderManager;
-  QTextBrowser *statisticsBrowser;
+
+  QVBoxLayout *paneLayout;
+  QGridLayout *statisticsLayout;
+
   int renderingCounter;
 
   void setupPaneLayout();
-  void updateStatisticsBrowser();
-  QString getStatisticOutput();
+  void updateStatistics();
+  QList<QLabel*> getStatisticOutputLabels();
 
 };
 

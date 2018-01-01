@@ -5,8 +5,8 @@
 #include "version.h"
 
 // DAZ Studio SDK Headers
-#include "dzplugin.h"
 #include "dzapp.h"
+#include "dzplugin.h"
 
 /*
 * Plugin Meta Information

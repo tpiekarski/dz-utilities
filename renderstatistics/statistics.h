@@ -6,6 +6,8 @@
 // Qt SDK Headers
 #include "QtCore\qstring.h"
 
+#define DURATION_DISPLAY_FORMAT 'f'
+#define DURATION_DISPLAY_PRECISION 2
 
 using namespace std::chrono;
 
@@ -21,15 +23,23 @@ public:
 
   void setCounter(int counter);
   void stopClock();
-  QString getDurationInSeconds();
+
   QString toString();
-  QString toRow();
+
+  QString getEngine() { return engine; };
+  int getNodes() { return nodes; }
+  int getCounter() { return counter; };
+
+  QString getDurationInSeconds() {
+    return QString::number(renderingDuration.count(), DURATION_DISPLAY_FORMAT, DURATION_DISPLAY_PRECISION);
+  };
 
 private:
   QString engine;
   int nodes;
   int counter;
   bool finished;
+
   high_resolution_clock::time_point startTime;
   high_resolution_clock::time_point endTime;
   duration<double> renderingDuration;

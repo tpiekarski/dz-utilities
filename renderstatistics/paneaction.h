@@ -6,7 +6,7 @@
 
 /*
  * Class: RenderStatisticsPaneAction
- * Description: Registration of a menu action for toggling 
+ * Description: Registration of a menu action for toggling
  * render statistics pane on/off.
  *
  */
