@@ -77,18 +77,22 @@ void RenderStatisticsPane::setupPaneLayout() {
     statisticsLayout->addWidget(label, 0, row++);
   }
 
-  QFrame *bottomBorder = new QFrame(this);
-  bottomBorder->setLineWidth(1);
-  bottomBorder->setMidLineWidth(1);
-  bottomBorder->setFrameShape(QFrame::HLine);
-  bottomBorder->setPalette(QPalette(QColor(0, 0, 0)));
-
-  statisticsLayout->addWidget(bottomBorder, 1, 0, 1, 5);
+  insertSeparator(statisticsLayout, 5);
 
   paneLayout->addLayout(statisticsLayout);
   paneLayout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Expanding));
 
   setLayout(paneLayout);
+}
+
+void RenderStatisticsPane::insertSeparator(QGridLayout *layout, int columnSpan) {
+  QFrame *separator = new QFrame(this);
+  separator->setLineWidth(1);
+  separator->setMidLineWidth(1);
+  separator->setFrameShape(QFrame::HLine);
+  separator->setPalette(QPalette(QColor(0, 0, 0)));
+
+  layout->addWidget(separator, 1, 0, 1, columnSpan);
 }
 
 void RenderStatisticsPane::updateStatistics() {

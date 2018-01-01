@@ -41,13 +41,13 @@ private:
   std::vector<RenderStatistics> statistics;
   RenderStatisticsLogger logger;
   DzRenderMgr *renderManager;
-
   QVBoxLayout *paneLayout;
   QGridLayout *statisticsLayout;
 
   int renderingCounter;
 
   void setupPaneLayout();
+  void insertSeparator(QGridLayout *layout, int rowSpan);
   void updateStatistics();
   QList<QLabel*> getStatisticOutputLabels();
 
