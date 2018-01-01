@@ -50,7 +50,7 @@ like after finishing a rendering. Next to these signals it is possible to update
 it manually, clear the displayed lines and set the font size in a property
 dialog.
 
-![Screenshot of Console](console/img/screenshot.jpg?raw=true "Screenshot of Console")
+![Screenshot of Console](images/console.jpg?raw=true "Screenshot of Console")
 
 #### Background
 The purpose of this plugin is development and testing while discovering the DAZ
@@ -78,6 +78,8 @@ Following data is aggregated during rendering time and displayed in a pane.
 2.|Amount of Nodes|Amount of all nodes in scene (at the moment it contains also invisible nodes)
 3.|Date|Just the date when the rendering was finished
 4.|Duration|The rendering time in seconds
+
+![Screenshot of Render Statistics](images/renderstatistics.jpg?raw=true "Screenshot of Render Statistics")
 
 #### Outlook
 There is way more data to acquire, collect and aggregate. The collected data is not
