@@ -16,6 +16,9 @@ bld/
 # Meta Objects
 *_moc.*
 
+# NuGet Packages
+/packages
+
 # Cache
 ipch/
 *.aps
