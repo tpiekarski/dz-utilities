@@ -16,6 +16,9 @@
     <Filter Include="Meta Object Files">
       <UniqueIdentifier>{9eb7decf-e06f-491b-bb77-32c150b8e481}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{4fdb8630-eb00-48b2-9408-b3ec2bef7321}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pluginmain.cpp">
@@ -67,6 +70,10 @@
       <Filter>Source Files</Filter>
     </None>
     <None Include="packages.config" />
+    <None Include="..\README.md">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\.gitignore" />
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="qstrings.natvis" />

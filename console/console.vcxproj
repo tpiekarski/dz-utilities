@@ -258,6 +258,8 @@
     <ClCompile Include="pluginmain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.gitignore" />
+    <None Include="..\README.md" />
     <None Include="console.def" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

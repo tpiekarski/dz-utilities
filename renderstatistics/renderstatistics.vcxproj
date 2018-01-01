@@ -208,6 +208,8 @@
     <ClInclude Include="version.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.gitignore" />
+    <None Include="..\README.md" />
     <None Include="packages.config" />
     <None Include="renderstatistics.def" />
   </ItemGroup>

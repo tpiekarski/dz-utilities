@@ -16,6 +16,9 @@
     <Filter Include="Meta Object Files">
       <UniqueIdentifier>{ab2fffa3-db66-4e7f-a17a-9bc75cc1a34f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{62ac4fec-c883-4072-ae21-5f094f10bb3b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="version.h">
@@ -81,5 +84,9 @@
     <None Include="console.def">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="..\README.md">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\.gitignore" />
   </ItemGroup>
 </Project>
