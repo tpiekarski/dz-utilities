@@ -3,19 +3,24 @@
 
 // C++ STL Headers
 #include <chrono>
+#include <iostream>
+#include <locale>
+#include <string>
 
 // boost Headers
 #include <boost\date_time\gregorian\gregorian.hpp>
+#include <boost\date_time\posix_time\posix_time.hpp>
 #include <boost\date_time\posix_time\ptime.hpp>
 
 // Qt SDK Headers
 #include "QtCore\qstring.h"
 
-#define DATE_DISPLAY_FORMAT "%1/%2/%3" // d/m/yyyy
-#define TIME_FACET_DISPLAY_FORMAT "%H:%M"
+#define DATE_FACET_FORMAT "%m/%d/%Y"
+#define TIME_FACET_FORMAT "%H:%M"
 #define DURATION_DISPLAY_FORMAT 'f'
 #define DURATION_DISPLAY_PRECISION 2
 
+using namespace std;
 using namespace std::chrono;
 using namespace boost::gregorian;
 using namespace boost::posix_time;
@@ -39,10 +44,7 @@ public:
   int getNodes() { return nodes; }
   int getCounter() { return counter; };
 
-  QString getDurationInSeconds() {
-    return QString::number(renderingDuration.count(), DURATION_DISPLAY_FORMAT, DURATION_DISPLAY_PRECISION);
-  };
-
+  QString getDurationInSeconds();
   QString getStartDate();
   QString getStartTime();
 
@@ -57,6 +59,8 @@ private:
   duration<double> renderingDuration;
 
   ptime startDateTime;
+  time_facet* timeFacet;
+  date_facet* dateFacet;
 
   duration<double> calculateDuration();
 };
