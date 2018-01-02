@@ -76,7 +76,7 @@ Following data is aggregated during rendering time and displayed in a pane.
 ---|---|---
 1.|Rendering Engine|Engines like 3Delight or Nvidia Iray
 2.|Amount of Nodes|Amount of all nodes in scene (at the moment it contains also invisible nodes)
-3.|Date|Just the date when the rendering was finished
+3.|Date & Time|Just the date and time when the rendering was started
 4.|Duration|The rendering time in seconds
 
 ![Screenshot of Render Statistics](images/renderstatistics.jpg?raw=true "Screenshot of Render Statistics")

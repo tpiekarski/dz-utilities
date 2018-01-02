@@ -16,6 +16,8 @@
 #include "dzpane.h"
 #include "dzrendermgr.h"
 
+#define COLUMNS 6
+
 /*
  * Class: RenderStatisticsPane
  * Description: Main class for the render statistics pane.

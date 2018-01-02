@@ -6,16 +6,19 @@
 
 // boost Headers
 #include <boost\date_time\gregorian\gregorian.hpp>
+#include <boost\date_time\posix_time\ptime.hpp>
 
 // Qt SDK Headers
 #include "QtCore\qstring.h"
 
 #define DATE_DISPLAY_FORMAT "%1/%2/%3" // d/m/yyyy
+#define TIME_FACET_DISPLAY_FORMAT "%H:%M"
 #define DURATION_DISPLAY_FORMAT 'f'
 #define DURATION_DISPLAY_PRECISION 2
 
 using namespace std::chrono;
 using namespace boost::gregorian;
+using namespace boost::posix_time;
 
 /*
  * Class: RenderStatistics
@@ -40,9 +43,8 @@ public:
     return QString::number(renderingDuration.count(), DURATION_DISPLAY_FORMAT, DURATION_DISPLAY_PRECISION);
   };
 
-  QString getDate() {
-    return QString(DATE_DISPLAY_FORMAT).arg(renderingDate.day()).arg(renderingDate.month()).arg(renderingDate.year());
-  }
+  QString getStartDate();
+  QString getStartTime();
 
 private:
   QString engine;
@@ -54,7 +56,7 @@ private:
   high_resolution_clock::time_point endTime;
   duration<double> renderingDuration;
 
-  date renderingDate;
+  ptime startDateTime;
 
   duration<double> calculateDuration();
 };
