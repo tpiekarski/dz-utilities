@@ -12,13 +12,9 @@
 #include <boost\date_time\posix_time\posix_time.hpp>
 #include <boost\date_time\posix_time\ptime.hpp>
 
-// Qt SDK Headers
-#include "QtCore\qstring.h"
-
 #define DATE_FACET_FORMAT "%m/%d/%Y"
 #define TIME_FACET_FORMAT "%H:%M"
-#define DURATION_DISPLAY_FORMAT 'f'
-#define DURATION_DISPLAY_PRECISION 2
+#define DURATION_DISPLAY_PRECISION 3
 
 using namespace std;
 using namespace std::chrono;
@@ -32,24 +28,24 @@ using namespace boost::posix_time;
 class RenderStatistics {
 
 public:
-  RenderStatistics(QString engine, int nodes);
+  RenderStatistics(string engine, int nodes);
   ~RenderStatistics();
 
   void setCounter(int counter);
   void stopClock();
 
-  QString toString();
+  string toString();
 
-  QString getEngine() { return engine; };
+  string getEngine() { return engine; };
   int getNodes() { return nodes; }
   int getCounter() { return counter; };
 
-  QString getDurationInSeconds();
-  QString getStartDate();
-  QString getStartTime();
+  string getDurationInSeconds();
+  string getStartDate();
+  string getStartTime();
 
 private:
-  QString engine;
+  string engine;
   int nodes;
   int counter;
   bool finished;

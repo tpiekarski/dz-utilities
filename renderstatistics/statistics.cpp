@@ -1,7 +1,7 @@
 // Render Statistics Headers
 #include "statistics.h"
 
-RenderStatistics::RenderStatistics(QString engine, int nodes) {
+RenderStatistics::RenderStatistics(string engine, int nodes) {
   this->engine = engine;
   this->nodes = nodes;
 
@@ -25,37 +25,39 @@ void RenderStatistics::stopClock() {
   finished = true;
 }
 
-QString RenderStatistics::toString() {
-  return QString("Engine: %1, Nodes: %2, Duration [s]: %3")
-    .arg(engine)
-    .arg(nodes)
-    .arg(getDurationInSeconds());
+string RenderStatistics::toString() {
+  stringstream stringStream;
+  stringStream << "Engine: " << engine << ", Nodes: " << nodes << ", Duration [s]: " << getDurationInSeconds();
+
+  return stringStream.str();
 }
 
 duration<double> RenderStatistics::calculateDuration() {
   return duration_cast<duration<double>>(endTime - startTime);
 }
 
-QString RenderStatistics::getDurationInSeconds() {
-  return QString::number(
-    renderingDuration.count(), DURATION_DISPLAY_FORMAT, DURATION_DISPLAY_PRECISION
-  );
+string RenderStatistics::getDurationInSeconds() {
+  stringstream stringStream;
+  stringStream.precision(DURATION_DISPLAY_PRECISION);
+  stringStream << renderingDuration.count();
+
+  return stringStream.str();
 };
 
-QString RenderStatistics::getStartDate() {
+string RenderStatistics::getStartDate() {
   dateFacet->format(DATE_FACET_FORMAT);
   stringstream stringStream;
   stringStream.imbue(locale(locale::classic(), dateFacet));
   stringStream << startDateTime.date();
 
-  return QString::fromLatin1(stringStream.str().c_str());
+  return stringStream.str();
 }
 
-QString RenderStatistics::getStartTime() {
+string RenderStatistics::getStartTime() {
   timeFacet->format(TIME_FACET_FORMAT);
   stringstream stringStream;
   stringStream.imbue(locale(locale::classic(), timeFacet));
   stringStream << startDateTime;
 
-  return QString::fromLatin1(stringStream.str().c_str());
+  return stringStream.str();
 }

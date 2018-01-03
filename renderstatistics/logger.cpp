@@ -22,5 +22,5 @@ void RenderStatisticsLogger::log(QString message) {
 }
 
 void RenderStatisticsLogger::log(RenderStatistics statistics) {
-  this->log(statistics.toString());
+  this->log(QString::fromLatin1(statistics.toString().c_str()));
 }

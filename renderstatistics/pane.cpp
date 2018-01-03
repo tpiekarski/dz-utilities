@@ -40,7 +40,10 @@ void RenderStatisticsPane::processStartRendering() {
   logger.log("Rendering started.");
 
   DzRenderer* renderer = renderManager->getActiveRenderer();
-  statistics.push_back(RenderStatistics(renderer->getName(), dzScene->getNumNodes()));
+
+  string test = renderer->getName().toStdString();
+
+  statistics.push_back(RenderStatistics(renderer->getName().toStdString(), dzScene->getNumNodes()));
 }
 
 void RenderStatisticsPane::processFinishRendering() {
@@ -112,11 +115,11 @@ QList<QLabel*> RenderStatisticsPane::getStatisticOutputLabels() {
   RenderStatistics lastStatistics = statistics.back();
 
   outputLabels.append(new QLabel(QString::number(lastStatistics.getCounter())));
-  outputLabels.append(new QLabel(lastStatistics.getEngine()));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getEngine())));
   outputLabels.append(new QLabel(QString::number(lastStatistics.getNodes())));
-  outputLabels.append(new QLabel(lastStatistics.getStartDate()));
-  outputLabels.append(new QLabel(lastStatistics.getStartTime()));
-  outputLabels.append(new QLabel(lastStatistics.getDurationInSeconds()));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getStartDate())));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getStartTime())));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getDurationInSeconds())));
 
   return outputLabels;
 }
