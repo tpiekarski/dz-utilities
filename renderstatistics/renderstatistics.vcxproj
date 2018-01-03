@@ -35,7 +35,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -48,7 +48,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -103,7 +103,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(DAZ_SDK)\lib\$(Platform)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>dzcore.lib;QtCore4.lib;QtGui4.lib;Qt3Support4.lib;QtScript4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>dzcore.lib;QtCored4.lib;QtGuid4.lib;Qt3Supportd4.lib;QtScriptd4.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>renderstatistics.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
@@ -124,7 +124,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(DAZ_SDK)\lib\$(Platform)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>dzcore.lib;QtCore4.lib;QtGui4.lib;Qt3Support4.lib;QtScript4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>dzcore.lib;QtCored4.lib;QtGuid4.lib;Qt3Supportd4.lib;QtScriptd4.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>renderstatistics.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
@@ -152,7 +152,8 @@
       <ModuleDefinitionFile>renderstatistics.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>./scripts/deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
+      <Command>$(SolutionDir)scripts\deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
+      <Message>Deploying DAZ Studio plugin...</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -175,7 +176,8 @@
       <ModuleDefinitionFile>renderstatistics.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>./scripts/deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
+      <Command>$(SolutionDir)scripts\deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
+      <Message>Deploying DAZ Studio plugin...</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

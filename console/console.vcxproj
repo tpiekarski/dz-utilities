@@ -162,11 +162,10 @@
       <ModuleDefinitionFile>console.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>./scripts/deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
+      <Command>$(SolutionDir)scripts\deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>
-      </Message>
+      <Message>Deploying DAZ Studio plugin...</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -189,11 +188,10 @@
       <ModuleDefinitionFile>console.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>./scripts/deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
+      <Command>$(SolutionDir)scripts\deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>
-      </Message>
+      <Message>Deploying DAZ Studio plugin...</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
