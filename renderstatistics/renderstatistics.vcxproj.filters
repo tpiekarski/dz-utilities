@@ -48,6 +48,9 @@
     <ClCompile Include="moc\pane-action_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
+    <ClCompile Include="qstatisticslayout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="version.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="clear-action.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="qstatisticslayout.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

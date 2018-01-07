@@ -6,6 +6,7 @@
 // Render Statistics Headers
 #include "logger.h"
 #include "statistics.h"
+#include "qstatisticslayout.h"
 
 // Qt SDK Headers
 #include "QtCore\qlist.h"
@@ -47,12 +48,11 @@ private:
   RenderStatisticsLogger logger;
   DzRenderMgr *renderManager;
   QVBoxLayout *paneLayout;
-  QGridLayout *statisticsLayout;
+  QStatisticsLayout *statisticsLayout;
 
   int renderingCounter;
 
   void setupPaneLayout();
-  void insertSeparator(QGridLayout *layout, int row, int columnSpan);
   void updateStatistics();
   QList<QLabel*> getStatisticOutputLabels();
 

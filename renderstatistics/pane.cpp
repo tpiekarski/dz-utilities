@@ -8,12 +8,7 @@
 #include "QtCore\qobject.h"
 #include "QtCore\qstring.h"
 #include "QtGui\qboxlayout.h"
-#include "QtGui\qcolor.h"
-#include "QtGui\qframe.h"
-#include "QtGui\qgridlayout.h"
 #include "QtGui\qlabel.h"
-#include "QtGui\qpalette.h"
-#include "QtGui\qmenu.h"
 
 // DAZ Studio SDK Headers
 #include "dzapp.h"
@@ -73,43 +68,15 @@ void RenderStatisticsPane::processFinishRendering() {
 void RenderStatisticsPane::setupPaneLayout() {
   int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
 
-  paneLayout = new QVBoxLayout();
+  paneLayout = new QVBoxLayout(this);
   paneLayout->setMargin(margin);
   paneLayout->setSpacing(margin);
 
-  statisticsLayout = new QGridLayout();
-
-  QList<QLabel*> labels;
-  labels.append(new QLabel("#"));
-  labels.append(new QLabel("Engine"));
-  labels.append(new QLabel("Nodes"));
-  labels.append(new QLabel("Date"));
-  labels.append(new QLabel("Time"));
-  labels.append(new QLabel("Duration [s]"));
-
-  int row = 0;
-
-  for (QLabel* label : labels) {
-    label->setFixedHeight(15);
-    statisticsLayout->addWidget(label, 0, row++);
-  }
-
-  insertSeparator(statisticsLayout, 1, COLUMNS);
-
+  statisticsLayout = new QStatisticsLayout();
   paneLayout->addLayout(statisticsLayout);
   paneLayout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Expanding));
 
   setLayout(paneLayout);
-}
-
-void RenderStatisticsPane::insertSeparator(QGridLayout *layout, int row, int columnSpan) {
-  QFrame *separator = new QFrame(this);
-  separator->setLineWidth(1);
-  separator->setMidLineWidth(1);
-  separator->setFrameShape(QFrame::HLine);
-  separator->setPalette(QPalette(QColor(0, 0, 0)));
-
-  layout->addWidget(separator, row, 0, 1, columnSpan);
 }
 
 void RenderStatisticsPane::updateStatistics() {

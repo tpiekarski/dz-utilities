@@ -189,6 +189,7 @@
     <ClCompile Include="pluginmain.cpp" />
     <ClCompile Include="pane.cpp" />
     <ClCompile Include="pane-action.cpp" />
+    <ClCompile Include="qstatisticslayout.cpp" />
     <ClCompile Include="statistics.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -236,6 +237,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
     <ClInclude Include="logger.h" />
+    <ClInclude Include="qstatisticslayout.h" />
     <ClInclude Include="statistics.h" />
     <ClInclude Include="version.h" />
   </ItemGroup>
