@@ -44,7 +44,7 @@ private slots:
   void processFinishRendering();
 
 private:
-  std::vector<RenderStatistics> statistics;
+  vector<RenderStatistics> statistics;
   RenderStatisticsLogger logger;
   DzRenderMgr *renderManager;
   QVBoxLayout *paneLayout;
@@ -53,9 +53,6 @@ private:
   int renderingCounter;
 
   void setupPaneLayout();
-  void updateStatistics();
-  QList<QLabel*> getStatisticOutputLabels();
-
 };
 
 #endif

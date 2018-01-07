@@ -62,7 +62,7 @@ void RenderStatisticsPane::processFinishRendering() {
   currentStatistics->setCounter(++renderingCounter);
 
   logger.log(*currentStatistics);
-  updateStatistics();
+  statisticsLayout->update(&statistics);
 }
 
 void RenderStatisticsPane::setupPaneLayout() {
@@ -77,29 +77,4 @@ void RenderStatisticsPane::setupPaneLayout() {
   paneLayout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Expanding));
 
   setLayout(paneLayout);
-}
-
-void RenderStatisticsPane::updateStatistics() {
-  int currentColumn = 0;
-  int currentRow = statisticsLayout->rowCount();
-
-  for (QLabel* label : getStatisticOutputLabels()) {
-    statisticsLayout->addWidget(label, currentRow, currentColumn++);
-  }
-
-}
-
-QList<QLabel*> RenderStatisticsPane::getStatisticOutputLabels() {
-  QList<QLabel*> outputLabels;
-
-  RenderStatistics lastStatistics = statistics.back();
-
-  outputLabels.append(new QLabel(QString::number(lastStatistics.getCounter())));
-  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getEngine())));
-  outputLabels.append(new QLabel(QString::number(lastStatistics.getNodes())));
-  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getStartDate())));
-  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getStartTime())));
-  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getDurationInSeconds())));
-
-  return outputLabels;
 }

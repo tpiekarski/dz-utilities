@@ -24,6 +24,16 @@ QStatisticsLayout::QStatisticsLayout() : QGridLayout() {
   addSeparator(1, columnCount());
 }
 
+void QStatisticsLayout::update(vector<RenderStatistics>* statistics) {
+  int currentColumn = 0;
+  int currentRow = rowCount();
+
+  for (QLabel* label : buildLabels(statistics)) {
+    addWidget(label, currentRow, currentColumn++);
+  }
+
+}
+
 void QStatisticsLayout::removeRow(int row) {
   
 }
@@ -36,4 +46,19 @@ void QStatisticsLayout::addSeparator(int row, int columnSpan) {
   separator->setPalette(QPalette(QColor(0, 0, 0)));
 
   addWidget(separator, row, 0, 1, columnSpan);
+}
+
+QList<QLabel*> QStatisticsLayout::buildLabels(vector<RenderStatistics>* statistics) {
+  QList<QLabel*> outputLabels;
+
+  RenderStatistics lastStatistics = statistics->back();
+
+  outputLabels.append(new QLabel(QString::number(lastStatistics.getCounter())));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getEngine())));
+  outputLabels.append(new QLabel(QString::number(lastStatistics.getNodes())));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getStartDate())));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getStartTime())));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getDurationInSeconds())));
+
+  return outputLabels;
 }
