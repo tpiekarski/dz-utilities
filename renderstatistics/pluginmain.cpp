@@ -1,7 +1,8 @@
 // Render Statistics Headers
+#include "clear-action.h"
 #include "guid.h"
 #include "pane.h"
-#include "paneaction.h"
+#include "pane-action.h"
 #include "version.h"
 
 // DAZ Studio SDK Headers
@@ -9,8 +10,8 @@
 #include "dzplugin.h"
 
 /*
-* Plugin Meta Information
-*/
+ * Plugin Meta Information
+ */
 DZ_PLUGIN_DEFINITION("Render Statistics")
 DZ_PLUGIN_AUTHOR("Thomas Piekarski")
 DZ_PLUGIN_VERSION(PLUGIN_MAJOR, PLUGIN_MINOR, PLUGIN_REV, PLUGIN_BUILD)
@@ -29,7 +30,13 @@ DZ_PLUGIN_DESCRIPTION(QString(
 ));
 
 /*
-* Plugin Class GUID
-*/
+ * Plugin Class GUID
+ */
 DZ_PLUGIN_CLASS_GUID(RenderStatisticsPane, RENDERSTATISTICS_PANE_CLASS_GUID)
 DZ_PLUGIN_CLASS_GUID(RenderStatisticsPaneAction, RENDERSTATISTICS_PANE_ACTION_CLASS_GUID)
+DZ_PLUGIN_CLASS_GUID(RenderStatisticsClearAction, RENDERSTATISTICS_CLEAR_ACTION_CLASS_GUID)
+
+/*
+ * DzAction Class export
+ */
+//DZ_PLUGIN_CLASS_FACTORY(RenderStatisticsClearAction, 0x00001000)

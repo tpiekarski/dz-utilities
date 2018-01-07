@@ -27,20 +27,26 @@
     <ClCompile Include="pane.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="paneaction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="logger.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="statistics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pane-action.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="clear-action.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\clear-action_moc.cpp">
+      <Filter>Meta Object Files</Filter>
     </ClCompile>
     <ClCompile Include="moc\pane_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
-    <ClCompile Include="moc\paneaction_moc.cpp">
+    <ClCompile Include="moc\pane-action_moc.cpp">
       <Filter>Meta Object Files</Filter>
-    </ClCompile>
-    <ClCompile Include="statistics.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,12 +62,15 @@
     <ClInclude Include="statistics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="clear-action.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="pane.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="paneaction.h">
+    <CustomBuild Include="pane-action.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

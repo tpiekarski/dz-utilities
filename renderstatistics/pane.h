@@ -7,15 +7,17 @@
 #include "logger.h"
 #include "statistics.h"
 
-// // Qt SDK Headers
+// Qt SDK Headers
 #include "QtCore\qlist.h"
 #include "QtGui\qgridlayout.h"
 #include "QtGui\qlabel.h"
 
 // DAZ Studio SDK Headers
+#include "dzactionmenu.h"
 #include "dzpane.h"
 #include "dzrendermgr.h"
 
+#define HEADING_ROWS 2
 #define COLUMNS 6
 
 /*
@@ -28,16 +30,17 @@ class RenderStatisticsPane : public DzPane {
   Q_OBJECT
 
 public:
-
   RenderStatisticsPane();
   ~RenderStatisticsPane();
+  void clear();
+
+protected:
+  virtual void buildOptionsMenu(DzActionMenu *menu) const;
 
 private slots:
-
+  void connectSignals();
   void processStartRendering();
   void processFinishRendering();
-
-  void connectSignals();
 
 private:
   std::vector<RenderStatistics> statistics;

@@ -13,6 +13,7 @@
 #include "QtGui\qgridlayout.h"
 #include "QtGui\qlabel.h"
 #include "QtGui\qpalette.h"
+#include "QtGui\qmenu.h"
 
 // DAZ Studio SDK Headers
 #include "dzapp.h"
@@ -31,18 +32,30 @@ RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
 
 RenderStatisticsPane::~RenderStatisticsPane() { }
 
+void RenderStatisticsPane::clear() {
+  if (statistics.size() > 0) {
+    statistics.clear();
+    statistics.shrink_to_fit();
+  }
+
+  if (statisticsLayout->rowCount() > HEADING_ROWS) {
+    // todo: remove all widgets inside one QGridLayouts row
+  }
+}
+
 void RenderStatisticsPane::connectSignals() {
   connect(renderManager, SIGNAL(renderStarting()), this, SLOT(processStartRendering()));
   connect(renderManager, SIGNAL(renderFinished(bool)), this, SLOT(processFinishRendering()));
+}
+
+void RenderStatisticsPane::buildOptionsMenu(DzActionMenu *menu) const {
+  menu->insertAction("RenderStatisticsClearAction");
 }
 
 void RenderStatisticsPane::processStartRendering() {
   logger.log("Rendering started.");
 
   DzRenderer* renderer = renderManager->getActiveRenderer();
-
-  string test = renderer->getName().toStdString();
-
   statistics.push_back(RenderStatistics(renderer->getName().toStdString(), dzScene->getNumNodes()));
 }
 
