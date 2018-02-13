@@ -60,12 +60,12 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   buttonGroupBoxLayout->addWidget(propertiesButton);
 
   paneMainLayout->addWidget(buttonGroupBox);
-  
+
   // Setting up a QTextBrowser for displaying the log file
   logBrowser = new QTextBrowser();
   logBrowser->setObjectName("Console");
   logBrowser->setMinimumSize(PANE_MIN_WIDTH, PANE_MIN_HEIGHT);
-  
+
   settings->getFontSize(&fontSize);
   logBrowser->setFontPointSize(fontSize);
 
@@ -84,14 +84,13 @@ ConsolePane::ConsolePane() : DzPane("Console") {
 }
 
 ConsolePane::~ConsolePane() {
-  // todo: disconnect buttons from click signal
   console->closeLog();
 }
 
 void ConsolePane::connectMajorSignals() {
   // Connecting to logging signals
-  connect(dzApp, SIGNAL(debugMsg()), this, SLOT(reloadLog()));
-  connect(dzApp, SIGNAL(warning()), this, SLOT(reloadLog()));
+  connect(dzApp, SIGNAL(debugMsg(const QString&)), this, SLOT(reloadLog()));
+  connect(dzApp, SIGNAL(warningMsg(const QString&)), this, SLOT(reloadLog()));
 
   // Connecting to manager signals
   connect(dzApp->getRenderMgr(), SIGNAL(renderFinished(bool)), this, SLOT(reloadLog()));
@@ -99,10 +98,10 @@ void ConsolePane::connectMajorSignals() {
   connect(dzApp->getImportMgr(), SIGNAL(fileImported()), this, SLOT(reloadLog()));
 
   // Connecting to scene signals
-  connect(dzScene, SIGNAL(sceneLoaded()), this, SLOT(reloadLog()));
   connect(dzScene, SIGNAL(sceneLoadStarting()), this, SLOT(reloadLog()));
-  connect(dzScene, SIGNAL(sceneSaved(QString&)), this, SLOT(reloadLog()));
-  connect(dzScene, SIGNAL(sceneSaveStarting(QString&)), this, SLOT(reloadLog()));
+  connect(dzScene, SIGNAL(sceneLoaded()), this, SLOT(reloadLog()));
+  connect(dzScene, SIGNAL(sceneSaved(const QString&)), this, SLOT(reloadLog()));
+  connect(dzScene, SIGNAL(sceneSaveStarting(const QString&)), this, SLOT(reloadLog()));
 }
 
 void ConsolePane::displayLog() {
@@ -131,12 +130,12 @@ void ConsolePane::reloadLog() {
 }
 
 void ConsolePane::showProperties() {
-  
+
   DzMainWindow *mainWindow;
   ConsolePropertiesDialog *dialog;
   int dialogResult;
   QString newFontSize;
-  
+
   if (!(mainWindow = dzApp->getInterface())) {
     QMessageBox::warning(
       0,
@@ -148,7 +147,6 @@ void ConsolePane::showProperties() {
     return;
   }
 
-  
   if (!(dialog = new ConsolePropertiesDialog(mainWindow, settings))) {
     QMessageBox::warning(
       0,
@@ -175,7 +173,7 @@ void ConsolePane::showProperties() {
 
 }
 
-void ConsolePane::clearLog() { 
+void ConsolePane::clearLog() {
   if (console->clearLog()) {
     logBrowser->clear();
     displayLog();

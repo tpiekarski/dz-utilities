@@ -28,7 +28,7 @@ bool Console::openLog() {
 
 bool Console::clearLog() {
   closeLog();
-  
+
   if (!logFile.remove()) return false;
 
   return true;
