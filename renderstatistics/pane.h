@@ -19,7 +19,7 @@
 #include "dzrendermgr.h"
 
 #define HEADING_ROWS 2
-#define COLUMNS 6
+#define COLUMNS 7
 
 /*
  * Class: RenderStatisticsPane

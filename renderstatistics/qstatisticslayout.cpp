@@ -5,14 +5,19 @@
 #include "QtGui\qcolor.h"
 #include "QtGui\qframe.h"
 #include "QtGui\qpalette.h"
+#include "QtGui\qpushbutton.h"
+#include "QtGui\qmessagebox.h"
 
-QStatisticsLayout::QStatisticsLayout() : QGridLayout() {
+QStatisticsLayout::QStatisticsLayout(vector<RenderStatistics>* statistics) : QGridLayout() {
+  this->statistics = statistics;
+
   labels.append(new QLabel("#"));
   labels.append(new QLabel("Engine"));
   labels.append(new QLabel("Nodes"));
   labels.append(new QLabel("Date"));
   labels.append(new QLabel("Time"));
   labels.append(new QLabel("Duration [s]"));
+  labels.append(new QLabel("Rendering"));
 
   int row = 0;
 
@@ -24,18 +29,41 @@ QStatisticsLayout::QStatisticsLayout() : QGridLayout() {
   addSeparator(1, columnCount());
 }
 
-void QStatisticsLayout::update(vector<RenderStatistics>* statistics) {
+void QStatisticsLayout::update() {
   int currentColumn = 0;
   int currentRow = rowCount();
 
-  for (QLabel* label : buildLabels(statistics)) {
+  for (QLabel* label : buildLabels()) {
     addWidget(label, currentRow, currentColumn++);
   }
 
+  int counter = statistics->back().getCounter() - 1;
+
+  buttons.append(new QPushButton("Show"));
+  addWidget(buttons.at(counter), currentRow, 6);
+  
+  signalMappers.append(new QSignalMapper(this));
+  signalMappers.at(counter)->setMapping(buttons.at(counter), counter);
+
+  connect(buttons.at(counter), SIGNAL(clicked()), signalMappers.at(counter), SLOT(map()));
+  connect(signalMappers.at(counter), SIGNAL(mapped(const int &)), this, SIGNAL(clicked(const int &)));
+  connect(this, SIGNAL(clicked(const int &)), this, SLOT(showRendering(const int &)));
+}
+
+void QStatisticsLayout::showRendering(const int &rendering) {
+  RenderStatistics* currentStatistic = &statistics->at(rendering);
+  
+	QMessageBox::information(
+    0, 
+    tr("Rendering"), 
+    QString::number(currentStatistic->getCounter()),
+    QMessageBox::Ok
+  );
+  
 }
 
 void QStatisticsLayout::removeRow(int row) {
-  
+  // todo: implement removing of rows
 }
 
 void QStatisticsLayout::addSeparator(int row, int columnSpan) {
@@ -48,17 +76,17 @@ void QStatisticsLayout::addSeparator(int row, int columnSpan) {
   addWidget(separator, row, 0, 1, columnSpan);
 }
 
-QList<QLabel*> QStatisticsLayout::buildLabels(vector<RenderStatistics>* statistics) {
+QList<QLabel*> QStatisticsLayout::buildLabels() {
   QList<QLabel*> outputLabels;
 
-  RenderStatistics lastStatistics = statistics->back();
+  RenderStatistics* lastStatistics = &statistics->back();
 
-  outputLabels.append(new QLabel(QString::number(lastStatistics.getCounter())));
-  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getEngine())));
-  outputLabels.append(new QLabel(QString::number(lastStatistics.getNodes())));
-  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getStartDate())));
-  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getStartTime())));
-  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics.getDurationInSeconds())));
-
+  outputLabels.append(new QLabel(QString::number(lastStatistics->getCounter())));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics->getEngine())));
+  outputLabels.append(new QLabel(QString::number(lastStatistics->getNodes())));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics->getStartDate())));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics->getStartTime())));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics->getDurationInSeconds())));
+  
   return outputLabels;
 }

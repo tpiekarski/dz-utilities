@@ -8,25 +8,37 @@
 
 // Qt SDK Headers
 #include "QtCore\qlist.h"
+#include "QtCore\qsignalmapper.h"
 #include "QtGui\qgridlayout.h"
 #include "QtGui\qlabel.h"
+#include "QtGui\qpushbutton.h"
 
 using namespace std;
 
 class QStatisticsLayout : public QGridLayout {
 
+	Q_OBJECT
+
 public:
-  QStatisticsLayout();
-  void update(vector<RenderStatistics>* statistics);
+  QStatisticsLayout(vector<RenderStatistics>* statistics);
+  void update();
   void clear();
 
-private:
+signals:
+  void clicked(const int &rendering);
+
+private slots:
+  void showRendering(const int &rendering);
+
+private:  
   QList<QLabel*> labels;
-  vector<RenderStatistics> statistics;
+  QList<QPushButton*> buttons;
+  QList<QSignalMapper*> signalMappers;
+  vector<RenderStatistics>* statistics;
 
   void addSeparator(int row, int columnSpan);
   void removeRow(int row);
-  QList<QLabel*> buildLabels(vector<RenderStatistics>* statistics);
+  QList<QLabel*> buildLabels();
 };
 
 #endif

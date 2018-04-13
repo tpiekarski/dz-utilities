@@ -39,6 +39,9 @@
     <ClCompile Include="clear-action.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="qstatisticslayout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="moc\clear-action_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
@@ -48,8 +51,11 @@
     <ClCompile Include="moc\pane-action_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
-    <ClCompile Include="qstatisticslayout.cpp">
+    <ClCompile Include="renderimagebutton.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\qstatisticslayout_moc.cpp">
+      <Filter>Meta Object Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -65,10 +71,10 @@
     <ClInclude Include="statistics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="clear-action.h">
+    <ClInclude Include="qstatisticslayout.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="qstatisticslayout.h">
+    <ClInclude Include="renderimagebutton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -77,6 +83,9 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="pane-action.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="clear-action.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

@@ -62,7 +62,7 @@ void RenderStatisticsPane::processFinishRendering() {
   currentStatistics->setCounter(++renderingCounter);
 
   logger.log(*currentStatistics);
-  statisticsLayout->update(&statistics);
+  statisticsLayout->update();
 }
 
 void RenderStatisticsPane::setupPaneLayout() {
@@ -72,7 +72,7 @@ void RenderStatisticsPane::setupPaneLayout() {
   paneLayout->setMargin(margin);
   paneLayout->setSpacing(margin);
 
-  statisticsLayout = new QStatisticsLayout();
+  statisticsLayout = new QStatisticsLayout(&statistics);
   paneLayout->addLayout(statisticsLayout);
   paneLayout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Expanding));
 
