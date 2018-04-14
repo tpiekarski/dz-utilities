@@ -4,8 +4,8 @@
 #include <vector>
 
 // Render Statistics Headers
-#include "statistics.h"
 #include "logger.h"
+#include "statistics.h"
 
 // Qt SDK Headers
 #include "QtCore\qalgorithms.h"

@@ -7,9 +7,9 @@
 
 // Qt SDK Headers
 #include "QtGui\qcolor.h"
+#include "QtGui\qmessagebox.h"
 #include "QtGui\qpalette.h"
 #include "QtGui\qpushbutton.h"
-#include "QtGui\qmessagebox.h"
 
 QStatisticsLayout::QStatisticsLayout(vector<RenderStatistics>* statistics) : QGridLayout() {
   this->statistics = statistics;
@@ -98,7 +98,6 @@ void QStatisticsLayout::showRendering(const int &rendering) {
   RenderStatistics* currentStatistic = &statistics->at(rendering);
   DzMainWindow *mainWindow;
   RenderImageDialog* dialog;
-  int dialogResult;
 
   if (!(mainWindow = dzApp->getInterface())) {
     QMessageBox::warning(0, "Error", "The main window is not available.", QMessageBox::Ok);
@@ -112,7 +111,7 @@ void QStatisticsLayout::showRendering(const int &rendering) {
     return;
   }
 
-  dialogResult = dialog->exec();
+  dialog->exec();
 
   delete(dialog);
 }

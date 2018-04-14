@@ -5,8 +5,8 @@
 
 // Render Statistics Headers
 #include "logger.h"
-#include "statistics.h"
 #include "qstatisticslayout.h"
+#include "statistics.h"
 
 // Qt SDK Headers
 #include "QtCore\qlist.h"

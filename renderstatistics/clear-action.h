@@ -2,8 +2,8 @@
 #define H_RENDERSTATISTICS_CLEAR_ACTION
 
 // DAZ Studio SDK Headers
-#include "dzapp.h"
 #include "dzaction.h"
+#include "dzapp.h"
 #include "dzmainwindow.h"
 #include "dzpanemgr.h"
 

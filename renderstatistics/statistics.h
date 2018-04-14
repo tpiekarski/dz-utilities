@@ -13,8 +13,8 @@
 #include <boost\date_time\posix_time\ptime.hpp>
 
 #define DATE_FACET_FORMAT "%m/%d/%Y"
-#define TIME_FACET_FORMAT "%H:%M"
 #define DURATION_DISPLAY_PRECISION 3
+#define TIME_FACET_FORMAT "%H:%M"
 
 using namespace std;
 using namespace std::chrono;

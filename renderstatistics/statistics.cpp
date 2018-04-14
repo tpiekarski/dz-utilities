@@ -1,9 +1,10 @@
 // Render Statistics Headers
 #include "statistics.h"
 
-RenderStatistics::RenderStatistics(string engine, int nodes) {
+RenderStatistics::RenderStatistics(const string engine, const int nodes) {
   this->engine = engine;
   this->nodes = nodes;
+  this->counter = 0;
 
   finished = false;
   startDateTime = second_clock::local_time();
@@ -19,7 +20,7 @@ void RenderStatistics::setCounter(int counter) {
   this->counter = counter;
 }
 
-void RenderStatistics::setRenderImage(string renderImage) {
+void RenderStatistics::setRenderImage(const string renderImage) {
   this->renderImage = renderImage;
 }
 

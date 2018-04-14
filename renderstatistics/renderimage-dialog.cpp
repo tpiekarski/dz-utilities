@@ -1,3 +1,4 @@
+// Render Statistics Headers
 #include "renderimage-dialog.h"
 
 RenderImageDialog::RenderImageDialog(QWidget *parent, QString renderImageFilename)
