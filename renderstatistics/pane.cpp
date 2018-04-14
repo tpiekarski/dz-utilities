@@ -8,7 +8,9 @@
 #include "QtCore\qobject.h"
 #include "QtCore\qstring.h"
 #include "QtGui\qboxlayout.h"
+#include "QtGui\qimage.h"
 #include "QtGui\qlabel.h"
+#include "QtGui\qmessagebox.h"
 
 // DAZ Studio SDK Headers
 #include "dzapp.h"
@@ -60,6 +62,7 @@ void RenderStatisticsPane::processFinishRendering() {
   RenderStatistics* currentStatistics = &statistics.back();
   currentStatistics->stopClock();
   currentStatistics->setCounter(++renderingCounter);
+  currentStatistics->setRenderImage(saveLastRenderImage(renderingCounter).toStdString());
 
   logger.log(*currentStatistics);
   statisticsLayout->update();
@@ -77,4 +80,19 @@ void RenderStatisticsPane::setupPaneLayout() {
   paneLayout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Expanding));
 
   setLayout(paneLayout);
+}
+
+QString RenderStatisticsPane::saveLastRenderImage(int renderingCounter) {
+  QString renderStoragePath = dzApp->getTempPath();
+  QString filename = QString(RENDER_FILE_NAME_TEMPLATE).arg(QString::number(renderingCounter));
+  QString filePath = QString("%1/%2").arg(renderStoragePath, filename);
+  QImage lastRenderImage(renderManager->getLastSavedRenderPath());
+
+  if (! lastRenderImage.save(filePath, 0, -1)) {
+    logger.log(QString("Failed storing render image at %1.").arg(filePath));
+
+    return NOTHING;
+  }
+
+  return filename;
 }

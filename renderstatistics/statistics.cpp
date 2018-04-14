@@ -19,6 +19,10 @@ void RenderStatistics::setCounter(int counter) {
   this->counter = counter;
 }
 
+void RenderStatistics::setRenderImage(string renderImage) {
+  this->renderImage = renderImage;
+}
+
 void RenderStatistics::stopClock() {
   endTime = high_resolution_clock::now();
   renderingDuration = calculateDuration();

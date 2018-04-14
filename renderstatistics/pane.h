@@ -21,6 +21,9 @@
 #define HEADING_ROWS 2
 #define COLUMNS 7
 
+#define RENDER_FILE_NAME_TEMPLATE "render-%1.png"
+#define NOTHING ""
+
 /*
  * Class: RenderStatisticsPane
  * Description: Main class for the render statistics pane.
@@ -53,6 +56,7 @@ private:
   int renderingCounter;
 
   void setupPaneLayout();
+  QString saveLastRenderImage(int renderingCounter);
 };
 
 #endif

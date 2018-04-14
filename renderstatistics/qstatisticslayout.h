@@ -39,6 +39,7 @@ private:
   void addSeparator(int row, int columnSpan);
   void removeRow(int row);
   QList<QLabel*> buildLabels();
+
 };
 
 #endif

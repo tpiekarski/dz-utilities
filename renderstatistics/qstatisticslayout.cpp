@@ -56,7 +56,7 @@ void QStatisticsLayout::showRendering(const int &rendering) {
 	QMessageBox::information(
     0, 
     tr("Rendering"), 
-    QString::number(currentStatistic->getCounter()),
+    QString::fromStdString(currentStatistic->getRenderImage()),
     QMessageBox::Ok
   );
   

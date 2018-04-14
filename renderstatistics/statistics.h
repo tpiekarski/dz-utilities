@@ -32,6 +32,7 @@ public:
   ~RenderStatistics();
 
   void setCounter(int counter);
+  void setRenderImage(string renderImage);
   void stopClock();
 
   string toString();
@@ -39,6 +40,7 @@ public:
   string getEngine() { return engine; };
   int getNodes() { return nodes; }
   int getCounter() { return counter; };
+  string getRenderImage() { return renderImage; };
 
   string getDurationInSeconds();
   string getStartDate();
@@ -49,6 +51,7 @@ private:
   int nodes;
   int counter;
   bool finished;
+  string renderImage;
 
   high_resolution_clock::time_point startTime;
   high_resolution_clock::time_point endTime;

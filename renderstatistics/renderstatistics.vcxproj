@@ -191,7 +191,6 @@
     <ClCompile Include="pane.cpp" />
     <ClCompile Include="pane-action.cpp" />
     <ClCompile Include="qstatisticslayout.cpp" />
-    <ClCompile Include="renderimagebutton.cpp" />
     <ClCompile Include="statistics.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -253,7 +252,6 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
-    <ClInclude Include="renderimagebutton.h" />
     <ClInclude Include="statistics.h" />
     <ClInclude Include="version.h" />
   </ItemGroup>
