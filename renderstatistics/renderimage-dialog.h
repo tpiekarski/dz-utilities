@@ -13,6 +13,7 @@
 #include "QtGui\qimage.h"
 #include "QtGui\qlabel.h"
 #include "QtGui\qlayout.h"
+#include "QtGui\qpixmap.h"
 #include "QtGui\qwidget.h"
 
 #define RENDER_IMAGE_DIALOG_WIDTH 600
@@ -33,6 +34,7 @@ public:
 private:
   RenderStatisticsLogger *logger;
   QImage *renderImage;
+  QLabel *renderImageLabel;
   QLabel *errorLabel;
 
 };

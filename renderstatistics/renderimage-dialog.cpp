@@ -8,10 +8,17 @@ RenderImageDialog::RenderImageDialog(QWidget *parent, QString renderImageFilenam
   QString renderStoragePath = dzApp->getTempPath();
   QString filePath = QString("%1/%2").arg(renderStoragePath, renderImageFilename);
   
+  renderImageLabel = new QLabel();
   renderImage = new QImage(filePath);
 
-  if (renderImage == NULL) {
-    QString message = QString("Rendering image %1 could not be found.").arg(filePath);
+  if (! renderImage->isNull()) {
+    QImage scaledRenderImage = renderImage->scaledToWidth(RENDER_IMAGE_DIALOG_WIDTH, Qt::FastTransformation);
+
+    renderImageLabel->setPixmap(QPixmap::fromImage(scaledRenderImage));
+    addWidget(renderImageLabel);
+
+  } else {
+    QString message = QString("The rendering image %1 could not be loaded.").arg(filePath);
     errorLabel = new QLabel(message, this);
 
     addWidget(errorLabel);
@@ -26,7 +33,6 @@ RenderImageDialog::RenderImageDialog(QWidget *parent, QString renderImageFilenam
   resize(QSize(RENDER_IMAGE_DIALOG_WIDTH, 0).expandedTo(minimumSizeHint()));
   setFixedWidth(width());
   setFixedHeight(height());
-
 }
 
 RenderImageDialog::~RenderImageDialog() {
@@ -38,6 +44,8 @@ RenderImageDialog::~RenderImageDialog() {
   if (renderImage != NULL) {
     delete(renderImage);
     renderImage = NULL;
+    delete(renderImageLabel);
+    renderImageLabel = NULL;
   } else if (errorLabel != NULL) {
     delete(errorLabel);
     errorLabel = NULL;
