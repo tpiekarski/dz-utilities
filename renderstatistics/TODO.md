@@ -6,6 +6,7 @@ dzUtilities::RenderStatistics
 ##### Features
 + [x] Temporarily save rendered image
 + [x] Add a button to show a dialog with the rendered image
++ [ ] Add a setting dialog accessibly by the pane actions menu
 + [ ] Saving button in the RenderImageDialog
 + [ ] Clearing of all statistics and the QStatisticsLayout
 + [ ] Sorting of columns inside the QStatisticsLayout
@@ -16,6 +17,8 @@ dzUtilities::RenderStatistics
 + [ ] Export of statistics to CSV and JSON
 
 ##### UI
++ [x] Avoid upscaling of smaller rendering images
++ [ ] Provide a setting for the width and the image scaling algoritm of the rendering image
 + [ ] Scrollability of the QStatisticsLayout
 + [ ] Replace show render button by either thumbnail or iconized button
 

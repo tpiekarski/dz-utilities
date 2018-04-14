@@ -259,6 +259,7 @@
     <None Include="..\.gitignore" />
     <None Include="..\README.md" />
     <None Include="console.def" />
+    <None Include="TODO.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

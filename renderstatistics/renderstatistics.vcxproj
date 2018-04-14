@@ -276,6 +276,7 @@
     <None Include="..\README.md" />
     <None Include="packages.config" />
     <None Include="renderstatistics.def" />
+    <None Include="TODO.md" />
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="qstrings.natvis" />

@@ -88,5 +88,8 @@
       <Filter>Documentation</Filter>
     </None>
     <None Include="..\.gitignore" />
+    <None Include="TODO.md">
+      <Filter>Documentation</Filter>
+    </None>
   </ItemGroup>
 </Project>

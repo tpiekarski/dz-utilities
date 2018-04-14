@@ -8,13 +8,20 @@ RenderImageDialog::RenderImageDialog(QWidget *parent, QString renderImageFilenam
   QString renderStoragePath = dzApp->getTempPath();
   QString filePath = QString("%1/%2").arg(renderStoragePath, renderImageFilename);
   
+  int dialogWidth = RENDER_IMAGE_DIALOG_WIDTH;
   renderImageLabel = new QLabel();
   renderImage = new QImage(filePath);
 
   if (! renderImage->isNull()) {
-    QImage scaledRenderImage = renderImage->scaledToWidth(RENDER_IMAGE_DIALOG_WIDTH, Qt::FastTransformation);
 
-    renderImageLabel->setPixmap(QPixmap::fromImage(scaledRenderImage));
+    if (renderImage->width() > RENDER_IMAGE_DIALOG_WIDTH) {
+      QImage scaledRenderImage = renderImage->scaledToWidth(RENDER_IMAGE_DIALOG_WIDTH, Qt::FastTransformation);
+      renderImageLabel->setPixmap(QPixmap::fromImage(scaledRenderImage));
+    } else {
+      renderImageLabel->setPixmap(QPixmap::fromImage(*renderImage));
+      dialogWidth = renderImage->width();
+    }
+
     addWidget(renderImageLabel);
 
   } else {
@@ -30,7 +37,7 @@ RenderImageDialog::RenderImageDialog(QWidget *parent, QString renderImageFilenam
   layout()->setSizeConstraint(QLayout::SetNoConstraint);
 
   setWindowTitle("Render Image");
-  resize(QSize(RENDER_IMAGE_DIALOG_WIDTH, 0).expandedTo(minimumSizeHint()));
+  resize(QSize(dialogWidth, 0).expandedTo(minimumSizeHint()));
   setFixedWidth(width());
   setFixedHeight(height());
 }
