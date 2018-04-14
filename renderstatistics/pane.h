@@ -18,6 +18,7 @@
 #include "dzpane.h"
 #include "dzrendermgr.h"
 
+#define INITIAL_RENDERING_COUNTER 0
 #define HEADING_ROWS 2
 #define COLUMNS 7
 

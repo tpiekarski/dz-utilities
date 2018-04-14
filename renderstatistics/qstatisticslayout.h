@@ -11,6 +11,7 @@
 #include "QtCore\qalgorithms.h"
 #include "QtCore\qlist.h"
 #include "QtCore\qsignalmapper.h"
+#include "QtGui\qframe.h"
 #include "QtGui\qgridlayout.h"
 #include "QtGui\qlabel.h"
 #include "QtGui\qpushbutton.h"
@@ -36,15 +37,17 @@ private slots:
 
 private:  
   RenderStatisticsLogger* logger;
-  QList<QLabel*> labels;
+  QList<QLabel*> headingLabels;
+  QFrame *separator;
+  QList<QList<QLabel*>> dataRowLabelLists;
   QList<QPushButton*> buttons;
   QList<QSignalMapper*> signalMappers;
   vector<RenderStatistics>* statistics;
 
+  void addHeadingRow();
   void addSeparator(int row, int columnSpan);
   void removeRow(int row);
   QList<QLabel*> buildLabels();
 
 };
-
 #endif

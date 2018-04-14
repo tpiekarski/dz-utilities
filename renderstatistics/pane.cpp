@@ -24,7 +24,7 @@ RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
   renderManager = dzApp->getRenderMgr();
   connectSignals();
   setupPaneLayout();
-  renderingCounter = 0;
+  renderingCounter = INITIAL_RENDERING_COUNTER;
 }
 
 RenderStatisticsPane::~RenderStatisticsPane() {
@@ -32,19 +32,19 @@ RenderStatisticsPane::~RenderStatisticsPane() {
 
   delete(logger);
   logger = NULL;
-
-  clear();
 }
 
 void RenderStatisticsPane::clear() {
-  if (statistics.size() > 0) {
-    statistics.clear();
-    statistics.shrink_to_fit();
+  if (statistics.size() == INITIAL_RENDERING_COUNTER) {
+    return;
   }
 
-  if (statisticsLayout->rowCount() > HEADING_ROWS) {
-    // todo: remove all widgets inside one QGridLayouts row
-  }
+  logger->log(QString("Clearing render statistics of %1 rendering(s).").arg(statistics.size()));
+
+  renderingCounter = INITIAL_RENDERING_COUNTER;
+  statistics.clear();
+  statistics.shrink_to_fit();
+  statisticsLayout->clear();
 }
 
 void RenderStatisticsPane::connectSignals() {

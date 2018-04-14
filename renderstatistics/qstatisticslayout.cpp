@@ -7,7 +7,6 @@
 
 // Qt SDK Headers
 #include "QtGui\qcolor.h"
-#include "QtGui\qframe.h"
 #include "QtGui\qpalette.h"
 #include "QtGui\qpushbutton.h"
 #include "QtGui\qmessagebox.h"
@@ -16,21 +15,7 @@ QStatisticsLayout::QStatisticsLayout(vector<RenderStatistics>* statistics) : QGr
   this->statistics = statistics;
   logger = new RenderStatisticsLogger();
 
-  labels.append(new QLabel("#"));
-  labels.append(new QLabel("Engine"));
-  labels.append(new QLabel("Nodes"));
-  labels.append(new QLabel("Date"));
-  labels.append(new QLabel("Time"));
-  labels.append(new QLabel("Duration [s]"));
-  labels.append(new QLabel("Rendering"));
-
-  int row = 0;
-
-  for (QLabel* label : labels) {
-    label->setFixedHeight(15);
-    addWidget(label, 0, row++);
-  }
-
+  addHeadingRow();
   addSeparator(1, columnCount());
 }
 
@@ -43,19 +28,56 @@ QStatisticsLayout::~QStatisticsLayout() {
   delete(statistics);
   statistics = NULL;
 
-  qDeleteAll(signalMappers);
-  signalMappers.clear();
-  qDeleteAll(buttons);
-  buttons.clear();
-  qDeleteAll(labels);
-  labels.clear();
+  if (signalMappers.count() > 0) {
+    qDeleteAll(signalMappers);
+    signalMappers.clear();
+  }
+  
+  if (buttons.count() > 0) {
+    qDeleteAll(buttons);
+    buttons.clear();
+  }
+  
+  if (headingLabels.count() > 0) {
+    qDeleteAll(headingLabels);
+    headingLabels.clear();
+  }
+  
+  if (dataRowLabelLists.count() > 0) {
+    for (QList<QLabel*> dataRowList : dataRowLabelLists) {
+      if (dataRowList.count() > 0) {
+        qDeleteAll(dataRowList);
+        dataRowList.clear();
+      }
+    }
+  }
+
+}
+
+void QStatisticsLayout::addHeadingRow() {
+  headingLabels.append(new QLabel("#"));
+  headingLabels.append(new QLabel("Engine"));
+  headingLabels.append(new QLabel("Nodes"));
+  headingLabels.append(new QLabel("Date"));
+  headingLabels.append(new QLabel("Time"));
+  headingLabels.append(new QLabel("Duration [s]"));
+  headingLabels.append(new QLabel("Rendering"));
+
+  int row = 0;
+
+  for (QLabel* label : headingLabels) {
+    label->setFixedHeight(15);
+    addWidget(label, 0, row++);
+  }
 }
 
 void QStatisticsLayout::update() {
   int currentColumn = 0;
   int currentRow = rowCount();
 
-  for (QLabel* label : buildLabels()) {
+  dataRowLabelLists.append(buildLabels());
+
+  for (QLabel* label : dataRowLabelLists.back()) {
     addWidget(label, currentRow, currentColumn++);
   }
 
@@ -63,7 +85,7 @@ void QStatisticsLayout::update() {
 
   buttons.append(new QPushButton("Show"));
   addWidget(buttons.at(counter), currentRow, 6);
-  
+
   signalMappers.append(new QSignalMapper(this));
   signalMappers.at(counter)->setMapping(buttons.at(counter), counter);
 
@@ -100,7 +122,7 @@ void QStatisticsLayout::removeRow(int row) {
 }
 
 void QStatisticsLayout::addSeparator(int row, int columnSpan) {
-  QFrame *separator = new QFrame();
+  separator = new QFrame();
   separator->setLineWidth(1);
   separator->setMidLineWidth(1);
   separator->setFrameShape(QFrame::HLine);
@@ -120,6 +142,43 @@ QList<QLabel*> QStatisticsLayout::buildLabels() {
   outputLabels.append(new QLabel(QString::fromStdString(lastStatistics->getStartDate())));
   outputLabels.append(new QLabel(QString::fromStdString(lastStatistics->getStartTime())));
   outputLabels.append(new QLabel(QString::fromStdString(lastStatistics->getDurationInSeconds())));
-  
+
   return outputLabels;
+}
+
+void QStatisticsLayout::clear() {
+
+  while (count()) {
+    QWidget* widget = itemAt(0)->widget();
+
+    if (widget != NULL) {
+      widget->setVisible(false);
+      removeWidget(widget);
+      delete widget;
+      widget = NULL;
+    }
+  }
+
+  for (QSignalMapper *signalMapper : signalMappers) {
+    signalMapper->disconnect();
+  }
+
+  for (int n = 0; n < signalMappers.count(); n++) {
+    QSignalMapper *signalMapper = signalMappers.at(n);
+
+    if (signalMapper != NULL) {
+      signalMapper->disconnect();
+      delete signalMapper;
+      signalMapper = NULL;
+
+      signalMappers.removeAt(n);
+    }
+  }
+
+  headingLabels.clear();
+  dataRowLabelLists.clear();
+  buttons.clear();
+
+  addHeadingRow();
+  addSeparator(1, columnCount());
 }

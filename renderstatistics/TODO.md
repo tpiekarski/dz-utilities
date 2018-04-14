@@ -8,7 +8,9 @@ dzUtilities::RenderStatistics
 + [x] Add a button to show a dialog with the rendered image
 + [ ] Add a setting dialog accessibly by the pane actions menu
 + [ ] Saving button in the RenderImageDialog
-+ [ ] Clearing of all statistics and the QStatisticsLayout
++ [ ] Indicate aborted renderings
++ [ ] Introduce a setting to capture data from aborted renderings
++ [x] Clearing of all statistics and the QStatisticsLayout
 + [ ] Sorting of columns inside the QStatisticsLayout
 + [ ] Saving of statistics inside DSON
 + [ ] Saving of rendered images inside DSON
@@ -37,4 +39,4 @@ dzUtilities::RenderStatistics
    memory only once inside the destructor of RenderStatisticsPane._
 
 #### Bugs
-+ [ ] Fix *Signal-Slot-Mapping bug* which maps signals multiply times
++ [ ] Fix *Signal-Slot-Mapping bug* which maps signals multiple times
