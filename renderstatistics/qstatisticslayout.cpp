@@ -14,6 +14,7 @@
 
 QStatisticsLayout::QStatisticsLayout(vector<RenderStatistics>* statistics) : QGridLayout() {
   this->statistics = statistics;
+  logger = new RenderStatisticsLogger();
 
   labels.append(new QLabel("#"));
   labels.append(new QLabel("Engine"));
@@ -31,6 +32,23 @@ QStatisticsLayout::QStatisticsLayout(vector<RenderStatistics>* statistics) : QGr
   }
 
   addSeparator(1, columnCount());
+}
+
+QStatisticsLayout::~QStatisticsLayout() {
+  logger->log("Destructing QStatisticsLayout and clearing all lists with widgets.");
+
+  delete(logger);
+  logger = NULL;
+
+  delete(statistics);
+  statistics = NULL;
+
+  qDeleteAll(signalMappers);
+  signalMappers.clear();
+  qDeleteAll(buttons);
+  buttons.clear();
+  qDeleteAll(labels);
+  labels.clear();
 }
 
 void QStatisticsLayout::update() {

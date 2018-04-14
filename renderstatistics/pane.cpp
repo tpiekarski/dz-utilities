@@ -20,14 +20,21 @@
 #include "dzstyle.h"
 
 RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
-  logger = RenderStatisticsLogger();
+  logger = new RenderStatisticsLogger();
   renderManager = dzApp->getRenderMgr();
   connectSignals();
   setupPaneLayout();
   renderingCounter = 0;
 }
 
-RenderStatisticsPane::~RenderStatisticsPane() { }
+RenderStatisticsPane::~RenderStatisticsPane() {
+  logger->log("Destructing render statistics pane.");
+
+  delete(logger);
+  logger = NULL;
+
+  clear();
+}
 
 void RenderStatisticsPane::clear() {
   if (statistics.size() > 0) {
@@ -50,21 +57,21 @@ void RenderStatisticsPane::buildOptionsMenu(DzActionMenu *menu) const {
 }
 
 void RenderStatisticsPane::processStartRendering() {
-  logger.log("Rendering started.");
+  logger->log("Rendering started.");
 
   DzRenderer* renderer = renderManager->getActiveRenderer();
   statistics.push_back(RenderStatistics(renderer->getName().toStdString(), dzScene->getNumNodes()));
 }
 
 void RenderStatisticsPane::processFinishRendering() {
-  logger.log("Rendering finished.");
+  logger->log("Rendering finished.");
 
   RenderStatistics* currentStatistics = &statistics.back();
   currentStatistics->stopClock();
   currentStatistics->setCounter(++renderingCounter);
   currentStatistics->setRenderImage(saveLastRenderImage(renderingCounter).toStdString());
 
-  logger.log(*currentStatistics);
+  logger->log(*currentStatistics);
   statisticsLayout->update();
 }
 
@@ -89,7 +96,7 @@ QString RenderStatisticsPane::saveLastRenderImage(int renderingCounter) {
   QImage lastRenderImage(renderManager->getLastSavedRenderPath());
 
   if (! lastRenderImage.save(filePath, 0, -1)) {
-    logger.log(QString("Failed storing render image at %1.").arg(filePath));
+    logger->log(QString("Failed storing render image at %1.").arg(filePath));
 
     return NOTHING;
   }

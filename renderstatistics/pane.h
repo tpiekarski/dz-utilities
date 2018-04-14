@@ -48,7 +48,7 @@ private slots:
 
 private:
   vector<RenderStatistics> statistics;
-  RenderStatisticsLogger logger;
+  RenderStatisticsLogger* logger;
   DzRenderMgr *renderManager;
   QVBoxLayout *paneLayout;
   QStatisticsLayout *statisticsLayout;

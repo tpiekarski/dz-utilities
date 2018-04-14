@@ -5,13 +5,16 @@
 
 // Render Statistics Headers
 #include "statistics.h"
+#include "logger.h"
 
 // Qt SDK Headers
+#include "QtCore\qalgorithms.h"
 #include "QtCore\qlist.h"
 #include "QtCore\qsignalmapper.h"
 #include "QtGui\qgridlayout.h"
 #include "QtGui\qlabel.h"
 #include "QtGui\qpushbutton.h"
+
 
 using namespace std;
 
@@ -21,6 +24,7 @@ class QStatisticsLayout : public QGridLayout {
 
 public:
   QStatisticsLayout(vector<RenderStatistics>* statistics);
+  ~QStatisticsLayout();
   void update();
   void clear();
 
@@ -31,6 +35,7 @@ private slots:
   void showRendering(const int &rendering);
 
 private:  
+  RenderStatisticsLogger* logger;
   QList<QLabel*> labels;
   QList<QPushButton*> buttons;
   QList<QSignalMapper*> signalMappers;
