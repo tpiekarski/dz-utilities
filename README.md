@@ -3,10 +3,10 @@ dzUtilities
 
 *A collection of miscellaneous utilities for [DAZ Studio](https://www.daz3d.com/get_studio).*
 
-#|Utility Plugin|Description|Source
----|---|---|---
-1.|[Console](#console)|Console plugin displaying DAZ Studio Log file|[dzUtilities/console](https://github.com/tpiekarski/dzUtilities/tree/master/console)
-2.|[Render Statistics](#render-statistics)|Render data aggregation and statistics plugin|[dzUtilities/renderstatistics](https://github.com/tpiekarski/dzUtilities/tree/master/renderstatistics)
+#|Utility Plugin|Description|TODO|Source
+---|---|---|---|---
+1.|[Console](#console)|Console plugin displaying DAZ Studio Log file|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/console/TODO.md)|[dzUtilities/console](https://github.com/tpiekarski/dzUtilities/tree/master/console)
+2.|[Render Statistics](#render-statistics)|Render data aggregation and statistics plugin|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/renderstatistics/TODO.md)|[dzUtilities/renderstatistics](https://github.com/tpiekarski/dzUtilities/tree/master/renderstatistics)
 
 #### Build process
 Visual Studio is used for the build process and all project configurations are
