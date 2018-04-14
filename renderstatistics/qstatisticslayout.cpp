@@ -1,5 +1,9 @@
 // Render Statistics Headers
 #include "qstatisticslayout.h"
+#include "renderimage-dialog.h"
+
+// DAZ Studio SDK Headers
+#include "dzmainwindow.h"
 
 // Qt SDK Headers
 #include "QtGui\qcolor.h"
@@ -52,14 +56,25 @@ void QStatisticsLayout::update() {
 
 void QStatisticsLayout::showRendering(const int &rendering) {
   RenderStatistics* currentStatistic = &statistics->at(rendering);
-  
-	QMessageBox::information(
-    0, 
-    tr("Rendering"), 
-    QString::fromStdString(currentStatistic->getRenderImage()),
-    QMessageBox::Ok
-  );
-  
+  DzMainWindow *mainWindow;
+  RenderImageDialog* dialog;
+  int dialogResult;
+
+  if (!(mainWindow = dzApp->getInterface())) {
+    QMessageBox::warning(0, "Error", "The main window is not available.", QMessageBox::Ok);
+
+    return;
+  }
+
+  if (!(dialog = new RenderImageDialog(mainWindow, QString::fromStdString(currentStatistic->getRenderImage())))) {
+    QMessageBox::warning(0, "Error", "The dialog for render images could not be created.", QMessageBox::Ok);
+
+    return;
+  }
+
+  dialogResult = dialog->exec();
+
+  delete(dialog);
 }
 
 void QStatisticsLayout::removeRow(int row) {

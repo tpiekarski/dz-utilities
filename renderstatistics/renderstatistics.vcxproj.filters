@@ -54,6 +54,12 @@
     <ClCompile Include="moc\qstatisticslayout_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
+    <ClCompile Include="renderimage-dialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\renderimage-dialog_moc.cpp">
+      <Filter>Meta Object Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="version.h">
@@ -66,6 +72,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="statistics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="renderimage-dialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
