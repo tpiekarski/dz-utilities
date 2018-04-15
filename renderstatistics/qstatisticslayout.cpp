@@ -17,6 +17,9 @@ QStatisticsLayout::QStatisticsLayout(vector<RenderStatistics>* statistics) : QGr
 
   addHeadingRow();
   addSeparator(1, columnCount());
+
+  logger->log("Connecting clicked signal with showRendering slot for future render image buttons.");
+  connect(this, SIGNAL(clicked(const int &)), this, SLOT(showRendering(const int &)));
 }
 
 QStatisticsLayout::~QStatisticsLayout() {
@@ -81,17 +84,25 @@ void QStatisticsLayout::update() {
     addWidget(label, currentRow, currentColumn++);
   }
 
+  addRenderImageButton(currentRow);
+}
+
+void QStatisticsLayout::addRenderImageButton(const int currentRow) {
   int counter = statistics->back().getCounter() - 1;
 
   buttons.append(new QPushButton("Show"));
   addWidget(buttons.at(counter), currentRow, 6);
 
-  signalMappers.append(new QSignalMapper(this));
-  signalMappers.at(counter)->setMapping(buttons.at(counter), counter);
+  QSignalMapper *newSignalMapper = new QSignalMapper(this);
 
+  newSignalMapper->setMapping(buttons.at(counter), counter);
+  newSignalMapper->setObjectName(QString("RenderImageButton-SignalMapper-%1").arg(QString::number(counter)));
+
+  signalMappers.append(newSignalMapper);
+
+  logger->log(QString("Adding mapped signal/slot connections to %1").arg(newSignalMapper->objectName()));
   connect(buttons.at(counter), SIGNAL(clicked()), signalMappers.at(counter), SLOT(map()));
   connect(signalMappers.at(counter), SIGNAL(mapped(const int &)), this, SIGNAL(clicked(const int &)));
-  connect(this, SIGNAL(clicked(const int &)), this, SLOT(showRendering(const int &)));
 }
 
 void QStatisticsLayout::showRendering(const int &rendering) {

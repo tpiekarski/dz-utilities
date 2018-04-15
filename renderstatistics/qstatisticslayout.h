@@ -27,6 +27,7 @@ public:
   QStatisticsLayout(vector<RenderStatistics>* statistics);
   ~QStatisticsLayout();
   void update();
+  void addRenderImageButton(const int currentRow);
   void clear();
 
 signals:
