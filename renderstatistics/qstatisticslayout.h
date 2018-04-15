@@ -36,7 +36,7 @@ signals:
 private slots:
   void showRendering(const int &rendering);
 
-private:  
+private:
   RenderStatisticsLogger* logger;
   QList<QLabel*> headingLabels;
   QFrame* separator;
@@ -46,8 +46,7 @@ private:
   vector<RenderStatistics>* statistics;
 
   void addHeadingRow();
-  void addSeparator(int row, int columnSpan);
-  void removeRow(int row);
+  void addSeparator(const int row, const int columnSpan);
   QList<QLabel*> buildLabels();
 
 };

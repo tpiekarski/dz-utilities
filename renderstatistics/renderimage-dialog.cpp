@@ -1,7 +1,7 @@
 // Render Statistics Headers
 #include "renderimage-dialog.h"
 
-RenderImageDialog::RenderImageDialog(QWidget* parent, QString renderImageFilename)
+RenderImageDialog::RenderImageDialog(QWidget* parent, const QString renderImageFilename)
   : DzBasicDialog(parent, "RenderImage") {
 
   logger = new RenderStatisticsLogger();

@@ -12,14 +12,18 @@
 #include "QtGui\qpushbutton.h"
 
 QStatisticsLayout::QStatisticsLayout(vector<RenderStatistics>* statistics) : QGridLayout() {
+  this->setObjectName("QStatisticsLayout");
   this->statistics = statistics;
+
   logger = new RenderStatisticsLogger();
 
   addHeadingRow();
   addSeparator(1, columnCount());
 
-  logger->log("Connecting clicked signal with showRendering slot for future render image buttons.");
-  connect(this, SIGNAL(clicked(const int &)), this, SLOT(showRendering(const int &)));
+  if (!connect(this, SIGNAL(clicked(const int &)), this, SLOT(showRendering(const int &)))) {
+    logger->log(QString("Failed connecting clicked signal for %1 to the showRendering slot of %2 for future render image buttons.")
+      .arg(this->objectName()).arg(this->objectName()));
+  };
 }
 
 QStatisticsLayout::~QStatisticsLayout() {
@@ -90,19 +94,30 @@ void QStatisticsLayout::update() {
 void QStatisticsLayout::addRenderImageButton(const int currentRow) {
   int counter = statistics->back().getCounter() - 1;
 
-  buttons.append(new QPushButton("Show"));
-  addWidget(buttons.at(counter), currentRow, 6);
+  QPushButton* newButton = new QPushButton("Show");
+  newButton->setObjectName(QString("RenderImageButton-").arg(QString::number(counter)));
+  buttons.append(newButton);
 
   QSignalMapper* newSignalMapper = new QSignalMapper(this);
-
   newSignalMapper->setMapping(buttons.at(counter), counter);
   newSignalMapper->setObjectName(QString("RenderImageButton-SignalMapper-%1").arg(QString::number(counter)));
-
   signalMappers.append(newSignalMapper);
 
-  logger->log(QString("Adding mapped signal/slot connections to %1").arg(newSignalMapper->objectName()));
-  connect(buttons.at(counter), SIGNAL(clicked()), signalMappers.at(counter), SLOT(map()));
-  connect(signalMappers.at(counter), SIGNAL(mapped(const int &)), this, SIGNAL(clicked(const int &)));
+  if (!connect(buttons.at(counter), SIGNAL(clicked()), signalMappers.at(counter), SLOT(map()))) {
+    logger->log(QString("Failed connecting clicked signal for %1 to the map slot of %2.")
+      .arg(newButton->objectName()).arg(newSignalMapper->objectName()));
+    
+    return;
+  }
+
+  if (!connect(signalMappers.at(counter), SIGNAL(mapped(const int &)), this, SIGNAL(clicked(const int &)))) {
+    logger->log(QString("Failed connecting mapped signal for %1 to the clicked signal for %2")
+      .arg(newSignalMapper->objectName()).arg(this->objectName()));
+
+    return;
+  }
+
+  addWidget(newButton, currentRow, 6);
 }
 
 void QStatisticsLayout::showRendering(const int &rendering) {
@@ -127,11 +142,7 @@ void QStatisticsLayout::showRendering(const int &rendering) {
   delete(dialog);
 }
 
-void QStatisticsLayout::removeRow(int row) {
-  // todo: implement removing of rows
-}
-
-void QStatisticsLayout::addSeparator(int row, int columnSpan) {
+void QStatisticsLayout::addSeparator(const int row, const int columnSpan) {
   separator = new QFrame();
   separator->setLineWidth(1);
   separator->setMidLineWidth(1);
@@ -185,9 +196,10 @@ void QStatisticsLayout::clear() {
     }
   }
 
-  headingLabels.clear();
-  dataRowLabelLists.clear();
   buttons.clear();
+  dataRowLabelLists.clear();
+  headingLabels.clear();
+  signalMappers.clear();
 
   addHeadingRow();
   addSeparator(1, columnCount());

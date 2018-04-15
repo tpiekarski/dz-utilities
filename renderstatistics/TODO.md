@@ -28,9 +28,10 @@ dzUtilities::RenderStatistics
 + [ ] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
-+ [ ] Streamline handling of header files
-+ [ ] Introduce unit testing
-+ [ ] Add a linter and static code analysis
++ [ ] Extend logging with debug switch
++ [ ] Find best practise to streamline handling of header files
++ [ ] Introduce some kind of unit testing at least for the little statistics framework
++ [ ] Add another linter and static code analysis tool (cppcheck already integrated)
 + [ ] Gather missing debug versions of certain libraries and switch 
       from production to debug build configuration
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
@@ -44,3 +45,5 @@ dzUtilities::RenderStatistics
 
 #### Bugs
 + [x] Fix *Signal-Slot-Mapping bug* which maps signals multiple times
++ [x] Fix lost signal-slot-mapping for render image buttons after statistics clearing
+      (Occurs only after clearing more than one statistic)

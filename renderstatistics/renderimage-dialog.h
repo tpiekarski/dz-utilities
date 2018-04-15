@@ -27,7 +27,7 @@ class RenderImageDialog : public DzBasicDialog {
   Q_OBJECT
 
 public:
-  RenderImageDialog(QWidget* parent, QString renderImageFilename);
+  RenderImageDialog(QWidget* parent, const QString renderImageFilename);
   virtual ~RenderImageDialog();
 
 

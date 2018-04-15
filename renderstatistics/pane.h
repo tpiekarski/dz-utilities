@@ -57,7 +57,7 @@ private:
   int renderingCounter;
 
   void setupPaneLayout();
-  QString saveLastRenderImage(int renderingCounter);
+  QString saveLastRenderImage(const int renderingCounter);
 };
 
 #endif

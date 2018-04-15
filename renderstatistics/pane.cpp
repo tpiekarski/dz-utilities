@@ -48,8 +48,15 @@ void RenderStatisticsPane::clear() {
 }
 
 void RenderStatisticsPane::connectSignals() {
-  connect(renderManager, SIGNAL(renderStarting()), this, SLOT(processStartRendering()));
-  connect(renderManager, SIGNAL(renderFinished(bool)), this, SLOT(processFinishRendering()));
+  if (!connect(renderManager, SIGNAL(renderStarting()), this, SLOT(processStartRendering()))) {
+    logger->log(QString("Failed connecting renderStarting signal for %1 to the processStartRendering slot of %2.")
+      .arg(renderManager->objectName()).arg(this->objectName()));
+  }
+  
+  if (!connect(renderManager, SIGNAL(renderFinished(bool)), this, SLOT(processFinishRendering()))) {
+    logger->log(QString("Failed connecting renderFinished signal for %1 to the processFinishRendering slot of %2.")
+      .arg(renderManager->objectName()).arg(this->objectName()));
+  }
 }
 
 void RenderStatisticsPane::buildOptionsMenu(DzActionMenu* menu) const {
@@ -89,7 +96,7 @@ void RenderStatisticsPane::setupPaneLayout() {
   setLayout(paneLayout);
 }
 
-QString RenderStatisticsPane::saveLastRenderImage(int renderingCounter) {
+QString RenderStatisticsPane::saveLastRenderImage(const int renderingCounter) {
   QString renderStoragePath = dzApp->getTempPath();
   QString filename = QString(RENDER_FILE_NAME_TEMPLATE).arg(QString::number(renderingCounter));
   QString filePath = QString("%1/%2").arg(renderStoragePath, filename);

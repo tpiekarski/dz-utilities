@@ -28,11 +28,11 @@ using namespace boost::posix_time;
 class RenderStatistics {
 
 public:
-  RenderStatistics(string engine, int nodes);
+  RenderStatistics(const string engine, const int nodes);
   ~RenderStatistics();
 
-  void setCounter(int counter);
-  void setRenderImage(string renderImage);
+  void setCounter(const int counter);
+  void setRenderImage(const string renderImage);
   void stopClock();
 
   string toString();

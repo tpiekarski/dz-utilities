@@ -16,7 +16,7 @@ RenderStatistics::RenderStatistics(const string engine, const int nodes) {
 
 RenderStatistics::~RenderStatistics() {}
 
-void RenderStatistics::setCounter(int counter) {
+void RenderStatistics::setCounter(const int counter) {
   this->counter = counter;
 }
 
