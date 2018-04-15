@@ -40,7 +40,7 @@ public:
   void clear();
 
 protected:
-  virtual void buildOptionsMenu(DzActionMenu *menu) const;
+  virtual void buildOptionsMenu(DzActionMenu* menu) const;
 
 private slots:
   void connectSignals();
@@ -50,9 +50,9 @@ private slots:
 private:
   vector<RenderStatistics> statistics;
   RenderStatisticsLogger* logger;
-  DzRenderMgr *renderManager;
-  QVBoxLayout *paneLayout;
-  QStatisticsLayout *statisticsLayout;
+  DzRenderMgr* renderManager;
+  QVBoxLayout* paneLayout;
+  QStatisticsLayout* statisticsLayout;
 
   int renderingCounter;
 

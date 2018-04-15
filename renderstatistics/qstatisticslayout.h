@@ -39,7 +39,7 @@ private slots:
 private:  
   RenderStatisticsLogger* logger;
   QList<QLabel*> headingLabels;
-  QFrame *separator;
+  QFrame* separator;
   QList<QList<QLabel*>> dataRowLabelLists;
   QList<QPushButton*> buttons;
   QList<QSignalMapper*> signalMappers;

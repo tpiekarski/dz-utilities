@@ -9,11 +9,11 @@ RenderStatisticsClearAction::RenderStatisticsClearAction()
 }
 
 void RenderStatisticsClearAction::executeAction() {
-  DzMainWindow *mainWindow = dzApp->getInterface();
-  DzPaneMgr *paneManager = mainWindow->getPaneMgr();
-  DzPane *pane = paneManager->findPane("RenderStatisticsPane");
+  DzMainWindow* mainWindow = dzApp->getInterface();
+  DzPaneMgr* paneManager = mainWindow->getPaneMgr();
+  DzPane* pane = paneManager->findPane("RenderStatisticsPane");
 
-  RenderStatisticsPane *statisticsPane = dynamic_cast<RenderStatisticsPane*>(pane);
+  RenderStatisticsPane* statisticsPane = dynamic_cast<RenderStatisticsPane*>(pane);
 
   statisticsPane->clear();
 }

@@ -52,7 +52,7 @@ void RenderStatisticsPane::connectSignals() {
   connect(renderManager, SIGNAL(renderFinished(bool)), this, SLOT(processFinishRendering()));
 }
 
-void RenderStatisticsPane::buildOptionsMenu(DzActionMenu *menu) const {
+void RenderStatisticsPane::buildOptionsMenu(DzActionMenu* menu) const {
   menu->insertAction("RenderStatisticsClearAction");
 }
 

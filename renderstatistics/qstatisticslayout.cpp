@@ -93,7 +93,7 @@ void QStatisticsLayout::addRenderImageButton(const int currentRow) {
   buttons.append(new QPushButton("Show"));
   addWidget(buttons.at(counter), currentRow, 6);
 
-  QSignalMapper *newSignalMapper = new QSignalMapper(this);
+  QSignalMapper* newSignalMapper = new QSignalMapper(this);
 
   newSignalMapper->setMapping(buttons.at(counter), counter);
   newSignalMapper->setObjectName(QString("RenderImageButton-SignalMapper-%1").arg(QString::number(counter)));
@@ -107,7 +107,7 @@ void QStatisticsLayout::addRenderImageButton(const int currentRow) {
 
 void QStatisticsLayout::showRendering(const int &rendering) {
   RenderStatistics* currentStatistic = &statistics->at(rendering);
-  DzMainWindow *mainWindow;
+  DzMainWindow* mainWindow;
   RenderImageDialog* dialog;
 
   if (!(mainWindow = dzApp->getInterface())) {
@@ -169,12 +169,12 @@ void QStatisticsLayout::clear() {
     }
   }
 
-  for (QSignalMapper *signalMapper : signalMappers) {
+  for (QSignalMapper* signalMapper : signalMappers) {
     signalMapper->disconnect();
   }
 
   for (int n = 0; n < signalMappers.count(); n++) {
-    QSignalMapper *signalMapper = signalMappers.at(n);
+    QSignalMapper* signalMapper = signalMappers.at(n);
 
     if (signalMapper != NULL) {
       signalMapper->disconnect();
