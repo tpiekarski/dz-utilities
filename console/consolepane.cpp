@@ -18,18 +18,11 @@
 
 // DAZ Studio SDK Headers
 #include "dzapp.h"
-#include "dzexportmgr.h"
-#include "dzimportmgr.h"
 #include "dzmainwindow.h"
-#include "dzrendermgr.h"
 #include "dzstyle.h"
-#include "dzscene.h"
-
-
 
 ConsolePane::ConsolePane() : DzPane("Console") {
-
-  console = new Console(dzApp->getAppDataPath());
+  console = new Console(this, dzApp->getAppDataPath());
   settings = new ConsoleSettings();
   settings->setLogFilePath(console->getLogFullPath());
 
@@ -76,47 +69,22 @@ ConsolePane::ConsolePane() : DzPane("Console") {
 
   paneMainLayout->addWidget(logBrowser);
 
-  // Connecting to starting signal to display the log
   connect(dzApp, SIGNAL(starting()), this, SLOT(displayLog()));
-
-  // Connecting to major signals for reloading the log file
-  connectMajorSignals();
+  connect(console->getLogWatcher(), SIGNAL(fileChanged(const QString&)), this, SLOT(reloadLog()));
 }
 
 ConsolePane::~ConsolePane() {
   console->closeLog();
 }
 
-void ConsolePane::connectMajorSignals() {
-  // Connecting to logging signals
-  connect(dzApp, SIGNAL(debugMsg(const QString&)), this, SLOT(reloadLog()));
-  connect(dzApp, SIGNAL(warningMsg(const QString&)), this, SLOT(reloadLog()));
-
-  // Connecting to manager signals
-  connect(dzApp->getRenderMgr(), SIGNAL(renderFinished(bool)), this, SLOT(reloadLog()));
-  connect(dzApp->getExportMgr(), SIGNAL(fileExported()), this, SLOT(reloadLog()));
-  connect(dzApp->getImportMgr(), SIGNAL(fileImported()), this, SLOT(reloadLog()));
-
-  // Connecting to scene signals
-  connect(dzScene, SIGNAL(sceneLoadStarting()), this, SLOT(reloadLog()));
-  connect(dzScene, SIGNAL(sceneLoaded()), this, SLOT(reloadLog()));
-  connect(dzScene, SIGNAL(sceneSaved(const QString&)), this, SLOT(reloadLog()));
-  connect(dzScene, SIGNAL(sceneSaveStarting(const QString&)), this, SLOT(reloadLog()));
-}
-
 void ConsolePane::displayLog() {
-
   if (console->openLog()) {
     logBrowser->setPlainText(console->getLog());
     logBrowser->moveCursor(QTextCursor::End, QTextCursor::MoveAnchor);
     console->closeLog();
   }
   else {
-    QString msg(
-      QString(
-        tr("The log file %1 could not be opened.")
-      ).arg(console->getLogFullPath())
-    );
+    QString msg(QString(tr("The log file %1 could not be opened.")).arg(console->getLogFullPath()));
 
     QMessageBox::warning(0, tr("I/O-Error"), msg, QMessageBox::Ok);
     logBrowser->setPlainText(msg);

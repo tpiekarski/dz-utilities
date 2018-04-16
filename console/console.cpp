@@ -4,15 +4,20 @@
 // DAZ Studio SDK Headers
 #include "dzapp.h"
 
-Console::Console(QString path) {
+Console::Console(QWidget* parent, QString path) {
   // Building full path to log file, QFile expects only slashes
   QString dataPath(path.replace(QString("\\"), QString("/")));
   logFullPath = QString("%1/log.txt").arg(dataPath);
   logFile.setFileName(logFullPath);
+
+  logWatcher = new QFileSystemWatcher(parent);
+  logWatcher->setObjectName("logWatcher");
+  logWatcher->addPath(logFullPath);
 }
 
 Console::~Console() {
   closeLog();
+  logWatcher->removePath(logFullPath);
 }
 
 bool Console::openLog() {
@@ -37,14 +42,4 @@ bool Console::clearLog() {
 void Console::closeLog() {
   logStream.flush();
   logFile.close();
-}
-
-QString Console::getLog() {
-
-  return logStream.readAll();
-}
-
-QString Console::getLogFullPath() {
-
-  return logFullPath;
 }

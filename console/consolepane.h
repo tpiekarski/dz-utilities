@@ -20,21 +20,16 @@ class ConsolePane : public DzPane {
   Q_OBJECT
 
 public:
-
   ConsolePane();
   ~ConsolePane();
 
 private slots:
-  
   void displayLog();
   void reloadLog();
   void clearLog();
   void showProperties();
 
-  void connectMajorSignals();
-
 private:
-
   Console* console;
   ConsoleSettings* settings;
   QTextBrowser* logBrowser;

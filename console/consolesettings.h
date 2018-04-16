@@ -27,15 +27,10 @@ public:
   ConsoleSettings();
   virtual ~ConsoleSettings();
 
-  // Getter for font size by reference
   void getFontSize(float* fontSize);
   void getFontSize(QString* fontSize);
-  
-  // Setter for font size
   void setFontSize(const float fontSize);
   void setFontSize(const QString fontSize);
-
-  // Getter & Setter for the log file path
   QString getLogFilePath();
   void setLogFilePath(const QString logFilePath);
 

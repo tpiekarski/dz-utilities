@@ -4,8 +4,8 @@ dzUtilities::Console
 #### TODO
 
 ##### Features
-+ [ ] Automatically redisplay the log when new messages have been logged
-+ [ ] Remove previous signal-based update
++ [x] Automatically redisplay the log when new messages have been logged
++ [x] Remove previous signal-based update
 + [ ] Add the possibility to search for keywords forward/backward
 + [ ] Highlight search results
 + [ ] Add filter for the issuer of log messages
@@ -21,4 +21,5 @@ dzUtilities::Console
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
 
 #### Bugs
-+ [ ] Fix reload bug during signal-based and manual reload
++ [ ] Fix reload bug for manual reload
++ [ ] Fix initial log display bug not showing the end of file (off by a few lines)
