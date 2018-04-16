@@ -12,7 +12,7 @@
 #include "dzmainwindow.h"
 
 ConsolePropertiesDialog::ConsolePropertiesDialog(
-  QWidget *parent, ConsoleSettings *settings
+  QWidget* parent, ConsoleSettings* settings
 ) : DzBasicDialog(parent, "ConsoleProperties") {
 
   int margin = style()->pixelMetric(DZ_PM_GeneralMargin);

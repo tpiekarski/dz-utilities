@@ -37,23 +37,23 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   float fontSize;
 
   // Definition of panes main layout
-  QVBoxLayout *paneMainLayout = new QVBoxLayout();
+  QVBoxLayout* paneMainLayout = new QVBoxLayout();
   paneMainLayout->setMargin(margin);
   paneMainLayout->setSpacing(margin);
   setLayout(paneMainLayout);
   setMinimumSize(PANE_MIN_WIDTH, PANE_MIN_HEIGHT);
 
   // Definition of panes button group box
-  QGroupBox *buttonGroupBox = new QGroupBox();
-  QHBoxLayout *buttonGroupBoxLayout = new QHBoxLayout();
+  QGroupBox* buttonGroupBox = new QGroupBox();
+  QHBoxLayout* buttonGroupBoxLayout = new QHBoxLayout();
   buttonGroupBoxLayout->setMargin(margin);
   buttonGroupBoxLayout->setSpacing(margin);
   buttonGroupBox->setLayout(buttonGroupBoxLayout);
 
   // Definiton of control buttons
-  QPushButton *reloadButton = new QPushButton("&Reload", this);
-  QPushButton *clearButton = new QPushButton("&Clear", this);
-  QPushButton *propertiesButton = new QPushButton("&Properties", this);
+  QPushButton* reloadButton = new QPushButton("&Reload", this);
+  QPushButton* clearButton = new QPushButton("&Clear", this);
+  QPushButton* propertiesButton = new QPushButton("&Properties", this);
 
   buttonGroupBoxLayout->addWidget(reloadButton);
   buttonGroupBoxLayout->addWidget(clearButton);
@@ -131,8 +131,8 @@ void ConsolePane::reloadLog() {
 
 void ConsolePane::showProperties() {
 
-  DzMainWindow *mainWindow;
-  ConsolePropertiesDialog *dialog;
+  DzMainWindow* mainWindow;
+  ConsolePropertiesDialog* dialog;
   int dialogResult;
   QString newFontSize;
 

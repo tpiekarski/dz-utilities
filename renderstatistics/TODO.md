@@ -20,6 +20,8 @@ dzUtilities::RenderStatistics
 
 ##### UI
 + [x] Avoid upscaling of smaller rendering images
++ [ ] Add buttons to display previous and next rendering images
++ [ ] Display gathered information inside the render image dialog
 + [ ] Provide a setting for the width and the image scaling algoritm of the rendering image
 + [ ] Scrollability of the QStatisticsLayout
 + [ ] Replace show render button by either thumbnail or iconized button

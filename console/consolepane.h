@@ -35,9 +35,9 @@ private slots:
 
 private:
 
-  Console *console;
-  ConsoleSettings *settings;
-  QTextBrowser *logBrowser;
+  Console* console;
+  ConsoleSettings* settings;
+  QTextBrowser* logBrowser;
 
 };
 

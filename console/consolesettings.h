@@ -28,22 +28,22 @@ public:
   virtual ~ConsoleSettings();
 
   // Getter for font size by reference
-  void getFontSize(float *fontSize);
-  void getFontSize(QString *fontSize);
+  void getFontSize(float* fontSize);
+  void getFontSize(QString* fontSize);
   
   // Setter for font size
-  void setFontSize(float fontSize);
-  void setFontSize(QString fontSize);
+  void setFontSize(const float fontSize);
+  void setFontSize(const QString fontSize);
 
   // Getter & Setter for the log file path
   QString getLogFilePath();
-  void setLogFilePath(QString logFilePath);
+  void setLogFilePath(const QString logFilePath);
 
 private slots:
   void saveFontSize();
 
 private:
-  DzAppSettings *settings;
+  DzAppSettings* settings;
 
   void loadFontSize();
   

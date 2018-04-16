@@ -18,7 +18,7 @@ ConsoleSettings::ConsoleSettings() {
 
 ConsoleSettings::~ConsoleSettings() { }
 
-void ConsoleSettings::getFontSize(float *pFontSize) {
+void ConsoleSettings::getFontSize(float* pFontSize) {
   bool ok;
 
   *pFontSize = this->fontSize.toFloat(&ok);
@@ -29,15 +29,15 @@ void ConsoleSettings::getFontSize(float *pFontSize) {
   }
 }
 
-void ConsoleSettings::getFontSize(QString *pFontSize) {
+void ConsoleSettings::getFontSize(QString* pFontSize) {
   *pFontSize = this->fontSize;
 }
 
-void ConsoleSettings::setFontSize(float fontSize) {
+void ConsoleSettings::setFontSize(const float fontSize) {
   this->fontSize = QString::number(fontSize, 'f', 2);
 }
 
-void ConsoleSettings::setFontSize(QString fontSize) {
+void ConsoleSettings::setFontSize(const QString fontSize) {
   this->fontSize = fontSize;
 }
 
@@ -66,6 +66,6 @@ QString ConsoleSettings::getLogFilePath() {
   return logFilePath;
 }
 
-void ConsoleSettings::setLogFilePath(QString logFilePath) {
+void ConsoleSettings::setLogFilePath(const QString logFilePath) {
   this->logFilePath = logFilePath;
 }

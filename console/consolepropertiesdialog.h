@@ -23,16 +23,16 @@ class ConsolePropertiesDialog : public DzBasicDialog {
   Q_OBJECT
 
 public:
-  ConsolePropertiesDialog(QWidget *parent, ConsoleSettings *settings);
+  ConsolePropertiesDialog(QWidget* parent, ConsoleSettings* settings);
   virtual ~ConsolePropertiesDialog();
 
   QString getNewFontSize();
 
 private:
-  QLabel *fontSizeLabel;
-  QLineEdit *fontSizeEditBox;
-  QLabel *logFilePathLabel;
-  QLineEdit *logFilePathDisplayBox;
+  QLabel* fontSizeLabel;
+  QLineEdit* fontSizeEditBox;
+  QLabel* logFilePathLabel;
+  QLineEdit* logFilePathDisplayBox;
 
 };
 
