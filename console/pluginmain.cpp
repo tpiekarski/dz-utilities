@@ -4,6 +4,9 @@
 // Console Headers
 #include "consolepane.h"
 #include "consolepaneaction.h"
+#include "console_clear_action.h"
+#include "console_reload_action.h"
+#include "console_properties_action.h"
 #include "guid.h"
 #include "version.h"
 
@@ -31,3 +34,6 @@ DZ_PLUGIN_DESCRIPTION(
  */
 DZ_PLUGIN_CLASS_GUID(ConsolePane, CONSOLE_PANE_CLASS_GUID);
 DZ_PLUGIN_CLASS_GUID(ConsolePaneAction, CONSOLE_PANE_ACTION_CLASS_GUID);
+DZ_PLUGIN_CLASS_GUID(ConsoleClearAction, CONSOLE_CLEAR_ACTION_CLASS_GUID);
+DZ_PLUGIN_CLASS_GUID(ConsoleReloadAction, CONSOLE_RELOAD_ACTION_CLASS_GUID);
+DZ_PLUGIN_CLASS_GUID(ConsolePropertiesAction, CONSOLE_PROPERTIES_ACTION_CLASS_GUID);

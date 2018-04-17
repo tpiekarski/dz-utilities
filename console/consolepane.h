@@ -9,6 +9,7 @@
 #include "QtGui\qtextbrowser.h"
 
 // DAZ Studio SDK Headers
+#include "dzactionmenu.h"
 #include "dzpane.h"
 
 /*
@@ -23,11 +24,15 @@ public:
   ConsolePane();
   ~ConsolePane();
 
-private slots:
-  void displayLog();
-  void reloadLog();
   void clearLog();
   void showProperties();
+
+public slots:
+  void displayLog();
+  void reloadLog();
+
+protected:
+  virtual void buildOptionsMenu(DzActionMenu* menu) const;
 
 private:
   Console* console;

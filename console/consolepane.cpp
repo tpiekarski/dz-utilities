@@ -10,9 +10,7 @@
 #include "QtCore\qstring.h"
 #include "QtCore\qtextstream.h"
 #include "QtGui\qboxlayout.h"
-#include "QtGui\qgroupbox.h"
 #include "QtGui\qmessagebox.h"
-#include "QtGui\qpushbutton.h"
 #include "QtGui\qtextbrowser.h"
 #include "QtGui\qtextcursor.h"
 
@@ -29,43 +27,18 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
   float fontSize;
 
-  // Definition of panes main layout
   QVBoxLayout* paneMainLayout = new QVBoxLayout();
   paneMainLayout->setMargin(margin);
   paneMainLayout->setSpacing(margin);
   setLayout(paneMainLayout);
   setMinimumSize(PANE_MIN_WIDTH, PANE_MIN_HEIGHT);
 
-  // Definition of panes button group box
-  QGroupBox* buttonGroupBox = new QGroupBox();
-  QHBoxLayout* buttonGroupBoxLayout = new QHBoxLayout();
-  buttonGroupBoxLayout->setMargin(margin);
-  buttonGroupBoxLayout->setSpacing(margin);
-  buttonGroupBox->setLayout(buttonGroupBoxLayout);
-
-  // Definiton of control buttons
-  QPushButton* reloadButton = new QPushButton("&Reload", this);
-  QPushButton* clearButton = new QPushButton("&Clear", this);
-  QPushButton* propertiesButton = new QPushButton("&Properties", this);
-
-  buttonGroupBoxLayout->addWidget(reloadButton);
-  buttonGroupBoxLayout->addWidget(clearButton);
-  buttonGroupBoxLayout->addWidget(propertiesButton);
-
-  paneMainLayout->addWidget(buttonGroupBox);
-
-  // Setting up a QTextBrowser for displaying the log file
   logBrowser = new QTextBrowser();
   logBrowser->setObjectName("Console");
   logBrowser->setMinimumSize(PANE_MIN_WIDTH, PANE_MIN_HEIGHT);
 
   settings->getFontSize(&fontSize);
   logBrowser->setFontPointSize(fontSize);
-
-  // Connecting signals to slots of the control buttons
-  connect(reloadButton, SIGNAL(clicked()), this, SLOT(reloadLog()));
-  connect(clearButton, SIGNAL(clicked()), this, SLOT(clearLog()));
-  connect(propertiesButton, SIGNAL(clicked()), this, SLOT(showProperties()));
 
   paneMainLayout->addWidget(logBrowser);
 
@@ -154,5 +127,10 @@ void ConsolePane::clearLog() {
     );
     QMessageBox::warning(0, tr("I/O-Error"), msg, QMessageBox::Ok);
   }
- 
+}
+
+void ConsolePane::buildOptionsMenu(DzActionMenu* menu) const {
+  menu->insertAction("ConsoleClearAction");
+  menu->insertAction("ConsoleReloadAction");
+  menu->insertAction("ConsolePropertiesAction");
 }

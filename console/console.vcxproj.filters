@@ -33,15 +33,21 @@
     <ClInclude Include="constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="reload-action.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="console_clear_action.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="console_properties_action.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pluginmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="consolepane.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="consolepaneaction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="moc\consolepane_moc.cpp">
@@ -63,6 +69,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="moc\consolesettings_moc.cpp">
+      <Filter>Meta Object Files</Filter>
+    </ClCompile>
+    <ClCompile Include="console_reload_action.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\console_reload_action_moc.cpp">
+      <Filter>Meta Object Files</Filter>
+    </ClCompile>
+    <ClCompile Include="console_clear_action.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="console_properties_action.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\console_clear_action_moc.cpp">
+      <Filter>Meta Object Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\console_properties_action_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
   </ItemGroup>
