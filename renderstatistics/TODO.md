@@ -4,14 +4,14 @@ dzUtilities::RenderStatistics
 #### TODO
 
 ##### Features
-+ [x] Temporarily save rendered image
++ [x] Temporarily save the rendered image
 + [x] Add a button to show a dialog with the rendered image
-+ [ ] Add a setting dialog accessibly by the pane actions menu
-+ [ ] Saving button in the RenderImageDialog
-+ [ ] Indicate aborted renderings
-+ [ ] Introduce a setting to capture data from aborted renderings
++ [ ] Add a setting dialog accessible by the pane actions menu
++ [ ] Add a saving button in the RenderImageDialog to save the rendered image
++ [ ] Inside the QStatisticsLayout indicate aborted and finished renderings
++ [ ] Introduce a setting to deactivate the capturing data from aborted renderings
 + [x] Clearing of all statistics and the QStatisticsLayout
-+ [ ] Sorting of columns inside the QStatisticsLayout
++ [ ] Sorting of columns in the QStatisticsLayout
 + [ ] Saving of statistics inside DSON
 + [ ] Saving of rendered images inside DSON
 + [ ] Saving and recreating of all important objects and settings 

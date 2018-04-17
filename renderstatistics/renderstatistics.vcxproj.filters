@@ -33,9 +33,6 @@
     <ClCompile Include="statistics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pane-action.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="clear-action.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -74,9 +71,6 @@
     <ClInclude Include="statistics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="renderimage-dialog.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="pane.h">
@@ -89,6 +83,9 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="qstatisticslayout.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="renderimage-dialog.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
