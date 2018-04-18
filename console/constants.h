@@ -2,6 +2,7 @@
 #define H_CONSTANTS
 
 #define CONSOLE_ACTION_GROUP "Console"
+#define CONSOLE_ACTION_PANE_NOT_FOUND_MSG "Failed finding pane."
 #define DEFAULT_FONT_SIZE_FLOAT 10.0
 #define DEFAULT_FONT_SIZE_STRING "10.00"
 #define PANE_MIN_HEIGHT 150
