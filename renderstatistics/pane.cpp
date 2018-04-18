@@ -19,8 +19,10 @@
 #include "dzscene.h"
 #include "dzstyle.h"
 
+#define DEBUG true;
+
 RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
-  logger = new RenderStatisticsLogger();
+  logger = new RenderStatisticsLogger(true);
   renderManager = dzApp->getRenderMgr();
   connectSignals();
   setupPaneLayout();
@@ -89,7 +91,7 @@ void RenderStatisticsPane::setupPaneLayout() {
   paneLayout->setMargin(margin);
   paneLayout->setSpacing(margin);
 
-  statisticsLayout = new QStatisticsLayout(&statistics);
+  statisticsLayout = new QStatisticsLayout(&statistics, logger);
   paneLayout->addLayout(statisticsLayout);
   paneLayout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Expanding));
 

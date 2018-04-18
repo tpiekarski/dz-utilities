@@ -1,10 +1,10 @@
 // Render Statistics Headers
 #include "renderimage-dialog.h"
 
-RenderImageDialog::RenderImageDialog(QWidget* parent, const QString renderImageFilename)
+RenderImageDialog::RenderImageDialog(QWidget* parent, const QString renderImageFilename, RenderStatisticsLogger* logger)
   : DzBasicDialog(parent, "RenderImage") {
 
-  logger = new RenderStatisticsLogger();
+  this->logger = logger;
 
   QString renderStoragePath = dzApp->getTempPath();
   QString filePath = QString("%1/%2").arg(renderStoragePath, renderImageFilename);

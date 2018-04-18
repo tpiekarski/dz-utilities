@@ -11,11 +11,13 @@
 #include "QtGui\qpalette.h"
 #include "QtGui\qpushbutton.h"
 
-QStatisticsLayout::QStatisticsLayout(vector<RenderStatistics>* statistics) : QGridLayout() {
+QStatisticsLayout::QStatisticsLayout(vector<RenderStatistics>* statistics, RenderStatisticsLogger* logger) 
+  : QGridLayout() 
+{
   this->setObjectName("QStatisticsLayout");
   this->statistics = statistics;
 
-  logger = new RenderStatisticsLogger();
+  this->logger = logger;
 
   addHeadingRow();
   addSeparator(1, columnCount());
@@ -131,7 +133,7 @@ void QStatisticsLayout::showRendering(const int &rendering) {
     return;
   }
 
-  if (!(dialog = new RenderImageDialog(mainWindow, QString::fromStdString(currentStatistic->getRenderImage())))) {
+  if (!(dialog = new RenderImageDialog(mainWindow, QString::fromStdString(currentStatistic->getRenderImage()), logger))) {
     QMessageBox::warning(0, "Error", "The dialog for render images could not be created.", QMessageBox::Ok);
 
     return;

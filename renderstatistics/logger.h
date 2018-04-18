@@ -15,11 +15,14 @@
 class RenderStatisticsLogger {
 
 public:
-  RenderStatisticsLogger();
+  RenderStatisticsLogger(bool debug);
   ~RenderStatisticsLogger();
 
   void log(QString message);
   void log(RenderStatistics statistics);
+
+private:
+  bool debug;
 
 };
 

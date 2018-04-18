@@ -9,8 +9,10 @@
 // DAZ Studio SDK Headers
 #include "dzapp.h"
 
-RenderStatisticsLogger::RenderStatisticsLogger() {
+RenderStatisticsLogger::RenderStatisticsLogger(bool debug) {
   this->log("Starting logger for RenderStatistics.");
+
+  this->debug = debug;
 }
 
 RenderStatisticsLogger::~RenderStatisticsLogger() {
@@ -18,7 +20,9 @@ RenderStatisticsLogger::~RenderStatisticsLogger() {
 }
 
 void RenderStatisticsLogger::log(QString message) {
-  dzApp->log(QString("%1: %2").arg(PLUGIN_NAME).arg(message));
+  if (debug) {
+    dzApp->log(QString("%1: %2").arg(PLUGIN_NAME).arg(message));
+  }
 }
 
 void RenderStatisticsLogger::log(RenderStatistics statistics) {

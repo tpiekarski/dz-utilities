@@ -24,7 +24,7 @@ class QStatisticsLayout : public QGridLayout {
 	Q_OBJECT
 
 public:
-  QStatisticsLayout(vector<RenderStatistics>* statistics);
+  QStatisticsLayout(vector<RenderStatistics>* statistics, RenderStatisticsLogger* logger);
   ~QStatisticsLayout();
   void update();
   void addRenderImageButton(const int currentRow);
