@@ -21,7 +21,7 @@ void ConsoleReloadAction::executeAction() {
   DzPane* pane = dzApp->getInterface()->getPaneMgr()->findPane("ConsolePane");
 
   if (pane == nullptr) {
-    QMessageBox::error(0, this->objectName(), QString(CONSOLE_ACTION_PANE_NOT_FOUND_MSG), QMessageBox::Ok);
+    QMessageBox::warning(0, this->objectName(), QString(CONSOLE_ACTION_PANE_NOT_FOUND_MSG), QMessageBox::Ok);
 
     return;
   }
