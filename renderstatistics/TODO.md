@@ -30,7 +30,7 @@ dzUtilities::RenderStatistics
 + [ ] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
-+ [ ] Streamline naming of headers and source files to lowercased underscore
++ [x] Streamline naming of headers and source files to lowercased underscore
 + [x] Extend logging with debug switch
 + [ ] Introduce some kind of unit testing at least for the little statistics framework
 + [ ] Add another linter and static code analysis tool (cppcheck already integrated)

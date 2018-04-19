@@ -1,5 +1,5 @@
 // Render Statistics Headers
-#include "clear-action.h"
+#include "clear_action.h"
 #include "pane.h"
 
 RenderStatisticsClearAction::RenderStatisticsClearAction()

@@ -1,5 +1,5 @@
 // Console Headers
-#include "consolesettings.h"
+#include "console_settings.h"
 
 // DAZ Studio SDK Headers
 #include "dzapp.h"

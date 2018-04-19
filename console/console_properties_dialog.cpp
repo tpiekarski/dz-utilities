@@ -1,5 +1,5 @@
 // Console Headers
-#include "consolepropertiesdialog.h"
+#include "console_properties_dialog.h"
 
 // Qt SDK Headers
 #include "QtGui\qlabel.h"

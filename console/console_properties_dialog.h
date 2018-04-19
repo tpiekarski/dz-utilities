@@ -2,7 +2,7 @@
 #define H_CONSOLE_PROPERTIES_DIALOG
 
 // Console Headers
-#include "consolesettings.h"
+#include "console_settings.h"
 #include "constants.h"
 
 // DAZ Studio SDK Headers

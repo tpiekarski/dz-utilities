@@ -1,6 +1,6 @@
 // Render Statistics Headers
 #include "qstatisticslayout.h"
-#include "renderimage-dialog.h"
+#include "renderimage_dialog.h"
 
 // DAZ Studio SDK Headers
 #include "dzmainwindow.h"

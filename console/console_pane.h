@@ -3,7 +3,7 @@
 
 // Console Headers
 #include "console.h"
-#include "consolesettings.h"
+#include "console_settings.h"
 
 // Qt SDK Headers
 #include "QtGui\qtextbrowser.h"

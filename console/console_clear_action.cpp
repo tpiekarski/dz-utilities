@@ -1,5 +1,5 @@
 // Console Headers
-#include "consolepane.h"
+#include "console_pane.h"
 #include "console_clear_action.h"
 #include "constants.h"
 

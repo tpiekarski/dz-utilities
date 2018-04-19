@@ -2,8 +2,8 @@
 #include "dzplugin.h"
 
 // Console Headers
-#include "consolepane.h"
-#include "consolepaneaction.h"
+#include "console_pane.h"
+#include "console_pane_action.h"
 #include "console_clear_action.h"
 #include "console_reload_action.h"
 #include "console_properties_action.h"

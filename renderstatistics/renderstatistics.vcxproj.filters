@@ -33,28 +33,28 @@
     <ClCompile Include="statistics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="clear-action.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="qstatisticslayout.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="moc\clear-action_moc.cpp">
+    <ClCompile Include="clear_action.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="renderimage_dialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\clear_action_moc.cpp">
+      <Filter>Meta Object Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\pane_action_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
     <ClCompile Include="moc\pane_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
-    <ClCompile Include="moc\pane-action_moc.cpp">
-      <Filter>Meta Object Files</Filter>
-    </ClCompile>
     <ClCompile Include="moc\qstatisticslayout_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
-    <ClCompile Include="renderimage-dialog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="moc\renderimage-dialog_moc.cpp">
+    <ClCompile Include="moc\renderimage_dialog_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -76,16 +76,16 @@
     <CustomBuild Include="pane.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="pane-action.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="clear-action.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="qstatisticslayout.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="renderimage-dialog.h">
+    <CustomBuild Include="clear_action.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="pane_action.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="renderimage_dialog.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

@@ -1,7 +1,7 @@
 // Console Headers
-#include "consolepane.h"
-#include "consolepropertiesdialog.h"
-#include "consolesettings.h"
+#include "console_pane.h"
+#include "console_properties_dialog.h"
+#include "console_settings.h"
 #include "constants.h"
 
 // Qt SDK Headers

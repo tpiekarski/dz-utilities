@@ -1,8 +1,8 @@
 // Render Statistics Headers
-#include "clear-action.h"
+#include "clear_action.h"
 #include "guid.h"
 #include "pane.h"
-#include "pane-action.h"
+#include "pane_action.h"
 #include "version.h"
 
 // DAZ Studio SDK Headers

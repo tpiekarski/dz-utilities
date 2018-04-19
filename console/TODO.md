@@ -17,7 +17,7 @@ dzUtilities::Console
 + [ ] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
-+ [ ] Streamline naming of headers and source files to lowercased underscore
++ [x] Streamline naming of headers and source files to lowercased underscore
 + [x] Implement error handling inside menu actions when ConsolePane can not be found
 + [ ] Add another linter and static code analysis tool (cppcheck already integrated)
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
