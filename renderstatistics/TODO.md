@@ -47,6 +47,7 @@ dzUtilities::RenderStatistics
       memory only once inside the destructor of RenderStatisticsPane._
 
 #### Bugs
++ [x] Fix corrupt heap after closing RenderImageDialog
 + [x] Fix *Signal-Slot-Mapping bug* which maps signals multiple times
 + [x] Fix lost signal-slot-mapping for render image buttons after statistics clearing
       (Occurs only after clearing more than one statistic)

@@ -14,6 +14,7 @@
 #include "QtGui\qlabel.h"
 #include "QtGui\qlayout.h"
 #include "QtGui\qpixmap.h"
+#include "QtGui\qpushbutton.h"
 #include "QtGui\qwidget.h"
 
 #define RENDER_IMAGE_DIALOG_WIDTH 600
@@ -38,6 +39,9 @@ private:
   QImage* renderImage;
   QLabel* renderImageLabel;
   QLabel* errorLabel;
+  QPushButton* saveRenderImageButton;
+
+  void addSaveRenderImageButton();
 
 };
 

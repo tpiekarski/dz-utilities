@@ -1,9 +1,11 @@
 // Render Statistics Headers
 #include "renderimage_dialog.h"
 
+// DAZ Studio SDK Headers
+#include "dzapp.h"
+
 // Qt SDK Headers
 #include "QtGui\qfiledialog.h"
-#include "QtGui\qpushbutton.h"
 
 RenderImageDialog::RenderImageDialog(
   QWidget* parent, const QString renderImageFilename, RenderStatisticsLogger* logger
@@ -50,31 +52,40 @@ RenderImageDialog::RenderImageDialog(
   showCancelButton(false);
   showHelpButton(false);
 
-  QPushButton* saveButton = new QPushButton("Save", this);
-  addButton(saveButton);
-  connect(saveButton, SIGNAL(clicked()), this, SLOT(saveRenderImage()));
+  addSaveRenderImageButton();
 }
 
 RenderImageDialog::~RenderImageDialog() {
   logger->log("Destructing render image dialog.");
 
-  delete(logger);
-  logger = NULL;
-
-  if (renderImage != NULL) {
+  if (renderImage != nullptr) {
     delete(renderImage);
-    renderImage = NULL;
+    renderImage = nullptr;
     delete(renderImageLabel);
-    renderImageLabel = NULL;
-  } else if (errorLabel != NULL) {
+    renderImageLabel = nullptr;
+    delete(saveRenderImageButton);
+    saveRenderImageButton = nullptr;
+  } else if (errorLabel != nullptr) {
     delete(errorLabel);
-    errorLabel = NULL;
+    errorLabel = nullptr;
   } 
 }
 
+void RenderImageDialog::addSaveRenderImageButton() {
+  saveRenderImageButton = new QPushButton("Save", this);
+  connect(saveRenderImageButton, SIGNAL(clicked()), this, SLOT(saveRenderImage()));
+  addButton(saveRenderImageButton);
+}
+
 void RenderImageDialog::saveRenderImage() {
-  const QString fileName = QFileDialog::getSaveFileName(this, "Save");
-  
+  const QString fileName = QFileDialog::getSaveFileName(
+    this, "Save", dzApp->getDocumentsPath(), "Rendered Images (*.png *.jpg)"
+  );
+
+  if (fileName.isEmpty()) {
+    return;
+  }
+
   if (!renderImage->save(fileName, 0, -1)) {
     logger->log(QString("Failed saving rendering image to file %1.").arg(fileName));
   }
