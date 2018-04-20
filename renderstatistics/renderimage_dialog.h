@@ -30,6 +30,8 @@ public:
   RenderImageDialog(QWidget* parent, const QString renderImageFilename, RenderStatisticsLogger* logger);
   virtual ~RenderImageDialog();
 
+private slots:
+  void saveRenderImage();
 
 private:
   RenderStatisticsLogger* logger;

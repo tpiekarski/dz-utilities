@@ -1,8 +1,13 @@
 // Render Statistics Headers
 #include "renderimage_dialog.h"
 
-RenderImageDialog::RenderImageDialog(QWidget* parent, const QString renderImageFilename, RenderStatisticsLogger* logger)
-  : DzBasicDialog(parent, "RenderImage") {
+// Qt SDK Headers
+#include "QtGui\qfiledialog.h"
+#include "QtGui\qpushbutton.h"
+
+RenderImageDialog::RenderImageDialog(
+  QWidget* parent, const QString renderImageFilename, RenderStatisticsLogger* logger
+) : DzBasicDialog(parent, "RenderImage") {
 
   this->logger = logger;
 
@@ -41,6 +46,13 @@ RenderImageDialog::RenderImageDialog(QWidget* parent, const QString renderImageF
   resize(QSize(dialogWidth, 0).expandedTo(minimumSizeHint()));
   setFixedWidth(width());
   setFixedHeight(height());
+
+  showCancelButton(false);
+  showHelpButton(false);
+
+  QPushButton* saveButton = new QPushButton("Save", this);
+  addButton(saveButton);
+  connect(saveButton, SIGNAL(clicked()), this, SLOT(saveRenderImage()));
 }
 
 RenderImageDialog::~RenderImageDialog() {
@@ -58,4 +70,17 @@ RenderImageDialog::~RenderImageDialog() {
     delete(errorLabel);
     errorLabel = NULL;
   } 
+}
+
+void RenderImageDialog::saveRenderImage() {
+  const QString fileName = QFileDialog::getSaveFileName(this, "Save");
+  
+  if (!renderImage->save(fileName, 0, -1)) {
+    logger->log(QString("Failed saving rendering image to file %1.").arg(fileName));
+  }
+
+  if (QFile::exists(fileName)) {
+    logger->log(QString("Saved rendering image to file %1.").arg(fileName));
+  }
+  
 }

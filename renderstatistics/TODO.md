@@ -7,7 +7,7 @@ dzUtilities::RenderStatistics
 + [x] Temporarily save the rendered image
 + [x] Add a button to show a dialog with the rendered image
 + [ ] Add a setting dialog accessible by the pane actions menu
-+ [ ] Add a saving button in the RenderImageDialog to save the rendered image
++ [x] Add a saving button in the RenderImageDialog to save the rendered image
 + [ ] Inside the QStatisticsLayout indicate aborted and finished renderings
 + [ ] Introduce a setting to deactivate the capturing data from aborted renderings
 + [ ] Provide a setting for the width and the image scaling algoritm of the rendering image
