@@ -3,12 +3,6 @@
 
 // DAZ Studio SDK Headers
 #include "dzaction.h"
-#include "dzapp.h"
-#include "dzmainwindow.h"
-#include "dzpanemgr.h"
-
-// Qt SDK Headers
-#include "QtGui\qkeysequence.h"
 
 class RenderStatisticsClearAction : public DzAction {
   Q_OBJECT

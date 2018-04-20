@@ -6,6 +6,7 @@
 
 // Qt SDK Headers
 #include "QtGui\qfiledialog.h"
+#include "QtGui\qlayout.h"
 
 RenderImageDialog::RenderImageDialog(
   QWidget* parent, const QString renderImageFilename, RenderStatisticsLogger* logger

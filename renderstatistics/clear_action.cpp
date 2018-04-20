@@ -2,6 +2,11 @@
 #include "clear_action.h"
 #include "pane.h"
 
+// DAZ Studio SDK Headers
+#include "dzapp.h"
+#include "dzmainwindow.h"
+#include "dzpanemgr.h"
+
 RenderStatisticsClearAction::RenderStatisticsClearAction()
   : DzAction("Clear", "Clear render statistics") 
 {

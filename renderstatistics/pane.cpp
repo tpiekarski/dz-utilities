@@ -2,14 +2,12 @@
 #include "logger.h"
 #include "pane.h"
 #include "statistics.h"
-#include "version.h"
 
 // Qt SDK Headers
 #include "QtCore\qobject.h"
 #include "QtCore\qstring.h"
 #include "QtGui\qboxlayout.h"
 #include "QtGui\qimage.h"
-#include "QtGui\qlabel.h"
 #include "QtGui\qmessagebox.h"
 
 // DAZ Studio SDK Headers

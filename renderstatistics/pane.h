@@ -11,7 +11,6 @@
 // Qt SDK Headers
 #include "QtCore\qlist.h"
 #include "QtGui\qgridlayout.h"
-#include "QtGui\qlabel.h"
 
 // DAZ Studio SDK Headers
 #include "dzactionmenu.h"

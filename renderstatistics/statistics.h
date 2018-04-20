@@ -3,8 +3,6 @@
 
 // C++ STL Headers
 #include <chrono>
-#include <iostream>
-#include <locale>
 #include <string>
 
 // boost Headers
