@@ -34,10 +34,11 @@ private slots:
 private:
   RenderStatisticsLogger* logger;
   QImage* renderImage;
-  QLabel* renderImageLabel;
+  QLabel* renderImageWidget;
   QLabel* errorLabel;
   QPushButton* saveRenderImageButton;
 
+  QWidget* buildRenderImageWidget(const QString filePath, int* width);
   void addSaveRenderImageButton();
 
 };

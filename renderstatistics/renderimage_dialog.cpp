@@ -18,29 +18,10 @@ RenderImageDialog::RenderImageDialog(
   QString filePath = QString("%1/%2").arg(renderStoragePath, renderImageFilename);
   
   int dialogWidth = RENDER_IMAGE_DIALOG_WIDTH;
-  renderImageLabel = new QLabel();
-  renderImage = new QImage(filePath);
+  const int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
 
-  if (! renderImage->isNull()) {
+  addWidget(buildRenderImageWidget(filePath, &dialogWidth));
 
-    if (renderImage->width() > RENDER_IMAGE_DIALOG_WIDTH) {
-      QImage scaledRenderImage = renderImage->scaledToWidth(RENDER_IMAGE_DIALOG_WIDTH, Qt::FastTransformation);
-      renderImageLabel->setPixmap(QPixmap::fromImage(scaledRenderImage));
-    } else {
-      renderImageLabel->setPixmap(QPixmap::fromImage(*renderImage));
-      dialogWidth = renderImage->width();
-    }
-
-    addWidget(renderImageLabel);
-
-  } else {
-    QString message = QString("The rendering image %1 could not be loaded.").arg(filePath);
-    errorLabel = new QLabel(message, this);
-
-    addWidget(errorLabel);
-  }
-
-  int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
   layout()->setMargin(margin);
   layout()->setSpacing(margin);
   layout()->setSizeConstraint(QLayout::SetNoConstraint);
@@ -52,8 +33,6 @@ RenderImageDialog::RenderImageDialog(
 
   showCancelButton(false);
   showHelpButton(false);
-
-  addSaveRenderImageButton();
 }
 
 RenderImageDialog::~RenderImageDialog() {
@@ -62,15 +41,53 @@ RenderImageDialog::~RenderImageDialog() {
   if (renderImage != nullptr) {
     delete(renderImage);
     renderImage = nullptr;
-    delete(renderImageLabel);
-    renderImageLabel = nullptr;
-    delete(saveRenderImageButton);
-    saveRenderImageButton = nullptr;
+    delete(renderImageWidget);
+    renderImageWidget = nullptr;
+    
+    if (saveRenderImageButton != nullptr) {
+      delete(saveRenderImageButton);
+      saveRenderImageButton = nullptr;
+    }
   } else if (errorLabel != nullptr) {
     delete(errorLabel);
     errorLabel = nullptr;
   } 
 }
+
+QWidget* RenderImageDialog::buildRenderImageWidget(const QString filePath, int* width) {
+  renderImage = new QImage(filePath);
+
+  if (!renderImage->isNull()) {
+    renderImageWidget = new QLabel();
+
+    if (renderImage->width() > RENDER_IMAGE_DIALOG_WIDTH) {
+      QImage scaledRenderImage = renderImage->scaledToWidth(RENDER_IMAGE_DIALOG_WIDTH, Qt::FastTransformation);
+      renderImageWidget->setPixmap(QPixmap::fromImage(scaledRenderImage));
+    }
+    else {
+      renderImageWidget->setPixmap(QPixmap::fromImage(*renderImage));
+
+      int newWidth = renderImage->width();
+      width = &newWidth;
+    }
+
+    addSaveRenderImageButton();
+    return renderImageWidget;
+  }
+  else {
+    QString message = QString("The rendering image %1 could not be loaded.").arg(filePath);
+    errorLabel = new QLabel(message, this);
+    if (renderImage != nullptr) {
+      logger->log("Something is there, renderimage is not null!");
+      delete(renderImage);
+      renderImage = nullptr;
+    }
+    saveRenderImageButton = nullptr;
+
+    return errorLabel;
+  }
+}
+
 
 void RenderImageDialog::addSaveRenderImageButton() {
   saveRenderImageButton = new QPushButton("Save", this);

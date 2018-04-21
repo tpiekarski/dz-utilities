@@ -51,3 +51,9 @@ dzUtilities::RenderStatistics
 + [x] Fix *Signal-Slot-Mapping bug* which maps signals multiple times
 + [x] Fix lost signal-slot-mapping for render image buttons after statistics clearing
       (Occurs only after clearing more than one statistic)
++ [ ] Fix warning about missing argument for QString 
+      (WARNING: QString::arg: Argument missing: RenderImageButton-, 2)
++ [ ] Debugging and propably fixing or rewriting destructor of the RenderImageDialog
+      _Under certain circumstances delete operations can cause memory access violations_
++ [ ] Fix different line breaks in a few files
+

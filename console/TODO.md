@@ -23,6 +23,7 @@ dzUtilities::Console
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
 
 #### Bugs
-+ [ ] Fix reload bug for manual reload
 + [ ] Fix initial log display bug not showing the end of file (off by a few lines)
-+ [ ] Fix missing auto-reload after clearing
++ [ ] Fix missing auto-reload after clearing and reloading
+      _When removing the file the QFileWatcher stops watching for changes and at
+       this moment it is not possible to restart the watching once more._
