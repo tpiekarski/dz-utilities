@@ -27,3 +27,5 @@ dzUtilities::Console
 + [ ] Fix missing auto-reload after clearing and reloading
       _When removing the file the QFileWatcher stops watching for changes and at
        this moment it is not possible to restart the watching once more._
++ [ ] Debugging and propably fixing of delay in redisplaying log with QFileWatcher
+      when DzBasicDialogs are opened.

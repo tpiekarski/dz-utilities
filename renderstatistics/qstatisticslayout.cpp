@@ -32,10 +32,10 @@ QStatisticsLayout::~QStatisticsLayout() {
   logger->log("Destructing QStatisticsLayout and clearing all lists with widgets.");
 
   delete(logger);
-  logger = NULL;
+  logger = nullptr;
 
   delete(statistics);
-  statistics = NULL;
+  statistics = nullptr;
 
   if (signalMappers.count() > 0) {
     qDeleteAll(signalMappers);
@@ -82,7 +82,7 @@ void QStatisticsLayout::addHeadingRow() {
 
 void QStatisticsLayout::update() {
   int currentColumn = 0;
-  int currentRow = rowCount();
+  const int currentRow = rowCount();
 
   dataRowLabelLists.append(buildLabels());
 
@@ -94,10 +94,10 @@ void QStatisticsLayout::update() {
 }
 
 void QStatisticsLayout::addRenderImageButton(const int currentRow) {
-  int counter = statistics->back().getCounter() - 1;
+  const int counter = statistics->back().getCounter() - 1;
 
   QPushButton* newButton = new QPushButton("Show");
-  newButton->setObjectName(QString("RenderImageButton-").arg(QString::number(counter)));
+  newButton->setObjectName(QString("RenderImageButton-%1").arg(QString::number(counter)));
   buttons.append(newButton);
 
   QSignalMapper* newSignalMapper = new QSignalMapper(this);
