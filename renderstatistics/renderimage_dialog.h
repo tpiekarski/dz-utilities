@@ -25,7 +25,7 @@ class RenderImageDialog : public DzBasicDialog {
   Q_OBJECT
 
 public:
-  RenderImageDialog(QWidget* parent, const QString renderImageFilename, RenderStatisticsLogger* logger);
+  RenderImageDialog(QWidget* parent, vector<RenderStatistics>* statistics, const int current, RenderStatisticsLogger* logger);
   virtual ~RenderImageDialog();
 
 private slots:

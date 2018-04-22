@@ -9,13 +9,16 @@
 #include "QtGui\qlayout.h"
 
 RenderImageDialog::RenderImageDialog(
-  QWidget* parent, const QString renderImageFilename, RenderStatisticsLogger* logger
+  QWidget* parent, vector<RenderStatistics>* statistics, const int current, RenderStatisticsLogger* logger
 ) : DzBasicDialog(parent, "RenderImage") {
+
+  RenderStatistics* currentStatistic = &statistics->at(current);
 
   this->logger = logger;
 
-  QString renderStoragePath = dzApp->getTempPath();
-  QString filePath = QString("%1/%2").arg(renderStoragePath, renderImageFilename);
+  const QString filePath = QString("%1/%2").arg(
+    dzApp->getTempPath(), QString::fromStdString(currentStatistic->getRenderImage())
+  );
   
   int dialogWidth = RENDER_IMAGE_DIALOG_WIDTH;
   const int margin = style()->pixelMetric(DZ_PM_GeneralMargin);

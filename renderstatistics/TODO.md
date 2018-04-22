@@ -22,6 +22,8 @@ dzUtilities::RenderStatistics
 ##### UI
 + [x] Avoid upscaling of smaller rendering images
 + [ ] Add buttons to display previous and next rendering images
++ [ ] Handle different image sizes for browsing rendering images
++ [ ] Switch from DzBasicDialog to a more sophisticated window with scroll- and size-ability
 + [ ] Display gathered information inside the render image dialog
 + [ ] Scrollability of the QStatisticsLayout
 + [ ] Replace show render button by either thumbnail or iconized button
@@ -32,7 +34,8 @@ dzUtilities::RenderStatistics
 ##### Development Improvements
 + [x] Streamline naming of headers and source files to lowercased underscore
 + [x] Extend logging with debug switch
-+ [ ] Introduce some kind of unit testing at least for the little statistics framework
++ [ ] Introduce automated click-tests with AutoIt
++ [ ] Introduce some kind of unit testing for the statistics framework
 + [ ] Add another linter and static code analysis tool (cppcheck already integrated)
 + [ ] Gather missing debug versions of certain libraries and switch 
       from production to debug build configuration

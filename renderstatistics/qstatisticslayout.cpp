@@ -122,8 +122,7 @@ void QStatisticsLayout::addRenderImageButton(const int currentRow) {
   addWidget(newButton, currentRow, 6);
 }
 
-void QStatisticsLayout::showRendering(const int &rendering) {
-  RenderStatistics* currentStatistic = &statistics->at(rendering);
+void QStatisticsLayout::showRendering(const int &current) {
   DzMainWindow* mainWindow;
   RenderImageDialog* dialog;
 
@@ -133,7 +132,7 @@ void QStatisticsLayout::showRendering(const int &rendering) {
     return;
   }
 
-  if (!(dialog = new RenderImageDialog(mainWindow, QString::fromStdString(currentStatistic->getRenderImage()), logger))) {
+  if (!(dialog = new RenderImageDialog(mainWindow, statistics, current, logger))) {
     QMessageBox::warning(0, "Error", "The dialog for render images could not be created.", QMessageBox::Ok);
 
     return;
