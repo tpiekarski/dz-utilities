@@ -21,7 +21,7 @@ dzUtilities::RenderStatistics
 
 ##### UI
 + [x] Avoid upscaling of smaller rendering images
-+ [ ] Add buttons to display previous and next rendering images
++ [x] Add buttons to display previous and next rendering images
 + [ ] Handle different image sizes for browsing rendering images
 + [ ] Switch from DzBasicDialog to a more sophisticated window with scroll- and size-ability
 + [ ] Display gathered information inside the render image dialog
@@ -43,6 +43,7 @@ dzUtilities::RenderStatistics
 + [ ] Check possibility to reduce boost packages
 
 ##### Memory Improvements
++ [ ] Store rendering images for browsing instead of reloading all the time
 + [x] Introduce reasonable memory deallocation
 + [x] Refactor handling of RenderStatisticsLogger
       _Instantiate logger only once in RenderStatisticsPane and pass

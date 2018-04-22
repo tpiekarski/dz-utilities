@@ -14,7 +14,12 @@
 #include "QtGui\qlabel.h"
 #include "QtGui\qpushbutton.h"
 
-#define RENDER_IMAGE_DIALOG_WIDTH 600
+#define PREVIOUS_RENDER_IMAGE_BUTTON_POS 1
+#define NEXT_RENDER_IMAGE_BUTTON_POS 2
+#define SAVE_RENDER_IMAGE_BUTTON_POS 3
+#define DEFAULT_DIALOG_WIDTH 600
+#define DEFAULT_IMAGE_FORMAT 0
+#define DEFAULT_IMAGE_QUALITY -1
 
 /*
  * Class: RenderImageDialog
@@ -30,6 +35,8 @@ public:
 
 private slots:
   void saveRenderImage();
+  void showPreviousRenderImage();
+  void showNextRenderImage();
 
 private:
   RenderStatisticsLogger* logger;
@@ -37,9 +44,20 @@ private:
   QLabel* renderImageWidget;
   QLabel* errorLabel;
   QPushButton* saveRenderImageButton;
+  QPushButton* previousRenderImageButton;
+  QPushButton* nextRenderImageButton;
+  int dialogWidth;
 
-  QWidget* buildRenderImageWidget(const QString filePath, int* width);
+  vector<RenderStatistics>* statistics;
+  int current;
+
+  QString buildFullPath(const string fileName);
+  QWidget* buildRenderImageWidget(const QString filePath);
+  void updateRenderImageWidget(const int newCurrent);
+  QPixmap getScaledPixmap(QImage* renderImage);
+
   void addSaveRenderImageButton();
+  void addBrowseRenderImageButtons();
 
 };
 

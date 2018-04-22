@@ -7,6 +7,8 @@
 // Qt SDK Headers
 #include "QtCore\qstring.h"
 
+#define DEFAULT_LOGGER_FORMAT "%1: %2"
+
 /*
  * Class: RenderStatisticsLogger
  * Description: Convenient Logger class for simple message logging.
@@ -15,10 +17,11 @@
 class RenderStatisticsLogger {
 
 public:
-  RenderStatisticsLogger(bool debug);
+  RenderStatisticsLogger(const bool debug);
   ~RenderStatisticsLogger();
 
-  void log(QString message);
+  void log(const QString message);
+  void log(const int number);
   void log(RenderStatistics statistics);
 
 private:
