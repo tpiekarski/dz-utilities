@@ -58,6 +58,7 @@ private:
 
   void addSaveRenderImageButton();
   void addBrowseRenderImageButtons();
+  void updateBrowsingButtons();
 
 };
 

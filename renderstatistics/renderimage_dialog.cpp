@@ -132,6 +132,8 @@ void RenderImageDialog::addBrowseRenderImageButtons() {
   nextRenderImageButton = new QPushButton("Next", this);
   connect(nextRenderImageButton, SIGNAL(clicked()), this, SLOT(showNextRenderImage()));
   addButton(nextRenderImageButton, NEXT_RENDER_IMAGE_BUTTON_POS);
+
+  updateBrowsingButtons();
 }
 
 void RenderImageDialog::saveRenderImage() {
@@ -157,6 +159,7 @@ void RenderImageDialog::showPreviousRenderImage() {
   const int newCurrent = current - 1;
   if (newCurrent >= 0 && &statistics->at(newCurrent) != nullptr) {
     updateRenderImageWidget(--current);
+    updateBrowsingButtons();
   }
 }
 
@@ -164,6 +167,12 @@ void RenderImageDialog::showNextRenderImage() {
   const int newCurrent = current + 1;
   if (newCurrent < statistics->size() && &statistics->at(newCurrent) != nullptr) {
     updateRenderImageWidget(++current);
+    updateBrowsingButtons();
   }
   
+}
+
+void RenderImageDialog::updateBrowsingButtons() {
+  previousRenderImageButton->setDisabled(current - 1 < 0);
+  nextRenderImageButton->setDisabled(current + 1 >= statistics->size());
 }
