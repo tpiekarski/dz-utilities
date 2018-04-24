@@ -7,6 +7,10 @@
 #include "dzmainwindow.h"
 #include "dzpanemgr.h"
 
+// Qt SDK Headers
+#include "QtGui\qmessagebox.h"
+
+
 RenderStatisticsClearAction::RenderStatisticsClearAction()
   : DzAction("Clear", "Clear render statistics") 
 {
@@ -14,11 +18,12 @@ RenderStatisticsClearAction::RenderStatisticsClearAction()
 }
 
 void RenderStatisticsClearAction::executeAction() {
-  DzMainWindow* mainWindow = dzApp->getInterface();
-  DzPaneMgr* paneManager = mainWindow->getPaneMgr();
-  DzPane* pane = paneManager->findPane("RenderStatisticsPane");
+  DzPane* pane = dzApp->getInterface()->getPaneMgr()->findPane("RenderStatisticsPane");
+
+  if (pane == nullptr) {
+    QMessageBox::warning(0, this->objectName(), QString("RenderStatisticsPane not found."), QMessageBox::Ok);
+  }
 
   RenderStatisticsPane* statisticsPane = dynamic_cast<RenderStatisticsPane*>(pane);
-
   statisticsPane->clear();
 }

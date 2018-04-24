@@ -57,6 +57,8 @@ dzUtilities::RenderStatistics
       (Occurs only after clearing more than one statistic)
 + [x] Fix warning about missing argument for QString 
       (WARNING: QString::arg: Argument missing: RenderImageButton-, 2)
++ [ ] Fix wrong saved render image after using previous/next buttons
++ [ ] Debug missing version directive (WARNING: 0:1: '' :  #version directive missing)
 + [ ] Debugging and propably fixing or rewriting destructor of the RenderImageDialog
       _Under certain circumstances delete operations can cause memory access violations_
 + [ ] Fix different line breaks in a few files

@@ -17,7 +17,7 @@
 #include "dzscene.h"
 #include "dzstyle.h"
 
-#define DEBUG true;
+#define RENDERSTATISTICS_DEBUG true;
 
 RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
   logger = new RenderStatisticsLogger(true);
@@ -29,13 +29,15 @@ RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
 
 RenderStatisticsPane::~RenderStatisticsPane() {
   logger->log("Destructing render statistics pane.");
-
-  delete(logger);
-  logger = NULL;
+  
+  if (logger != nullptr) {
+    delete(logger);
+    logger = nullptr;
+  }
 }
 
 void RenderStatisticsPane::clear() {
-  if (statistics.size() == INITIAL_RENDERING_COUNTER) {
+  if (statistics.empty()) {
     return;
   }
 
@@ -83,7 +85,7 @@ void RenderStatisticsPane::processFinishRendering() {
 }
 
 void RenderStatisticsPane::setupPaneLayout() {
-  int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
+  const int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
 
   paneLayout = new QVBoxLayout(this);
   paneLayout->setMargin(margin);
@@ -97,10 +99,9 @@ void RenderStatisticsPane::setupPaneLayout() {
 }
 
 QString RenderStatisticsPane::saveLastRenderImage(const int renderingCounter) {
-  QString renderStoragePath = dzApp->getTempPath();
-  QString filename = QString(RENDER_FILE_NAME_TEMPLATE).arg(QString::number(renderingCounter));
-  QString filePath = QString("%1/%2").arg(renderStoragePath, filename);
-  QImage lastRenderImage(renderManager->getLastSavedRenderPath());
+  const QString filename = QString(RENDER_FILE_NAME_TEMPLATE).arg(QString::number(renderingCounter));
+  const QString filePath = QString("%1/%2").arg(dzApp->getTempPath(), filename);
+  const QImage lastRenderImage(renderManager->getLastSavedRenderPath());
 
   if (! lastRenderImage.save(filePath, 0, -1)) {
     logger->log(QString("Failed storing render image at %1.").arg(filePath));

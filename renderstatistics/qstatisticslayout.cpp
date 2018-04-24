@@ -31,11 +31,10 @@ QStatisticsLayout::QStatisticsLayout(vector<RenderStatistics>* statistics, Rende
 QStatisticsLayout::~QStatisticsLayout() {
   logger->log("Destructing QStatisticsLayout and clearing all lists with widgets.");
 
-  delete(logger);
-  logger = nullptr;
-
-  delete(statistics);
-  statistics = nullptr;
+  if (statistics != nullptr) {
+    delete(statistics);
+    statistics = nullptr;
+  }
 
   if (signalMappers.count() > 0) {
     qDeleteAll(signalMappers);
