@@ -102,10 +102,16 @@ QWidget* RenderImageDialog::buildRenderImageWidget(const QString filePath) {
 
 void RenderImageDialog::updateRenderImageWidget(const int newCurrent) {
   RenderStatistics* nextStatistic = &statistics->at(newCurrent);
-  QImage* newImage = new QImage(buildFullPath(nextStatistic->getRenderImage()));
   renderImageWidget->clear();
   renderImageWidget->setPixmap(NULL);
-  renderImageWidget->setPixmap(getScaledPixmap(newImage));
+
+  if (!renderImage->isNull() || renderImage != nullptr) {
+    delete(renderImage);
+    renderImage = nullptr;
+  }
+
+  renderImage = new QImage(buildFullPath(nextStatistic->getRenderImage()));
+  renderImageWidget->setPixmap(getScaledPixmap(renderImage));
 }
 
 QPixmap RenderImageDialog::getScaledPixmap(QImage* renderImage) {
