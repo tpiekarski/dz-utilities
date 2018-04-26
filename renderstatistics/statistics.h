@@ -1,14 +1,11 @@
 #ifndef H_RENDERSTATISTICS
 #define H_RENDERSTATISTICS
 
-// C++ STL Headers
+#include <boost/date_time/gregorian/gregorian.hpp>
+#include <boost/date_time/posix_time/posix_time.hpp>
+#include <boost/date_time/posix_time/ptime.hpp>
 #include <chrono>
 #include <string>
-
-// boost Headers
-#include <boost\date_time\gregorian\gregorian.hpp>
-#include <boost\date_time\posix_time\posix_time.hpp>
-#include <boost\date_time\posix_time\ptime.hpp>
 
 #define DATE_FACET_FORMAT "%m/%d/%Y"
 #define DURATION_DISPLAY_PRECISION 3

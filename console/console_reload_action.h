@@ -5,7 +5,7 @@
 #include "constants.h"
 
 // DAZ Studio SDK Headers
-#include "dzaction.h"
+#include <dzaction.h>
 
 class ConsoleReloadAction : public DzAction {
   Q_OBJECT

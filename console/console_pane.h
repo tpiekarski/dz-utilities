@@ -1,16 +1,11 @@
 #ifndef H_CONSOLE_PANE
 #define H_CONSOLE_PANE
 
-// Console Headers
 #include "console.h"
 #include "console_settings.h"
-
-// Qt SDK Headers
-#include "QtGui\qtextbrowser.h"
-
-// DAZ Studio SDK Headers
-#include "dzactionmenu.h"
-#include "dzpane.h"
+#include <dzactionmenu.h>
+#include <dzpane.h>
+#include <QtGui/qtextbrowser.h>
 
 /*
  * Class: ConsolePane

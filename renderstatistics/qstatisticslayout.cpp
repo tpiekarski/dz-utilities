@@ -1,15 +1,10 @@
-// Render Statistics Headers
 #include "qstatisticslayout.h"
 #include "renderimage_dialog.h"
-
-// DAZ Studio SDK Headers
-#include "dzmainwindow.h"
-
-// Qt SDK Headers
-#include "QtGui\qcolor.h"
-#include "QtGui\qmessagebox.h"
-#include "QtGui\qpalette.h"
-#include "QtGui\qpushbutton.h"
+#include <dzmainwindow.h>
+#include <QtGui/qcolor.h>
+#include <QtGui/qmessagebox.h>
+#include <QtGui/qpalette.h>
+#include <QtGui/qpushbutton.h>
 
 QStatisticsLayout::QStatisticsLayout(vector<RenderStatistics>* statistics, RenderStatisticsLogger* logger) 
   : QGridLayout() 

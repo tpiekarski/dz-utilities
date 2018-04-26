@@ -1,14 +1,9 @@
-// Render Statistics Headers
 #include "clear_action.h"
 #include "pane.h"
-
-// DAZ Studio SDK Headers
-#include "dzapp.h"
-#include "dzmainwindow.h"
-#include "dzpanemgr.h"
-
-// Qt SDK Headers
-#include "QtGui\qmessagebox.h"
+#include <dzapp.h>
+#include <dzmainwindow.h>
+#include <dzpanemgr.h>
+#include <QtGui/qmessagebox.h>
 
 
 RenderStatisticsClearAction::RenderStatisticsClearAction()

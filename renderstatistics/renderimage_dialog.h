@@ -1,18 +1,13 @@
 #ifndef H_RENDERSTATISTICS_RENDERIMAGE_DIALOG
 #define H_RENDERSTATISTICS_RENDERIMAGE_DIALOG
 
-// Render Statistics Headers
 #include "logger.h"
-
-// DAZ Studio SDK Headers
-#include "dzbasicdialog.h"
-#include "dzstyle.h"
-
-// Qt SDK Headers
-#include "QtCore\qstring.h"
-#include "QtGui\qimage.h"
-#include "QtGui\qlabel.h"
-#include "QtGui\qpushbutton.h"
+#include <dzbasicdialog.h>
+#include <dzstyle.h>
+#include <QtCore/qstring.h>
+#include <QtGui/qimage.h>
+#include <QtGui/qlabel.h>
+#include <QtGui/qpushbutton.h>
 
 #define PREVIOUS_RENDER_IMAGE_BUTTON_POS 1
 #define NEXT_RENDER_IMAGE_BUTTON_POS 2

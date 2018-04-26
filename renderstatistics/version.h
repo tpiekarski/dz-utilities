@@ -1,8 +1,7 @@
 #ifndef H_RENDERSTATISTICS_VERSION
 #define H_RENDERSTATISTICS_VERSION
 
-// DAZ Studio SDK Headers
-#include "dzversion.h"
+#include <dzversion.h>
 
 #define PLUGIN_NAME "RenderStatistics"
 

@@ -1,4 +1,3 @@
-// Render Statistics Headers
 #include "statistics.h"
 
 RenderStatistics::RenderStatistics(const string engine, const int nodes) {

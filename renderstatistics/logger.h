@@ -1,11 +1,8 @@
 #ifndef H_RENDERSTATISTICS_LOGGER
 #define H_RENDERSTATISTICS_LOGGER
 
-// Render Statistics Headers
 #include "statistics.h"
-
-// Qt SDK Headers
-#include "QtCore\qstring.h"
+#include <QtCore/qstring.h>
 
 #define DEFAULT_LOGGER_FORMAT "%1: %2"
 

@@ -1,21 +1,15 @@
 #ifndef H_RENDERSTATISTICS_PANE
 #define H_RENDERSTATISTICS_PANE
 
-#include<vector>
-
-// Render Statistics Headers
 #include "logger.h"
 #include "qstatisticslayout.h"
 #include "statistics.h"
-
-// Qt SDK Headers
-#include "QtCore\qlist.h"
-#include "QtGui\qgridlayout.h"
-
-// DAZ Studio SDK Headers
-#include "dzactionmenu.h"
-#include "dzpane.h"
-#include "dzrendermgr.h"
+#include <dzactionmenu.h>
+#include <dzpane.h>
+#include <dzrendermgr.h>
+#include <QtCore/qlist.h>
+#include <QtGui/qgridlayout.h>
+#include <vector>
 
 #define INITIAL_RENDERING_COUNTER 0
 #define HEADING_ROWS 2

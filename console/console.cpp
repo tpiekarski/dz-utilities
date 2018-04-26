@@ -1,8 +1,5 @@
-// Console Headers
 #include "console.h"
-
-// DAZ Studio SDK Headers
-#include "dzapp.h"
+#include <dzapp.h>
 
 Console::Console(QWidget* parent, QString path) {
   // Building full path to log file, QFile expects only slashes

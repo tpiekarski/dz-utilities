@@ -1,23 +1,18 @@
-// Console Headers
 #include "console_pane.h"
 #include "console_properties_dialog.h"
 #include "console_settings.h"
 #include "constants.h"
-
-// Qt SDK Headers
-#include "QtCore\qfile.h"
-#include "QtCore\qobject.h"
-#include "QtCore\qstring.h"
-#include "QtCore\qtextstream.h"
-#include "QtGui\qboxlayout.h"
-#include "QtGui\qmessagebox.h"
-#include "QtGui\qtextbrowser.h"
-#include "QtGui\qtextcursor.h"
-
-// DAZ Studio SDK Headers
-#include "dzapp.h"
-#include "dzmainwindow.h"
-#include "dzstyle.h"
+#include <QtCore/qfile.h>
+#include <QtCore/qobject.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qtextstream.h>
+#include <QtGui/qboxlayout.h>
+#include <QtGui/qmessagebox.h>
+#include <QtGui/qtextbrowser.h>
+#include <QtGui/qtextcursor.h>
+#include <dzapp.h>
+#include <dzmainwindow.h>
+#include <dzstyle.h>
 
 ConsolePane::ConsolePane() : DzPane("Console") {
   console = new Console(this, dzApp->getAppDataPath());

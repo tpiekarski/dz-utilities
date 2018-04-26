@@ -1,11 +1,8 @@
 #ifndef H_CONSOLE_CLEAR_ACTION
 #define H_CONSOLE_CLEAR_ACTION
 
-// Console Headers
 #include "constants.h"
-
-// DAZ Studio SDK Headers
-#include "dzaction.h"
+#include <dzaction.h>
 
 class ConsoleClearAction : public DzAction {
   Q_OBJECT

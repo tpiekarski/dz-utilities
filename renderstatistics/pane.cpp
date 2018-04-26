@@ -1,21 +1,17 @@
-// Render Statistics Headers
 #include "logger.h"
 #include "pane.h"
 #include "statistics.h"
-
-// Qt SDK Headers
-#include "QtCore\qobject.h"
-#include "QtCore\qstring.h"
-#include "QtGui\qboxlayout.h"
-#include "QtGui\qimage.h"
-#include "QtGui\qmessagebox.h"
-
-// DAZ Studio SDK Headers
-#include "dzapp.h"
-#include "dzrenderer.h"
-#include "dzrendermgr.h"
-#include "dzscene.h"
-#include "dzstyle.h"
+#include <QtCore/qobject.h>
+#include <QtCore/qstring.h>
+#include <QtGui/qboxlayout.h>
+#include <QtGui/qimage.h>
+#include <QtGui/qmessagebox.h>
+#include <dz3dviewport.h>
+#include <dzapp.h>
+#include <dzrenderer.h>
+#include <dzrendermgr.h>
+#include <dzscene.h>
+#include <dzstyle.h>
 
 #define RENDERSTATISTICS_DEBUG true;
 

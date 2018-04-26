@@ -1,8 +1,7 @@
 #ifndef H_RENDERSTATISTICS_PANE_ACTION
 #define H_RENDERSTATISTICS_PANE_ACTION
 
-// DAZ Studio SDK Headers
-#include "dzaction.h"
+#include <dzaction.h>
 
 /*
  * Class: RenderStatisticsPaneAction

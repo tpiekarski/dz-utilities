@@ -1,7 +1,3 @@
-// DAZ Studio SDK Headers
-#include "dzplugin.h"
-
-// Console Headers
 #include "console_pane.h"
 #include "console_pane_action.h"
 #include "console_clear_action.h"
@@ -9,6 +5,7 @@
 #include "console_properties_action.h"
 #include "guid.h"
 #include "version.h"
+#include <dzplugin.h>
 
 /*
  * Plugin Meta Information

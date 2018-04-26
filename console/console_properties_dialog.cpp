@@ -1,15 +1,10 @@
-// Console Headers
 #include "console_properties_dialog.h"
-
-// Qt SDK Headers
-#include "QtGui\qlabel.h"
-#include "QtGui\qlayout.h"
-#include "QtGui\qlineedit.h"
-
-// DAZ Studio SDK Headers
-#include "dzapp.h"
-#include "dzstyle.h"
-#include "dzmainwindow.h"
+#include <QtGui/qlabel.h>
+#include <QtGui/qlayout.h>
+#include <QtGui/qlineedit.h>
+#include <dzapp.h>
+#include <dzstyle.h>
+#include <dzmainwindow.h>
 
 ConsolePropertiesDialog::ConsolePropertiesDialog(
   QWidget* parent, ConsoleSettings* settings

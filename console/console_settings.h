@@ -5,11 +5,11 @@
 #include "constants.h"
 
 // DAZ Studio SDK Headers
-#include "dzappsettings.h"
+#include <dzappsettings.h>
 
 // Qt SDK Headers
-#include "QtCore\qobject.h"
-#include "QtCore\qstring.h"
+#include <QtCore/qobject.h>
+#include <QtCore/qstring.h>
 
 /*
  * Class: ConsoleSettings

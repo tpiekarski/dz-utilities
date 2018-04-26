@@ -1,13 +1,7 @@
-// Console Headers
 #include "console_settings.h"
-
-// DAZ Studio SDK Headers
-#include "dzapp.h"
-#include "dzappsettings.h"
-
-// Qt SDK Headers
-#include "QtCore\qstring.h"
-
+#include <dzapp.h>
+#include <dzappsettings.h>
+#include <QtCore/qstring.h>
 
 ConsoleSettings::ConsoleSettings() { 
   settings = new DzAppSettings(SETTINGS_PATH);

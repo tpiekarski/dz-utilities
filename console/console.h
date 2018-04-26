@@ -1,12 +1,11 @@
 #ifndef H_CONSOLE
 #define H_CONSOLE
 
-// Qt SDK Headers
-#include "QtCore\qfile.h"
-#include "QtCore\qfilesystemwatcher.h"
-#include "QtCore\qstring.h"
-#include "QtCore\qtextstream.h"
-#include "QtGui\qwidget.h"
+#include <QtCore/qfile.h>
+#include <QtCore/qfilesystemwatcher.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qtextstream.h>
+#include <QtGui/qwidget.h>
 
 /*
  * Class: Console

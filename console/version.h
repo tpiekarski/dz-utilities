@@ -1,8 +1,7 @@
 #ifndef H_CONSOLE_VERSION
 #define H_CONSOLE_VERSION
 
-// DAZ Studio SDK Headers
-#include "dzversion.h"
+#include <dzversion.h>
 
 /*
  * Version Definition

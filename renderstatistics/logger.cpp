@@ -1,13 +1,8 @@
-// Render Statistics Headers
 #include "logger.h"
 #include "statistics.h"
 #include "version.h"
-
-// Qt SDK Headers
-#include "QtCore\qstring.h"
-
-// DAZ Studio SDK Headers
-#include "dzapp.h"
+#include <dzapp.h>
+#include <QtCore/qstring.h>
 
 RenderStatisticsLogger::RenderStatisticsLogger(const bool debug) {
   this->log("Starting logger for RenderStatistics.");

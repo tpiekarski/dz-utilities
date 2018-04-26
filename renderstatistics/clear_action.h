@@ -1,8 +1,7 @@
 #ifndef H_RENDERSTATISTICS_CLEAR_ACTION
 #define H_RENDERSTATISTICS_CLEAR_ACTION
 
-// DAZ Studio SDK Headers
-#include "dzaction.h"
+#include <dzaction.h>
 
 class RenderStatisticsClearAction : public DzAction {
   Q_OBJECT

@@ -1,12 +1,7 @@
-// Render Statistics Headers
 #include "renderimage_dialog.h"
-
-// DAZ Studio SDK Headers
-#include "dzapp.h"
-
-// Qt SDK Headers
-#include "QtGui\qfiledialog.h"
-#include "QtGui\qlayout.h"
+#include <dzapp.h>
+#include <QtGui/qfiledialog.h>
+#include <QtGui/qlayout.h>
 
 RenderImageDialog::RenderImageDialog(
   QWidget* parent, vector<RenderStatistics>* statistics, const int current, RenderStatisticsLogger* logger

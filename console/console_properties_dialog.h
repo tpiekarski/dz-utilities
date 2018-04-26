@@ -1,17 +1,12 @@
 #ifndef H_CONSOLE_PROPERTIES_DIALOG
 #define H_CONSOLE_PROPERTIES_DIALOG
 
-// Console Headers
 #include "console_settings.h"
 #include "constants.h"
-
-// DAZ Studio SDK Headers
-#include "dzbasicdialog.h"
-
-// Qt SDK Headers
-#include "QtCore\qstring.h"
-#include "QtGui\qlabel.h"
-#include "QtGui\qlineedit.h"
+#include <dzbasicdialog.h>
+#include <QtCore/qstring.h>
+#include <QtGui/qlabel.h>
+#include <QtGui/qlineedit.h>
 
 /*
  * Class: ConsolePropertiesDialog
