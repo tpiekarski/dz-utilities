@@ -29,7 +29,7 @@ signals:
   void clicked(const int &rendering);
 
 private slots:
-  void showRendering(const int &rendering);
+  void showRendering(const int &current);
 
 private:
   RenderStatisticsLogger* logger;

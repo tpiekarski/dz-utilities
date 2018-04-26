@@ -1,10 +1,10 @@
 #include "console_properties_dialog.h"
+#include "constants.h"
 #include <QtGui/qlabel.h>
 #include <QtGui/qlayout.h>
 #include <QtGui/qlineedit.h>
 #include <dzapp.h>
 #include <dzstyle.h>
-#include <dzmainwindow.h>
 
 ConsolePropertiesDialog::ConsolePropertiesDialog(
   QWidget* parent, ConsoleSettings* settings

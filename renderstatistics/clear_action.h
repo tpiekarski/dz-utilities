@@ -10,8 +10,8 @@ public:
   RenderStatisticsClearAction();
 
 protected:
-  virtual QString getActionGroup() const { return "Render Statistics"; };
-  virtual void executeAction();
+  QString getActionGroup() const override { return "Render Statistics"; };
+  void executeAction() override;
 
 };
 

@@ -5,7 +5,6 @@
 #include <QtCore/qfile.h>
 #include <QtCore/qobject.h>
 #include <QtCore/qstring.h>
-#include <QtCore/qtextstream.h>
 #include <QtGui/qboxlayout.h>
 #include <QtGui/qmessagebox.h>
 #include <QtGui/qtextbrowser.h>
@@ -69,8 +68,6 @@ void ConsolePane::showProperties() {
 
   DzMainWindow* mainWindow;
   ConsolePropertiesDialog* dialog;
-  int dialogResult;
-  QString newFontSize;
 
   if (!(mainWindow = dzApp->getInterface())) {
     QMessageBox::warning(
@@ -94,8 +91,8 @@ void ConsolePane::showProperties() {
     return;
   }
 
-  dialogResult = dialog->exec();
-  newFontSize = dialog->getNewFontSize();
+  int dialogResult = dialog->exec();
+  QString newFontSize = dialog->getNewFontSize();
 
   if (dialogResult == 1 && settings->fontSize != newFontSize ) {
     settings->setFontSize(dialog->getNewFontSize());

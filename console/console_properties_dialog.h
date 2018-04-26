@@ -2,7 +2,6 @@
 #define H_CONSOLE_PROPERTIES_DIALOG
 
 #include "console_settings.h"
-#include "constants.h"
 #include <dzbasicdialog.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qlabel.h>

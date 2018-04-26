@@ -27,7 +27,7 @@ public slots:
   void reloadLog();
 
 protected:
-  virtual void buildOptionsMenu(DzActionMenu* menu) const;
+  void buildOptionsMenu(DzActionMenu* menu) const override;
 
 private:
   Console* console;

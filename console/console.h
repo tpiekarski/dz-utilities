@@ -5,7 +5,6 @@
 #include <QtCore/qfilesystemwatcher.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qtextstream.h>
-#include <QtGui/qwidget.h>
 
 /*
  * Class: Console

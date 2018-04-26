@@ -33,7 +33,7 @@ public:
   void clear();
 
 protected:
-  virtual void buildOptionsMenu(DzActionMenu* menu) const;
+  void buildOptionsMenu(DzActionMenu* menu) const override;
 
 private slots:
   void connectSignals();

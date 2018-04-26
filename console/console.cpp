@@ -1,5 +1,6 @@
 #include "console.h"
 #include <dzapp.h>
+#include <QtGui/qwidget.h>
 
 Console::Console(QWidget* parent, QString path) {
   // Building full path to log file, QFile expects only slashes
@@ -31,9 +32,7 @@ bool Console::openLog() {
 bool Console::clearLog() {
   closeLog();
 
-  if (!logFile.remove()) return false;
-
-  return true;
+  return logFile.remove();
 }
 
 void Console::closeLog() {

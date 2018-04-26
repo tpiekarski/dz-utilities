@@ -1,4 +1,5 @@
 #include "console_settings.h"
+#include "constants.h"
 #include <dzapp.h>
 #include <dzappsettings.h>
 #include <QtCore/qstring.h>
@@ -12,19 +13,19 @@ ConsoleSettings::ConsoleSettings() {
 
 ConsoleSettings::~ConsoleSettings() { }
 
-void ConsoleSettings::getFontSize(float* pFontSize) {
+void ConsoleSettings::getFontSize(float* fontSize) {
   bool ok;
 
-  *pFontSize = this->fontSize.toFloat(&ok);
+  *fontSize = this->fontSize.toFloat(&ok);
 
   if (!ok) {
     float defaultFontSize = DEFAULT_FONT_SIZE_FLOAT;
-    *pFontSize = defaultFontSize;
+    *fontSize = defaultFontSize;
   }
 }
 
-void ConsoleSettings::getFontSize(QString* pFontSize) {
-  *pFontSize = this->fontSize;
+void ConsoleSettings::getFontSize(QString* fontSize) {
+  *fontSize = this->fontSize;
 }
 
 void ConsoleSettings::setFontSize(const float fontSize) {

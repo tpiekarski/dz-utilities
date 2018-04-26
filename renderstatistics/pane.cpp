@@ -5,7 +5,6 @@
 #include <QtCore/qstring.h>
 #include <QtGui/qboxlayout.h>
 #include <QtGui/qimage.h>
-#include <QtGui/qmessagebox.h>
 #include <dz3dviewport.h>
 #include <dzapp.h>
 #include <dzrenderer.h>

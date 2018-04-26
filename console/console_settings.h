@@ -1,13 +1,7 @@
 #ifndef H_CONSOLE_SETTINGS
 #define H_CONSOLE_SETTINGS
 
-// Console Headers
-#include "constants.h"
-
-// DAZ Studio SDK Headers
 #include <dzappsettings.h>
-
-// Qt SDK Headers
 #include <QtCore/qobject.h>
 #include <QtCore/qstring.h>
 

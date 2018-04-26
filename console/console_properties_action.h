@@ -11,8 +11,8 @@ public:
   ConsolePropertiesAction();
 
 protected:
-  virtual QString getActionGroup() const { return CONSOLE_ACTION_GROUP; };
-  virtual void executeAction();
+  QString getActionGroup() const override { return CONSOLE_ACTION_GROUP; };
+  void executeAction() override;
 
 };
 
