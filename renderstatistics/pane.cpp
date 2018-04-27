@@ -12,8 +12,6 @@
 #include <dzscene.h>
 #include <dzstyle.h>
 
-#define RENDERSTATISTICS_DEBUG true;
-
 RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
   logger = new RenderStatisticsLogger(true);
   renderManager = dzApp->getRenderMgr();
@@ -64,7 +62,7 @@ void RenderStatisticsPane::processStartRendering() {
   logger->log("Rendering started.");
 
   DzRenderer* renderer = renderManager->getActiveRenderer();
-  statistics.push_back(RenderStatistics(renderer->getName().toStdString(), dzScene->getNumNodes()));
+  statistics.emplace_back(RenderStatistics(renderer->getName().toStdString(), dzScene->getNumNodes()));
 }
 
 void RenderStatisticsPane::processFinishRendering() {
