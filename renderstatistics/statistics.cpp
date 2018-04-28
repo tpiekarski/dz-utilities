@@ -13,8 +13,6 @@ RenderStatistics::RenderStatistics(const string engine, const int nodes) {
   startTime = high_resolution_clock::now();
 }
 
-RenderStatistics::~RenderStatistics() {}
-
 void RenderStatistics::setCounter(const int counter) {
   this->counter = counter;
 }

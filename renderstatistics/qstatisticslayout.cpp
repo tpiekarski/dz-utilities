@@ -6,7 +6,7 @@
 #include <QtGui/qpalette.h>
 #include <QtGui/qpushbutton.h>
 
-QStatisticsLayout::QStatisticsLayout(vector<RenderStatistics>* statistics, RenderStatisticsLogger* logger) {
+QStatisticsLayout::QStatisticsLayout(vector<DzRenderStatistics>* statistics, RenderStatisticsLogger* logger) {
   this->setObjectName("QStatisticsLayout");
   this->statistics = statistics;
 

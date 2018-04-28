@@ -26,6 +26,6 @@ void RenderStatisticsLogger::log(const int number) {
   }
 }
 
-void RenderStatisticsLogger::log(RenderStatistics statistics) {
-  this->log(QString::fromLatin1(statistics.toString().c_str()));
+void RenderStatisticsLogger::log(RenderStatistics* statistics) {
+  this->log(QString::fromLatin1(statistics->toString().c_str()));
 }

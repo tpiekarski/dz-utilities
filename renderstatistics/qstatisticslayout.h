@@ -1,9 +1,9 @@
 #ifndef H_RENDERSTATISTICS_QSTATISTICS_LAYOUT
 #define H_RENDERSTATISTICS_QSTATISTICS_LAYOUT
 
+#include "dzstatistics.h"
 #include "logger.h"
 #include "statistics.h"
-#include <QtCore/qalgorithms.h>
 #include <QtCore/qlist.h>
 #include <QtCore/qsignalmapper.h>
 #include <QtGui/qframe.h>
@@ -19,7 +19,7 @@ class QStatisticsLayout : public QGridLayout {
 	Q_OBJECT
 
 public:
-  QStatisticsLayout(vector<RenderStatistics>* statistics, RenderStatisticsLogger* logger);
+  QStatisticsLayout(vector<DzRenderStatistics>* statistics, RenderStatisticsLogger* logger);
   ~QStatisticsLayout();
   void update();
   void addRenderImageButton(const int currentRow);
@@ -38,11 +38,10 @@ private:
   QList<QList<QLabel*>> dataRowLabelLists;
   QList<QPushButton*> buttons;
   QList<QSignalMapper*> signalMappers;
-  vector<RenderStatistics>* statistics;
+  vector<DzRenderStatistics>* statistics;
 
   void addHeadingRow();
   void addSeparator(const int row, const int columnSpan);
   QList<QLabel*> buildLabels();
-
 };
 #endif

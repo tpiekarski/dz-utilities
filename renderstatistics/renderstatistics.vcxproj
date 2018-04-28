@@ -182,6 +182,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="clear_action.cpp" />
+    <ClCompile Include="dzstatistics.cpp" />
     <ClCompile Include="logger.cpp" />
     <ClCompile Include="moc\clear_action_moc.cpp" />
     <ClCompile Include="moc\pane_action_moc.cpp" />
@@ -209,6 +210,7 @@
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
+    <ClInclude Include="dzstatistics.h" />
     <ClInclude Include="guid.h" />
     <CustomBuild Include="pane.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>

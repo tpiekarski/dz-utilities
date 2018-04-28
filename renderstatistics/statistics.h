@@ -24,7 +24,7 @@ class RenderStatistics {
 
 public:
   RenderStatistics(const string engine, const int nodes);
-  ~RenderStatistics();
+  ~RenderStatistics() = default;
 
   void setCounter(const int counter);
   void setRenderImage(const string renderImage);
@@ -58,5 +58,4 @@ private:
 
   duration<double> calculateDuration();
 };
-
 #endif

@@ -1,6 +1,7 @@
 #ifndef H_RENDERSTATISTICS_RENDERIMAGE_DIALOG
 #define H_RENDERSTATISTICS_RENDERIMAGE_DIALOG
 
+#include "dzstatistics.h"
 #include "logger.h"
 #include <dzbasicdialog.h>
 #include <dzstyle.h>
@@ -25,7 +26,13 @@ class RenderImageDialog : public DzBasicDialog {
   Q_OBJECT
 
 public:
-  RenderImageDialog(QWidget* parent, vector<RenderStatistics>* statistics, const int current, RenderStatisticsLogger* logger);
+  RenderImageDialog(
+    QWidget* parent, 
+    vector<DzRenderStatistics>* statistics, 
+    const int current, 
+    RenderStatisticsLogger* logger
+  );
+  
   virtual ~RenderImageDialog();
 
 private slots:
@@ -43,7 +50,7 @@ private:
   QPushButton* nextRenderImageButton;
   int dialogWidth;
 
-  vector<RenderStatistics>* statistics;
+  vector<DzRenderStatistics>* statistics;
   int current;
 
   QString buildFullPath(const string fileName);

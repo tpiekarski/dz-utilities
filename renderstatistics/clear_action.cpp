@@ -5,7 +5,6 @@
 #include <dzpanemgr.h>
 #include <QtGui/qmessagebox.h>
 
-
 RenderStatisticsClearAction::RenderStatisticsClearAction()
   : DzAction("Clear", "Clear render statistics") 
 {

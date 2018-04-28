@@ -4,7 +4,7 @@
 #include <QtGui/qlayout.h>
 
 RenderImageDialog::RenderImageDialog(
-  QWidget* parent, vector<RenderStatistics>* statistics, const int current, RenderStatisticsLogger* logger
+  QWidget* parent, vector<DzRenderStatistics>* statistics, const int current, RenderStatisticsLogger* logger
 ) : DzBasicDialog(parent, "RenderImage") {
 
   this->statistics = statistics;

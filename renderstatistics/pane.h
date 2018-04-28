@@ -1,13 +1,12 @@
 #ifndef H_RENDERSTATISTICS_PANE
 #define H_RENDERSTATISTICS_PANE
 
+#include "dzstatistics.h"
 #include "logger.h"
 #include "qstatisticslayout.h"
-#include "statistics.h"
 #include <dzactionmenu.h>
 #include <dzpane.h>
 #include <dzrendermgr.h>
-#include <QtCore/qlist.h>
 #include <QtGui/qgridlayout.h>
 #include <vector>
 
@@ -41,7 +40,7 @@ private slots:
   void processFinishRendering();
 
 private:
-  vector<RenderStatistics> statistics;
+  vector<DzRenderStatistics> statistics;
   RenderStatisticsLogger* logger;
   DzRenderMgr* renderManager;
   QVBoxLayout* paneLayout;
@@ -52,5 +51,4 @@ private:
   void setupPaneLayout();
   QString saveLastRenderImage(const int renderingCounter);
 };
-
 #endif

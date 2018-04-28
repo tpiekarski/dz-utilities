@@ -57,6 +57,9 @@
     <ClCompile Include="moc\renderimage_dialog_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
+    <ClCompile Include="dzstatistics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="version.h">
@@ -69,6 +72,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="statistics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dzstatistics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

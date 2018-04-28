@@ -19,7 +19,7 @@ public:
 
   void log(const QString message);
   void log(const int number);
-  void log(RenderStatistics statistics);
+  void log(RenderStatistics* statistics);
 
 private:
   bool debug;

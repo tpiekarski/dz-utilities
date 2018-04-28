@@ -1,16 +1,21 @@
+#include "dzstatistics.h"
 #include "logger.h"
 #include "pane.h"
 #include "statistics.h"
-#include <QtCore/qobject.h>
-#include <QtCore/qstring.h>
-#include <QtGui/qboxlayout.h>
-#include <QtGui/qimage.h>
 #include <dz3dviewport.h>
 #include <dzapp.h>
+#include <dzmainwindow.h>
 #include <dzrenderer.h>
 #include <dzrendermgr.h>
 #include <dzscene.h>
 #include <dzstyle.h>
+#include <dzstyledefs.h>
+#include <dzviewport.h>
+#include <dzviewportmgr.h>
+#include <QtCore/qobject.h>
+#include <QtCore/qstring.h>
+#include <QtGui/qboxlayout.h>
+#include <QtGui/qimage.h>
 
 RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
   logger = new RenderStatisticsLogger(true);
@@ -62,18 +67,25 @@ void RenderStatisticsPane::processStartRendering() {
   logger->log("Rendering started.");
 
   DzRenderer* renderer = renderManager->getActiveRenderer();
-  statistics.emplace_back(RenderStatistics(renderer->getName().toStdString(), dzScene->getNumNodes()));
+  statistics.emplace_back(
+    DzRenderStatistics(
+      renderer->getName(), 
+      dzScene->getNumNodes(),
+      dzApp->getInterface()->getViewportMgr()->getActiveViewport()->get3DViewport()->getCamera(),
+      logger
+    )
+  );
 }
 
 void RenderStatisticsPane::processFinishRendering() {
   logger->log("Rendering finished.");
 
-  RenderStatistics* currentStatistics = &statistics.back();
+  DzRenderStatistics* currentStatistics = &statistics.back();
   currentStatistics->stopClock();
   currentStatistics->setCounter(++renderingCounter);
   currentStatistics->setRenderImage(saveLastRenderImage(renderingCounter).toStdString());
 
-  logger->log(*currentStatistics);
+  logger->log(currentStatistics);
   statisticsLayout->update();
 }
 
