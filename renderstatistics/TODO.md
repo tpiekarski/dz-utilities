@@ -15,8 +15,11 @@ dzUtilities::RenderStatistics
 + [ ] Sorting of columns in the QStatisticsLayout
 + [ ] Saving of statistics inside DSON
 + [ ] Saving of rendered images inside DSON
-+ [ ] Saving and recreating of all important objects and settings 
-      during the rendering. Including camera, lights and all render settings.
++ [ ] Saving and of all important objects and settings during the rendering. 
+      (Including camera, lights and all settings).
+  + [ ] Storage of active camera
+  + [ ] Storage of all active lights
+  + [ ] Storage of render settings
 + [ ] Export of statistics to CSV and JSON
 
 ##### UI

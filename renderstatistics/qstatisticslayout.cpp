@@ -115,24 +115,23 @@ void QStatisticsLayout::addRenderImageButton(const int currentRow) {
 }
 
 void QStatisticsLayout::showRendering(const int &current) {
-  DzMainWindow* mainWindow;
-  RenderImageDialog* dialog;
-
-  if (!(mainWindow = dzApp->getInterface())) {
+  DzMainWindow* mainWindow = dzApp->getInterface();
+  if (mainWindow == nullptr) {
     QMessageBox::warning(0, "Error", "The main window is not available.", QMessageBox::Ok);
 
     return;
   }
 
-  if (!(dialog = new RenderImageDialog(mainWindow, statistics, current, logger))) {
+  RenderImageDialog* dialog = new RenderImageDialog(mainWindow, statistics, current, logger);
+  if (dialog == nullptr) {
     QMessageBox::warning(0, "Error", "The dialog for render images could not be created.", QMessageBox::Ok);
 
     return;
   }
 
   dialog->exec();
-
   delete(dialog);
+  dialog = nullptr;
 }
 
 void QStatisticsLayout::addSeparator(const int row, const int columnSpan) {
