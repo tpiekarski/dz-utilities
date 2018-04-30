@@ -28,6 +28,7 @@ public:
 
   void setCounter(const int counter);
   void setRenderImage(const string renderImage);
+  void setSucceeded(const bool succeeded);
   void stopClock();
 
   string toString();
@@ -36,6 +37,7 @@ public:
   int getNodes() { return nodes; }
   int getCounter() { return counter; };
   string getRenderImage() { return renderImage; };
+  bool isSucceeded() { return succeeded; };
 
   string getDurationInSeconds();
   string getStartDate();
@@ -46,6 +48,7 @@ private:
   int nodes;
   int counter;
   bool finished;
+  bool succeeded;
   string renderImage;
 
   high_resolution_clock::time_point startTime;

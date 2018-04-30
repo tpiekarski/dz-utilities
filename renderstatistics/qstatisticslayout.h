@@ -12,6 +12,8 @@
 #include <QtGui/qpushbutton.h>
 #include <vector>
 
+#define DEFAULT_ABORTED_FORMAT "<i style='color:#b7b7b7'>%1</i>"
+
 using namespace std;
 
 class QStatisticsLayout : public QGridLayout {

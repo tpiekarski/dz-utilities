@@ -37,7 +37,7 @@ protected:
 private slots:
   void connectSignals();
   void processStartRendering();
-  void processFinishRendering();
+  void processFinishRendering(bool succeeded);
 
 private:
   vector<DzRenderStatistics> statistics;

@@ -8,7 +8,7 @@ dzUtilities::RenderStatistics
 + [x] Add a button to show a dialog with the rendered image
 + [ ] Add a setting dialog accessible by the pane actions menu
 + [x] Add a saving button in the RenderImageDialog to save the rendered image
-+ [ ] Inside the QStatisticsLayout indicate aborted and finished renderings
++ [x] Inside the QStatisticsLayout indicate aborted and finished renderings
 + [ ] Introduce a setting to deactivate the capturing data from aborted renderings
 + [ ] Provide a setting for the width and the image scaling algoritm of the rendering image
 + [x] Clearing of all statistics and the QStatisticsLayout
@@ -28,6 +28,7 @@ dzUtilities::RenderStatistics
 + [ ] Handle different image sizes for browsing rendering images
 + [ ] Switch from DzBasicDialog to a more sophisticated window with scroll- and size-ability
 + [ ] Display gathered information inside the render image dialog
+      (Propably also like a watermark-like imprint of stats)
 + [ ] Scrollability of the QStatisticsLayout
 + [ ] Replace show render button by either thumbnail or iconized button
 

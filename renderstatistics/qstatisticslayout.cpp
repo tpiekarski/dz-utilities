@@ -16,7 +16,7 @@ QStatisticsLayout::QStatisticsLayout(vector<DzRenderStatistics>* statistics, Ren
   addSeparator(1, columnCount());
 
   if (!connect(this, SIGNAL(clicked(const int &)), this, SLOT(showRendering(const int &)))) {
-    logger->log(QString("Failed connecting clicked signal for %1 to the showRendering slot of %2 for future render image buttons.")
+    logger->log(QString("Failed connecting clicked signal for %1 to the showRendering slot of %2.")
       .arg(this->objectName()).arg(this->objectName()));
   };
 }
@@ -147,14 +147,25 @@ void QStatisticsLayout::addSeparator(const int row, const int columnSpan) {
 QList<QLabel*> QStatisticsLayout::buildLabels() {
   QList<QLabel*> outputLabels;
 
-  RenderStatistics* lastStatistics = &statistics->back();
+  RenderStatistics* lastStatistic = &statistics->back();
 
-  outputLabels.append(new QLabel(QString::number(lastStatistics->getCounter())));
-  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics->getEngine())));
-  outputLabels.append(new QLabel(QString::number(lastStatistics->getNodes())));
-  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics->getStartDate())));
-  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics->getStartTime())));
-  outputLabels.append(new QLabel(QString::fromStdString(lastStatistics->getDurationInSeconds())));
+  outputLabels.append(new QLabel(QString::number(lastStatistic->getCounter())));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistic->getEngine())));
+  outputLabels.append(new QLabel(QString::number(lastStatistic->getNodes())));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistic->getStartDate())));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistic->getStartTime())));
+  outputLabels.append(new QLabel(QString::fromStdString(lastStatistic->getDurationInSeconds())));
+
+  if (!lastStatistic->isSucceeded()) {
+    for (int n = 0; n < outputLabels.count(); n++) {
+      QLabel* label = outputLabels.at(n);
+      if (label != nullptr) {
+        label->setTextFormat(Qt::RichText);
+        label->setText(QString(DEFAULT_ABORTED_FORMAT).arg(label->text()));
+      }
+    }
+
+  }
 
   return outputLabels;
 }

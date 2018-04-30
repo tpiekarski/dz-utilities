@@ -53,7 +53,7 @@ void RenderStatisticsPane::connectSignals() {
       .arg(renderManager->objectName()).arg(this->objectName()));
   }
   
-  if (!connect(renderManager, SIGNAL(renderFinished(bool)), this, SLOT(processFinishRendering()))) {
+  if (!connect(renderManager, SIGNAL(renderFinished(bool)), this, SLOT(processFinishRendering(bool)))) {
     logger->log(QString("Failed connecting renderFinished signal for %1 to the processFinishRendering slot of %2.")
       .arg(renderManager->objectName()).arg(this->objectName()));
   }
@@ -77,13 +77,14 @@ void RenderStatisticsPane::processStartRendering() {
   );
 }
 
-void RenderStatisticsPane::processFinishRendering() {
+void RenderStatisticsPane::processFinishRendering(bool succeeded) {
   logger->log("Rendering finished.");
 
   DzRenderStatistics* currentStatistics = &statistics.back();
   currentStatistics->stopClock();
   currentStatistics->setCounter(++renderingCounter);
   currentStatistics->setRenderImage(saveLastRenderImage(renderingCounter).toStdString());
+  currentStatistics->setSucceeded(succeeded);
 
   logger->log(currentStatistics);
   statisticsLayout->update();

@@ -21,6 +21,10 @@ void RenderStatistics::setRenderImage(const string renderImage) {
   this->renderImage = renderImage;
 }
 
+void RenderStatistics::setSucceeded(const bool succeeded) {
+  this->succeeded = succeeded;
+}
+
 void RenderStatistics::stopClock() {
   endTime = high_resolution_clock::now();
   renderingDuration = calculateDuration();
