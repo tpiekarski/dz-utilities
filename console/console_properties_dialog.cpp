@@ -10,14 +10,14 @@ ConsolePropertiesDialog::ConsolePropertiesDialog(
   QWidget* parent, ConsoleSettings* settings
 ) : DzBasicDialog(parent, "ConsoleProperties") {
 
-  int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
+  const int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
   QString fontSize;
 
   layout()->setMargin(margin);
   layout()->setSpacing(margin);
   layout()->setSizeConstraint(QLayout::SetNoConstraint);
 
-  logFilePathLabel = new QLabel(tr("Log File"), this);
+  logFilePathLabel = new QLabel("Log File", this);
   logFilePathLabel->setObjectName("ConsolePropertiesFilePathLabel");
   addWidget(logFilePathLabel);
 
@@ -26,7 +26,7 @@ ConsolePropertiesDialog::ConsolePropertiesDialog(
   logFilePathDisplayBox->setReadOnly(true);
   addWidget(logFilePathDisplayBox);
 
-  fontSizeLabel = new QLabel(tr("Font Size"), this);
+  fontSizeLabel = new QLabel("Font Size", this);
   fontSizeLabel->setObjectName("ConsolePropertiesFontSizeLabel");
   addWidget(fontSizeLabel);
 
@@ -36,13 +36,11 @@ ConsolePropertiesDialog::ConsolePropertiesDialog(
   fontSizeLabel->setBuddy(fontSizeEditBox);
   addWidget(fontSizeEditBox);
 
-  setWindowTitle(tr("Console Properties"));
+  setWindowTitle("Console Properties");
   resize(QSize(SETTINGS_DIALOG_WIDTH, 0).expandedTo(minimumSizeHint()));
   setFixedWidth(width());
   setFixedHeight(height());
 }
-
-ConsolePropertiesDialog::~ConsolePropertiesDialog() { }
 
 QString ConsolePropertiesDialog::getNewFontSize() {
   return fontSizeEditBox->text();

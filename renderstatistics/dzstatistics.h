@@ -10,7 +10,7 @@ class DzRenderStatistics : public RenderStatistics {
 
 public:
   DzRenderStatistics(
-    const QString engine, const int nodes, DzCamera* dzCamera, RenderStatisticsLogger* logger
+    const QString engine, const int nodes, DzCamera* camera, RenderStatisticsLogger* logger
   );
 
   ~DzRenderStatistics() = default;

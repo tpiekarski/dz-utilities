@@ -19,7 +19,7 @@ public:
   QString logFilePath;
 
   ConsoleSettings();
-  virtual ~ConsoleSettings();
+  ~ConsoleSettings() = default;
 
   void getFontSize(float* fontSize);
   void getFontSize(QString* fontSize);

@@ -18,7 +18,7 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   settings = new ConsoleSettings();
   settings->setLogFilePath(console->getLogFullPath());
 
-  int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
+  const int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
   float fontSize;
 
   QVBoxLayout* paneMainLayout = new QVBoxLayout();
@@ -51,9 +51,9 @@ void ConsolePane::displayLog() {
     console->closeLog();
   }
   else {
-    QString msg(QString(tr("The log file %1 could not be opened.")).arg(console->getLogFullPath()));
+    const QString msg(QString("The log file %1 could not be opened.").arg(console->getLogFullPath()));
 
-    QMessageBox::warning(0, tr("I/O-Error"), msg, QMessageBox::Ok);
+    QMessageBox::warning(0, "I/O-Error", msg, QMessageBox::Ok);
     logBrowser->setPlainText(msg);
   }
 
@@ -65,34 +65,22 @@ void ConsolePane::reloadLog() {
 }
 
 void ConsolePane::showProperties() {
-
-  DzMainWindow* mainWindow;
-  ConsolePropertiesDialog* dialog;
-
-  if (!(mainWindow = dzApp->getInterface())) {
-    QMessageBox::warning(
-      0,
-      tr("Error"),
-      tr("The main window is not available."),
-      QMessageBox::Ok
-    );
+  DzMainWindow* mainWindow = dzApp->getInterface();
+  if (mainWindow == nullptr) {
+    QMessageBox::warning(0, "Error", "The main window is not available.", QMessageBox::Ok);
 
     return;
   }
 
-  if (!(dialog = new ConsolePropertiesDialog(mainWindow, settings))) {
-    QMessageBox::warning(
-      0,
-      tr("Error"),
-      tr("The dialog for console settings could not be created."),
-      QMessageBox::Ok
-    );
+  ConsolePropertiesDialog* dialog = new ConsolePropertiesDialog(mainWindow, settings);
+  if (dialog == nullptr) {
+    QMessageBox::warning(0,"Error","The dialog for console settings could not be created.", QMessageBox::Ok);
 
     return;
   }
 
-  int dialogResult = dialog->exec();
-  QString newFontSize = dialog->getNewFontSize();
+  const int dialogResult = dialog->exec();
+  const QString newFontSize = dialog->getNewFontSize();
 
   if (dialogResult == 1 && settings->fontSize != newFontSize ) {
     settings->setFontSize(dialog->getNewFontSize());
@@ -112,12 +100,9 @@ void ConsolePane::clearLog() {
     displayLog();
   }
   else {
-    QString msg(
-      QString(
-        tr("The log file %1 could not be cleared.")
-      ).arg(console->getLogFullPath())
+    QMessageBox::warning(
+      0, "I/O-Error", QString("The log file %1 could not be cleared.").arg(console->getLogFullPath()), QMessageBox::Ok
     );
-    QMessageBox::warning(0, tr("I/O-Error"), msg, QMessageBox::Ok);
   }
 }
 

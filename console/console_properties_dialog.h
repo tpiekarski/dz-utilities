@@ -18,7 +18,7 @@ class ConsolePropertiesDialog : public DzBasicDialog {
 
 public:
   ConsolePropertiesDialog(QWidget* parent, ConsoleSettings* settings);
-  virtual ~ConsolePropertiesDialog();
+  ~ConsolePropertiesDialog() = default;
 
   QString getNewFontSize();
 

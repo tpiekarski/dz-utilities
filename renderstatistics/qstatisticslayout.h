@@ -23,7 +23,7 @@ class QStatisticsLayout : public QGridLayout {
 public:
   QStatisticsLayout(vector<DzRenderStatistics>* statistics, RenderStatisticsLogger* logger);
   ~QStatisticsLayout();
-  void update();
+  void addDataRow();
   void addRenderImageButton(const int currentRow);
   void clear();
 

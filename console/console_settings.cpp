@@ -11,15 +11,13 @@ ConsoleSettings::ConsoleSettings() {
   connect(dzApp, SIGNAL(closing()), this, SLOT(saveFontSize()));
 }
 
-ConsoleSettings::~ConsoleSettings() { }
-
 void ConsoleSettings::getFontSize(float* fontSize) {
   bool ok;
 
   *fontSize = this->fontSize.toFloat(&ok);
 
   if (!ok) {
-    float defaultFontSize = DEFAULT_FONT_SIZE_FLOAT;
+    const float defaultFontSize = DEFAULT_FONT_SIZE_FLOAT;
     *fontSize = defaultFontSize;
   }
 }

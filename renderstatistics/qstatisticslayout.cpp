@@ -72,7 +72,7 @@ void QStatisticsLayout::addHeadingRow() {
   }
 }
 
-void QStatisticsLayout::update() {
+void QStatisticsLayout::addDataRow() {
   int currentColumn = 0;
   const int currentRow = rowCount();
 

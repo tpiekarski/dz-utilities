@@ -6,6 +6,7 @@ RenderStatistics::RenderStatistics(const string engine, const int nodes) {
   this->counter = 0;
 
   finished = false;
+  succeeded = false;
   startDateTime = second_clock::local_time();
   dateFacet = new date_facet();
   timeFacet = new time_facet();

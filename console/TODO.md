@@ -18,16 +18,28 @@ dzUtilities::Console
 
 ##### Development Improvements
 + [x] Streamline naming of headers and source files to lowercased underscore
-+ [x] Implement error handling inside menu actions when ConsolePane can not be found
-+ [ ] Add another linter and static code analysis tool (cppcheck already integrated)
++ [x] Implement error handling inside menu actions when ConsolePane cannot be found
++ [x] Add another linter and static code analysis tool (cppcheck and ReSharper++ integrated)
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
+
+##### Memory Improvements
++ [ ] Keep log file opened instead of opening/closing at every call to displayLog
+      (see bugs:debug and solve delaying and blocking behavior)
+
+##### Clean code
++ [ ] Consider static resolving of method calls in constructors
+      (Refers to inspection: Call to a virtual function inside a constructor will be statically resolved)
++ [ ] Check if const-qualified parameter should be defined in source as well as declared inside headers
+      (Refers to inspection: Const-qualified parameter in a function declaration)
 
 #### Bugs
 + [ ] Debug and solve delaying and blocking behavior of QFileSystemWatcher
-      (Loading and rendering with a lot of logged lines delays operation and blocks UI)
+      (Loading and rendering with a lot of logged lines delays operation and blocks UI.
+       The reason for this blocking behavior is that every fileChanges signal calls
+       reloadLog which opens and closes the log file with the method displayLog.)
 + [ ] Fix initial log display bug not showing the end of file (off by a few lines)
 + [ ] Fix missing auto-reload after clearing and reloading
       (When removing the file the QFileWatcher stops watching for changes and at
        this moment it is not possible to restart the watching once more.)
-+ [ ] Debugging and propably fixing of delay in redisplaying log with QFileWatcher
-      when DzBasicDialogs are opened.
++ [ ] Debugging and probably fixing of delay in redisplaying log with QFileWatcher
+      when DzBasicDialog are opened.

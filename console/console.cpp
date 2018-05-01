@@ -4,7 +4,7 @@
 
 Console::Console(QWidget* parent, QString path) {
   // Building full path to log file, QFile expects only slashes
-  QString dataPath(path.replace(QString("\\"), QString("/")));
+  const QString dataPath(path.replace(QString("\\"), QString("/")));
   logFullPath = QString("%1/log.txt").arg(dataPath);
   logFile.setFileName(logFullPath);
 

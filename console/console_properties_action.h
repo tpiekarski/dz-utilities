@@ -9,6 +9,7 @@ class ConsolePropertiesAction : public DzAction {
 
 public:
   ConsolePropertiesAction();
+  ~ConsolePropertiesAction() = default;
 
 protected:
   QString getActionGroup() const override { return CONSOLE_ACTION_GROUP; };

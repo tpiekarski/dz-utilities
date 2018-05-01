@@ -87,7 +87,7 @@ void RenderStatisticsPane::processFinishRendering(bool succeeded) {
   currentStatistics->setSucceeded(succeeded);
 
   logger->log(currentStatistics);
-  statisticsLayout->update();
+  statisticsLayout->addDataRow();
 }
 
 void RenderStatisticsPane::setupPaneLayout() {
