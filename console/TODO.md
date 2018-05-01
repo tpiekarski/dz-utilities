@@ -9,6 +9,7 @@ dzUtilities::Console
 + [ ] Add the possibility to search for keywords forward and backward
 + [ ] Highlight search results
 + [ ] Add filter for the issuer of log messages
++ [ ] Improve speed of seeking to 0 when reloading log
 
 ##### UI
 + [x] Move control buttons into pane action menu
@@ -23,7 +24,7 @@ dzUtilities::Console
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
 
 ##### Memory Improvements
-+ [ ] Keep log file opened instead of opening/closing at every call to displayLog
++ [x] Keep log file opened instead of opening/closing at every call to displayLog
       (see bugs:debug and solve delaying and blocking behavior)
 
 ##### Clean code
@@ -33,13 +34,13 @@ dzUtilities::Console
       (Refers to inspection: Const-qualified parameter in a function declaration)
 
 #### Bugs
-+ [ ] Debug and solve delaying and blocking behavior of QFileSystemWatcher
++ [x] Debug and solve delaying and blocking behavior of QFileSystemWatcher
       (Loading and rendering with a lot of logged lines delays operation and blocks UI.
        The reason for this blocking behavior is that every fileChanges signal calls
        reloadLog which opens and closes the log file with the method displayLog.)
-+ [ ] Fix initial log display bug not showing the end of file (off by a few lines)
-+ [ ] Fix missing auto-reload after clearing and reloading
++ [ ] Fix initial log display bug sometimes not showing the end of file (off by a few lines)
++ [x] Fix missing auto-reload after clearing and reloading
       (When removing the file the QFileWatcher stops watching for changes and at
        this moment it is not possible to restart the watching once more.)
-+ [ ] Debugging and probably fixing of delay in redisplaying log with QFileWatcher
++ [x] Debugging and probably fixing of delay in redisplaying log with QFileWatcher
       when DzBasicDialog are opened.

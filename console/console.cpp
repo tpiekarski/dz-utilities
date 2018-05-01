@@ -14,11 +14,13 @@ Console::Console(QWidget* parent, QString path) {
 }
 
 Console::~Console() {
-  closeLog();
   logWatcher->removePath(logFullPath);
 }
 
 bool Console::openLog() {
+  if (isLogOpen()) {
+    return true;
+  }
 
   if (!logFile.open(QFile::ReadWrite | QFile::Text)) {
     return false;
@@ -29,10 +31,25 @@ bool Console::openLog() {
   return true;
 }
 
-bool Console::clearLog() {
-  closeLog();
+QString Console::getLogUpdates() {
+  QString line = "";
 
-  return logFile.remove();
+  while (! logStream.atEnd()) {
+    line.append(logStream.readLine());
+    line.append(END_OF_LINE);
+  }
+
+  return line;
+}
+
+QString Console::getLog() {
+  return logStream.readAll();
+}
+
+void Console::resetLog() {
+  if (logStream.pos() > 0) {
+    logStream.seek(0);
+  }
 }
 
 void Console::closeLog() {

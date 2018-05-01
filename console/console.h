@@ -6,6 +6,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qtextstream.h>
 
+#define END_OF_LINE "\r\n"
+
 /*
  * Class: Console
  * Description: Console class wrapping access and handling of the log file.
@@ -17,12 +19,14 @@ public:
   ~Console();
 
   bool openLog();
-  bool clearLog();
   void closeLog();
 
-  QString getLog() { return logStream.readAll(); };
+  QString getLogUpdates();
+  QString getLog();
+  void resetLog();
   QString getLogFullPath() { return logFullPath; };
   QFileSystemWatcher* getLogWatcher() { return logWatcher; };
+  bool isLogOpen() { return logFile.isOpen() && logFile.isReadable(); };
 
 private:
   QString logFullPath;

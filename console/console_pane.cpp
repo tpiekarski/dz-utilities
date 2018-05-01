@@ -18,50 +18,66 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   settings = new ConsoleSettings();
   settings->setLogFilePath(console->getLogFullPath());
 
-  const int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
-  float fontSize;
-
   QVBoxLayout* paneMainLayout = new QVBoxLayout();
+  const int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
   paneMainLayout->setMargin(margin);
   paneMainLayout->setSpacing(margin);
   setLayout(paneMainLayout);
   setMinimumSize(PANE_MIN_WIDTH, PANE_MIN_HEIGHT);
 
+  logWatched = false;
   logBrowser = new QTextBrowser();
   logBrowser->setObjectName("Console");
   logBrowser->setMinimumSize(PANE_MIN_WIDTH, PANE_MIN_HEIGHT);
 
+  float fontSize;
   settings->getFontSize(&fontSize);
   logBrowser->setFontPointSize(fontSize);
 
   paneMainLayout->addWidget(logBrowser);
-
-  connect(dzApp, SIGNAL(starting()), this, SLOT(displayLog()));
-  connect(console->getLogWatcher(), SIGNAL(fileChanged(const QString&)), this, SLOT(reloadLog()));
+  connect(dzApp, SIGNAL(starting()), this, SLOT(openLog()));
 }
 
 ConsolePane::~ConsolePane() {
   console->closeLog();
 }
 
-void ConsolePane::displayLog() {
-  if (console->openLog()) {
-    logBrowser->setPlainText(console->getLog());
-    logBrowser->moveCursor(QTextCursor::End, QTextCursor::MoveAnchor);
-    console->closeLog();
+void ConsolePane::openLog() {
+  if (!console->openLog()) {
+    logBrowser->setPlainText(QString("The log file %s could not be opened.").arg(console->getLogFullPath()));
+
+    return;
+  }
+
+  logBrowser->setPlainText(console->getLog());
+  logBrowser->moveCursor(QTextCursor::End, QTextCursor::MoveAnchor);
+  
+  if (!logWatched) {
+    logWatched = connect(console->getLogWatcher(), SIGNAL(fileChanged(const QString&)), this, SLOT(updateLog()));
+  }
+}
+
+void ConsolePane::updateLog() {
+  if (console->isLogOpen()) {
+    QString logUpdates = console->getLogUpdates();
+    if (logUpdates != nullptr && logUpdates.length() > 1) {
+      logBrowser->append(logUpdates);
+      logBrowser->moveCursor(QTextCursor::End, QTextCursor::MoveAnchor);
+    }
   }
   else {
-    const QString msg(QString("The log file %1 could not be opened.").arg(console->getLogFullPath()));
-
-    QMessageBox::warning(0, "I/O-Error", msg, QMessageBox::Ok);
-    logBrowser->setPlainText(msg);
+    logBrowser->append(QString("The log file %1 is not open anymore.").arg(console->getLogFullPath()));
   }
-
 }
 
 void ConsolePane::reloadLog() {
   logBrowser->clear();
-  displayLog();
+  console->resetLog();
+  openLog();
+}
+
+void ConsolePane::clearLog() {
+  logBrowser->clear();
 }
 
 void ConsolePane::showProperties() {
@@ -92,18 +108,6 @@ void ConsolePane::showProperties() {
     reloadLog();
   }
 
-}
-
-void ConsolePane::clearLog() {
-  if (console->clearLog()) {
-    logBrowser->clear();
-    displayLog();
-  }
-  else {
-    QMessageBox::warning(
-      0, "I/O-Error", QString("The log file %1 could not be cleared.").arg(console->getLogFullPath()), QMessageBox::Ok
-    );
-  }
 }
 
 void ConsolePane::buildOptionsMenu(DzActionMenu* menu) const {

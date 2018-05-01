@@ -23,7 +23,8 @@ public:
   void showProperties();
 
 public slots:
-  void displayLog();
+  void openLog();
+  void updateLog();
   void reloadLog();
 
 protected:
@@ -33,6 +34,7 @@ private:
   Console* console;
   ConsoleSettings* settings;
   QTextBrowser* logBrowser;
+  bool logWatched;
 
 };
 
