@@ -1,6 +1,7 @@
 # Build
 /console/build/
 /renderstatistics/build/
+/tests/build/
 
 [Dd]ebug/
 [Dd]ebugPublic/
