@@ -8,7 +8,6 @@
 #include <QtGui/qboxlayout.h>
 #include <QtGui/qmessagebox.h>
 #include <QtGui/qtextbrowser.h>
-#include <QtGui/qtextcursor.h>
 #include <dzapp.h>
 #include <dzmainwindow.h>
 #include <dzstyle.h>
@@ -40,6 +39,17 @@ ConsolePane::ConsolePane() : DzPane("Console") {
 
 ConsolePane::~ConsolePane() {
   console->closeLog();
+
+  if (settings != nullptr) {
+    delete(settings);
+    settings = nullptr;
+  }
+
+  if (console != nullptr) {
+    delete(console);
+    console = nullptr;
+  }
+
 }
 
 void ConsolePane::openLog() {
@@ -50,7 +60,7 @@ void ConsolePane::openLog() {
   }
 
   logBrowser->setPlainText(console->getLog());
-  logBrowser->moveCursor(QTextCursor::End, QTextCursor::MoveAnchor);
+  moveCursor(QTextCursor::End);
   
   if (!logWatched) {
     logWatched = connect(console->getLogWatcher(), SIGNAL(fileChanged(const QString&)), this, SLOT(updateLog()));
@@ -62,7 +72,7 @@ void ConsolePane::updateLog() {
     QString logUpdates = console->getLogUpdates();
     if (logUpdates != nullptr && logUpdates.length() > 1) {
       logBrowser->append(logUpdates);
-      logBrowser->moveCursor(QTextCursor::End, QTextCursor::MoveAnchor);
+      moveCursor(QTextCursor::End);
     }
   }
   else {
@@ -114,4 +124,8 @@ void ConsolePane::buildOptionsMenu(DzActionMenu* menu) const {
   menu->insertAction("ConsoleClearAction");
   menu->insertAction("ConsoleReloadAction");
   menu->insertAction("ConsolePropertiesAction");
+}
+
+void ConsolePane::moveCursor(const QTextCursor::MoveOperation position) {
+  logBrowser->moveCursor(position, QTextCursor::MoveAnchor);
 }

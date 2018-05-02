@@ -42,6 +42,29 @@ ConsolePropertiesDialog::ConsolePropertiesDialog(
   setFixedHeight(height());
 }
 
+ConsolePropertiesDialog::~ConsolePropertiesDialog() {
+  if (fontSizeEditBox != nullptr) {
+    delete(fontSizeEditBox);
+    fontSizeEditBox = nullptr;
+  }
+
+  if (fontSizeLabel != nullptr) {
+    delete(fontSizeLabel);
+    fontSizeLabel = nullptr;
+  }
+
+  if (logFilePathDisplayBox != nullptr) {
+    delete(logFilePathDisplayBox);
+    logFilePathDisplayBox = nullptr;
+  }
+
+  if (logFilePathLabel != nullptr) {
+    delete(logFilePathLabel);
+    logFilePathLabel = nullptr;
+  }
+
+}
+
 QString ConsolePropertiesDialog::getNewFontSize() {
   return fontSizeEditBox->text();
 }

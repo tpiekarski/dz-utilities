@@ -6,6 +6,7 @@
 #include <dzactionmenu.h>
 #include <dzpane.h>
 #include <QtGui/qtextbrowser.h>
+#include <QtGui/qtextcursor.h>
 
 /*
  * Class: ConsolePane
@@ -35,6 +36,8 @@ private:
   ConsoleSettings* settings;
   QTextBrowser* logBrowser;
   bool logWatched;
+
+  void moveCursor(const QTextCursor::MoveOperation position);
 
 };
 

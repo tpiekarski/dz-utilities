@@ -15,6 +15,11 @@ Console::Console(QWidget* parent, QString path) {
 
 Console::~Console() {
   logWatcher->removePath(logFullPath);
+
+  if (logWatcher != nullptr) {
+    delete(logWatcher);
+    logWatcher = nullptr;
+  }
 }
 
 bool Console::openLog() {
