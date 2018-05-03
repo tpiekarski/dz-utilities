@@ -60,12 +60,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\SDK\Qt-4.8.1\include;$(SolutionDir)console;$(SolutionDir)renderstatistics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QT_SDK)\include;$(SolutionDir)console;$(SolutionDir)renderstatistics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\SDK\Qt-4.8.1\lib;$(SolutionDir)console\build\$(PlatformTarget)-Tests\;$(SolutionDir)renderstatistics\build\$(PlatformTarget)-Tests\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(QT_SDK)\lib;$(SolutionDir)console\build\$(PlatformTarget)-Tests\;$(SolutionDir)renderstatistics\build\$(PlatformTarget)-Tests\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>console.lib;renderstatistics.lib;QtCore4.lib;QtGui4.lib;Qt3Support4.lib;QtScript4.lib;QtTest4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -88,12 +88,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\SDK\Qt-4.8.1\include;$(SolutionDir)console;$(SolutionDir)renderstatistics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QT_SDK)\include;$(SolutionDir)console;$(SolutionDir)renderstatistics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\SDK\Qt-4.8.1\lib;$(SolutionDir)console\build\$(PlatformTarget)-Tests\;$(SolutionDir)renderstatistics\build\$(PlatformTarget)-Tests\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(QT_SDK)\lib;$(SolutionDir)console\build\$(PlatformTarget)-Tests\;$(SolutionDir)renderstatistics\build\$(PlatformTarget)-Tests\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>console.lib;renderstatistics.lib;QtCore4.lib;QtGui4.lib;Qt3Support4.lib;QtScript4.lib;QtTest4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -111,10 +111,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="console-test.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">C:\SDK\Qt-4.8.1\bin\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">$(QT_SDK)\bin\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">C:\SDK\Qt-4.8.1\bin\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">$(QT_SDK)\bin\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
@@ -128,8 +128,8 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="statistics-test.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">C:\SDK\Qt-4.8.1\bin\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">C:\SDK\Qt-4.8.1\bin\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">$(QT_SDK)\bin\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">$(QT_SDK)\bin\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>

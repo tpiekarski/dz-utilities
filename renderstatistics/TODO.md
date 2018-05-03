@@ -44,7 +44,7 @@ dzUtilities::RenderStatistics
 + [ ] Gather missing debug versions of certain libraries and switch 
       from production to debug build configuration
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
-+ [ ] Check possibility to reduce boost packages
++ [x] Check possibility to reduce boost packages
 
 ##### Memory Improvements
 + [ ] Store rendering images for browsing instead of reloading at every display
