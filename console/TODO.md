@@ -33,6 +33,13 @@ dzUtilities::Console
 + [ ] Check if const-qualified parameter should be defined in source as well as declared inside headers
       (Refers to inspection: Const-qualified parameter in a function declaration)
 
+#### Unit tests
++ [ ] Test if console is opening log file
++ [ ] Test if console is providing log content
++ [ ] Test if console is providing log updates
++ [ ] Test if console is reseting log file
++ [ ] Test if console is closing log file
+
 #### Bugs
 + [x] Debug and solve delaying and blocking behavior of QFileSystemWatcher
       (Loading and rendering with a lot of logged lines delays operation and blocks UI.

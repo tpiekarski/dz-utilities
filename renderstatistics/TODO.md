@@ -67,6 +67,16 @@ dzUtilities::RenderStatistics
 + [ ] Check comparing of signed and unsigned integers
       (Refers to inspection: Comparison of integers of different signs)
 
+#### Unit tests
++ [ ] Test if statistics are collecting basic data
++ [ ] Test if statistics are counting renderings
++ [ ] Test if statistics are providing start date
++ [ ] Test if statistics are providing duration in seconds
++ [ ] Test if statistics are providing start time
++ [ ] Test if statistics are providing string representation
++ [ ] Test if statistics are stopping clock
++ [ ] Test if statistics are measuring time
+
 #### Bugs
 + [x] Fix corrupt heap after closing RenderImageDialog
 + [x] Fix *Signal-Slot-Mapping bug* which maps signals multiple times

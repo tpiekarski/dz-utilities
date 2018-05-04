@@ -15,7 +15,11 @@ private slots:
   void init();
   void cleanup();
 
-  void testConsole();
+  void testConsoleIsOpeningLog();
+  void testConsoleIsProvidingLog();
+  void testConsoleIsProvidingLogUpdates();
+  void testConsoleIsResetingLog();
+  void testConsoleIsClosingLog();
 
 private:
   Console* console;

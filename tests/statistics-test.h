@@ -15,7 +15,14 @@ private slots:
   void init();
   void cleanup();
 
-  void testStatistics();
+  void testStatisticsAreCollectingBasicData();
+  void testStatisticsAreCountingRenderings();
+  void testStatisticsAreProvidingStartDate();
+  void testStatisticsAreProvidingDurationInSeconds();
+  void testStatisticsAreProvidingStartTime();
+  void testStatisticsAreProvidingStringRepresentation();
+  void testStatisticsAreStoppingClock();
+  void testStatisticsAreMeasuringTime();
 
 private:
   RenderStatistics* statistics;
