@@ -6,7 +6,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qtextstream.h>
 
-#define END_OF_LINE "\r\n"
+#define END_OF_LINE "\n"
 
 /*
  * Class: Console

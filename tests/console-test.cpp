@@ -1,34 +1,75 @@
 #include "console-test.h"
+#include "console-test-constants.h"
+#include "console-test-macros.h"
+#include <QtCore/QFile>
+#include <QtCore/QMap>
+#include <QtCore/QString>
+#include <QtCore/QTextStream>
 
 ConsoleTest::ConsoleTest(const QString logPath) {
+  console = nullptr;
   this->logPath = logPath;
 }
 
 void ConsoleTest::init() {
   console = new Console(NULL, logPath);
+  TESTLOG_WRITE(QString(INITIAL_LOG_CONTENT).arg(END_OF_LINE), QFile::WriteOnly);
 }
 
 void ConsoleTest::cleanup() {
-  delete(console);
-  console = nullptr;
+  if (console != nullptr) {
+    delete(console);
+    console = nullptr;
+  }
 }
 
 void ConsoleTest::testConsoleIsOpeningLog() {
-  // todo: implement testConsoleIsOpeningLog
+  QVERIFY(console->openLog());
+  QVERIFY(console->isLogOpen());
 }
 
 void ConsoleTest::testConsoleIsProvidingLog() {
-  // todo: implement testConsoleIsProvidingLog
+  TESTLOG_OPEN();
+  const QString expectedString = QString(INITIAL_LOG_CONTENT).arg(END_OF_LINE);
+  const QString logContent = console->getLog();
+  TESTLOG_CLOSE();
+
+  QVERIFY(!logContent.isEmpty());
+  QVERIFY(logContent.size() == 51);
+  QCOMPARE(logContent, expectedString);
 }
 
 void ConsoleTest::testConsoleIsProvidingLogUpdates() {
-  // todo: implement testConsoleIsProvidingLogUpdates
+  TESTLOG_OPEN();
+  console->getLog();
+  QString expectedString = UPDATED_LOG_CONTENT;
+
+  TESTLOG_WRITE(expectedString, QFile::Append);
+  expectedString.append(END_OF_LINE);
+  const QString updatedLogContent = console->getLogUpdates();
+  TESTLOG_CLOSE();
+
+  QVERIFY(!updatedLogContent.isEmpty());
+  QVERIFY(updatedLogContent.size() == 55);
+  QCOMPARE(updatedLogContent, expectedString);
 }
 
 void ConsoleTest::testConsoleIsResetingLog() {
-  // todo: implement testConsoleIsResetingLog
+  TESTLOG_OPEN();
+  QMap<QString, QString> logContent;
+  logContent.insert("beforeReset-1stCall", console->getLog().trimmed());
+  logContent.insert("beforeReset-2ndCall", console->getLog().trimmed());
+  console->resetLog();
+  logContent.insert("afterReset", console->getLog().trimmed());
+  TESTLOG_CLOSE();
+
+  QVERIFY(logContent.value("beforeReset-2ndCall").isEmpty());
+  QCOMPARE(logContent.value("afterReset"), logContent.value("beforeReset-1stCall"));
 }
 
 void ConsoleTest::testConsoleIsClosingLog() {
-  // todo: implement testConsoleIsClosingLog
+  TESTLOG_OPEN();
+  console->closeLog();
+
+  QVERIFY(!console->isLogOpen());
 }

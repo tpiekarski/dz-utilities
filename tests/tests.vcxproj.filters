@@ -53,4 +53,12 @@
       <Filter>Fixtures</Filter>
     </Text>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="console-test-macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="console-test-constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

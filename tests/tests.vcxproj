@@ -48,10 +48,12 @@
     <LibraryPath>$(LibraryPath)</LibraryPath>
     <OutDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</IntDir>
+    <ExtensionsToDeleteOnClean>log.txt;$(ExtensionsToDeleteOnClean)</ExtensionsToDeleteOnClean>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">
     <OutDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</IntDir>
+    <ExtensionsToDeleteOnClean>log.txt;$(ExtensionsToDeleteOnClean)</ExtensionsToDeleteOnClean>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">
     <ClCompile>
@@ -141,6 +143,10 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="fixtures\log.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="console-test-constants.h" />
+    <ClInclude Include="console-test-macros.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

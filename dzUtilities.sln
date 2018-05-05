@@ -8,10 +8,6 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "renderstatistics", "renderstatistics\renderstatistics.vcxproj", "{7DEAD50D-B1E7-4A84-BE03-97A960733B68}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tests", "tests\tests.vcxproj", "{FC6D6973-E7D3-4BDF-9A9D-BF956191547F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{C3B54F02-A152-4096-8FA0-2D10B3BB4FA3} = {C3B54F02-A152-4096-8FA0-2D10B3BB4FA3}
-		{7DEAD50D-B1E7-4A84-BE03-97A960733B68} = {7DEAD50D-B1E7-4A84-BE03-97A960733B68}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

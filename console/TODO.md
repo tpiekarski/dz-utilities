@@ -34,11 +34,11 @@ dzUtilities::Console
       (Refers to inspection: Const-qualified parameter in a function declaration)
 
 #### Unit tests
-+ [ ] Test if console is opening log file
-+ [ ] Test if console is providing log content
-+ [ ] Test if console is providing log updates
-+ [ ] Test if console is reseting log file
-+ [ ] Test if console is closing log file
++ [x] Test if console is opening log file
++ [x] Test if console is providing log content
++ [x] Test if console is providing log updates
++ [x] Test if console is reseting log file
++ [x] Test if console is closing log file
 
 #### Bugs
 + [x] Debug and solve delaying and blocking behavior of QFileSystemWatcher
