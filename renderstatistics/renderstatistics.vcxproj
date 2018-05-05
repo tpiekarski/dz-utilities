@@ -243,6 +243,9 @@
       <Command>$(SolutionDir)scripts\deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
       <Message>Deploying DAZ Studio plugin...</Message>
     </PostBuildEvent>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(DAZ_SDK)\include</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">
     <ClCompile>
@@ -389,6 +392,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="statistics.h" />
     <ClInclude Include="version.h" />
   </ItemGroup>
@@ -402,6 +406,9 @@
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="qstrings.natvis" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="statistics.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

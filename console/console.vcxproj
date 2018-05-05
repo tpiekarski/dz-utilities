@@ -280,6 +280,9 @@
     <PostBuildEvent>
       <Message>Deploying DAZ Studio plugin...</Message>
     </PostBuildEvent>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(DAZ_SDK)\include</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">
     <ClCompile>
@@ -456,6 +459,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="version.h" />
   </ItemGroup>
   <ItemGroup>
@@ -481,6 +485,9 @@
     <None Include="console.def" />
     <None Include="LICENSE" />
     <None Include="TODO.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="console.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

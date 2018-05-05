@@ -17,16 +17,13 @@
 #include <dzapp.h>
 #include <dzplugin.h>
 
-/*
- * Plugin Meta Information
- */
-DZ_PLUGIN_DEFINITION("Render Statistics")
+DZ_PLUGIN_DEFINITION(PLUGIN_NAME)
 DZ_PLUGIN_AUTHOR("Thomas Piekarski")
 DZ_PLUGIN_VERSION(PLUGIN_MAJOR, PLUGIN_MINOR, PLUGIN_REV, PLUGIN_BUILD)
 DZ_PLUGIN_DESCRIPTION(QString(
   "<strong>Render Statistics Plugin</strong>"
   "<p>"
-  "This plug-in provides basic render statistics to answer such questions like "
+  "%1. It tries to answer such questions like "
   "<em>how many renders did I started</em>, <em>how long did they took in average</em> "
   "and a few more such questions. Next to these questions it stores the rendered "
   "images which can be accessed, saved and browsed. The data is only stored in the "
@@ -37,13 +34,8 @@ DZ_PLUGIN_DESCRIPTION(QString(
   "For more information, current development and updates please refer to the "
   "<a href=\"https://github.com/tpiekarski/dzUtilities\">project website</a> at Github."
   "</p>"
-));
+).arg(PLUGIN_TAGLINE));
 
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-
-/*
- * Plugin Class GUID
- */
 DZ_PLUGIN_CLASS_GUID(RenderStatisticsPane, RENDERSTATISTICS_PANE_CLASS_GUID)
 DZ_PLUGIN_CLASS_GUID(RenderStatisticsPaneAction, RENDERSTATISTICS_PANE_ACTION_CLASS_GUID)
 DZ_PLUGIN_CLASS_GUID(RenderStatisticsClearAction, RENDERSTATISTICS_CLEAR_ACTION_CLASS_GUID)

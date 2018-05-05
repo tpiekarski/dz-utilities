@@ -3,11 +3,11 @@ dzUtilities
 
 *A collection of miscellaneous utilities for [DAZ Studio](https://www.daz3d.com/get_studio).*
 
-#|Utility Plugin|Description|TODO|Source
----|---|---|---|---
-1.|[Console](#console)|Console plugin displaying DAZ Studio Log file|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/console/TODO.md)|[dzUtilities/console](https://github.com/tpiekarski/dzUtilities/tree/master/console)
-2.|[Render Statistics](#render-statistics)|Render data aggregation and statistics plugin|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/renderstatistics/TODO.md)|[dzUtilities/renderstatistics](https://github.com/tpiekarski/dzUtilities/tree/master/renderstatistics)
-n.|[Tests](#tests)|Unit test project for all utility plugins|-|[dzUtilities/tests](https://github.com/tpiekarski/dzUtilities/tree/master/tests)
+#|Utility Plugin|Description|Version|TODO|Source
+---|---|---|---|---|---
+1.|[Console](#console)|Console plugin displaying DAZ Studio Log file|1.4.0|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/console/TODO.md)|[dzUtilities/console](https://github.com/tpiekarski/dzUtilities/tree/master/console)
+2.|[Render Statistics](#render-statistics)|Render data aggregation and statistics plugin|1.4.0|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/renderstatistics/TODO.md)|[dzUtilities/renderstatistics](https://github.com/tpiekarski/dzUtilities/tree/master/renderstatistics)
+n.|[Tests](#tests)|Unit test project for all utility plugins|-|-|[dzUtilities/tests](https://github.com/tpiekarski/dzUtilities/tree/master/tests)
 
 #### Build process
 Visual Studio is used for the build process and all project configurations are

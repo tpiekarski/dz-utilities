@@ -77,6 +77,9 @@
     <ClInclude Include="dzstatistics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="pane.h">
@@ -113,5 +116,10 @@
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="qstrings.natvis" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="statistics.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

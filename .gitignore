@@ -42,7 +42,14 @@ Generated\ Files/
 # Tracing
 *.e2e
 
+# Intermediate resource files
+/console/resource.h
+/console/RC*
+/renderstatistics/resource.h
+/renderstatistics/RC*
+
 # Other files
+*.code-workspace
 *.suo
 *.user
 *.userosscache

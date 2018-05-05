@@ -21,6 +21,7 @@ dzUtilities::RenderStatistics
   + [ ] Storage of all active lights
   + [ ] Storage of render settings
 + [ ] Export of statistics to CSV and JSON
++ [ ] Package and provide pre-compiled plugin library
 
 ##### UI
 + [x] Avoid upscaling of smaller rendering images

@@ -10,6 +10,7 @@ dzUtilities::Console
 + [ ] Highlight search results
 + [ ] Add filter for the issuer of log messages
 + [ ] Improve speed of seeking to 0 when reloading log
++ [ ] Package and provide pre-compiled plugin library
 
 ##### UI
 + [x] Move control buttons into pane action menu
