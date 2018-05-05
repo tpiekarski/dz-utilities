@@ -68,14 +68,12 @@ dzUtilities::RenderStatistics
       (Refers to inspection: Comparison of integers of different signs)
 
 #### Unit tests
-+ [ ] Test if statistics are collecting basic data
-+ [ ] Test if statistics are counting renderings
-+ [ ] Test if statistics are providing start date
-+ [ ] Test if statistics are providing duration in seconds
-+ [ ] Test if statistics are providing start time
-+ [ ] Test if statistics are providing string representation
-+ [ ] Test if statistics are stopping clock
-+ [ ] Test if statistics are measuring time
++ [x] Test if statistics are collecting basic data
++ [x] Test if statistics are providing start date
++ [x] Test if statistics are providing start time
++ [x] Test if statistics are providing duration in seconds
++ [x] Test if statistics are providing string representation
++ [x] Test if statistics are measuring time
 
 #### Bugs
 + [x] Fix corrupt heap after closing RenderImageDialog
@@ -85,6 +83,7 @@ dzUtilities::RenderStatistics
 + [x] Fix warning about missing argument for QString 
       (WARNING: QString::arg: Argument missing: RenderImageButton-, 2)
 + [x] Fix wrong saved render image after using previous/next buttons
++ [ ] Debug and fix _one-time_ callable methods for getting startDate and startTime
 + [ ] Debug and solve heap corruption while destructing QStatisticsLayout
 + [ ] Debug missing version directive (WARNING: 0:1: '' :  #version directive missing)
 + [ ] Debugging and probably fixing or rewriting destructor of the RenderImageDialog

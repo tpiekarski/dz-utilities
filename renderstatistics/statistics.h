@@ -36,7 +36,9 @@ public:
   string getEngine() { return engine; };
   int getNodes() { return nodes; }
   int getCounter() { return counter; };
+  duration<double> getRenderingDuration() { return renderingDuration; };
   string getRenderImage() { return renderImage; };
+  bool isFinished() { return finished; };
   bool isSucceeded() { return succeeded; };
 
   string getDurationInSeconds();

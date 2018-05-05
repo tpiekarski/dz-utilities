@@ -60,5 +60,11 @@
     <ClInclude Include="console-test-constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="statistics-test-constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="statistics-test-macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

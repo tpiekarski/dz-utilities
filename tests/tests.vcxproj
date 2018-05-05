@@ -147,6 +147,8 @@
   <ItemGroup>
     <ClInclude Include="console-test-constants.h" />
     <ClInclude Include="console-test-macros.h" />
+    <ClInclude Include="statistics-test-constants.h" />
+    <ClInclude Include="statistics-test-macros.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

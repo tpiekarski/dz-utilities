@@ -9,20 +9,18 @@ class StatisticsTest : public QObject {
   Q_OBJECT
 
 public:
-  StatisticsTest() = default;
+  StatisticsTest();
 
 private slots:
   void init();
   void cleanup();
 
   void testStatisticsAreCollectingBasicData();
-  void testStatisticsAreCountingRenderings();
-  void testStatisticsAreProvidingStartDate();
-  void testStatisticsAreProvidingDurationInSeconds();
-  void testStatisticsAreProvidingStartTime();
-  void testStatisticsAreProvidingStringRepresentation();
-  void testStatisticsAreStoppingClock();
   void testStatisticsAreMeasuringTime();
+  void testStatisticsAreProvidingStartDate();
+  void testStatisticsAreProvidingStartTime();
+  void testStatisticsAreProvidingDurationInSeconds();
+  void testStatisticsAreProvidingStringRepresentation();
 
 private:
   RenderStatistics* statistics;
