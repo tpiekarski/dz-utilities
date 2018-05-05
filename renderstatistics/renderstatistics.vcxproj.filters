@@ -107,6 +107,9 @@
     <None Include="TODO.md">
       <Filter>Documentation</Filter>
     </None>
+    <None Include="LICENSE">
+      <Filter>Documentation</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="qstrings.natvis" />

@@ -7,6 +7,7 @@ dzUtilities
 ---|---|---|---|---
 1.|[Console](#console)|Console plugin displaying DAZ Studio Log file|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/console/TODO.md)|[dzUtilities/console](https://github.com/tpiekarski/dzUtilities/tree/master/console)
 2.|[Render Statistics](#render-statistics)|Render data aggregation and statistics plugin|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/renderstatistics/TODO.md)|[dzUtilities/renderstatistics](https://github.com/tpiekarski/dzUtilities/tree/master/renderstatistics)
+n.|[Tests](#tests)|Unit test project for all utility plugins|-|[dzUtilities/tests](https://github.com/tpiekarski/dzUtilities/tree/master/tests)
 
 #### Build process
 Visual Studio is used for the build process and all project configurations are
@@ -29,13 +30,14 @@ Variable|Description
 ---|---
 DAZ_SDK|The full path to DAZ Studio SDK (Used for generating metaobjects with moc)
 DAZ_STUDIO|The full path to DAZ Studio (Used for post-built deployment)
+QT_SDK|The full path to Qt SDK 4.8.x (Used for unit tests)_
 
 #### Requirements
 - [Visual Studio 2017](https://www.visualstudio.com/)
   (Developed and tested with platform toolsets v141 and v140, both at x64)
 - [DAZ Studio SDK](https://www.daz3d.com/daz-studio-4-5-sdk) > 4.5.x
 - [DAZ Studio](https://www.daz3d.com/get_studio) > 4.5.x
-- [Qt](https://www.qt.io/) 4.x (not needed, the DAZ Studio SDK contains Qt)
+- [Qt](https://www.qt.io/) 4.8.x (Only needed for unit tests)
 
 #### NuGet Packages
 - [boost](https://www.nuget.org/packages/boost/) 1.65.1 (VC 140)
@@ -70,14 +72,16 @@ getting an idea to work or not.
 ### Render Statistics
 #### Introduction
 Renderstatistics is a work-in-progress plugin for collecting different rendering data.
-Following data is aggregated during rendering time and displayed in a pane.
+Following data is aggregated during rendering time and displayed in a pane. All this data
+is only stored in the current session and is not yet saved after closing DAZ Studio.
 
 #|Data|Description
 ---|---|---
 1.|Rendering Engine|Engines like 3Delight or Nvidia Iray
 2.|Amount of Nodes|Amount of all nodes in scene (at the moment it contains also invisible nodes)
-3.|Date & Time|Just the date and time when the rendering was started
+3.|Date & Time|The date and time when the rendering was started
 4.|Duration|The rendering time in seconds
+5.|Rendered Image|The final rendered image
 
 ![Screenshot of Render Statistics](images/renderstatistics.jpg?raw=true "Screenshot of Render Statistics")
 
@@ -91,3 +95,17 @@ in a global or in a scene-based storage inside the
 Furthermore, the idea is to go one step ahead of plain statistics in integrating a thumbnail
 image of the finished rendering and to store render settings and the rendering camera which
 have been used for quick and convenient access.
+
+### Tests
+Additional Visual Studio Project containing unit tests of all utility plugins.
+The unit tests use QTest and test at this early stage the console and statistics layer beneath the plugins. 
+These layers are completely independent of DAZ Studio and only to some degree rely on Qt. 
+
+The tests can be run by wither executing tests inside the build directory and passing the full path to a 
+directory with the log fixture. Or by building the project inside Visual Studio the unit tests are started 
+by a post-build event and results are logged in the usual output window. The log fixture file is copied by 
+a pre-build event into the build directory and passed by argument to the test runner.
+
+For the build process the separated configuration _Tests_ is provided which is targeted to x86 and build the 
+plugins as a static library for linking with the test executable. Best option currently is to use the batch 
+build offered by Visual Studio to choose the _Tests_ configuration for the plug-in and the test projects.

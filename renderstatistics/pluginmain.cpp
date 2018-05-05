@@ -1,3 +1,14 @@
+/*
+* Project:   dzUtilities::RenderStatistics
+* Github:    https://github.com/tpiekarski/dzUtilities
+* Copyright: (c) 2017-2018 Thomas Piekarski <t.piekarski@deloquencia.de>
+* License:   Mozilla Public License, v. 2.0
+*
+* This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+* If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
+*
+*/
+
 #include "clear_action.h"
 #include "guid.h"
 #include "pane.h"
@@ -15,16 +26,20 @@ DZ_PLUGIN_VERSION(PLUGIN_MAJOR, PLUGIN_MINOR, PLUGIN_REV, PLUGIN_BUILD)
 DZ_PLUGIN_DESCRIPTION(QString(
   "<strong>Render Statistics Plugin</strong>"
   "<p>"
-  "This plugin provides basic render statistics to answer those questions like "
-  "<em>how many renders did I started</em>, <em>how long did I wait in average "
-  "for the final render</em> and <em>how often did I cancel a render</em> and "
-  "a few more such questions."
+  "This plug-in provides basic render statistics to answer such questions like "
+  "<em>how many renders did I started</em>, <em>how long did they took in average</em> "
+  "and a few more such questions. Next to these questions it stores the rendered "
+  "images which can be accessed, saved and browsed. The data is only stored in the "
+  "current session and is not yet saved, so are the rendered images as well."
   "</p>"
+  "<p><strong>The plugin is provided \"as is\", without warranty of any kind.</strong></p>"
   "<p>"
-  "For more information, current development and updates please see the "
-  "<a href=\"#tba\">project website</a>."
+  "For more information, current development and updates please refer to the "
+  "<a href=\"https://github.com/tpiekarski/dzUtilities\">project website</a> at Github."
   "</p>"
 ));
+
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 
 /*
  * Plugin Class GUID

@@ -33,7 +33,7 @@ dzUtilities::RenderStatistics
 + [ ] Replace show render button by either thumbnail or iconized button
 
 ##### Legal issues
-+ [ ] Add legal disclaimer and Mozilla Public License
++ [x] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
 + [x] Streamline naming of headers and source files to lowercased underscore

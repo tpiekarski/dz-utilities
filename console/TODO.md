@@ -15,7 +15,7 @@ dzUtilities::Console
 + [x] Move control buttons into pane action menu
 
 ##### Legal issues
-+ [ ] Add legal disclaimer and Mozilla Public License
++ [x] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
 + [x] Streamline naming of headers and source files to lowercased underscore

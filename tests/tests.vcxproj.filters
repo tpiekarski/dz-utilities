@@ -19,6 +19,9 @@
     <Filter Include="Fixtures">
       <UniqueIdentifier>{553af720-acca-4dc2-b62e-b2ecfb15a486}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{1e8e8f30-95ac-43bc-a07f-2aa6d1f97f01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="console-test.cpp">
@@ -47,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="LICENSE">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\README.md">
+      <Filter>Documentation</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="fixtures\log.txt">
