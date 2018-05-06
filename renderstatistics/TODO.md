@@ -4,58 +4,55 @@ dzUtilities::RenderStatistics
 #### TODO
 
 ##### Features
-+ [x] Temporarily save the rendered image
-+ [x] Add a button to show a dialog with the rendered image
 + [ ] Add a setting dialog accessible by the pane actions menu
-+ [x] Add a saving button in the RenderImageDialog to save the rendered image
-+ [x] Inside the QStatisticsLayout indicate aborted and finished renderings
-+ [ ] Introduce a setting to deactivate the capturing data from aborted renderings
-+ [ ] Provide a setting for the width and the image scaling algorithm of the rendering image
-+ [x] Clearing of all statistics and the QStatisticsLayout
-+ [ ] Sorting of columns in the QStatisticsLayout
-+ [ ] Saving of statistics inside DSON
-+ [ ] Saving of rendered images inside DSON
-+ [ ] Saving and of all important objects and settings during the rendering. 
-      (Including camera, lights and all settings).
-  + [ ] Storage of active camera
-  + [ ] Storage of all active lights
-  + [ ] Storage of render settings
++ [ ] Export images with watermarked statistics
 + [ ] Export of statistics to CSV and JSON
++ [ ] Introduce a setting to deactivate the capturing data from aborted renderings
 + [ ] Package and provide pre-compiled plugin library
++ [ ] Provide a setting for the width and the image scaling algorithm of the rendering image
++ [ ] Saving active camera
++ [ ] Saving all active lights
++ [ ] Saving render settings
++ [ ] Saving rendered images inside DSON
++ [ ] Saving statistics inside DSON
++ [ ] Sorting columns in the QStatisticsLayout
++ [x] Add a button to show a dialog with the rendered image
++ [x] Add a saving button in the RenderImageDialog to save the rendered image
++ [x] Clearing of all statistics and the QStatisticsLayout
++ [x] Inside the QStatisticsLayout indicate aborted and finished renderings
++ [x] Temporarily save the rendered image
 
 ##### UI
-+ [x] Avoid upscaling of smaller rendering images
-+ [x] Add buttons to display previous and next rendering images
++ [ ] Display statistics inside the render image dialog
 + [ ] Handle different image sizes for browsing rendering images
-+ [ ] Switch from DzBasicDialog to a more sophisticated window with scroll- and size-ability
-+ [ ] Display gathered information inside the render image dialog
-      (Probably also like a watermark-like imprint of stats)
 + [ ] Scroll-ability of the QStatisticsLayout
++ [ ] Switch from DzBasicDialog to a more sophisticated window with scroll- and size-ability
++ [x] Add buttons to display previous and next rendering images
++ [x] Avoid upscaling of smaller rendering images
 + [x] Replace show render button by iconized button
+
 
 ##### Legal issues
 + [x] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
-+ [x] Streamline naming of headers and source files to lowercased underscore
-+ [x] Extend logging with debug switch
-+ [ ] Introduce automated click-tests with AutoIt
-+ [x] Add another linter and static code analysis tool (cppcheck and ReSharper++ integrated)
-+ [ ] Gather missing debug versions of certain libraries and switch 
-      from production to debug build configuration
-+ [ ] Integrate cloud-based build tools like AppVeyor or Travis
-+ [x] Check possibility to reduce boost packages
-+ [ ] Develop a CLI tool for deployment and replace batch scripts
 + [ ] Collect all defined constants in one central constants header file
++ [ ] Develop a CLI tool for deployment and replace batch scripts
++ [ ] Gather missing debug versions and switch from release to debug build configuration
++ [ ] Integrate cloud-based build tools like AppVeyor or Travis
++ [ ] Introduce automated click-tests with AutoIt
++ [x] Add linters and static code analysis tools (cppcheck and ReSharper++ integrated)
++ [x] Check possibility to reduce boost packages
++ [x] Extend logging with debug switch
++ [x] Streamline naming of headers and source files to lowercased underscore
+
 
 ##### Memory Improvements
-+ [ ] Store rendering images for browsing instead of reloading at every display
 + [ ] Pass references of messages instead of copies to the logger
++ [ ] Store rendering images for browsing instead of reloading at every display
 + [x] Introduce reasonable memory deallocation
 + [x] Refactor handling of RenderStatisticsLogger
-      _Instantiate logger only once in RenderStatisticsPane and pass
-      a pointer into the classes where it is used and deallocate its
-      memory only once inside the destructor of RenderStatisticsPane._
+
 
 ##### Clean code
 + [ ] Consider static resolving of method calls in constructors
@@ -70,27 +67,25 @@ dzUtilities::RenderStatistics
       (Refers to inspection: Comparison of integers of different signs)
 
 #### Unit tests
-+ [ ] Introduce unit testing for the Qt layer
 + [ ] Introduce unit testing for the DAZ layer
++ [ ] Introduce unit testing for the Qt layer
 + [x] Introduce unit testing for the statistics layer
   + [x] Test if statistics are collecting basic data
+  + [x] Test if statistics are measuring time
+  + [x] Test if statistics are providing duration in seconds
   + [x] Test if statistics are providing start date
   + [x] Test if statistics are providing start time
-  + [x] Test if statistics are providing duration in seconds
   + [x] Test if statistics are providing string representation
-  + [x] Test if statistics are measuring time
 
 #### Bugs
-+ [x] Fix corrupt heap after closing RenderImageDialog
-+ [x] Fix *Signal-Slot-Mapping bug* which maps signals multiple times
-+ [x] Fix lost signal-slot-mapping for render image buttons after statistics clearing
-      (Occurs only after clearing more than one statistic)
-+ [x] Fix warning about missing argument for QString 
-      (WARNING: QString::arg: Argument missing: RenderImageButton-, 2)
-+ [x] Fix wrong saved render image after using previous/next buttons
 + [ ] Debug and fix _one-time_ callable methods for getting startDate and startTime
++ [ ] Debugging and probably fixing or rewriting destructor of the RenderImageDialog
+      (Under certain circumstances delete operations can cause memory access violations)
 + [ ] Debug and solve heap corruption while destructing QStatisticsLayout
 + [ ] Debug missing version directive (WARNING: 0:1: '' :  #version directive missing)
-+ [ ] Debugging and probably fixing or rewriting destructor of the RenderImageDialog
-      _Under certain circumstances delete operations can cause memory access violations_
-+ [ ] Fix different line breaks in a few files
++ [x] Fix *Signal-Slot-Mapping bug* which maps signals multiple times
++ [x] Fix corrupt heap after closing RenderImageDialog
++ [x] Fix different line breaks in a few files
++ [x] Fix lost signal-slot-mapping for render image buttons after statistics clearing
++ [x] Fix warning about missing argument for QString 
++ [x] Fix wrong saved render image after using previous/next buttons
