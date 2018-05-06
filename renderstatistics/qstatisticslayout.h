@@ -14,18 +14,21 @@
 
 #include "dzstatistics.h"
 #include "logger.h"
+#include "qrenderimagebutton.h"
 #include "statistics.h"
 #include <QtCore/qlist.h>
 #include <QtCore/qsignalmapper.h>
 #include <QtGui/qframe.h>
 #include <QtGui/qgridlayout.h>
 #include <QtGui/qlabel.h>
-#include <QtGui/qpushbutton.h>
 #include <vector>
 
+#define DEFAULT_RENDERIMAGEBUTTON_ICON_SUBDIRECTORY "renderstatistics"
+#define DEFAULT_RENDERIMAGEBUTTON_ICON_FILENAME "renderimage.png"
 #define DEFAULT_ABORTED_FORMAT "<i style='color:#b7b7b7'>%1</i>"
+#define DEFAULT_LABEL_SIZE 8
 
-using namespace std;
+using std::vector;
 
 class QStatisticsLayout : public QGridLayout {
 
@@ -49,12 +52,13 @@ private:
   QList<QLabel*> headingLabels;
   QFrame* separator;
   QList<QList<QLabel*>> dataRowLabelLists;
-  QList<QPushButton*> buttons;
+  QList<QRenderImageButton*> buttons;
   QList<QSignalMapper*> signalMappers;
   vector<DzRenderStatistics>* statistics;
 
   void addHeadingRow();
   void addSeparator(const int row, const int columnSpan);
   QList<QLabel*> buildLabels();
+  void setLabelSize(QLabel* label, const int size);
 };
 #endif

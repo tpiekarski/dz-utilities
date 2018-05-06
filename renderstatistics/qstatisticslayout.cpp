@@ -15,7 +15,6 @@
 #include <QtGui/qcolor.h>
 #include <QtGui/qmessagebox.h>
 #include <QtGui/qpalette.h>
-#include <QtGui/qpushbutton.h>
 
 QStatisticsLayout::QStatisticsLayout(vector<DzRenderStatistics>* statistics, RenderStatisticsLogger* logger) {
   this->setObjectName("QStatisticsLayout");
@@ -78,7 +77,8 @@ void QStatisticsLayout::addHeadingRow() {
   int row = 0;
 
   for (QLabel* label : headingLabels) {
-    label->setFixedHeight(15);
+    setLabelSize(label, DEFAULT_LABEL_SIZE);
+
     addWidget(label, 0, row++);
   }
 }
@@ -90,6 +90,7 @@ void QStatisticsLayout::addDataRow() {
   dataRowLabelLists.append(buildLabels());
 
   for (QLabel* label : dataRowLabelLists.back()) {
+    setLabelSize(label, DEFAULT_LABEL_SIZE);
     addWidget(label, currentRow, currentColumn++);
   }
 
@@ -99,10 +100,15 @@ void QStatisticsLayout::addDataRow() {
 void QStatisticsLayout::addRenderImageButton(const int currentRow) {
   const int counter = statistics->back().getCounter() - 1;
 
-  QPushButton* newButton = new QPushButton("Show");
+  const QString iconFullPath = QString("%1/%2/%3").arg(
+    dzApp->getPluginsPath(),
+    DEFAULT_RENDERIMAGEBUTTON_ICON_SUBDIRECTORY,
+    DEFAULT_RENDERIMAGEBUTTON_ICON_FILENAME
+  );
+
+  QRenderImageButton* newButton = new QRenderImageButton(iconFullPath, logger);
   newButton->setObjectName(QString("RenderImageButton-%1").arg(QString::number(counter)));
   buttons.append(newButton);
-
   QSignalMapper* newSignalMapper = new QSignalMapper(this);
   newSignalMapper->setMapping(buttons.at(counter), counter);
   newSignalMapper->setObjectName(QString("RenderImageButton-SignalMapper-%1").arg(QString::number(counter)));
@@ -123,6 +129,7 @@ void QStatisticsLayout::addRenderImageButton(const int currentRow) {
   }
 
   addWidget(newButton, currentRow, 6);
+  setAlignment(newButton, Qt::AlignHCenter);
 }
 
 void QStatisticsLayout::showRendering(const int &current) {
@@ -179,6 +186,13 @@ QList<QLabel*> QStatisticsLayout::buildLabels() {
   }
 
   return outputLabels;
+}
+
+void QStatisticsLayout::setLabelSize(QLabel* label, const int size) {
+  QFont currentFont = label->font();
+  currentFont.setPointSize(size);
+  label->setFont(currentFont);
+  label->setFixedHeight(size * 2);
 }
 
 void QStatisticsLayout::clear() {

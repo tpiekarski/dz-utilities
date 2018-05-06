@@ -23,6 +23,7 @@ dzUtilities::Console
 + [x] Implement error handling inside menu actions when ConsolePane cannot be found
 + [x] Add another linter and static code analysis tool (cppcheck and ReSharper++ integrated)
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
++ [ ] Develop a CLI tool for deployment and replace batch scripts
 
 ##### Memory Improvements
 + [x] Keep log file opened instead of opening/closing at every call to displayLog
@@ -35,11 +36,14 @@ dzUtilities::Console
       (Refers to inspection: Const-qualified parameter in a function declaration)
 
 #### Unit tests
-+ [x] Test if console is opening log file
-+ [x] Test if console is providing log content
-+ [x] Test if console is providing log updates
-+ [x] Test if console is reseting log file
-+ [x] Test if console is closing log file
++ [ ] Introduce unit testing for the Qt layer
++ [ ] Introduce unit testing for the DAZ layer
++ [x] Introduce unit testing for the console layer
+  + [x] Test if console is opening log file
+  + [x] Test if console is providing log content
+  + [x] Test if console is providing log updates
+  + [x] Test if console is reseting log file
+  + [x] Test if console is closing log file
 
 #### Bugs
 + [x] Debug and solve delaying and blocking behavior of QFileSystemWatcher

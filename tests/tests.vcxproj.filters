@@ -22,6 +22,9 @@
     <Filter Include="Documentation">
       <UniqueIdentifier>{1e8e8f30-95ac-43bc-a07f-2aa6d1f97f01}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{8a21ff3b-beb8-497e-83b1-943b38f2d50b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="console-test.cpp">
@@ -55,6 +58,9 @@
     </None>
     <None Include="..\README.md">
       <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\scripts\copy-testfixtures.bat">
+      <Filter>Scripts</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

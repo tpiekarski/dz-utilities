@@ -19,6 +19,9 @@
     <Filter Include="Documentation">
       <UniqueIdentifier>{4fdb8630-eb00-48b2-9408-b3ec2bef7321}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{2c64b4df-dc32-49c9-aaaf-ddbc32665c0e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pluginmain.cpp">
@@ -60,6 +63,12 @@
     <ClCompile Include="dzstatistics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="qrenderimagebutton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\qrenderimagebutton_moc.cpp">
+      <Filter>Meta Object Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="version.h">
@@ -97,6 +106,9 @@
     <CustomBuild Include="renderimage_dialog.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="qrenderimagebutton.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <None Include="renderstatistics.def">
@@ -112,6 +124,9 @@
     </None>
     <None Include="LICENSE">
       <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\scripts\deploy-with-resources.bat">
+      <Filter>Scripts</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

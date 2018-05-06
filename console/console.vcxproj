@@ -482,6 +482,7 @@
   <ItemGroup>
     <None Include="..\.gitignore" />
     <None Include="..\README.md" />
+    <None Include="..\scripts\deploy.bat" />
     <None Include="console.def" />
     <None Include="LICENSE" />
     <None Include="TODO.md" />

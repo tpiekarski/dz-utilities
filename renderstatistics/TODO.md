@@ -31,7 +31,7 @@ dzUtilities::RenderStatistics
 + [ ] Display gathered information inside the render image dialog
       (Probably also like a watermark-like imprint of stats)
 + [ ] Scroll-ability of the QStatisticsLayout
-+ [ ] Replace show render button by either thumbnail or iconized button
++ [x] Replace show render button by iconized button
 
 ##### Legal issues
 + [x] Add legal disclaimer and Mozilla Public License
@@ -40,12 +40,13 @@ dzUtilities::RenderStatistics
 + [x] Streamline naming of headers and source files to lowercased underscore
 + [x] Extend logging with debug switch
 + [ ] Introduce automated click-tests with AutoIt
-+ [ ] Introduce some kind of unit testing for the statistics framework
 + [x] Add another linter and static code analysis tool (cppcheck and ReSharper++ integrated)
 + [ ] Gather missing debug versions of certain libraries and switch 
       from production to debug build configuration
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
 + [x] Check possibility to reduce boost packages
++ [ ] Develop a CLI tool for deployment and replace batch scripts
++ [ ] Collect all defined constants in one central constants header file
 
 ##### Memory Improvements
 + [ ] Store rendering images for browsing instead of reloading at every display
@@ -69,12 +70,15 @@ dzUtilities::RenderStatistics
       (Refers to inspection: Comparison of integers of different signs)
 
 #### Unit tests
-+ [x] Test if statistics are collecting basic data
-+ [x] Test if statistics are providing start date
-+ [x] Test if statistics are providing start time
-+ [x] Test if statistics are providing duration in seconds
-+ [x] Test if statistics are providing string representation
-+ [x] Test if statistics are measuring time
++ [ ] Introduce unit testing for the Qt layer
++ [ ] Introduce unit testing for the DAZ layer
++ [x] Introduce unit testing for the statistics layer
+  + [x] Test if statistics are collecting basic data
+  + [x] Test if statistics are providing start date
+  + [x] Test if statistics are providing start time
+  + [x] Test if statistics are providing duration in seconds
+  + [x] Test if statistics are providing string representation
+  + [x] Test if statistics are measuring time
 
 #### Bugs
 + [x] Fix corrupt heap after closing RenderImageDialog

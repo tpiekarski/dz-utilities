@@ -19,6 +19,9 @@
     <Filter Include="Documentation">
       <UniqueIdentifier>{62ac4fec-c883-4072-ae21-5f094f10bb3b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{4e53de50-a77b-42ba-a5d8-63fe2164f97f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="version.h">
@@ -120,6 +123,9 @@
     </None>
     <None Include="LICENSE">
       <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\scripts\deploy.bat">
+      <Filter>Scripts</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

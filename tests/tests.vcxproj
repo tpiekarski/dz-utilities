@@ -140,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
+    <None Include="..\scripts\copy-testfixtures.bat" />
     <None Include="LICENSE" />
     <None Include="packages.config" />
   </ItemGroup>
