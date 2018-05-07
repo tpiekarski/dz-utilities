@@ -13,13 +13,17 @@
 #define H_CONSTANTS
 
 #define CONSOLE_ACTION_GROUP "Console"
-#define CONSOLE_ACTION_PANE_NOT_FOUND_MSG "Failed finding pane."
-#define DEFAULT_FONT_SIZE_FLOAT 10.0
-#define DEFAULT_FONT_SIZE_STRING "10.00"
 #define PANE_MIN_HEIGHT 150
 #define PANE_MIN_WIDTH 500
+#define SETTINGS_DEFAULT_FONTSIZE 10.0
 #define SETTINGS_DIALOG_WIDTH 300
-#define SETTINGS_FONT_SIZE_KEY "fontSize"
+#define SETTINGS_FONTSIZE_KEY "fontSize"
+#define SETTINGS_FONTSIZE_MAX 22.0
+#define SETTINGS_FONTSIZE_MIN 6.0
 #define SETTINGS_PATH "Console"
+
+#define CONSOLE_ACTION_PANE_NOT_FOUND_MSG "Failed finding pane."
+#define SETTINGS_FONTSIZE_INVALID_MSG "Invalid new font size, falling back to default."
+#define SETTINGS_FONTSIZE_READING_FAILED_MSG "Could not read saved font size, falling back to default."
 
 #endif

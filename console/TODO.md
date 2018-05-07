@@ -9,6 +9,8 @@ dzUtilities::Console
 + [ ] Highlight search results
 + [ ] Improve speed of seeking to 0 when reloading log
 + [ ] Package and provide pre-compiled plugin library
++ [x] Include input validation for the font size and provide fallback mechanism
++ [ ] Change or extend input widget for the font size with increase/decrease buttons
 + [x] Automatically redisplay the log when new messages have been written the log file
 + [x] Remove most of previous signal-slot-based update connections
 
@@ -19,8 +21,11 @@ dzUtilities::Console
 + [x] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
++ [ ] Migrate and integrate new logger library
 + [ ] Develop a CLI tool for deployment and replace batch scripts
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
++ [ ] Refactor ConsoleSettings and ConsolePropertiesDialog
+      (Restructure access to properties, remove unused methods and various other little improvements)
 + [x] Add another linter and static code analysis tool (cppcheck and ReSharper++ integrated)
 + [x] Implement error handling inside menu actions when ConsolePane cannot be found
 + [x] Streamline naming of headers and source files to lowercased underscore

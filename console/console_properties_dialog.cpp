@@ -22,7 +22,6 @@ ConsolePropertiesDialog::ConsolePropertiesDialog(
 ) : DzBasicDialog(parent, "ConsoleProperties") {
 
   const int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
-  QString fontSize;
 
   layout()->setMargin(margin);
   layout()->setSpacing(margin);
@@ -41,6 +40,7 @@ ConsolePropertiesDialog::ConsolePropertiesDialog(
   fontSizeLabel->setObjectName("ConsolePropertiesFontSizeLabel");
   addWidget(fontSizeLabel);
 
+  QString fontSize = NULL;
   settings->getFontSize(&fontSize);
   fontSizeEditBox = new QLineEdit(fontSize, this);
   fontSizeEditBox->setObjectName("ConsolePropertiesFontSizeEdit");

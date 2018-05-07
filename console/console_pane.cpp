@@ -119,7 +119,10 @@ void ConsolePane::showProperties() {
   const int dialogResult = dialog->exec();
   const QString newFontSize = dialog->getNewFontSize();
 
-  if (dialogResult == 1 && settings->fontSize != newFontSize ) {
+  QString previousFontSize = NULL;
+  settings->getFontSize(&previousFontSize);
+
+  if (dialogResult == 1 && previousFontSize != newFontSize && settings->validateFontSize(newFontSize)) {
     settings->setFontSize(dialog->getNewFontSize());
 
     float fontSize;

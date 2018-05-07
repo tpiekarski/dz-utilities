@@ -36,6 +36,8 @@ dzUtilities::RenderStatistics
 + [x] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
++ [ ] Extract RenderStatisticsLogger to utility library, generalize and unit test
++ [ ] Migrate and integrate new logger library
 + [ ] Collect all defined constants in one central constants header file
 + [ ] Develop a CLI tool for deployment and replace batch scripts
 + [ ] Gather missing debug versions and switch from release to debug build configuration
@@ -81,6 +83,8 @@ dzUtilities::RenderStatistics
 + [ ] Debug and fix _one-time_ callable methods for getting startDate and startTime
 + [ ] Debugging and probably fixing or rewriting destructor of the RenderImageDialog
       (Under certain circumstances delete operations can cause memory access violations)
++ [ ] Debug and fix destructor of the class QStatisticsLayout
+      (It seems to be too early to delete statistics, memory access violations sometimes happens)
 + [ ] Debug and solve heap corruption while destructing QStatisticsLayout
 + [ ] Debug missing version directive (WARNING: 0:1: '' :  #version directive missing)
 + [x] Fix *Signal-Slot-Mapping bug* which maps signals multiple times

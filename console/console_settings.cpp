@@ -13,6 +13,7 @@
 #include "constants.h"
 #include <dzapp.h>
 #include <dzappsettings.h>
+#include <QtCore/qregexp.h>
 #include <QtCore/qstring.h>
 
 ConsoleSettings::ConsoleSettings() { 
@@ -23,12 +24,12 @@ ConsoleSettings::ConsoleSettings() {
 }
 
 void ConsoleSettings::getFontSize(float* fontSize) {
-  bool ok;
+  bool castResult;
 
-  *fontSize = this->fontSize.toFloat(&ok);
+  *fontSize = this->fontSize.toFloat(&castResult);
 
-  if (!ok) {
-    const float defaultFontSize = DEFAULT_FONT_SIZE_FLOAT;
+  if (!castResult) {
+    const float defaultFontSize = SETTINGS_DEFAULT_FONTSIZE;
     *fontSize = defaultFontSize;
   }
 }
@@ -37,37 +38,50 @@ void ConsoleSettings::getFontSize(QString* fontSize) {
   *fontSize = this->fontSize;
 }
 
-void ConsoleSettings::setFontSize(const float fontSize) {
-  this->fontSize = QString::number(fontSize, 'f', 2);
-}
-
 void ConsoleSettings::setFontSize(const QString fontSize) {
   this->fontSize = fontSize;
 }
 
-void ConsoleSettings::loadFontSize() {
-  bool readSuccess;
+bool ConsoleSettings::validateFontSize(const QString fontSize) {
+  QRegExp regExp = QRegExp("(\\d+)");
 
-  fontSize = settings->getStringValue(
-    SETTINGS_FONT_SIZE_KEY, 
-    DEFAULT_FONT_SIZE_STRING,
-    &readSuccess
+  if (!regExp.exactMatch(fontSize)) {
+    dzApp->log(SETTINGS_FONTSIZE_INVALID_MSG);
+
+    return false;
+  }
+
+  bool castSuccess = false;
+  const float size = fontSize.toFloat(&castSuccess);
+
+  if (!castSuccess || size < SETTINGS_FONTSIZE_MIN || size > SETTINGS_FONTSIZE_MAX) {
+    dzApp->log(SETTINGS_FONTSIZE_INVALID_MSG);
+
+    return false;
+  }
+
+  return true;
+}
+
+void ConsoleSettings::loadFontSize() {
+  bool readSuccess = false;
+
+  QString storedFontSize = settings->getStringValue(
+    SETTINGS_FONTSIZE_KEY, QString::number(SETTINGS_DEFAULT_FONTSIZE), &readSuccess
   );
 
-  if (!readSuccess) {
-    dzApp->log(
-      "Console: Could not read custom font size, "
-      "falling back to default."
-    );
+  if (readSuccess && validateFontSize(storedFontSize)) {
+    this->fontSize = storedFontSize;
+  } else {
+    dzApp->log(SETTINGS_FONTSIZE_READING_FAILED_MSG);
+    storedFontSize = QString::number(SETTINGS_DEFAULT_FONTSIZE);
+    this->fontSize = storedFontSize;
+    saveFontSize();
   }
 }
 
 void ConsoleSettings::saveFontSize() {
-  settings->setStringValue(SETTINGS_FONT_SIZE_KEY, fontSize);
-}
-
-QString ConsoleSettings::getLogFilePath() {
-  return logFilePath;
+  settings->setStringValue(SETTINGS_FONTSIZE_KEY, fontSize);
 }
 
 void ConsoleSettings::setLogFilePath(const QString logFilePath) {
