@@ -34,11 +34,6 @@ QStatisticsLayout::QStatisticsLayout(vector<DzRenderStatistics>* statistics, Ren
 QStatisticsLayout::~QStatisticsLayout() {
   logger->log("Destructing QStatisticsLayout and clearing all lists with widgets.");
 
-  if (statistics != nullptr) {
-    delete(statistics);
-    statistics = nullptr;
-  }
-
   if (signalMappers.count() > 0) {
     qDeleteAll(signalMappers);
     signalMappers.clear();
@@ -63,6 +58,12 @@ QStatisticsLayout::~QStatisticsLayout() {
     }
   }
 
+}
+
+void QStatisticsLayout::redraw() {
+  clear();
+  addHeadingRow();
+  addSeparator(1, columnCount());
 }
 
 void QStatisticsLayout::addHeadingRow() {
@@ -196,7 +197,6 @@ void QStatisticsLayout::setLabelSize(QLabel* label, const int size) {
 }
 
 void QStatisticsLayout::clear() {
-
   while (count()) {
     QWidget* widget = itemAt(0)->widget();
 
@@ -228,7 +228,4 @@ void QStatisticsLayout::clear() {
   dataRowLabelLists.clear();
   headingLabels.clear();
   signalMappers.clear();
-
-  addHeadingRow();
-  addSeparator(1, columnCount());
 }

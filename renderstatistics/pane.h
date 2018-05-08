@@ -40,7 +40,7 @@ class RenderStatisticsPane : public DzPane {
 public:
   RenderStatisticsPane();
   ~RenderStatisticsPane();
-  void clear();
+  void redraw();
 
 protected:
   void buildOptionsMenu(DzActionMenu* menu) const override;
@@ -59,7 +59,9 @@ private:
 
   int renderingCounter;
 
+  void clear();
   void setupPaneLayout();
   QString saveLastRenderImage(const int renderingCounter);
+  
 };
 #endif

@@ -57,6 +57,7 @@ dzUtilities::RenderStatistics
 
 
 ##### Clean code
++ [ ] Check option for merging of destructor and clean() of QStatisticsLayout
 + [ ] Consider static resolving of method calls in constructors
       (Refers to inspection: Call to a virtual function inside a constructor will be statically resolved)
 + [ ] Check if const-qualified parameter should be defined in source as well as declared inside headers
@@ -81,9 +82,9 @@ dzUtilities::RenderStatistics
 
 #### Bugs
 + [ ] Debug and fix _one-time_ callable methods for getting startDate and startTime
-+ [ ] Debugging and probably fixing or rewriting destructor of the RenderImageDialog
++ [x] Debugging and probably fixing or rewriting destructor of the RenderImageDialog
       (Under certain circumstances delete operations can cause memory access violations)
-+ [ ] Debug and fix destructor of the class QStatisticsLayout
++ [x] Debug and fix destructor of the class QStatisticsLayout
       (It seems to be too early to delete statistics, memory access violations sometimes happens)
 + [ ] Debug and solve heap corruption while destructing QStatisticsLayout
 + [ ] Debug missing version directive (WARNING: 0:1: '' :  #version directive missing)

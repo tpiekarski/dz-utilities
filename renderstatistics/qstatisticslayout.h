@@ -39,7 +39,7 @@ public:
   ~QStatisticsLayout();
   void addDataRow();
   void addRenderImageButton(const int currentRow);
-  void clear();
+  void redraw();
 
 signals:
   void clicked(const int &rendering);
@@ -59,6 +59,7 @@ private:
   void addHeadingRow();
   void addSeparator(const int row, const int columnSpan);
   QList<QLabel*> buildLabels();
+  void clear();
   void setLabelSize(QLabel* label, const int size);
 };
 #endif

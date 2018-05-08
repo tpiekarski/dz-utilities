@@ -30,5 +30,5 @@ void RenderStatisticsClearAction::executeAction() {
   }
 
   RenderStatisticsPane* statisticsPane = dynamic_cast<RenderStatisticsPane*>(pane);
-  statisticsPane->clear();
+  statisticsPane->redraw();
 }

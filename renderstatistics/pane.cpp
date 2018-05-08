@@ -38,11 +38,17 @@ RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
 
 RenderStatisticsPane::~RenderStatisticsPane() {
   logger->log("Destructing render statistics pane.");
-  
+  clear();
+
   if (logger != nullptr) {
     delete(logger);
     logger = nullptr;
   }
+}
+
+void RenderStatisticsPane::redraw() {
+  clear();
+  statisticsLayout->redraw();
 }
 
 void RenderStatisticsPane::clear() {
@@ -55,7 +61,6 @@ void RenderStatisticsPane::clear() {
   renderingCounter = INITIAL_RENDERING_COUNTER;
   statistics.clear();
   statistics.shrink_to_fit();
-  statisticsLayout->clear();
 }
 
 void RenderStatisticsPane::connectSignals() {
