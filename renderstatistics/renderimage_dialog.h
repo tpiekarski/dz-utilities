@@ -20,6 +20,7 @@
 #include <QtGui/qimage.h>
 #include <QtGui/qlabel.h>
 #include <QtGui/qpushbutton.h>
+#include <vector>
 
 #define PREVIOUS_RENDER_IMAGE_BUTTON_POS 1
 #define NEXT_RENDER_IMAGE_BUTTON_POS 2
@@ -27,6 +28,8 @@
 #define DEFAULT_DIALOG_WIDTH 600
 #define DEFAULT_IMAGE_FORMAT 0
 #define DEFAULT_IMAGE_QUALITY -1
+
+using std::vector;
 
 /*
  * Class: RenderImageDialog

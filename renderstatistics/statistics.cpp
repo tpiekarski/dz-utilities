@@ -11,6 +11,10 @@
 
 #include "statistics.h"
 
+using boost::posix_time::second_clock;
+using std::chrono::duration_cast;
+using std::locale;
+
 RenderStatistics::RenderStatistics(const string engine, const int nodes) {
   this->engine = engine;
   this->nodes = nodes;
@@ -19,8 +23,16 @@ RenderStatistics::RenderStatistics(const string engine, const int nodes) {
   finished = false;
   succeeded = false;
   startDateTime = second_clock::local_time();
-  dateFacet = new date_facet();
-  timeFacet = new time_facet();
+
+  date_facet* dateFacet = new date_facet();
+  dateFacet->format(DATE_FACET_FORMAT);
+  dateStream = new stringstream;
+  dateStream->imbue(locale(locale::classic(), dateFacet));
+
+  time_facet* timeFacet = new time_facet();
+  timeFacet->format(TIME_FACET_FORMAT);
+  timeStream = new stringstream();
+  timeStream->imbue(locale(locale::classic(), timeFacet));
 
   startTime = high_resolution_clock::now();
 }
@@ -63,19 +75,17 @@ string RenderStatistics::getDurationInSeconds() {
 };
 
 string RenderStatistics::getStartDate() {
-  dateFacet->format(DATE_FACET_FORMAT);
-  stringstream stringStream;
-  stringStream.imbue(locale(locale::classic(), dateFacet));
-  stringStream << startDateTime.date();
+  *dateStream << startDateTime.date();
+  const string date = dateStream->str();
+  dateStream->clear();
 
-  return stringStream.str();
+  return date;
 }
 
 string RenderStatistics::getStartTime() {
-  timeFacet->format(TIME_FACET_FORMAT);
-  stringstream stringStream;
-  stringStream.imbue(locale(locale::classic(), timeFacet));
-  stringStream << startDateTime;
+  *timeStream << startDateTime;
+  const string time = timeStream->str();
+  timeStream->clear();
 
-  return stringStream.str();
+  return time;
 }

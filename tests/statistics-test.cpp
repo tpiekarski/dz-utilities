@@ -51,7 +51,7 @@ void StatisticsTest::testStatisticsAreMeasuringTime() {
   QVERIFY(statistics->isFinished());
 }
 
-void StatisticsTest::testStatisticsAreProvidingStartDate() {
+void StatisticsTest::testStatisticsAreFormatingStartDate() {
   date_facet* dateFacet = new date_facet();
   dateFacet->format(DATE_FACET_FORMAT);
   STATISTICS_BUILD_CURRENT_DATETIME(now, dateFacet);
@@ -59,13 +59,25 @@ void StatisticsTest::testStatisticsAreProvidingStartDate() {
   QCOMPARE(QString::fromStdString(statistics->getStartDate()), now);
 }
 
-void StatisticsTest::testStatisticsAreProvidingStartTime() {
+void StatisticsTest::testStatisticsAreProvidingStartDateMultipleTimes() {
+  for (int n = 1; n <= 3; n++) {
+    QVERIFY(statistics->getStartDate().size() > 1);
+  }
+}
+
+void StatisticsTest::testStatisticsAreFormatingStartTime() {
   time_facet* timeFacet = new time_facet();
   timeFacet->format(TIME_FACET_FORMAT);
    
   STATISTICS_BUILD_CURRENT_DATETIME(now, timeFacet);
 
   QCOMPARE(QString::fromStdString(statistics->getStartTime()), now);
+}
+
+void StatisticsTest::testStatisticsAreProvidingStartTimeMultipleTimes() {
+  for (int n = 1; n <= 3; n++) {
+    QVERIFY(statistics->getStartTime().size() > 1);
+  }
 }
 
 void StatisticsTest::testStatisticsAreProvidingDurationInSeconds() {
@@ -83,3 +95,4 @@ void StatisticsTest::testStatisticsAreProvidingStringRepresentation() {
 
   QCOMPARE(QString::fromStdString(statistics->toString()), expectedString);
 }
+

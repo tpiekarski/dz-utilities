@@ -81,7 +81,8 @@ dzUtilities::RenderStatistics
   + [x] Test if statistics are providing string representation
 
 #### Bugs
-+ [ ] Debug and fix _one-time_ callable methods for getting startDate and startTime
++ [x] Debug and fix _one-time_ callable methods for getting startDate and startTime
++ [ ] Fix warning about missing /MASCHINE argument during linking x86 library for testing
 + [x] Debugging and probably fixing or rewriting destructor of the RenderImageDialog
       (Under certain circumstances delete operations can cause memory access violations)
 + [x] Debug and fix destructor of the class QStatisticsLayout

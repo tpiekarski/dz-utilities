@@ -28,9 +28,12 @@ private slots:
 
   void testStatisticsAreCollectingBasicData();
   void testStatisticsAreMeasuringTime();
-  void testStatisticsAreProvidingStartDate();
-  void testStatisticsAreProvidingStartTime();
+  void testStatisticsAreFormatingStartDate();
+  void testStatisticsAreProvidingStartDateMultipleTimes();
+  void testStatisticsAreFormatingStartTime();
+  void testStatisticsAreProvidingStartTimeMultipleTimes();
   void testStatisticsAreProvidingDurationInSeconds();
+  
   void testStatisticsAreProvidingStringRepresentation();
 
 private:

@@ -13,7 +13,11 @@
 #define H_STATISTICS_TEST_MACROS
 
 #include "statistics-test-constants.h"
+#include <boost/date_time/posix_time/posix_time.hpp>
 #include <typeinfo>
+
+using boost::posix_time::second_clock;
+using std::locale;
 
 #define STATISTICS_GET_SLEEP_SECONDS() \
   ((static_cast<double>(TEST_SLEEP_MILLISECONDS) / 1000.0))

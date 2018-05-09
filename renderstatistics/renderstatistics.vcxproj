@@ -102,31 +102,37 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</IntDir>
+    <ExtensionsToDeleteOnClean>$(ExtensionsToDeleteOnClean)</ExtensionsToDeleteOnClean>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</IntDir>
+    <ExtensionsToDeleteOnClean>$(ExtensionsToDeleteOnClean)</ExtensionsToDeleteOnClean>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</IntDir>
+    <ExtensionsToDeleteOnClean>$(ExtensionsToDeleteOnClean)</ExtensionsToDeleteOnClean>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</IntDir>
+    <ExtensionsToDeleteOnClean>$(ExtensionsToDeleteOnClean)</ExtensionsToDeleteOnClean>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</IntDir>
+    <ExtensionsToDeleteOnClean>$(ExtensionsToDeleteOnClean)</ExtensionsToDeleteOnClean>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)build\$(PlatformTarget)-$(Configuration)\</IntDir>
+    <ExtensionsToDeleteOnClean>$(ExtensionsToDeleteOnClean)</ExtensionsToDeleteOnClean>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -148,6 +154,9 @@
       <Command>$(SolutionDir)scripts\deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
       <Message>Deploying DAZ Studio plugin...</Message>
     </PostBuildEvent>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(DAZ_SDK)\include</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -169,6 +178,9 @@
       <Command>$(SolutionDir)scripts\deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
       <Message>Deploying DAZ Studio plugin...</Message>
     </PostBuildEvent>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(DAZ_SDK)\include</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -193,6 +205,9 @@
       <Command>$(SolutionDir)scripts\deploy.bat $(ProjectDir)build\$(PlatformTarget)-$(Configuration)\$(TargetFileName)</Command>
       <Message>Deploying DAZ Studio plugin...</Message>
     </PostBuildEvent>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(DAZ_SDK)\include</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">
     <ClCompile>
@@ -219,6 +234,9 @@
       <Message>
       </Message>
     </PostBuildEvent>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(DAZ_SDK)\include</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -272,6 +290,9 @@
       <Message>
       </Message>
     </PostBuildEvent>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(DAZ_SDK)\include</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="clear_action.cpp" />
@@ -398,6 +419,21 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating Meta Object File for %(Filename)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating Meta Object File for %(Filename)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">Generating Meta Object File for %(Filename)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating Meta Object File for %(Filename)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">Generating Meta Object File for %(Filename)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
     <ClInclude Include="resource.h" />
     <ClInclude Include="statistics.h" />
