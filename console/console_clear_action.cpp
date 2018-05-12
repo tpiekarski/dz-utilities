@@ -33,6 +33,6 @@ void ConsoleClearAction::executeAction() {
   }
 
   ConsolePane* consolePane = dynamic_cast<ConsolePane*>(pane);
-  consolePane->clearLog();
+  consolePane->getConsoleLogBrowser()->clearLog();
 }
 

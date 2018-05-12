@@ -16,7 +16,7 @@
 #include <QtCore/qregexp.h>
 #include <QtCore/qstring.h>
 
-ConsoleSettings::ConsoleSettings() { 
+ConsoleSettings::ConsoleSettings(const QString logPath) { 
   settings = new DzAppSettings(SETTINGS_PATH);
   loadFontSize();
 
@@ -82,8 +82,4 @@ void ConsoleSettings::loadFontSize() {
 
 void ConsoleSettings::saveFontSize() {
   settings->setStringValue(SETTINGS_FONTSIZE_KEY, fontSize);
-}
-
-void ConsoleSettings::setLogFilePath(const QString logFilePath) {
-  this->logFilePath = logFilePath;
 }

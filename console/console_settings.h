@@ -26,7 +26,7 @@ class ConsoleSettings : public QObject {
   Q_OBJECT
 
 public:
-  ConsoleSettings();
+  ConsoleSettings(const QString logPath);
   ~ConsoleSettings() = default;
 
   void getFontSize(float* fontSize);
@@ -34,7 +34,6 @@ public:
   void setFontSize(const QString fontSize);
   bool validateFontSize(const QString fontSize);
   QString getLogFilePath() { return logFilePath; };
-  void setLogFilePath(const QString logFilePath);
 
 private slots:
   void saveFontSize();

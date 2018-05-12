@@ -33,6 +33,6 @@ void ConsoleReloadAction::executeAction() {
   }
 
   ConsolePane* consolePane = dynamic_cast<ConsolePane*>(pane);
-  consolePane->reloadLog();
+  consolePane->getConsoleLogBrowser()->reloadLog();
 }
 

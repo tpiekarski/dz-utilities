@@ -13,11 +13,11 @@
 #define H_CONSOLE_PANE
 
 #include "console.h"
+#include "console_log_browser.h"
 #include "console_settings.h"
 #include <dzactionmenu.h>
 #include <dzpane.h>
-#include <QtGui/qtextbrowser.h>
-#include <QtGui/qtextcursor.h>
+#include <QtGui/qboxlayout.h>
 
 /*
  * Class: ConsolePane
@@ -31,25 +31,18 @@ public:
   ConsolePane();
   ~ConsolePane();
 
-  void clearLog();
+  ConsoleLogBrowser* getConsoleLogBrowser() { return consoleLogBrowser; };
   void showProperties();
-
-public slots:
-  void openLog();
-  void updateLog();
-  void reloadLog();
 
 protected:
   void buildOptionsMenu(DzActionMenu* menu) const override;
 
 private:
   Console* console;
-  ConsoleSettings* settings;
-  QTextBrowser* logBrowser;
-  bool logWatched;
-
-  void moveCursor(const QTextCursor::MoveOperation position);
-
+  ConsoleLogBrowser* consoleLogBrowser;
+  ConsoleSettings* consoleSettings;
+  QVBoxLayout* paneMainLayout;
+  
 };
 
 #endif
