@@ -22,7 +22,8 @@
 ConsolePane::ConsolePane() : DzPane("Console") {
   console = new Console(this, dzApp->getAppDataPath());
   consoleSettings = new ConsoleSettings(console->getLogFullPath());
-  consoleLogBrowser = new ConsoleLogBrowser(this, console, consoleSettings);
+  consoleLogBrowser = new ConsoleLogBrowser(console, consoleSettings);
+  consoleSearchPane = new ConsoleSearchPane(consoleLogBrowser);
 
   paneMainLayout = new QVBoxLayout();
   const int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
@@ -31,10 +32,16 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   setLayout(paneMainLayout);
   setMinimumSize(PANE_MIN_WIDTH, PANE_MIN_HEIGHT);
 
+  paneMainLayout->addLayout(consoleSearchPane->getLayout());
   paneMainLayout->addLayout(consoleLogBrowser->getLayout());
 }
 
 ConsolePane::~ConsolePane() {
+  if (consoleSearchPane != nullptr) {
+    delete(consoleSearchPane);
+    consoleSearchPane = nullptr;
+  }
+
   if (consoleLogBrowser != nullptr) {
     delete(consoleLogBrowser);
     consoleLogBrowser = nullptr;
@@ -48,6 +55,11 @@ ConsolePane::~ConsolePane() {
   if (console != nullptr) {
     delete(console);
     console = nullptr;
+  }
+
+  if (paneMainLayout != nullptr) {
+    delete(paneMainLayout);
+    paneMainLayout = nullptr;
   }
 
 }

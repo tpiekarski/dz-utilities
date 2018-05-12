@@ -39,6 +39,9 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="console_search_pane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pluginmain.cpp">
@@ -91,6 +94,9 @@
     </ClCompile>
     <ClCompile Include="moc\console_log_browser_moc.cpp">
       <Filter>Meta Object Files</Filter>
+    </ClCompile>
+    <ClCompile Include="console_search_pane.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

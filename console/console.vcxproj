@@ -472,6 +472,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
+    <ClInclude Include="console_search_pane.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="guid.h" />
     <CustomBuild Include="console_reload_action.h">
@@ -502,6 +503,7 @@
     <ClCompile Include="console.cpp" />
     <ClCompile Include="console_pane.cpp" />
     <ClCompile Include="console_properties_dialog.cpp" />
+    <ClCompile Include="console_search_pane.cpp" />
     <ClCompile Include="console_settings.cpp" />
     <ClCompile Include="console_clear_action.cpp" />
     <ClCompile Include="console_properties_action.cpp" />

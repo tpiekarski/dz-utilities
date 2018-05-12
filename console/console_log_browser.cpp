@@ -1,23 +1,34 @@
+/*
+* Project:   dzUtilities::Console
+* Github:    https://github.com/tpiekarski/dzUtilities
+* Copyright: (c) 2017-2018 Thomas Piekarski <t.piekarski@deloquencia.de>
+* License:   Mozilla Public License, v. 2.0
+*
+* This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+* If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
+*
+*/
+
 #include "console_log_browser.h"
 #include "constants.h"
 #include <dzapp.h>
 
-ConsoleLogBrowser::ConsoleLogBrowser(QWidget* parent, Console* console, ConsoleSettings* settings) {
+ConsoleLogBrowser::ConsoleLogBrowser(Console* console, ConsoleSettings* settings) {
   this->console = console;
   this->settings = settings;
 
   logWatched = false;
-  logBrowser = new QTextBrowser(parent);
-  logBrowser->setObjectName("LogBrowser");
-  logBrowser->setMinimumSize(PANE_MIN_WIDTH, PANE_MIN_HEIGHT);
+  browser = new QTextBrowser();
+  browser->setObjectName("LogBrowser");
+  browser->setMinimumSize(PANE_MIN_WIDTH, PANE_MIN_HEIGHT);
 
   float fontSize;
   settings->getFontSize(&fontSize);
-  logBrowser->setFontPointSize(fontSize);
+  browser->setFontPointSize(fontSize);
 
-  logBrowserLayout = new QHBoxLayout(parent);
-  logBrowserLayout->setObjectName("LogBrowserLayout");
-  logBrowserLayout->addWidget(logBrowser);
+  layout = new QHBoxLayout();
+  layout->setObjectName("LogBrowserLayout");
+  layout->addWidget(browser);
 
   connect(dzApp, SIGNAL(starting()), this, SLOT(openLog()));
 }
@@ -26,25 +37,25 @@ ConsoleLogBrowser::ConsoleLogBrowser(QWidget* parent, Console* console, ConsoleS
 ConsoleLogBrowser::~ConsoleLogBrowser() {
   console->closeLog();
 
-  if (logBrowser != nullptr) {
-    delete(logBrowser);
-    logBrowser = nullptr;
+  if (browser != nullptr) {
+    delete(browser);
+    browser = nullptr;
   }
 
-  if (logBrowserLayout != nullptr) {
-    delete(logBrowserLayout);
-    logBrowserLayout = nullptr;
+  if (layout != nullptr) {
+    delete(layout);
+    layout = nullptr;
   }
 }
 
 void ConsoleLogBrowser::openLog() {
   if (!console->openLog()) {
-    logBrowser->setPlainText(QString("The log file %s could not be opened.").arg(console->getLogFullPath()));
+    browser->setPlainText(QString("The log file %s could not be opened.").arg(console->getLogFullPath()));
 
     return;
   }
 
-  logBrowser->setPlainText(console->getLog());
+  browser->setPlainText(console->getLog());
   moveCursor(QTextCursor::End);
 
   if (!logWatched) {
@@ -56,25 +67,25 @@ void ConsoleLogBrowser::updateLog() {
   if (console->isLogOpen()) {
     QString logUpdates = console->getLogUpdates();
     if (logUpdates != nullptr && logUpdates.length() > 1) {
-      logBrowser->append(logUpdates);
+      browser->append(logUpdates);
       moveCursor(QTextCursor::End);
     }
   }
   else {
-    logBrowser->append(QString("The log file %1 is not open anymore.").arg(console->getLogFullPath()));
+    browser->append(QString("The log file %1 is not open anymore.").arg(console->getLogFullPath()));
   }
 }
 
 void ConsoleLogBrowser::reloadLog() {
-  logBrowser->clear();
+  browser->clear();
   console->resetLog();
   openLog();
 }
 
 void ConsoleLogBrowser::clearLog() {
-  logBrowser->clear();
+  browser->clear();
 }
 
 void ConsoleLogBrowser::moveCursor(const QTextCursor::MoveOperation position) {
-  logBrowser->moveCursor(position, QTextCursor::MoveAnchor);
+  browser->moveCursor(position, QTextCursor::MoveAnchor);
 }

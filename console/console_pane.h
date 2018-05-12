@@ -14,6 +14,7 @@
 
 #include "console.h"
 #include "console_log_browser.h"
+#include "console_search_pane.h"
 #include "console_settings.h"
 #include <dzactionmenu.h>
 #include <dzpane.h>
@@ -40,6 +41,7 @@ protected:
 private:
   Console* console;
   ConsoleLogBrowser* consoleLogBrowser;
+  ConsoleSearchPane* consoleSearchPane;
   ConsoleSettings* consoleSettings;
   QVBoxLayout* paneMainLayout;
   
