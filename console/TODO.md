@@ -5,13 +5,13 @@ dzUtilities::Console
 
 ##### Features
 + [ ] Add filter for the issuer of log messages
-+ [ ] Add the possibility to search for keywords forward and backward
-+ [ ] Highlight search results
++ [ ] Change or extend input widget for the font size with increase/decrease buttons
 + [ ] Improve speed of seeking to 0 when reloading log
 + [ ] Package and provide pre-compiled plugin library
-+ [x] Include input validation for the font size and provide fallback mechanism
-+ [ ] Change or extend input widget for the font size with increase/decrease buttons
++ [x] Add the possibility to search for keywords (forward and backward - starts over)
 + [x] Automatically redisplay the log when new messages have been written the log file
++ [x] Highlight search results (and a separate highlight button to highlight all results)
++ [x] Include input validation for the font size and provide fallback mechanism
 + [x] Remove most of previous signal-slot-based update connections
 
 ##### UI

@@ -17,7 +17,9 @@
 #include <QtCore/qobject.h>
 #include <QtGui/qboxlayout.h>
 #include <QtGui/qtextcursor.h>
+#include <QtGui/qtextdocument.h>
 #include <QtGui/qtextbrowser.h>
+#include <QtGui/qtextformat.h>
 
 class ConsoleLogBrowser : public QObject {
 
@@ -28,21 +30,32 @@ public:
   ~ConsoleLogBrowser();
 
   QHBoxLayout* getLayout() { return layout; };
-  QTextBrowser* getBrowser() { return browser; };
+  QTextCharFormat* getCurrentCharacterFormat() { return currentCharacterFormat; };
+  QTextDocument* getDocument() { return browser->document(); };
+  QTextEdit* getBrowser() { return browser; };
+  
+  bool find(const QString searchTerm, const QTextDocument::FindFlags options = QTextDocument::FindWholeWords);
   void clearLog();
+  void moveCursor(const QTextCursor::MoveOperation position);
+  void updateFontSize(const QString newFontSize);
 
 public slots:
   void openLog();
   void updateLog();
   void reloadLog();
 
+signals:
+  void logCleared();
+  void logReloaded();
+
 private:
   bool logWatched;
   Console* console;
   ConsoleSettings* settings;
   QHBoxLayout* layout;
-  QTextBrowser* browser;
+  QTextEdit* browser;
+  QTextCharFormat* currentCharacterFormat;
 
-  void moveCursor(const QTextCursor::MoveOperation position);
+  void resetCharacterFormat();
 };
 #endif

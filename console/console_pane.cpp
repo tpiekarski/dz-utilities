@@ -86,13 +86,7 @@ void ConsolePane::showProperties() {
   consoleSettings->getFontSize(&previousFontSize);
 
   if (dialogResult == 1 && previousFontSize != newFontSize && consoleSettings->validateFontSize(newFontSize)) {
-    consoleSettings->setFontSize(dialog->getNewFontSize());
-
-    float fontSize;
-    consoleSettings->getFontSize(&fontSize);
-
-    consoleLogBrowser->getBrowser()->setFontPointSize(fontSize);
-    consoleLogBrowser->reloadLog();
+    consoleLogBrowser->updateFontSize(newFontSize);
   }
 
 }

@@ -98,6 +98,9 @@
     <ClCompile Include="console_search_pane.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="moc\console_search_pane_moc.cpp">
+      <Filter>Meta Object Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="console_clear_action.h">

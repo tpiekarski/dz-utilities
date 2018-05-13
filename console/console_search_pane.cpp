@@ -10,18 +10,32 @@
 */
 
 #include "console_search_pane.h"
+#include <dzapp.h>
+#include <QtCore/qstring.h>
+#include <QtGui/qtextcursor.h>
+#include <QtGui/qtextformat.h>
 
 ConsoleSearchPane::ConsoleSearchPane(ConsoleLogBrowser* logBrowser) {
   this->logBrowser = logBrowser;
+  this->document = logBrowser->getDocument();
+  startover = true;
 
   searchEditBox = new QLineEdit();
   searchButton = new QPushButton("&Search");
-  
+  highlightButton = new QPushButton("&Highlight");
+  highlightButton->setCheckable(true);
+
+  hightlightFormat = new QTextCharFormat(*logBrowser->getCurrentCharacterFormat());
+  hightlightFormat->setForeground(Qt::red);
+
   layout = new QHBoxLayout();
   layout->addWidget(searchEditBox);
   layout->addWidget(searchButton);
-}
+  layout->addWidget(highlightButton);
 
+  connect(searchButton, SIGNAL(clicked()), this, SLOT(search()));
+  connect(highlightButton, SIGNAL(clicked()), this, SLOT(highlight()));
+}
 
 ConsoleSearchPane::~ConsoleSearchPane() {
   if (searchEditBox != nullptr) {
@@ -34,8 +48,84 @@ ConsoleSearchPane::~ConsoleSearchPane() {
     searchButton = nullptr;
   }
 
+  if (highlightButton != nullptr) {
+    delete(highlightButton);
+    highlightButton = nullptr;
+  }
+
+  if (hightlightFormat != nullptr) {
+    delete(hightlightFormat);
+    hightlightFormat = nullptr;
+  }
+
   if (layout != nullptr) {
     delete(layout);
     layout = nullptr;
   }
 }
+
+void ConsoleSearchPane::search() {
+  const QString searchTerm = searchEditBox->text();
+
+  if (searchTerm.isEmpty()) {
+    return;
+  }
+
+  if (startover) {
+    logBrowser->moveCursor(QTextCursor::Start);
+  }
+
+  startover = !logBrowser->find(searchTerm);
+}
+
+void ConsoleSearchPane::highlight() {
+  const QString searchTerm = searchEditBox->text();
+
+  if (searchTerm.isEmpty()) {
+    return;
+  }
+
+  if (highlight(searchTerm, hightlightFormat)) {
+    searchEditBox->setReadOnly(true);
+    highlightButton->setChecked(true);
+    disconnect(highlightButton, SIGNAL(clicked()), NULL, NULL);
+    connect(highlightButton, SIGNAL(clicked()), this, SLOT(unhighlight()));
+    disconnect(logBrowser, SIGNAL(logCleared()), NULL, NULL);
+    connect(logBrowser, SIGNAL(logCleared()), this, SLOT(unhighlight()));
+    disconnect(logBrowser, SIGNAL(logReloaded()), NULL, NULL);
+    connect(logBrowser, SIGNAL(logReloaded()), this, SLOT(highlight()));
+  } else {
+    highlightButton->setChecked(false);
+  }
+}
+
+void ConsoleSearchPane::unhighlight() {
+  highlight(searchEditBox->text(), logBrowser->getCurrentCharacterFormat());
+  searchEditBox->setReadOnly(false);
+  highlightButton->setChecked(false);
+  disconnect(highlightButton, SIGNAL(clicked()), NULL, NULL);
+  connect(highlightButton, SIGNAL(clicked()), this, SLOT(highlight()));
+  disconnect(logBrowser, SIGNAL(logCleared()), NULL, NULL);
+  disconnect(logBrowser, SIGNAL(logReloaded()), NULL, NULL);
+}
+
+bool ConsoleSearchPane::highlight(const QString searchTerm, QTextCharFormat* format) {
+  QTextCursor highlightCursor(document);
+  bool highlighted = false;
+
+  while (!highlightCursor.isNull() && !highlightCursor.atEnd()) {
+    highlightCursor = document->find(searchTerm, highlightCursor, QTextDocument::FindWholeWords);
+
+    if (!highlightCursor.isNull()) {
+      highlightCursor.movePosition(QTextCursor::EndOfWord, QTextCursor::KeepAnchor);
+      highlightCursor.setCharFormat(*format);
+
+      if (!highlighted) {
+        highlighted = true;
+      }
+    }
+  }
+
+  return highlighted;
+}
+

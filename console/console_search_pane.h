@@ -13,11 +13,17 @@
 #define H_CONSOLE_SEARCH_PANE
 
 #include "console_log_browser.h"
+#include <QtCore/qobject.h>
+#include <QtCore/qstring.h>
 #include <QtGui/qboxlayout.h>
 #include <QtGui/qlineedit.h>
 #include <QtGui/qpushbutton.h>
+#include <QtGui/qtextdocument.h>
+#include <QtGui/qtextformat.h>
 
-class ConsoleSearchPane {
+class ConsoleSearchPane : public QObject {
+
+  Q_OBJECT
 
 public:
   ConsoleSearchPane(ConsoleLogBrowser* logBrowser);
@@ -25,11 +31,22 @@ public:
 
   QHBoxLayout* getLayout() { return layout; };
 
+private slots:
+  void highlight();
+  void unhighlight();
+  void search();
+
 private:
+  bool startover;
   ConsoleLogBrowser* logBrowser;
   QHBoxLayout* layout;
   QLineEdit* searchEditBox;
+  QPushButton* highlightButton;
   QPushButton* searchButton;
+  QTextCharFormat* hightlightFormat;
+  QTextDocument* document;
+
+  bool highlight(const QString searchTerm, QTextCharFormat* highlightFormat);
 
 };
 #endif

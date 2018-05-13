@@ -472,7 +472,26 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
-    <ClInclude Include="console_search_pane.h" />
+    <CustomBuild Include="console_search_pane.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating Meta Object File for %(Filename)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating Meta Object File for %(Filename)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">Generating Meta Object File for %(Filename)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating Meta Object File for %(Filename)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">Generating Meta Object File for %(Filename)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
+    </CustomBuild>
     <ClInclude Include="constants.h" />
     <ClInclude Include="guid.h" />
     <CustomBuild Include="console_reload_action.h">
@@ -514,6 +533,7 @@
     <ClCompile Include="moc\console_properties_action_moc.cpp" />
     <ClCompile Include="moc\console_properties_dialog_moc.cpp" />
     <ClCompile Include="moc\console_reload_action_moc.cpp" />
+    <ClCompile Include="moc\console_search_pane_moc.cpp" />
     <ClCompile Include="moc\console_settings_moc.cpp" />
     <ClCompile Include="pluginmain.cpp" />
     <ClCompile Include="console_reload_action.cpp" />
