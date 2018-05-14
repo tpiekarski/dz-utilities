@@ -5,7 +5,7 @@ dzUtilities
 
 #|Utility Plugin|Description|Version|TODO|Source
 ---|---|---|---|---|---
-1.|[Console](#console)|Console plugin displaying DAZ Studio Log file|1.4.0|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/console/TODO.md)|[dzUtilities/console](https://github.com/tpiekarski/dzUtilities/tree/master/console)
+1.|[Console](#console)|Console plugin displaying DAZ Studio Log file|1.4.1|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/console/TODO.md)|[dzUtilities/console](https://github.com/tpiekarski/dzUtilities/tree/master/console)
 2.|[Render Statistics](#render-statistics)|Render data aggregation and statistics plugin|1.4.0|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/renderstatistics/TODO.md)|[dzUtilities/renderstatistics](https://github.com/tpiekarski/dzUtilities/tree/master/renderstatistics)
 n.|[Tests](#tests)|Unit test project for all utility plugins|-|-|[dzUtilities/tests](https://github.com/tpiekarski/dzUtilities/tree/master/tests)
 
@@ -30,7 +30,7 @@ Variable|Description
 ---|---
 DAZ_SDK|The full path to DAZ Studio SDK (Used for generating metaobjects with moc)
 DAZ_STUDIO|The full path to DAZ Studio (Used for post-built deployment)
-QT_SDK|The full path to Qt SDK 4.8.x (Used for unit tests)_
+QT_SDK|The full path to Qt SDK 4.8.x (Used for unit tests)
 
 #### Requirements
 - [Visual Studio 2017](https://www.visualstudio.com/)
@@ -45,12 +45,11 @@ QT_SDK|The full path to Qt SDK 4.8.x (Used for unit tests)_
 
 ### Console
 #### Introduction
-Console is a plugin for DAZ Studio for displaying the internal log file
-in a convenient window pane, which is size- and dock-able. By a few events
-provided by Qt signal and slot concept the display is automatically updated,
-like after finishing a rendering. Next to these signals it is possible to update
-it manually, clear the displayed lines and set the font size in a property
-dialog.
+Console is a plugin for DAZ Studio for displaying the internal log file in a convenient and 
+searchable window pane, which is size- and dock-able. With the signal/slot concept the display 
+is automatically updated as soon as new lines are written to the log file. Furthermore, it offers 
+searching and highlighting of search terms. Next to these features it is possible to update the 
+display manually, clear the displayed lines and set the font size in a property dialog.
 
 ![Screenshot of Console](images/console.jpg?raw=true "Screenshot of Console")
 

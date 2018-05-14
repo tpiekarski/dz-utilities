@@ -18,7 +18,7 @@
 #define PLUGIN_TAGLINE "This plug-in provides a console to the log file of DAZ Studio."
 #define PLUGIN_MAJOR 1
 #define PLUGIN_MINOR 4
-#define PLUGIN_REV 0
+#define PLUGIN_REV 1
 #define PLUGIN_BUILD 1
 #define PLUGIN_VERSION DZ_MAKE_VERSION( \
   PLUGIN_MAJOR, PLUGIN_MINOR, PLUGIN_REV, PLUGIN_BUILD \

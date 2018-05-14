@@ -4,8 +4,12 @@ dzUtilities::Console
 #### TODO
 
 ##### Features
++ [ ] Add button for reseting search and highlight
++ [ ] Add buttons for previous and next search result (displayed on demand)
 + [ ] Add filter for the issuer of log messages
 + [ ] Change or extend input widget for the font size with increase/decrease buttons
++ [ ] Create signal/slot connection between reloading log and highlighting search term
++ [ ] Implement search by regular expressions and add a checkbox for toggling
 + [ ] Improve speed of seeking to 0 when reloading log
 + [ ] Package and provide pre-compiled plugin library
 + [x] Add the possibility to search for keywords (forward and backward - starts over)
@@ -31,6 +35,8 @@ dzUtilities::Console
 + [x] Streamline naming of headers and source files to lowercased underscore
 
 ##### Memory Improvements
++ [ ] At ConsolePane::showProperties deallocate memory for the ConsolePropertiesDialog
++ [ ] Improve speed of highlighting by caching and only highlighting visible log
 + [x] Keep log file opened instead of opening/closing at every call to displayLog
       (see bugs:debug and solve delaying and blocking behavior)
 
@@ -52,6 +58,7 @@ dzUtilities::Console
 
 #### Bugs
 + [ ] Fix initial log display bug sometimes not showing the end of file (off by a few lines)
++ [ ] Fix missing log path display in the settings dialog
 + [ ] Fix warning about missing /MASCHINE argument during linking x86 library for testing
 + [x] Debug and solve delaying and blocking behavior of QFileSystemWatcher
 + [x] Fix missing auto-reload after clearing and reloading
