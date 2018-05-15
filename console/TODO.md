@@ -58,10 +58,10 @@ dzUtilities::Console
 
 #### Bugs
 + [ ] Fix initial log display bug sometimes not showing the end of file (off by a few lines)
-+ [ ] Fix missing log path display in the settings dialog
 + [ ] Fix warning about missing /MASCHINE argument during linking x86 library for testing
 + [x] Debug and solve delaying and blocking behavior of QFileSystemWatcher
 + [x] Fix missing auto-reload after clearing and reloading
++ [x] Fix missing log path display in the settings dialog
 + [x] Fixing of delay in re-displaying log with QFileWatcher when DzBasicDialog are opened.
 
 

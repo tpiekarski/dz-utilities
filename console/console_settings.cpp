@@ -16,7 +16,8 @@
 #include <QtCore/qregexp.h>
 #include <QtCore/qstring.h>
 
-ConsoleSettings::ConsoleSettings(const QString logPath) { 
+ConsoleSettings::ConsoleSettings(const QString logFilePath) {
+  this->logFilePath = logFilePath;
   settings = new DzAppSettings(SETTINGS_PATH);
   loadFontSize();
 
@@ -25,7 +26,6 @@ ConsoleSettings::ConsoleSettings(const QString logPath) {
 
 void ConsoleSettings::getFontSize(float* fontSize) {
   bool castResult;
-
   *fontSize = this->fontSize.toFloat(&castResult);
 
   if (!castResult) {
@@ -65,7 +65,6 @@ bool ConsoleSettings::validateFontSize(const QString fontSize) {
 
 void ConsoleSettings::loadFontSize() {
   bool readSuccess = false;
-
   QString storedFontSize = settings->getStringValue(
     SETTINGS_FONTSIZE_KEY, QString::number(SETTINGS_DEFAULT_FONTSIZE), &readSuccess
   );
