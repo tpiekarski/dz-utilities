@@ -237,6 +237,9 @@
     <ResourceCompile>
       <AdditionalIncludeDirectories>$(DAZ_SDK)\include</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <Lib>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
