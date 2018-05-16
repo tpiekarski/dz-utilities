@@ -39,9 +39,6 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="console_search_pane.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pluginmain.cpp">
@@ -125,6 +122,9 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="console_log_browser.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="console_search_pane.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

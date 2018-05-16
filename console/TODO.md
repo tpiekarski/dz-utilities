@@ -35,8 +35,8 @@ dzUtilities::Console
 + [x] Streamline naming of headers and source files to lowercased underscore
 
 ##### Memory Improvements
-+ [ ] At ConsolePane::showProperties deallocate memory for the ConsolePropertiesDialog
 + [ ] Improve speed of highlighting by caching and only highlighting visible log
++ [x] At ConsolePane::showProperties deallocate memory for the ConsolePropertiesDialog
 + [x] Keep log file opened instead of opening/closing at every call to displayLog
       (see bugs:debug and solve delaying and blocking behavior)
 
@@ -58,7 +58,7 @@ dzUtilities::Console
 
 #### Bugs
 + [ ] Fix initial log display bug sometimes not showing the end of file (off by a few lines)
-+ [ ] Fix warning about missing /MASCHINE argument during linking x86 library for testing
++ [x] Fix warning about missing /MASCHINE argument during linking x86 library for testing
 + [x] Debug and solve delaying and blocking behavior of QFileSystemWatcher
 + [x] Fix missing auto-reload after clearing and reloading
 + [x] Fix missing log path display in the settings dialog
