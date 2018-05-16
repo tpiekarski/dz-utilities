@@ -89,6 +89,11 @@ void ConsolePane::showProperties() {
     consoleLogBrowser->updateFontSize(newFontSize);
   }
 
+  if (dialog != nullptr) {
+    delete(dialog);
+    dialog = nullptr;
+  }
+
 }
 
 void ConsolePane::buildOptionsMenu(DzActionMenu* menu) const {
