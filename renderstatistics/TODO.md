@@ -42,6 +42,7 @@ dzUtilities::RenderStatistics
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
 + [ ] Introduce automated click-tests with AutoIt
 + [ ] Migrate and integrate new logger library
++ [ ] Fix coliding constants header file in tests project
 + [x] Add linters and static code analysis tools (cppcheck and ReSharper++ integrated)
 + [x] Check possibility to reduce boost packages
 + [x] Collect all defined constants in one central constants header file
@@ -82,7 +83,7 @@ dzUtilities::RenderStatistics
 
 #### Bugs
 + [ ] Debug missing version directive (WARNING: 0:1: '' :  #version directive missing)
-+ [ ] Fix VS Solution warning (Some of the properties associated with the solution could not be read).
++ [x] Fix VS Solution warning (Some of the properties associated with the solution could not be read).
 + [x] Fix warning about missing /MASCHINE argument during linking x86 library for testing
 + [x] Debug and fix _one-time_ callable methods for getting startDate and startTime
 + [x] Debugging and probably fixing or rewriting destructor of the RenderImageDialog

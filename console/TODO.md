@@ -30,6 +30,7 @@ dzUtilities::Console
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
 + [ ] Refactor ConsoleSettings and ConsolePropertiesDialog
       (Restructure access to properties, remove unused methods and various other little improvements)
++ [ ] Fix coliding constants header file in tests project
 + [x] Add another linter and static code analysis tool (cppcheck and ReSharper++ integrated)
 + [x] Implement error handling inside menu actions when ConsolePane cannot be found
 + [x] Streamline naming of headers and source files to lowercased underscore
@@ -58,7 +59,7 @@ dzUtilities::Console
 
 #### Bugs
 + [ ] Fix initial log display bug sometimes not showing the end of file (off by a few lines)
-+ [ ] Fix VS Solution warning (Some of the properties associated with the solution could not be read).
++ [x] Fix VS Solution warning (Some of the properties associated with the solution could not be read).
 + [x] Fix warning about missing /MASCHINE argument during linking x86 library for testing
 + [x] Debug and solve delaying and blocking behavior of QFileSystemWatcher
 + [x] Fix missing auto-reload after clearing and reloading
