@@ -9,6 +9,7 @@
 *
 */
 
+#include "constants.h"
 #include "qstatisticslayout.h"
 #include "renderimage_dialog.h"
 #include <dzmainwindow.h>

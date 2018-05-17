@@ -19,10 +19,6 @@
 #include <string>
 #include <sstream>
 
-#define DATE_FACET_FORMAT "%m/%d/%Y"
-#define DURATION_DISPLAY_PRECISION 3
-#define TIME_FACET_FORMAT "%H:%M"
-
 using std::string;
 using std::stringstream;
 using std::chrono::duration;

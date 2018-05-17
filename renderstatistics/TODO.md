@@ -36,15 +36,15 @@ dzUtilities::RenderStatistics
 + [x] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
-+ [ ] Extract RenderStatisticsLogger to utility library, generalize and unit test
-+ [ ] Migrate and integrate new logger library
-+ [ ] Collect all defined constants in one central constants header file
 + [ ] Develop a CLI tool for deployment and replace batch scripts
++ [ ] Extract RenderStatisticsLogger to utility library, generalize and unit test
 + [ ] Gather missing debug versions and switch from release to debug build configuration
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
 + [ ] Introduce automated click-tests with AutoIt
++ [ ] Migrate and integrate new logger library
 + [x] Add linters and static code analysis tools (cppcheck and ReSharper++ integrated)
 + [x] Check possibility to reduce boost packages
++ [x] Collect all defined constants in one central constants header file
 + [x] Extend logging with debug switch
 + [x] Streamline naming of headers and source files to lowercased underscore
 
@@ -82,6 +82,7 @@ dzUtilities::RenderStatistics
 
 #### Bugs
 + [ ] Debug missing version directive (WARNING: 0:1: '' :  #version directive missing)
++ [ ] Fix VS Solution warning (Some of the properties associated with the solution could not be read).
 + [x] Fix warning about missing /MASCHINE argument during linking x86 library for testing
 + [x] Debug and fix _one-time_ callable methods for getting startDate and startTime
 + [x] Debugging and probably fixing or rewriting destructor of the RenderImageDialog

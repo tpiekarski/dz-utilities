@@ -9,6 +9,7 @@
 *
 */
 
+#include "constants.h"
 #include "logger.h"
 #include "statistics.h"
 #include "version.h"

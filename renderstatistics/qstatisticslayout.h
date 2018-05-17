@@ -23,11 +23,6 @@
 #include <QtGui/qlabel.h>
 #include <vector>
 
-#define DEFAULT_RENDERIMAGEBUTTON_ICON_SUBDIRECTORY "renderstatistics"
-#define DEFAULT_RENDERIMAGEBUTTON_ICON_FILENAME "renderimage.png"
-#define DEFAULT_ABORTED_FORMAT "<i style='color:#b7b7b7'>%1</i>"
-#define DEFAULT_LABEL_SIZE 8
-
 using std::vector;
 
 class QStatisticsLayout : public QGridLayout {

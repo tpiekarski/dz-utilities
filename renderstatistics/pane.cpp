@@ -9,6 +9,7 @@
 *
 */
 
+#include "constants.h"
 #include "dzstatistics.h"
 #include "logger.h"
 #include "pane.h"

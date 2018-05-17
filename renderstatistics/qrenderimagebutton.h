@@ -15,8 +15,6 @@
 #include "logger.h"
 #include <QtGui/qpushbutton.h>
 
-#define DEFAULT_RENDERIMAGE_BUTTON_BORDER 2
-
 class QRenderImageButton : public QPushButton {
 
   Q_OBJECT

@@ -9,6 +9,7 @@
 *
 */
 
+#include "constants.h"
 #include "qrenderimagebutton.h"
 #include <QtCore/qfile.h>
 

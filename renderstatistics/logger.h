@@ -15,8 +15,6 @@
 #include "statistics.h"
 #include <QtCore/qstring.h>
 
-#define DEFAULT_LOGGER_FORMAT "%1: %2"
-
 /*
  * Class: RenderStatisticsLogger
  * Description: Convenient Logger class for simple message logging.

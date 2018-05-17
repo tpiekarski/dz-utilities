@@ -21,13 +21,6 @@
 #include <QtGui/qgridlayout.h>
 #include <vector>
 
-#define COLUMNS 7
-#define HEADING_ROWS 2
-#define INITIAL_RENDERING_COUNTER 0
-#define NOTHING ""
-#define RENDER_FILE_NAME_TEMPLATE "render-%1.png"
-#define RENDERSTATISTICS_DEBUG true;
-
 /*
  * Class: RenderStatisticsPane
  * Description: Main class for the render statistics pane.

@@ -335,6 +335,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
+    <ClInclude Include="constants.h" />
     <ClInclude Include="dzstatistics.h" />
     <ClInclude Include="guid.h" />
     <CustomBuild Include="pane.h">

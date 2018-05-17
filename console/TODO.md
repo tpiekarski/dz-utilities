@@ -58,6 +58,7 @@ dzUtilities::Console
 
 #### Bugs
 + [ ] Fix initial log display bug sometimes not showing the end of file (off by a few lines)
++ [ ] Fix VS Solution warning (Some of the properties associated with the solution could not be read).
 + [x] Fix warning about missing /MASCHINE argument during linking x86 library for testing
 + [x] Debug and solve delaying and blocking behavior of QFileSystemWatcher
 + [x] Fix missing auto-reload after clearing and reloading
