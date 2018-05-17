@@ -12,7 +12,7 @@
 #ifndef H_CONSOLE_PROPERTIES_ACTION
 #define H_CONSOLE_PROPERTIES_ACTION
 
-#include "constants.h"
+#include "console_constants.h"
 #include <dzaction.h>
 
 class ConsolePropertiesAction : public DzAction {

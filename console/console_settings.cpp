@@ -9,8 +9,8 @@
 *
 */
 
+#include "console_constants.h"
 #include "console_settings.h"
-#include "constants.h"
 #include <dzapp.h>
 #include <dzappsettings.h>
 #include <QtCore/qregexp.h>

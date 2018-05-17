@@ -9,8 +9,8 @@
 *
 */
 
+#include "console_constants.h"
 #include "console_properties_dialog.h"
-#include "constants.h"
 #include <QtGui/qlabel.h>
 #include <QtGui/qlayout.h>
 #include <QtGui/qlineedit.h>

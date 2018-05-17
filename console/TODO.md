@@ -25,12 +25,14 @@ dzUtilities::Console
 + [x] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
++ [ ] Streamline file naming with prefix *console_* for avoiding filename collisions on the include path in the future
++ [ ] Introduce namespace *utlis::console* to avoid future collisions
 + [ ] Migrate and integrate new logger library
 + [ ] Develop a CLI tool for deployment and replace batch scripts
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
 + [ ] Refactor ConsoleSettings and ConsolePropertiesDialog
       (Restructure access to properties, remove unused methods and various other little improvements)
-+ [ ] Fix coliding constants header file in tests project
++ [x] Fix coliding constants header file in tests project
 + [x] Add another linter and static code analysis tool (cppcheck and ReSharper++ integrated)
 + [x] Implement error handling inside menu actions when ConsolePane cannot be found
 + [x] Streamline naming of headers and source files to lowercased underscore

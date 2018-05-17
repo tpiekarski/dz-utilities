@@ -9,8 +9,8 @@
 *
 */
 
+#include "console_constants.h"
 #include "console_log_browser.h"
-#include "constants.h"
 #include <dzapp.h>
 
 ConsoleLogBrowser::ConsoleLogBrowser(Console* console, ConsoleSettings* settings) {

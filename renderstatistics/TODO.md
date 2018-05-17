@@ -36,13 +36,15 @@ dzUtilities::RenderStatistics
 + [x] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
++ [ ] Streamline file naming with prefix *rs_*  for avoiding filename collisions on the include path in the future
++ [ ] Introduce namespace *utils::renderstatistics* to avoid future collisions
 + [ ] Develop a CLI tool for deployment and replace batch scripts
 + [ ] Extract RenderStatisticsLogger to utility library, generalize and unit test
 + [ ] Gather missing debug versions and switch from release to debug build configuration
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
 + [ ] Introduce automated click-tests with AutoIt
 + [ ] Migrate and integrate new logger library
-+ [ ] Fix coliding constants header file in tests project
++ [x] Fix coliding constants header file in tests project
 + [x] Add linters and static code analysis tools (cppcheck and ReSharper++ integrated)
 + [x] Check possibility to reduce boost packages
 + [x] Collect all defined constants in one central constants header file

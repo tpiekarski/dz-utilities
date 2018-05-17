@@ -13,7 +13,7 @@
 #define H_CONSOLE_RELOAD_ACTION
 
 // Console Headers
-#include "constants.h"
+#include "console_constants.h"
 
 // DAZ Studio SDK Headers
 #include <dzaction.h>

@@ -9,10 +9,10 @@
 *
 */
 
-#include "constants.h"
 #include "dzstatistics.h"
 #include "logger.h"
 #include "pane.h"
+#include "renderstatistics_constants.h"
 #include "statistics.h"
 #include <dz3dviewport.h>
 #include <dzapp.h>

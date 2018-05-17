@@ -9,8 +9,8 @@
 *
 */
 
-#include "constants.h"
 #include "qrenderimagebutton.h"
+#include "renderstatistics_constants.h"
 #include <QtCore/qfile.h>
 
 QRenderImageButton::QRenderImageButton(const QString iconFullPath, RenderStatisticsLogger* logger) {

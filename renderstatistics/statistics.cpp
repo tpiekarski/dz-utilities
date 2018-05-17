@@ -9,7 +9,7 @@
 *
 */
 
-#include "constants.h"
+#include "renderstatistics_constants.h"
 #include "statistics.h"
 
 using boost::posix_time::second_clock;

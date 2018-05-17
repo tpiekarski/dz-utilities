@@ -9,6 +9,7 @@
 *
 */
 
+#include "renderstatistics_constants.h"
 #include "statistics-test-constants.h"
 #include "statistics-test-macros.h"
 #include "statistics-test.h"

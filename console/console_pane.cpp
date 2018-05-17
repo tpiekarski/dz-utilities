@@ -9,10 +9,10 @@
 *
 */
 
+#include "console_constants.h"
 #include "console_pane.h"
 #include "console_properties_dialog.h"
 #include "console_settings.h"
-#include "constants.h"
 #include <dzapp.h>
 #include <dzmainwindow.h>
 #include <dzstyle.h>

@@ -12,7 +12,7 @@
 #ifndef H_CONSOLE_CLEAR_ACTION
 #define H_CONSOLE_CLEAR_ACTION
 
-#include "constants.h"
+#include "console_constants.h"
 #include <dzaction.h>
 
 class ConsoleClearAction : public DzAction {

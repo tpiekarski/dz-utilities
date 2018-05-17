@@ -9,9 +9,9 @@
 *
 */
 
-#include "console_pane.h"
 #include "console_clear_action.h"
-#include "constants.h"
+#include "console_constants.h"
+#include "console_pane.h"
 #include <dzapp.h>
 #include <dzmainwindow.h>
 #include <dzpanemgr.h>

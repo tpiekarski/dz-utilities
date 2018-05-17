@@ -9,8 +9,8 @@
 *
 */
 
-#include "constants.h"
 #include "logger.h"
+#include "renderstatistics_constants.h"
 #include "statistics.h"
 #include "version.h"
 #include <dzapp.h>

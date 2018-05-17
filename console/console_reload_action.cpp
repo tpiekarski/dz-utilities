@@ -11,7 +11,7 @@
 
 #include "console_pane.h"
 #include "console_reload_action.h"
-#include "constants.h"
+#include "console_constants.h"
 #include <dzapp.h>
 #include <dzmainwindow.h>
 #include <dzpanemgr.h>
