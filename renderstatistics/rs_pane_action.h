@@ -14,12 +14,6 @@
 
 #include <dzaction.h>
 
-/*
- * Class: RenderStatisticsPaneAction
- * Description: Registration of a menu action for toggling
- * render statistics pane on/off.
- *
- */
 class RenderStatisticsPaneAction : public DzPaneAction {
 
   Q_OBJECT

@@ -12,7 +12,7 @@
 #ifndef H_RENDERSTATISTICS_QRENDERIMAGEBUTTON
 #define H_RENDERSTATISTICS_QRENDERIMAGEBUTTON
 
-#include "logger.h"
+#include "rs_logger.h"
 #include <QtGui/qpushbutton.h>
 
 class QRenderImageButton : public QPushButton {

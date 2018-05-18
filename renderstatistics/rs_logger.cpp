@@ -9,10 +9,10 @@
 *
 */
 
-#include "logger.h"
-#include "renderstatistics_constants.h"
-#include "statistics.h"
-#include "version.h"
+#include "rs_logger.h"
+#include "rs_constants.h"
+#include "rs_statistics.h"
+#include "rs_version.h"
 #include <dzapp.h>
 #include <QtCore/qstring.h>
 

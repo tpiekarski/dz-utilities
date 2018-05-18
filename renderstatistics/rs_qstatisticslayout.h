@@ -12,10 +12,10 @@
 #ifndef H_RENDERSTATISTICS_QSTATISTICS_LAYOUT
 #define H_RENDERSTATISTICS_QSTATISTICS_LAYOUT
 
-#include "dzstatistics.h"
-#include "logger.h"
-#include "qrenderimagebutton.h"
-#include "statistics.h"
+#include "rs_dzstatistics.h"
+#include "rs_logger.h"
+#include "rs_qrenderimagebutton.h"
+#include "rs_statistics.h"
 #include <QtCore/qlist.h>
 #include <QtCore/qsignalmapper.h>
 #include <QtGui/qframe.h>

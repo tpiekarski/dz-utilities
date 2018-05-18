@@ -18,11 +18,6 @@
 #include <QtGui/qlabel.h>
 #include <QtGui/qlineedit.h>
 
-/*
- * Class: ConsolePropertiesDialog
- * Description: Dialog for setting up properties like font size.
- *
- */
 class ConsolePropertiesDialog : public DzBasicDialog {
 
   Q_OBJECT

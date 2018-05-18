@@ -20,10 +20,6 @@
 #include <dzpane.h>
 #include <QtGui/qboxlayout.h>
 
-/*
- * Class: ConsolePane
- * Description: Main class for the console pane.
- */
 class ConsolePane : public DzPane {
 
   Q_OBJECT

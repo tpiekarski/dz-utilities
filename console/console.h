@@ -17,12 +17,6 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qtextstream.h>
 
-#define END_OF_LINE "\n"
-
-/*
- * Class: Console
- * Description: Console class wrapping access and handling of the log file.
- */
 class Console {
 
 public:

@@ -16,6 +16,7 @@
 #include <dzaction.h>
 
 class ConsolePropertiesAction : public DzAction {
+
   Q_OBJECT
 
 public:

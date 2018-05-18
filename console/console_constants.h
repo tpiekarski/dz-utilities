@@ -13,6 +13,7 @@
 #define H_CONSTANTS
 
 #define CONSOLE_ACTION_GROUP "Console"
+#define END_OF_LINE "\n"
 #define PANE_MIN_HEIGHT 150
 #define PANE_MIN_WIDTH 500
 #define SETTINGS_DEFAULT_FONTSIZE 10.0

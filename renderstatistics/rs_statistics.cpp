@@ -9,8 +9,8 @@
 *
 */
 
-#include "renderstatistics_constants.h"
-#include "statistics.h"
+#include "rs_constants.h"
+#include "rs_statistics.h"
 
 using boost::posix_time::second_clock;
 using std::chrono::duration_cast;

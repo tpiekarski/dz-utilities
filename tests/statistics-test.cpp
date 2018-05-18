@@ -9,7 +9,7 @@
 *
 */
 
-#include "renderstatistics_constants.h"
+#include "rs_constants.h"
 #include "statistics-test-constants.h"
 #include "statistics-test-macros.h"
 #include "statistics-test.h"
@@ -85,7 +85,7 @@ void StatisticsTest::testStatisticsAreProvidingDurationInSeconds() {
   STATISTICS_STOP_CLOCK(TEST_SLEEP_MILLISECONDS);
 
   QCOMPARE(
-    QString::fromStdString(statistics->getDurationInSeconds()), 
+    QString::fromStdString(statistics->getDurationInSeconds()),
     QString::number(STATISTICS_GET_SLEEP_SECONDS())
   );
 }

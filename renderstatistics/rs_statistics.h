@@ -27,10 +27,6 @@ using boost::gregorian::date_facet;
 using boost::posix_time::ptime;
 using boost::posix_time::time_facet;
 
-/*
- * Class: RenderStatistics
- * Description: Data class for keeping track of render statistics.
- */
 class RenderStatistics {
 
 public:

@@ -19,6 +19,7 @@
 #include <dzaction.h>
 
 class ConsoleReloadAction : public DzAction {
+
   Q_OBJECT
 
 public:

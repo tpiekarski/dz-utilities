@@ -496,7 +496,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
     <ClInclude Include="console_constants.h" />
-    <ClInclude Include="guid.h" />
+    <ClInclude Include="console_guid.h" />
     <CustomBuild Include="console_reload_action.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
@@ -518,7 +518,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="version.h" />
+    <ClInclude Include="console_version.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="console_log_browser.cpp" />
@@ -538,7 +538,7 @@
     <ClCompile Include="moc\console_reload_action_moc.cpp" />
     <ClCompile Include="moc\console_search_pane_moc.cpp" />
     <ClCompile Include="moc\console_settings_moc.cpp" />
-    <ClCompile Include="pluginmain.cpp" />
+    <ClCompile Include="console_plugin.cpp" />
     <ClCompile Include="console_reload_action.cpp" />
   </ItemGroup>
   <ItemGroup>

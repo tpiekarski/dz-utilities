@@ -298,24 +298,24 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="clear_action.cpp" />
-    <ClCompile Include="dzstatistics.cpp" />
-    <ClCompile Include="logger.cpp" />
-    <ClCompile Include="moc\clear_action_moc.cpp" />
-    <ClCompile Include="moc\pane_action_moc.cpp" />
-    <ClCompile Include="moc\pane_moc.cpp" />
-    <ClCompile Include="moc\qrenderimagebutton_moc.cpp" />
-    <ClCompile Include="moc\qstatisticslayout_moc.cpp" />
-    <ClCompile Include="moc\renderimage_dialog_moc.cpp" />
-    <ClCompile Include="pluginmain.cpp" />
-    <ClCompile Include="pane.cpp" />
-    <ClCompile Include="qrenderimagebutton.cpp" />
-    <ClCompile Include="qstatisticslayout.cpp" />
-    <ClCompile Include="renderimage_dialog.cpp" />
-    <ClCompile Include="statistics.cpp" />
+    <ClCompile Include="moc\rs_clear_action_moc.cpp" />
+    <ClCompile Include="moc\rs_pane_action_moc.cpp" />
+    <ClCompile Include="moc\rs_pane_moc.cpp" />
+    <ClCompile Include="moc\rs_qrenderimagebutton_moc.cpp" />
+    <ClCompile Include="moc\rs_qstatisticslayout_moc.cpp" />
+    <ClCompile Include="moc\rs_renderimage_dialog_moc.cpp" />
+    <ClCompile Include="rs_clear_action.cpp" />
+    <ClCompile Include="rs_dzstatistics.cpp" />
+    <ClCompile Include="rs_logger.cpp" />
+    <ClCompile Include="rs_plugin.cpp" />
+    <ClCompile Include="rs_pane.cpp" />
+    <ClCompile Include="rs_qrenderimagebutton.cpp" />
+    <ClCompile Include="rs_qstatisticslayout.cpp" />
+    <ClCompile Include="rs_renderimage_dialog.cpp" />
+    <ClCompile Include="rs_statistics.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="clear_action.h">
+    <CustomBuild Include="rs_clear_action.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
@@ -335,10 +335,10 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
-    <ClInclude Include="renderstatistics_constants.h" />
-    <ClInclude Include="dzstatistics.h" />
-    <ClInclude Include="guid.h" />
-    <CustomBuild Include="pane.h">
+    <ClInclude Include="rs_constants.h" />
+    <ClInclude Include="rs_dzstatistics.h" />
+    <ClInclude Include="rs_guid.h" />
+    <CustomBuild Include="rs_pane.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
@@ -358,7 +358,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
-    <CustomBuild Include="pane_action.h">
+    <CustomBuild Include="rs_pane_action.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
@@ -378,8 +378,8 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
-    <ClInclude Include="logger.h" />
-    <CustomBuild Include="qstatisticslayout.h">
+    <ClInclude Include="rs_logger.h" />
+    <CustomBuild Include="rs_qstatisticslayout.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
@@ -399,7 +399,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
-    <CustomBuild Include="renderimage_dialog.h">
+    <CustomBuild Include="rs_renderimage_dialog.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
@@ -419,7 +419,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
-    <CustomBuild Include="qrenderimagebutton.h">
+    <CustomBuild Include="rs_qrenderimagebutton.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
@@ -440,8 +440,8 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="statistics.h" />
-    <ClInclude Include="version.h" />
+    <ClInclude Include="rs_statistics.h" />
+    <ClInclude Include="rs_version.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.gitignore" />

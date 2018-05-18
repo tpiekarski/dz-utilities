@@ -9,8 +9,8 @@
 *
 */
 
-#include "clear_action.h"
-#include "pane.h"
+#include "rs_clear_action.h"
+#include "rs_pane.h"
 #include <dzapp.h>
 #include <dzmainwindow.h>
 #include <dzpanemgr.h>

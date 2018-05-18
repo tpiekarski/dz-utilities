@@ -25,7 +25,7 @@ dzUtilities::Console
 + [x] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
-+ [ ] Streamline file naming with prefix *console_* for avoiding filename collisions on the include path in the future
++ [x] Streamline file naming with prefix *console_* for avoiding filename collisions on the include path in the future
 + [ ] Introduce namespace *utlis::console* to avoid future collisions
 + [ ] Migrate and integrate new logger library
 + [ ] Develop a CLI tool for deployment and replace batch scripts

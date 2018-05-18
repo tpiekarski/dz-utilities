@@ -10,6 +10,7 @@
 */
 
 #include "console.h"
+#include "console_constants.h"
 #include <dzapp.h>
 #include <QtGui/qwidget.h>
 

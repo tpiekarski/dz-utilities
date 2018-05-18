@@ -14,8 +14,8 @@
 #include "console_pane_action.h"
 #include "console_properties_action.h"
 #include "console_reload_action.h"
-#include "guid.h"
-#include "version.h"
+#include "console_guid.h"
+#include "console_version.h"
 #include <dzplugin.h>
 
 DZ_PLUGIN_DEFINITION(PLUGIN_NAME);

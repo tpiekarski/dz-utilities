@@ -9,7 +9,7 @@
 *
 */
 
-#include "dzstatistics.h"
+#include "rs_dzstatistics.h"
 #include <QtCore/qstring.h>
 
 DzRenderStatistics::DzRenderStatistics(

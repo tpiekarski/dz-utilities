@@ -9,8 +9,8 @@
 *
 */
 
-#include "renderimage_dialog.h"
-#include "renderstatistics_constants.h"
+#include "rs_renderimage_dialog.h"
+#include "rs_constants.h"
 #include <dzapp.h>
 #include <QtGui/qfiledialog.h>
 #include <QtGui/qlayout.h>

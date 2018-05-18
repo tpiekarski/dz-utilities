@@ -16,11 +16,6 @@
 #include <QtCore/qobject.h>
 #include <QtCore/qstring.h>
 
-/*
- * Class: ConsoleSettings
- * Description: Container class for all settings.
- *
- */
 class ConsoleSettings : public QObject {
 
   Q_OBJECT

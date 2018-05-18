@@ -12,20 +12,15 @@
 #ifndef H_RENDERSTATISTICS_PANE
 #define H_RENDERSTATISTICS_PANE
 
-#include "dzstatistics.h"
-#include "logger.h"
-#include "qstatisticslayout.h"
+#include "rs_dzstatistics.h"
+#include "rs_logger.h"
+#include "rs_qstatisticslayout.h"
 #include <dzactionmenu.h>
 #include <dzpane.h>
 #include <dzrendermgr.h>
 #include <QtGui/qgridlayout.h>
 #include <vector>
 
-/*
- * Class: RenderStatisticsPane
- * Description: Main class for the render statistics pane.
- *
- */
 class RenderStatisticsPane : public DzPane {
 
   Q_OBJECT

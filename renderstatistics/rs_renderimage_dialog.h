@@ -12,8 +12,8 @@
 #ifndef H_RENDERSTATISTICS_RENDERIMAGE_DIALOG
 #define H_RENDERSTATISTICS_RENDERIMAGE_DIALOG
 
-#include "dzstatistics.h"
-#include "logger.h"
+#include "rs_dzstatistics.h"
+#include "rs_logger.h"
 #include <dzbasicdialog.h>
 #include <dzstyle.h>
 #include <QtCore/qstring.h>
@@ -24,10 +24,6 @@
 
 using std::vector;
 
-/*
- * Class: RenderImageDialog
- * Description: Dialog for showing rendered image.
- */
 class RenderImageDialog : public DzBasicDialog {
 
   Q_OBJECT

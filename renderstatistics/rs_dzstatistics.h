@@ -12,8 +12,8 @@
 #ifndef H_RENDERSTATISTICS_DZSTATISTICS
 #define H_RENDERSTATISTICS_DZSTATISTICS
 
-#include "logger.h"
-#include "statistics.h"
+#include "rs_logger.h"
+#include "rs_statistics.h"
 #include <dzbasiccamera.h>
 #include <dzcamera.h>
 

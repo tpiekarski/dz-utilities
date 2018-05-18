@@ -36,7 +36,7 @@ dzUtilities::RenderStatistics
 + [x] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
-+ [ ] Streamline file naming with prefix *rs_*  for avoiding filename collisions on the include path in the future
++ [x] Streamline file naming with prefix *rs_*  for avoiding filename collisions on the include path in the future
 + [ ] Introduce namespace *utils::renderstatistics* to avoid future collisions
 + [ ] Develop a CLI tool for deployment and replace batch scripts
 + [ ] Extract RenderStatisticsLogger to utility library, generalize and unit test
@@ -73,6 +73,7 @@ dzUtilities::RenderStatistics
       (Refers to inspection: Comparison of integers of different signs)
 
 #### Unit tests
++ [ ] Add rounding of measured timing to avoid failing unit tests
 + [ ] Introduce unit testing for the DAZ layer
 + [ ] Introduce unit testing for the Qt layer
 + [x] Introduce unit testing for the statistics layer

@@ -9,6 +9,7 @@
 *
 */
 
+#include "console_constants.h"
 #include "console-test.h"
 #include "console-test-constants.h"
 #include "console-test-macros.h"

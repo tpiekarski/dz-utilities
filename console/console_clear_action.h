@@ -16,6 +16,7 @@
 #include <dzaction.h>
 
 class ConsoleClearAction : public DzAction {
+
   Q_OBJECT
 
 public:

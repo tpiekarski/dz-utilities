@@ -13,7 +13,7 @@
 #define H_RENDERSTATISTICS_TEST
 
 #include <QtTest/QtTest>
-#include <statistics.h>
+#include <rs_statistics.h>
 
 class StatisticsTest : public QObject {
 
