@@ -19,6 +19,7 @@
 ConsoleSettings::ConsoleSettings(const QString logFilePath) {
   this->logFilePath = logFilePath;
   settings = new DzAppSettings(SETTINGS_PATH);
+  highlightColor = QColor(SETTINGS_DEFAULT_HIGHLIGHT_COLOR);
   loadFontSize();
 
   connect(dzApp, SIGNAL(closing()), this, SLOT(saveFontSize()));
@@ -61,6 +62,10 @@ bool ConsoleSettings::validateFontSize(const QString fontSize) {
   }
 
   return true;
+}
+
+void ConsoleSettings::setHighlightColor(const QColor hightlightColor) {
+  this->highlightColor = hightlightColor;
 }
 
 void ConsoleSettings::loadFontSize() {

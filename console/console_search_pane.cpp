@@ -25,8 +25,7 @@ ConsoleSearchPane::ConsoleSearchPane(ConsoleLogBrowser* logBrowser) {
   highlightButton = new QPushButton("&Highlight");
   highlightButton->setCheckable(true);
 
-  hightlightFormat = new QTextCharFormat(*logBrowser->getCurrentCharacterFormat());
-  hightlightFormat->setForeground(Qt::red);
+  highlightFormat = new QTextCharFormat(*logBrowser->getCurrentCharacterFormat());
 
   layout = new QHBoxLayout();
   layout->addWidget(searchEditBox);
@@ -53,9 +52,9 @@ ConsoleSearchPane::~ConsoleSearchPane() {
     highlightButton = nullptr;
   }
 
-  if (hightlightFormat != nullptr) {
-    delete(hightlightFormat);
-    hightlightFormat = nullptr;
+  if (highlightFormat != nullptr) {
+    delete(highlightFormat);
+    highlightFormat = nullptr;
   }
 
   if (layout != nullptr) {
@@ -85,7 +84,9 @@ void ConsoleSearchPane::highlight() {
     return;
   }
 
-  if (highlight(searchTerm, hightlightFormat)) {
+  updateHighlightFormat();
+
+  if (highlight(searchTerm, highlightFormat)) {
     searchEditBox->setReadOnly(true);
     highlightButton->setChecked(true);
     disconnect(highlightButton, SIGNAL(clicked()), NULL, NULL);
@@ -109,7 +110,7 @@ void ConsoleSearchPane::unhighlight() {
   disconnect(logBrowser, SIGNAL(logReloaded()), NULL, NULL);
 }
 
-bool ConsoleSearchPane::highlight(const QString searchTerm, QTextCharFormat* format) {
+bool ConsoleSearchPane::highlight(const QString searchTerm, QTextCharFormat* highlightFormat) {
   QTextCursor highlightCursor(document);
   bool highlighted = false;
 
@@ -118,7 +119,7 @@ bool ConsoleSearchPane::highlight(const QString searchTerm, QTextCharFormat* for
 
     if (!highlightCursor.isNull()) {
       highlightCursor.movePosition(QTextCursor::EndOfWord, QTextCursor::KeepAnchor);
-      highlightCursor.setCharFormat(*format);
+      highlightCursor.setCharFormat(*highlightFormat);
 
       if (!highlighted) {
         highlighted = true;
@@ -127,5 +128,10 @@ bool ConsoleSearchPane::highlight(const QString searchTerm, QTextCharFormat* for
   }
 
   return highlighted;
+}
+
+void ConsoleSearchPane::updateHighlightFormat() {
+  highlightFormat->clearForeground();
+  highlightFormat->setForeground(QBrush(logBrowser->getSettings()->getHighlightColor()));
 }
 

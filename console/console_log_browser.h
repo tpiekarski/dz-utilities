@@ -32,6 +32,7 @@ public:
   QHBoxLayout* getLayout() { return layout; };
   QTextCharFormat* getCurrentCharacterFormat() { return currentCharacterFormat; };
   QTextDocument* getDocument() { return browser->document(); };
+  ConsoleSettings* getSettings() { return settings; };
   QTextEdit* getBrowser() { return browser; };
   
   bool find(const QString searchTerm, const QTextDocument::FindFlags options = QTextDocument::FindWholeWords);

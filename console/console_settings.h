@@ -15,6 +15,7 @@
 #include <dzappsettings.h>
 #include <QtCore/qobject.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qcolor.h>
 
 class ConsoleSettings : public QObject {
 
@@ -28,6 +29,8 @@ public:
   void getFontSize(QString* fontSize);
   void setFontSize(const QString fontSize);
   bool validateFontSize(const QString fontSize);
+  QColor getHighlightColor() { return highlightColor; };
+  void setHighlightColor(const QColor hightlightColor);
   QString getLogFilePath() { return logFilePath; };
 
 private slots:
@@ -36,6 +39,7 @@ private slots:
 private:
   DzAppSettings* settings;
   QString fontSize;
+  QColor highlightColor;
   QString logFilePath;
   
   void loadFontSize();

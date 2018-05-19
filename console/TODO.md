@@ -7,11 +7,14 @@ dzUtilities::Console
 + [ ] Add button for reseting search and highlight
 + [ ] Add buttons for previous and next search result (displayed on demand)
 + [ ] Add filter for the issuer of log messages
++ [x] Add setting for the highlight color
 + [ ] Change or extend input widget for the font size with increase/decrease buttons
 + [ ] Create signal/slot connection between reloading log and highlighting search term
 + [ ] Implement search by regular expressions and add a checkbox for toggling
 + [ ] Improve speed of seeking to 0 when reloading log
++ [ ] Make set up highlight color persistent
 + [ ] Package and provide pre-compiled plugin library
++ [ ] Withdraw settings when the properties dialog is canceled
 + [x] Add the possibility to search for keywords (forward and backward - starts over)
 + [x] Automatically redisplay the log when new messages have been written the log file
 + [x] Highlight search results (and a separate highlight button to highlight all results)

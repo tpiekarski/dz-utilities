@@ -28,9 +28,15 @@ public:
 
   QString getNewFontSize();
 
+  private slots:
+  void selectHighlightColor();
+
 private:
+  ConsoleSettings* settings;
   QLabel* fontSizeLabel;
   QLineEdit* fontSizeEditBox;
+  QLabel* highlightColorLabel;
+  QPushButton* highlightColorButton;
   QLabel* logFilePathLabel;
   QLineEdit* logFilePathDisplayBox;
 

@@ -43,10 +43,11 @@ private:
   QLineEdit* searchEditBox;
   QPushButton* highlightButton;
   QPushButton* searchButton;
-  QTextCharFormat* hightlightFormat;
+  QTextCharFormat* highlightFormat;
   QTextDocument* document;
 
   bool highlight(const QString searchTerm, QTextCharFormat* highlightFormat);
+  void updateHighlightFormat();
 
 };
 #endif
