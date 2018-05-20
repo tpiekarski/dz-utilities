@@ -14,7 +14,7 @@ dzUtilities::Console
 + [ ] Improve speed of seeking to 0 when reloading log
 + [ ] Make set up highlight color persistent
 + [ ] Package and provide pre-compiled plugin library
-+ [ ] Withdraw settings when the properties dialog is canceled
++ [x] Withdraw settings when the properties dialog is canceled (highlight color)
 + [x] Add the possibility to search for keywords (forward and backward - starts over)
 + [x] Automatically redisplay the log when new messages have been written the log file
 + [x] Highlight search results (and a separate highlight button to highlight all results)
@@ -28,6 +28,7 @@ dzUtilities::Console
 + [x] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
++ [ ] Move processing of settings in ConsolePane::showProperties to ConsolePropertiesAction::executeAction
 + [x] Streamline file naming with prefix *console_* for avoiding filename collisions on the include path in the future
 + [ ] Introduce namespace *utlis::console* to avoid future collisions
 + [ ] Migrate and integrate new logger library

@@ -14,6 +14,7 @@
 
 #include "console_settings.h"
 #include <dzbasicdialog.h>
+#include <QtGui/qcolor.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qlabel.h>
 #include <QtGui/qlineedit.h>
@@ -26,7 +27,8 @@ public:
   ConsolePropertiesDialog(QWidget* parent, ConsoleSettings* settings);
   ~ConsolePropertiesDialog();
 
-  QString getNewFontSize();
+  QString getNewFontSize() { return fontSizeEditBox->text(); };
+  QColor getNewHighlightColor() { return newHighlightColor; };
 
   private slots:
   void selectHighlightColor();
@@ -36,6 +38,7 @@ private:
   QLabel* fontSizeLabel;
   QLineEdit* fontSizeEditBox;
   QLabel* highlightColorLabel;
+  QColor newHighlightColor;
   QPushButton* highlightColorButton;
   QLabel* logFilePathLabel;
   QLineEdit* logFilePathDisplayBox;

@@ -97,10 +97,6 @@ ConsolePropertiesDialog::~ConsolePropertiesDialog() {
 
 }
 
-QString ConsolePropertiesDialog::getNewFontSize() {
-  return fontSizeEditBox->text();
-}
-
 void ConsolePropertiesDialog::selectHighlightColor() {
-  settings->setHighlightColor(QColorDialog::getColor(settings->getHighlightColor(), this));
+  newHighlightColor = QColorDialog::getColor(settings->getHighlightColor(), this);
 }

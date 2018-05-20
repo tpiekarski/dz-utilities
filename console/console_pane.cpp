@@ -79,14 +79,21 @@ void ConsolePane::showProperties() {
     return;
   }
 
-  const int dialogResult = dialog->exec();
-  const QString newFontSize = dialog->getNewFontSize();
+  if (dialog->exec() == 1) {
+    const QString newFontSize = dialog->getNewFontSize();
+    QString previousFontSize = NULL;
+    consoleSettings->getFontSize(&previousFontSize);
 
-  QString previousFontSize = NULL;
-  consoleSettings->getFontSize(&previousFontSize);
+    if (previousFontSize != newFontSize && consoleSettings->validateFontSize(newFontSize)) {
+      consoleLogBrowser->updateFontSize(newFontSize);
+    }
 
-  if (dialogResult == 1 && previousFontSize != newFontSize && consoleSettings->validateFontSize(newFontSize)) {
-    consoleLogBrowser->updateFontSize(newFontSize);
+    const QColor newHighlightColor = dialog->getNewHighlightColor();
+
+    if (newHighlightColor != consoleSettings->getHighlightColor()) {
+      consoleSettings->setHighlightColor(newHighlightColor);
+    }
+
   }
 
   if (dialog != nullptr) {
