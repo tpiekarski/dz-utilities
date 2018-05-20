@@ -35,6 +35,7 @@ public:
 
 private slots:
   void saveFontSize();
+  void saveHighlightColor();
 
 private:
   DzAppSettings* settings;
@@ -43,6 +44,7 @@ private:
   QString logFilePath;
   
   void loadFontSize();
+  void loadHighlightColor();
   
 };
 

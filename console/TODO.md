@@ -7,19 +7,20 @@ dzUtilities::Console
 + [ ] Add button for reseting search and highlight
 + [ ] Add buttons for previous and next search result (displayed on demand)
 + [ ] Add filter for the issuer of log messages
-+ [x] Add setting for the highlight color
 + [ ] Change or extend input widget for the font size with increase/decrease buttons
 + [ ] Create signal/slot connection between reloading log and highlighting search term
 + [ ] Implement search by regular expressions and add a checkbox for toggling
 + [ ] Improve speed of seeking to 0 when reloading log
-+ [ ] Make set up highlight color persistent
++ [x] Make set up highlight color persistent
++ [ ] Move from QPushButton for selecting highlight colors to DzColorPropertyWgt
 + [ ] Package and provide pre-compiled plugin library
-+ [x] Withdraw settings when the properties dialog is canceled (highlight color)
++ [x] Add setting for the highlight color
 + [x] Add the possibility to search for keywords (forward and backward - starts over)
 + [x] Automatically redisplay the log when new messages have been written the log file
 + [x] Highlight search results (and a separate highlight button to highlight all results)
 + [x] Include input validation for the font size and provide fallback mechanism
 + [x] Remove most of previous signal-slot-based update connections
++ [x] Withdraw settings when the properties dialog is canceled (highlight color)
 
 ##### UI
 + [x] Move control buttons into pane action menu
@@ -28,30 +29,26 @@ dzUtilities::Console
 + [x] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
-+ [ ] Move processing of settings in ConsolePane::showProperties to ConsolePropertiesAction::executeAction
-+ [x] Streamline file naming with prefix *console_* for avoiding filename collisions on the include path in the future
-+ [ ] Introduce namespace *utlis::console* to avoid future collisions
-+ [ ] Migrate and integrate new logger library
 + [ ] Develop a CLI tool for deployment and replace batch scripts
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
-+ [ ] Refactor ConsoleSettings and ConsolePropertiesDialog
-      (Restructure access to properties, remove unused methods and various other little improvements)
-+ [x] Fix coliding constants header file in tests project
++ [ ] Introduce namespace *utlis::console* to avoid future collisions
++ [ ] Migrate and integrate new logger library
++ [ ] Move processing of settings in ConsolePane::showProperties to ConsolePropertiesAction::executeAction
++ [ ] Refactor ConsoleSettings and ConsolePropertiesDialog (Restructure access to properties, remove unused methods and various other little improvements)
 + [x] Add another linter and static code analysis tool (cppcheck and ReSharper++ integrated)
++ [x] Fix coliding constants header file in tests project
 + [x] Implement error handling inside menu actions when ConsolePane cannot be found
++ [x] Streamline file naming with prefix *console_* for avoiding filename collisions on the include path in the future
 + [x] Streamline naming of headers and source files to lowercased underscore
 
 ##### Memory Improvements
 + [ ] Improve speed of highlighting by caching and only highlighting visible log
 + [x] At ConsolePane::showProperties deallocate memory for the ConsolePropertiesDialog
-+ [x] Keep log file opened instead of opening/closing at every call to displayLog
-      (see bugs:debug and solve delaying and blocking behavior)
++ [x] Keep log file opened instead of opening/closing at every call to displayLog (see bugs:debug and solve delaying and blocking behavior)
 
 ##### Clean code
-+ [ ] Check if const-qualified parameter should be defined in source as well as declared inside headers
-      (Refers to inspection: Const-qualified parameter in a function declaration)
-+ [ ] Consider static resolving of method calls in constructors
-      (Refers to inspection: Call to a virtual function inside a constructor will be statically resolved)
++ [ ] Check if const-qualified parameter should be defined in source as well as declared inside headers (Refers to inspection: Const-qualified parameter in a function declaration)
++ [ ] Consider static resolving of method calls in constructors (Refers to inspection: Call to a virtual function inside a constructor will be statically resolved)
 
 #### Unit tests
 + [ ] Introduce unit testing for the DAZ layer
@@ -65,11 +62,10 @@ dzUtilities::Console
 
 #### Bugs
 + [ ] Fix initial log display bug sometimes not showing the end of file (off by a few lines)
-+ [x] Fix VS Solution warning (Some of the properties associated with the solution could not be read).
-+ [x] Fix warning about missing /MASCHINE argument during linking x86 library for testing
++ [ ] Fix loosing new highlight color when ConsolePropertiesDialog is opened twice without changing color and when font size is changed and ConsoleLogBrowser::updateFontSize is called
 + [x] Debug and solve delaying and blocking behavior of QFileSystemWatcher
 + [x] Fix missing auto-reload after clearing and reloading
 + [x] Fix missing log path display in the settings dialog
++ [x] Fix VS Solution warning (Some of the properties associated with the solution could not be read).
++ [x] Fix warning about missing /MASCHINE argument during linking x86 library for testing
 + [x] Fixing of delay in re-displaying log with QFileWatcher when DzBasicDialog are opened.
-
-

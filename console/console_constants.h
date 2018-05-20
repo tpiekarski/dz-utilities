@@ -22,10 +22,12 @@
 #define SETTINGS_FONTSIZE_KEY "fontSize"
 #define SETTINGS_FONTSIZE_MAX 22.0
 #define SETTINGS_FONTSIZE_MIN 6.0
+#define SETTINGS_HIGHLIGHT_COLOR_KEY "highlightColor"
 #define SETTINGS_PATH "Console"
 
 #define CONSOLE_ACTION_PANE_NOT_FOUND_MSG "Failed finding pane."
 #define SETTINGS_FONTSIZE_INVALID_MSG "Invalid new font size, falling back to default."
 #define SETTINGS_FONTSIZE_READING_FAILED_MSG "Could not read saved font size, falling back to default."
+#define SETTINGS_HIGHLIGHT_COLOR_READIND_FAILED_MSG "Could not read saved highlight color, falling back to default."
 
 #endif

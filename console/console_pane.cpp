@@ -83,13 +83,11 @@ void ConsolePane::showProperties() {
     const QString newFontSize = dialog->getNewFontSize();
     QString previousFontSize = NULL;
     consoleSettings->getFontSize(&previousFontSize);
-
     if (previousFontSize != newFontSize && consoleSettings->validateFontSize(newFontSize)) {
       consoleLogBrowser->updateFontSize(newFontSize);
     }
 
     const QColor newHighlightColor = dialog->getNewHighlightColor();
-
     if (newHighlightColor != consoleSettings->getHighlightColor()) {
       consoleSettings->setHighlightColor(newHighlightColor);
     }

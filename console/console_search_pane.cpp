@@ -131,6 +131,9 @@ bool ConsoleSearchPane::highlight(const QString searchTerm, QTextCharFormat* hig
 }
 
 void ConsoleSearchPane::updateHighlightFormat() {
+  float fontSize = NULL;
+  logBrowser->getSettings()->getFontSize(&fontSize);
+  highlightFormat->setFontPointSize(fontSize);
   highlightFormat->clearForeground();
   highlightFormat->setForeground(QBrush(logBrowser->getSettings()->getHighlightColor()));
 }

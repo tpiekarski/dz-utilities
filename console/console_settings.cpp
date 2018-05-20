@@ -19,10 +19,11 @@
 ConsoleSettings::ConsoleSettings(const QString logFilePath) {
   this->logFilePath = logFilePath;
   settings = new DzAppSettings(SETTINGS_PATH);
-  highlightColor = QColor(SETTINGS_DEFAULT_HIGHLIGHT_COLOR);
+  loadHighlightColor();
   loadFontSize();
 
   connect(dzApp, SIGNAL(closing()), this, SLOT(saveFontSize()));
+  connect(dzApp, SIGNAL(closing()), this, SLOT(saveHighlightColor()));
 }
 
 void ConsoleSettings::getFontSize(float* fontSize) {
@@ -68,6 +69,14 @@ void ConsoleSettings::setHighlightColor(const QColor hightlightColor) {
   this->highlightColor = hightlightColor;
 }
 
+void ConsoleSettings::saveFontSize() {
+  settings->setStringValue(SETTINGS_FONTSIZE_KEY, fontSize);
+}
+
+void ConsoleSettings::saveHighlightColor() {
+  settings->setColorValue(SETTINGS_HIGHLIGHT_COLOR_KEY, highlightColor);
+}
+
 void ConsoleSettings::loadFontSize() {
   bool readSuccess = false;
   QString storedFontSize = settings->getStringValue(
@@ -78,12 +87,23 @@ void ConsoleSettings::loadFontSize() {
     this->fontSize = storedFontSize;
   } else {
     dzApp->log(SETTINGS_FONTSIZE_READING_FAILED_MSG);
-    storedFontSize = QString::number(SETTINGS_DEFAULT_FONTSIZE);
-    this->fontSize = storedFontSize;
+    this->fontSize = QString::number(SETTINGS_DEFAULT_FONTSIZE);;
     saveFontSize();
   }
 }
 
-void ConsoleSettings::saveFontSize() {
-  settings->setStringValue(SETTINGS_FONTSIZE_KEY, fontSize);
+void ConsoleSettings::loadHighlightColor() {
+  bool readSuccess = false;
+  QColor storedHighlightColor = settings->getColorValue(
+    SETTINGS_HIGHLIGHT_COLOR_KEY, highlightColor, &readSuccess
+  );
+
+  if (readSuccess) {
+    this->highlightColor = storedHighlightColor;
+  }
+  else {
+    dzApp->log(SETTINGS_HIGHLIGHT_COLOR_READIND_FAILED_MSG);
+    this->highlightColor = QColor(SETTINGS_DEFAULT_HIGHLIGHT_COLOR);
+    saveHighlightColor();
+  }
 }
