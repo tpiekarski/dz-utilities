@@ -9,22 +9,14 @@
 *
 */
 
-#ifndef H_RENDERSTATISTICS_CLEAR_ACTION
-#define H_RENDERSTATISTICS_CLEAR_ACTION
+#include "rs_setup_action.h"
 
-#include "rs_constants.h"
-#include <dzaction.h>
+RenderStatisticsSetupAction::RenderStatisticsSetupAction() 
+  : DzAction("Settings", "Setup render statistics") 
+{
+  setObjectName("SetupAction");
+}
 
-class RenderStatisticsClearAction : public DzAction {
-  Q_OBJECT
-
-public:
-  RenderStatisticsClearAction();
-
-protected:
-  QString getActionGroup() const override { return RENDERSTATISTICS_ACTION_GROUP; };
-  void executeAction() override;
-
-};
-
-#endif
+void RenderStatisticsSetupAction::executeAction() {
+  // todo: implement execute action method for displaying dialog with and processing of settings
+}

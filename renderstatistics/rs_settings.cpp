@@ -9,22 +9,8 @@
 *
 */
 
-#ifndef H_RENDERSTATISTICS_CLEAR_ACTION
-#define H_RENDERSTATISTICS_CLEAR_ACTION
+#include "rs_settings.h"
 
-#include "rs_constants.h"
-#include <dzaction.h>
-
-class RenderStatisticsClearAction : public DzAction {
-  Q_OBJECT
-
-public:
-  RenderStatisticsClearAction();
-
-protected:
-  QString getActionGroup() const override { return RENDERSTATISTICS_ACTION_GROUP; };
-  void executeAction() override;
-
-};
-
-#endif
+RenderStatisticsSettings::RenderStatisticsSettings() {
+  // todo: implement constructor for this settings
+}

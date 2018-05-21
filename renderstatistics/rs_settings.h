@@ -9,22 +9,18 @@
 *
 */
 
-#ifndef H_RENDERSTATISTICS_CLEAR_ACTION
-#define H_RENDERSTATISTICS_CLEAR_ACTION
+#ifndef H_RENDERSTATISTICS_SETTINGS
+#define H_RENDERSTATISTICS_SETTINGS
 
-#include "rs_constants.h"
-#include <dzaction.h>
+#include <QtCore/qobject.h>
 
-class RenderStatisticsClearAction : public DzAction {
+class RenderStatisticsSettings : public QObject {
+
   Q_OBJECT
 
 public:
-  RenderStatisticsClearAction();
-
-protected:
-  QString getActionGroup() const override { return RENDERSTATISTICS_ACTION_GROUP; };
-  void executeAction() override;
+  RenderStatisticsSettings();
+  ~RenderStatisticsSettings() = default;
 
 };
-
 #endif

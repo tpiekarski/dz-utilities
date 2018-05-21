@@ -9,21 +9,20 @@
 *
 */
 
-#ifndef H_RENDERSTATISTICS_CLEAR_ACTION
-#define H_RENDERSTATISTICS_CLEAR_ACTION
+#ifndef H_RENDERSTATISTICS_SETTINGS_DIALOG
+#define H_RENDERSTATISTICS_SETTINGS_DIALOG
 
-#include "rs_constants.h"
-#include <dzaction.h>
+#include "rs_settings.h"
+#include <dzbasicdialog.h>
+#include <QtGui/qwidget.h>
 
-class RenderStatisticsClearAction : public DzAction {
+class RenderStatisticsSettingsDialog : public DzBasicDialog {
+
   Q_OBJECT
 
 public:
-  RenderStatisticsClearAction();
-
-protected:
-  QString getActionGroup() const override { return RENDERSTATISTICS_ACTION_GROUP; };
-  void executeAction() override;
+  RenderStatisticsSettingsDialog(QWidget* parent, RenderStatisticsSettings* settings);
+  ~RenderStatisticsSettingsDialog();
 
 };
 

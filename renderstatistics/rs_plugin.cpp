@@ -13,6 +13,7 @@
 #include "rs_guid.h"
 #include "rs_pane.h"
 #include "rs_pane_action.h"
+#include "rs_setup_action.h"
 #include "rs_version.h"
 #include <dzapp.h>
 #include <dzplugin.h>
@@ -39,3 +40,4 @@ DZ_PLUGIN_DESCRIPTION(QString(
 DZ_PLUGIN_CLASS_GUID(RenderStatisticsPane, RENDERSTATISTICS_PANE_CLASS_GUID)
 DZ_PLUGIN_CLASS_GUID(RenderStatisticsPaneAction, RENDERSTATISTICS_PANE_ACTION_CLASS_GUID)
 DZ_PLUGIN_CLASS_GUID(RenderStatisticsClearAction, RENDERSTATISTICS_CLEAR_ACTION_CLASS_GUID)
+DZ_PLUGIN_CLASS_GUID(RenderStatisticsSetupAction, RENDERSTATISTICS_SETUP_ACTION_CLASS_GUID)

@@ -9,22 +9,15 @@
 *
 */
 
-#ifndef H_RENDERSTATISTICS_CLEAR_ACTION
-#define H_RENDERSTATISTICS_CLEAR_ACTION
+#include "rs_settings_dialog.h"
 
-#include "rs_constants.h"
-#include <dzaction.h>
+RenderStatisticsSettingsDialog::RenderStatisticsSettingsDialog(
+  QWidget* parent, RenderStatisticsSettings* settings
+) : DzBasicDialog(parent, "RenderStatisticsSettings") 
+{
+  // todo: construct settings dialog
+}
 
-class RenderStatisticsClearAction : public DzAction {
-  Q_OBJECT
-
-public:
-  RenderStatisticsClearAction();
-
-protected:
-  QString getActionGroup() const override { return RENDERSTATISTICS_ACTION_GROUP; };
-  void executeAction() override;
-
-};
-
-#endif
+RenderStatisticsSettingsDialog::~RenderStatisticsSettingsDialog() {
+  // todo: destruct settings dialog and release all allocated memory
+}

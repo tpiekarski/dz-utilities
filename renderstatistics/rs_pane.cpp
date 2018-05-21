@@ -78,6 +78,7 @@ void RenderStatisticsPane::connectSignals() {
 
 void RenderStatisticsPane::buildOptionsMenu(DzActionMenu* menu) const {
   menu->insertAction("RenderStatisticsClearAction");
+  menu->insertAction("RenderStatisticsSetupAction");
 }
 
 void RenderStatisticsPane::processStartRendering() {
