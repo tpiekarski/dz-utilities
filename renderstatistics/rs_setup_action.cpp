@@ -9,7 +9,13 @@
 *
 */
 
+#include "rs_constants.h"
+#include "rs_pane.h"
 #include "rs_setup_action.h"
+#include <dzapp.h>
+#include <dzmainwindow.h>
+#include <dzpanemgr.h>
+#include <QtGui/qmessagebox.h>
 
 RenderStatisticsSetupAction::RenderStatisticsSetupAction() 
   : DzAction("Settings", "Setup render statistics") 
@@ -18,5 +24,14 @@ RenderStatisticsSetupAction::RenderStatisticsSetupAction()
 }
 
 void RenderStatisticsSetupAction::executeAction() {
-  // todo: implement execute action method for displaying dialog with and processing of settings
+  DzPane* pane = dzApp->getInterface()->getPaneMgr()->findPane("RenderStatisticsPane");
+
+  if (pane == nullptr) {
+    QMessageBox::warning(0, this->objectName(), QString(RENDERSTATISTICS_PANE_NOT_FOUND_MSG), QMessageBox::Ok);
+
+    return;
+  }
+
+  RenderStatisticsPane* renderStatisticsPane = dynamic_cast<RenderStatisticsPane*>(pane);
+  renderStatisticsPane->showSettingsDialog();
 }

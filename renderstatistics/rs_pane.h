@@ -29,6 +29,7 @@ public:
   RenderStatisticsPane();
   ~RenderStatisticsPane();
   void redraw();
+  void showSettingsDialog();
 
 protected:
   void buildOptionsMenu(DzActionMenu* menu) const override;

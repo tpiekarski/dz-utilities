@@ -52,6 +52,12 @@ void RenderStatisticsPane::redraw() {
   statisticsLayout->redraw();
 }
 
+void RenderStatisticsPane::showSettingsDialog() {
+  // todo: show RenderStatisticsSettingsDialog
+
+  logger->log("Stub RenderStatisticsPane::showSettingsDialog for showing RenderStatisticsDialog");
+}
+
 void RenderStatisticsPane::clear() {
   if (statistics.empty()) {
     return;
