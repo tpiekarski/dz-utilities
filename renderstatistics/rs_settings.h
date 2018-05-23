@@ -22,5 +22,11 @@ public:
   RenderStatisticsSettings();
   ~RenderStatisticsSettings() = default;
 
+  int getRenderImageWidth() { return renderImageWidth; };
+  void setRenderImageWidth(const int renderImageWidth);
+
+private:
+  int renderImageWidth;
+
 };
 #endif

@@ -15,6 +15,8 @@
 #include "rs_dzstatistics.h"
 #include "rs_logger.h"
 #include "rs_qstatisticslayout.h"
+#include "rs_settings.h"
+#include "rs_statistics.h"
 #include <dzactionmenu.h>
 #include <dzpane.h>
 #include <dzrendermgr.h>
@@ -41,6 +43,7 @@ private slots:
 
 private:
   vector<DzRenderStatistics> statistics;
+  RenderStatisticsSettings* settings;
   RenderStatisticsLogger* logger;
   DzRenderMgr* renderManager;
   QVBoxLayout* paneLayout;

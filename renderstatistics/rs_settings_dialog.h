@@ -14,6 +14,8 @@
 
 #include "rs_settings.h"
 #include <dzbasicdialog.h>
+#include <QtGui/qlabel.h>
+#include <QtGui/qlineedit.h>
 #include <QtGui/qwidget.h>
 
 class RenderStatisticsSettingsDialog : public DzBasicDialog {
@@ -23,6 +25,11 @@ class RenderStatisticsSettingsDialog : public DzBasicDialog {
 public:
   RenderStatisticsSettingsDialog(QWidget* parent, RenderStatisticsSettings* settings);
   ~RenderStatisticsSettingsDialog();
+
+private:
+  RenderStatisticsSettings* settings;
+  QLabel* renderImageWidthLabel;
+  QLineEdit* renderImageWidthInput;
 
 };
 

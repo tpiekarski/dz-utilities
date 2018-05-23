@@ -14,6 +14,8 @@
 #include "rs_pane.h"
 #include "rs_constants.h"
 #include "rs_statistics.h"
+#include "rs_settings.h"
+#include "rs_settings_dialog.h"
 #include <dz3dviewport.h>
 #include <dzapp.h>
 #include <dzmainwindow.h>
@@ -30,6 +32,7 @@
 #include <QtGui/qimage.h>
 
 RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
+  settings = new RenderStatisticsSettings();
   logger = new RenderStatisticsLogger(true);
   renderManager = dzApp->getRenderMgr();
   connectSignals();
@@ -40,6 +43,11 @@ RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
 RenderStatisticsPane::~RenderStatisticsPane() {
   logger->log("Destructing render statistics pane.");
   clear();
+
+  if (settings != nullptr) {
+    delete(settings);
+    settings = nullptr;
+  }
 
   if (logger != nullptr) {
     delete(logger);
@@ -53,9 +61,24 @@ void RenderStatisticsPane::redraw() {
 }
 
 void RenderStatisticsPane::showSettingsDialog() {
-  // todo: show RenderStatisticsSettingsDialog
+  RenderStatisticsSettingsDialog* dialog = new RenderStatisticsSettingsDialog(dzApp->getInterface(), settings);
 
-  logger->log("Stub RenderStatisticsPane::showSettingsDialog for showing RenderStatisticsDialog");
+  if (dialog == nullptr) {
+    logger->log("Failed creating the dialog for render statistics settings.");
+
+    return;
+  }
+
+  if (dialog->exec() == 1) {
+    logger->log("Settings changed");
+
+    // todo: implement the change of settings
+  }
+
+  if (dialog != nullptr) {
+    delete(dialog);
+    dialog = nullptr;
+  }
 }
 
 void RenderStatisticsPane::clear() {

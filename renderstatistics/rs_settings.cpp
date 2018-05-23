@@ -9,8 +9,14 @@
 *
 */
 
+#include "rs_constants.h"
 #include "rs_settings.h"
 
 RenderStatisticsSettings::RenderStatisticsSettings() {
-  // todo: implement constructor for this settings
+  setObjectName("RenderStatisticsSettings");
+  renderImageWidth = DEFAULT_DIALOG_WIDTH;
+}
+
+void RenderStatisticsSettings::setRenderImageWidth(const int renderImageWidth) {
+  this->renderImageWidth = renderImageWidth;
 }
