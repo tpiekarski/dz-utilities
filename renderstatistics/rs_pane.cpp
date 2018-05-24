@@ -70,9 +70,9 @@ void RenderStatisticsPane::showSettingsDialog() {
   }
 
   if (dialog->exec() == 1) {
-    logger->log("Settings changed");
-
-    // todo: implement the change of settings
+    if (dialog->getNewRenderImageWidth() != settings->getRenderImageWidth()) {
+      settings->setRenderImageWidth(dialog->getNewRenderImageWidth());
+    }
   }
 
   if (dialog != nullptr) {
@@ -144,7 +144,7 @@ void RenderStatisticsPane::setupPaneLayout() {
   paneLayout->setMargin(margin);
   paneLayout->setSpacing(margin);
 
-  statisticsLayout = new QStatisticsLayout(&statistics, logger);
+  statisticsLayout = new QStatisticsLayout(&statistics, logger, settings);
   paneLayout->addLayout(statisticsLayout);
   paneLayout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Expanding));
 

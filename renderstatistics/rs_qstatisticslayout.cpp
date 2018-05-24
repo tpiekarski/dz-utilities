@@ -17,11 +17,13 @@
 #include <QtGui/qmessagebox.h>
 #include <QtGui/qpalette.h>
 
-QStatisticsLayout::QStatisticsLayout(vector<DzRenderStatistics>* statistics, RenderStatisticsLogger* logger) {
+QStatisticsLayout::QStatisticsLayout(
+  vector<DzRenderStatistics>* statistics, RenderStatisticsLogger* logger, RenderStatisticsSettings* settings
+) {
   this->setObjectName("QStatisticsLayout");
   this->statistics = statistics;
-
   this->logger = logger;
+  this->settings = settings;
 
   addHeadingRow();
   addSeparator(1, columnCount());
@@ -135,23 +137,22 @@ void QStatisticsLayout::addRenderImageButton(const int currentRow) {
 }
 
 void QStatisticsLayout::showRendering(const int &current) {
-  DzMainWindow* mainWindow = dzApp->getInterface();
-  if (mainWindow == nullptr) {
-    QMessageBox::warning(0, "Error", "The main window is not available.", QMessageBox::Ok);
+  RenderImageDialog* dialog = new RenderImageDialog(
+    dzApp->getInterface(), statistics, current, settings->getRenderImageWidth(), logger
+  );
 
-    return;
-  }
-
-  RenderImageDialog* dialog = new RenderImageDialog(mainWindow, statistics, current, logger);
   if (dialog == nullptr) {
-    QMessageBox::warning(0, "Error", "The dialog for render images could not be created.", QMessageBox::Ok);
+    logger->log("The dialog for render images could not be created.");
 
     return;
   }
 
   dialog->exec();
-  delete(dialog);
-  dialog = nullptr;
+
+  if (dialog != nullptr) {
+    delete(dialog);
+    dialog = nullptr;
+  }
 }
 
 void QStatisticsLayout::addSeparator(const int row, const int columnSpan) {

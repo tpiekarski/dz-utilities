@@ -4,17 +4,20 @@ dzUtilities::RenderStatistics
 #### TODO
 
 ##### Features
-+ [ ] Add a settings dialog accessible by the pane actions menu
-+ [ ] Export images with watermarked statistics
 + [ ] *Export of statistics to CSV*
-+ [ ] Introduce a setting to deactivate the capturing data from aborted renderings
-+ [ ] Package and provide pre-compiled plugin library
-+ [ ] Provide a setting for the width and the image scaling algorithm of the rendering image
 + [ ] *Refactor and move to QTableView and utilize QAbstractTableModel*
++ [ ] Export images with watermarked statistics
++ [ ] Introduce a setting to deactivate the capturing data from aborted renderings
++ [ ] Make setting for the image scaling algorithm of the rendering image display persistent
++ [ ] Make setting for the width of the rendering image display persistent
++ [ ] Package and provide pre-compiled plugin library
++ [ ] Provide a setting for the image scaling algorithm of the rendering image display
 + [ ] Saving active camera (by duplicating camera and adding it to a node group for render history)
 + [ ] Saving all active lights (by duplicating lights and adding them to a new node group in the render history group)
 + [ ] Saving render settings
 + [ ] Saving statistics inside DSON
++ [x] Add a settings dialog accessible by the pane actions menu
++ [x] Provide a setting for the width of the rendering image display
 + [x] Add a button to show a dialog with the rendered image
 + [x] Add a saving button in the RenderImageDialog to save the rendered image
 + [x] Clearing of all statistics and the QStatisticsLayout
@@ -41,6 +44,8 @@ dzUtilities::RenderStatistics
 + [ ] Introduce automated click-tests with AutoIt
 + [ ] Introduce namespace *utils::renderstatistics* to avoid future collisions
 + [ ] Migrate and integrate new logger library
++ [ ] Prefix all constants to avoid any future collisions with 3rd party constants
++ [ ] Use signal/slot-based updating of the settings instead of updating the values after the settings dialog closed
 + [x] Add linters and static code analysis tools (cppcheck and ReSharper++ integrated)
 + [x] Check possibility to reduce boost packages
 + [x] Collect all defined constants in one central constants header file

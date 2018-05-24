@@ -15,6 +15,7 @@
 #include "rs_dzstatistics.h"
 #include "rs_logger.h"
 #include "rs_qrenderimagebutton.h"
+#include "rs_settings.h"
 #include "rs_statistics.h"
 #include <QtCore/qlist.h>
 #include <QtCore/qsignalmapper.h>
@@ -30,7 +31,7 @@ class QStatisticsLayout : public QGridLayout {
 	Q_OBJECT
 
 public:
-  QStatisticsLayout(vector<DzRenderStatistics>* statistics, RenderStatisticsLogger* logger);
+  QStatisticsLayout(vector<DzRenderStatistics>* statistics, RenderStatisticsLogger* logger, RenderStatisticsSettings* settings);
   ~QStatisticsLayout();
   void addDataRow();
   void addRenderImageButton(const int currentRow);
@@ -44,6 +45,7 @@ private slots:
 
 private:
   RenderStatisticsLogger* logger;
+  RenderStatisticsSettings* settings;
   QList<QLabel*> headingLabels;
   QFrame* separator;
   QList<QList<QLabel*>> dataRowLabelLists;

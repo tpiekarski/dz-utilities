@@ -14,7 +14,7 @@
 
 RenderStatisticsSettings::RenderStatisticsSettings() {
   setObjectName("RenderStatisticsSettings");
-  renderImageWidth = DEFAULT_DIALOG_WIDTH;
+  renderImageWidth = RENDER_IMAGE_DIALOG_DEFAULT_WIDTH;
 }
 
 void RenderStatisticsSettings::setRenderImageWidth(const int renderImageWidth) {

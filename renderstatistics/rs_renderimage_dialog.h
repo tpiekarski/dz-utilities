@@ -30,9 +30,10 @@ class RenderImageDialog : public DzBasicDialog {
 
 public:
   RenderImageDialog(
-    QWidget* parent, 
-    vector<DzRenderStatistics>* statistics, 
-    const int current, 
+    QWidget* parent,
+    vector<DzRenderStatistics>* statistics,
+    const int current,
+    const int dialogWidth,
     RenderStatisticsLogger* logger
   );
   

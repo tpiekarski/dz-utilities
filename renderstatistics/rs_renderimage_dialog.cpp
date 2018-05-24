@@ -16,13 +16,17 @@
 #include <QtGui/qlayout.h>
 
 RenderImageDialog::RenderImageDialog(
-  QWidget* parent, vector<DzRenderStatistics>* statistics, const int current, RenderStatisticsLogger* logger
+  QWidget* parent,
+  vector<DzRenderStatistics>* statistics,
+  const int current,
+  const int dialogWidth,
+  RenderStatisticsLogger* logger
 ) : DzBasicDialog(parent, "RenderImage") {
 
   this->statistics = statistics;
   this->current = current;
   this->logger = logger;
-  this->dialogWidth = DEFAULT_DIALOG_WIDTH;
+  this->dialogWidth = dialogWidth;
 
   RenderStatistics* currentStatistic = &statistics->at(current);
   const int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
@@ -122,8 +126,8 @@ void RenderImageDialog::updateRenderImageWidget(const int newCurrent) {
 }
 
 QPixmap RenderImageDialog::getScaledPixmap(QImage* renderImage) {
-  if (renderImage->width() > DEFAULT_DIALOG_WIDTH) {
-    return QPixmap::fromImage(renderImage->scaledToWidth(DEFAULT_DIALOG_WIDTH, Qt::FastTransformation));
+  if (renderImage->width() > dialogWidth) {
+    return QPixmap::fromImage(renderImage->scaledToWidth(dialogWidth, Qt::FastTransformation));
   }
   else {
     dialogWidth = renderImage->width();

@@ -13,7 +13,11 @@
 #include "rs_settings_dialog.h"
 #include <dzapp.h>
 #include <dzstyle.h>
+#include <QtCore/qsize.h>
+#include <QtGui/qlabel.h>
 #include <QtGui/qlayout.h>
+#include <QtGui/qspinbox.h>
+#include <QtGui/qwidget.h>
 
 RenderStatisticsSettingsDialog::RenderStatisticsSettingsDialog(
   QWidget* parent, RenderStatisticsSettings* settings
@@ -28,25 +32,27 @@ RenderStatisticsSettingsDialog::RenderStatisticsSettingsDialog(
 
   renderImageWidthLabel = new QLabel("Render Image Width", this);
   renderImageWidthLabel->setObjectName("RenderImageWidthLabel");
-  renderImageWidthLabel->setBuddy(renderImageWidthInput);
   addWidget(renderImageWidthLabel);
 
-  QString newRenderImageWidth = NULL;
-  renderImageWidthInput = new QLineEdit(newRenderImageWidth, this);
-  renderImageWidthInput->setObjectName("RenderImageWidthInput");
-  addWidget(renderImageWidthInput);
+  renderImageWidthInputBox = new QSpinBox(this);
+  renderImageWidthInputBox->setObjectName("RenderImageWidthInputBox");
+  renderImageWidthInputBox->setMinimum(RENDER_IMAGE_DIALOG_MIN_WIDTH);
+  renderImageWidthInputBox->setMaximum(RENDER_IMAGE_DIALOG_MAX_WIDTH);
+  renderImageWidthInputBox->setValue(settings->getRenderImageWidth());
+  addWidget(renderImageWidthInputBox);
+
+  renderImageWidthLabel->setBuddy(renderImageWidthInputBox);
 
   setWindowTitle("Render Statistics Settings");
   resize(QSize(SETTINGS_DIALOG_WIDTH, 0).expandedTo(minimumSizeHint()));
   setFixedWidth(width());
   setFixedHeight(height());
-
 }
 
 RenderStatisticsSettingsDialog::~RenderStatisticsSettingsDialog() {
-  if (renderImageWidthInput != nullptr) {
-    delete(renderImageWidthInput);
-    renderImageWidthInput = nullptr;
+  if (renderImageWidthInputBox != nullptr) {
+    delete(renderImageWidthInputBox);
+    renderImageWidthInputBox = nullptr;
   }
 
   if (renderImageWidthLabel != nullptr) {
