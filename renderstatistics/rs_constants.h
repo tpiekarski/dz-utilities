@@ -38,6 +38,9 @@
 #define RENDERSTATISTICS_PANE_NOT_FOUND_MSG "Failed finding pane."
 #define SAVE_RENDER_IMAGE_BUTTON_POS 3
 #define SETTINGS_DIALOG_WIDTH 300
+#define SETTINGS_PATH "RenderStatistics"
+#define SETTINGS_RENDERIMAGE_WIDTH_KEY "renderImageWidth"
+#define SETTINGS_RENDERIMAGE_WIDTH_READING_FAILED_MSG "Could not read saved render image width, falling back to default."
 #define TIME_FACET_FORMAT "%H:%M"
 
 #endif

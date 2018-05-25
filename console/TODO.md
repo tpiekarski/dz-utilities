@@ -42,6 +42,7 @@ dzUtilities::Console
 + [x] Streamline naming of headers and source files to lowercased underscore
 
 ##### Memory Improvements
++ [ ] Deallocate memory for settings in ConsoleSettings
 + [ ] Improve speed of highlighting by caching and only highlighting visible log
 + [x] At ConsolePane::showProperties deallocate memory for the ConsolePropertiesDialog
 + [x] Keep log file opened instead of opening/closing at every call to displayLog (see bugs:debug and solve delaying and blocking behavior)

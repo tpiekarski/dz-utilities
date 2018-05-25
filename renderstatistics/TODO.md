@@ -9,13 +9,13 @@ dzUtilities::RenderStatistics
 + [ ] Export images with watermarked statistics
 + [ ] Introduce a setting to deactivate the capturing data from aborted renderings
 + [ ] Make setting for the image scaling algorithm of the rendering image display persistent
-+ [ ] Make setting for the width of the rendering image display persistent
 + [ ] Package and provide pre-compiled plugin library
 + [ ] Provide a setting for the image scaling algorithm of the rendering image display
 + [ ] Saving active camera (by duplicating camera and adding it to a node group for render history)
 + [ ] Saving all active lights (by duplicating lights and adding them to a new node group in the render history group)
 + [ ] Saving render settings
 + [ ] Saving statistics inside DSON
++ [x] Make setting for the width of the rendering image display persistent
 + [x] Add a settings dialog accessible by the pane actions menu
 + [x] Provide a setting for the width of the rendering image display
 + [x] Add a button to show a dialog with the rendered image
@@ -56,6 +56,7 @@ dzUtilities::RenderStatistics
 
 
 ##### Memory Improvements
++ [ ] Deallocate memory for settings in RenderStatisticsSettings
 + [ ] Pass references of messages instead of copies to the logger
 + [ ] Store rendering images for browsing instead of reloading at every display
 + [x] Introduce reasonable memory deallocation

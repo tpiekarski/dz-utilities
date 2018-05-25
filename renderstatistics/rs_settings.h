@@ -12,6 +12,8 @@
 #ifndef H_RENDERSTATISTICS_SETTINGS
 #define H_RENDERSTATISTICS_SETTINGS
 
+#include "rs_logger.h"
+#include <dzappsettings.h>
 #include <QtCore/qobject.h>
 
 class RenderStatisticsSettings : public QObject {
@@ -19,14 +21,22 @@ class RenderStatisticsSettings : public QObject {
   Q_OBJECT
 
 public:
-  RenderStatisticsSettings();
+  RenderStatisticsSettings(RenderStatisticsLogger* logger);
   ~RenderStatisticsSettings() = default;
 
   int getRenderImageWidth() { return renderImageWidth; };
   void setRenderImageWidth(const int renderImageWidth);
 
+private slots:
+  void saveRenderImageWidth();
+
 private:
+  RenderStatisticsLogger* logger;
+  DzAppSettings* settings;
   int renderImageWidth;
+
+  void loadRenderImageWidth();
+  bool validateRenderImageWidth(int newRenderImageWidth);
 
 };
 #endif

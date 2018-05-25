@@ -32,8 +32,8 @@
 #include <QtGui/qimage.h>
 
 RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
-  settings = new RenderStatisticsSettings();
   logger = new RenderStatisticsLogger(true);
+  settings = new RenderStatisticsSettings(logger);
   renderManager = dzApp->getRenderMgr();
   connectSignals();
   setupPaneLayout();
