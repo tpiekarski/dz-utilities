@@ -16,7 +16,7 @@
 RenderStatisticsSettings::RenderStatisticsSettings(RenderStatisticsLogger* logger) {
   setObjectName("RenderStatisticsSettings");
   this->logger = logger;
-  settings = new DzAppSettings(SETTINGS_PATH);
+  settings = new DzAppSettings(RS_SETTINGS_PATH);
   loadRenderImageWidth();
 
   connect(dzApp, SIGNAL(closing()), this, SLOT(saveRenderImageWidth()));
@@ -27,23 +27,23 @@ void RenderStatisticsSettings::setRenderImageWidth(const int renderImageWidth) {
 }
 
 void RenderStatisticsSettings::saveRenderImageWidth() {
-  settings->setIntValue(SETTINGS_RENDERIMAGE_WIDTH_KEY, renderImageWidth);
+  settings->setIntValue(RS_SETTINGS_RENDERIMAGE_WIDTH_KEY, renderImageWidth);
 }
 
 void RenderStatisticsSettings::loadRenderImageWidth() {
   bool readSuccess = false;
   int storedRenderImageWidth = settings->getIntValue(
-    SETTINGS_RENDERIMAGE_WIDTH_KEY, RENDER_IMAGE_DIALOG_DEFAULT_WIDTH, &readSuccess
+    RS_SETTINGS_RENDERIMAGE_WIDTH_KEY, RS_RENDER_IMAGE_DIALOG_DEFAULT_WIDTH, &readSuccess
   );
 
   if (readSuccess && validateRenderImageWidth(storedRenderImageWidth)) {
     renderImageWidth = storedRenderImageWidth;
   } else {
-    logger->log(SETTINGS_RENDERIMAGE_WIDTH_READING_FAILED_MSG);
-    renderImageWidth = RENDER_IMAGE_DIALOG_DEFAULT_WIDTH;
+    logger->log(RS_SETTINGS_RENDERIMAGE_WIDTH_READING_FAILED_MSG);
+    renderImageWidth = RS_RENDER_IMAGE_DIALOG_DEFAULT_WIDTH;
   }
 }
 
 bool RenderStatisticsSettings::validateRenderImageWidth(int newRenderImageWidth) {
-  return newRenderImageWidth >= RENDER_IMAGE_DIALOG_MIN_WIDTH && newRenderImageWidth <= RENDER_IMAGE_DIALOG_MAX_WIDTH;
+  return newRenderImageWidth >= RS_RENDER_IMAGE_DIALOG_MIN_WIDTH && newRenderImageWidth <= RS_RENDER_IMAGE_DIALOG_MAX_WIDTH;
 }

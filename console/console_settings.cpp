@@ -18,7 +18,7 @@
 
 ConsoleSettings::ConsoleSettings(const QString logFilePath) {
   this->logFilePath = logFilePath;
-  settings = new DzAppSettings(SETTINGS_PATH);
+  settings = new DzAppSettings(CONSOLE_SETTINGS_PATH);
   loadHighlightColor();
   loadFontSize();
 
@@ -31,7 +31,7 @@ void ConsoleSettings::getFontSize(float* fontSize) {
   *fontSize = this->fontSize.toFloat(&castResult);
 
   if (!castResult) {
-    const float defaultFontSize = SETTINGS_DEFAULT_FONTSIZE;
+    const float defaultFontSize = CONSOLE_SETTINGS_DEFAULT_FONTSIZE;
     *fontSize = defaultFontSize;
   }
 }
@@ -48,7 +48,7 @@ bool ConsoleSettings::validateFontSize(const QString fontSize) {
   QRegExp regExp = QRegExp("(\\d+)");
 
   if (!regExp.exactMatch(fontSize)) {
-    dzApp->log(SETTINGS_FONTSIZE_INVALID_MSG);
+    dzApp->log(CONSOLE_SETTINGS_FONTSIZE_INVALID_MSG);
 
     return false;
   }
@@ -56,8 +56,8 @@ bool ConsoleSettings::validateFontSize(const QString fontSize) {
   bool castSuccess = false;
   const float size = fontSize.toFloat(&castSuccess);
 
-  if (!castSuccess || size < SETTINGS_FONTSIZE_MIN || size > SETTINGS_FONTSIZE_MAX) {
-    dzApp->log(SETTINGS_FONTSIZE_INVALID_MSG);
+  if (!castSuccess || size < CONSOLE_SETTINGS_FONTSIZE_MIN || size > CONSOLE_SETTINGS_FONTSIZE_MAX) {
+    dzApp->log(CONSOLE_SETTINGS_FONTSIZE_INVALID_MSG);
 
     return false;
   }
@@ -70,24 +70,24 @@ void ConsoleSettings::setHighlightColor(const QColor hightlightColor) {
 }
 
 void ConsoleSettings::saveFontSize() {
-  settings->setStringValue(SETTINGS_FONTSIZE_KEY, fontSize);
+  settings->setStringValue(CONSOLE_SETTINGS_FONTSIZE_KEY, fontSize);
 }
 
 void ConsoleSettings::saveHighlightColor() {
-  settings->setColorValue(SETTINGS_HIGHLIGHT_COLOR_KEY, highlightColor);
+  settings->setColorValue(CONSOLE_SETTINGS_HIGHLIGHT_COLOR_KEY, highlightColor);
 }
 
 void ConsoleSettings::loadFontSize() {
   bool readSuccess = false;
   QString storedFontSize = settings->getStringValue(
-    SETTINGS_FONTSIZE_KEY, QString::number(SETTINGS_DEFAULT_FONTSIZE), &readSuccess
+    CONSOLE_SETTINGS_FONTSIZE_KEY, QString::number(CONSOLE_SETTINGS_DEFAULT_FONTSIZE), &readSuccess
   );
 
   if (readSuccess && validateFontSize(storedFontSize)) {
     this->fontSize = storedFontSize;
   } else {
-    dzApp->log(SETTINGS_FONTSIZE_READING_FAILED_MSG);
-    this->fontSize = QString::number(SETTINGS_DEFAULT_FONTSIZE);;
+    dzApp->log(CONSOLE_SETTINGS_FONTSIZE_READING_FAILED_MSG);
+    this->fontSize = QString::number(CONSOLE_SETTINGS_DEFAULT_FONTSIZE);;
     saveFontSize();
   }
 }
@@ -95,15 +95,15 @@ void ConsoleSettings::loadFontSize() {
 void ConsoleSettings::loadHighlightColor() {
   bool readSuccess = false;
   QColor storedHighlightColor = settings->getColorValue(
-    SETTINGS_HIGHLIGHT_COLOR_KEY, highlightColor, &readSuccess
+    CONSOLE_SETTINGS_HIGHLIGHT_COLOR_KEY, highlightColor, &readSuccess
   );
 
   if (readSuccess) {
     this->highlightColor = storedHighlightColor;
   }
   else {
-    dzApp->log(SETTINGS_HIGHLIGHT_COLOR_READIND_FAILED_MSG);
-    this->highlightColor = QColor(SETTINGS_DEFAULT_HIGHLIGHT_COLOR);
+    dzApp->log(CONSOLE_SETTINGS_HIGHLIGHT_COLOR_READIND_FAILED_MSG);
+    this->highlightColor = QColor(CONSOLE_SETTINGS_DEFAULT_HIGHLIGHT_COLOR);
     saveHighlightColor();
   }
 }

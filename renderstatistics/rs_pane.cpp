@@ -37,7 +37,7 @@ RenderStatisticsPane::RenderStatisticsPane() : DzPane("Render Statistics") {
   renderManager = dzApp->getRenderMgr();
   connectSignals();
   setupPaneLayout();
-  renderingCounter = INITIAL_RENDERING_COUNTER;
+  renderingCounter = RS_INITIAL_RENDERING_COUNTER;
 }
 
 RenderStatisticsPane::~RenderStatisticsPane() {
@@ -88,7 +88,7 @@ void RenderStatisticsPane::clear() {
 
   logger->log(QString("Clearing render statistics of %1 rendering(s).").arg(statistics.size()));
 
-  renderingCounter = INITIAL_RENDERING_COUNTER;
+  renderingCounter = RS_INITIAL_RENDERING_COUNTER;
   statistics.clear();
   statistics.shrink_to_fit();
 }
@@ -152,14 +152,14 @@ void RenderStatisticsPane::setupPaneLayout() {
 }
 
 QString RenderStatisticsPane::saveLastRenderImage(const int renderingCounter) {
-  const QString filename = QString(RENDER_FILE_NAME_TEMPLATE).arg(QString::number(renderingCounter));
+  const QString filename = QString(RS_RENDER_FILE_NAME_TEMPLATE).arg(QString::number(renderingCounter));
   const QString filePath = QString("%1/%2").arg(dzApp->getTempPath(), filename);
   const QImage lastRenderImage(renderManager->getLastSavedRenderPath());
 
   if (! lastRenderImage.save(filePath, 0, -1)) {
     logger->log(QString("Failed storing render image at %1.").arg(filePath));
 
-    return NOTHING;
+    return RS_NOTHING;
   }
 
   return filename;

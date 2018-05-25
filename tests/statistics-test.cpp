@@ -54,7 +54,7 @@ void StatisticsTest::testStatisticsAreMeasuringTime() {
 
 void StatisticsTest::testStatisticsAreFormatingStartDate() {
   date_facet* dateFacet = new date_facet();
-  dateFacet->format(DATE_FACET_FORMAT);
+  dateFacet->format(RS_DATE_FACET_FORMAT);
   STATISTICS_BUILD_CURRENT_DATETIME(now, dateFacet);
 
   QCOMPARE(QString::fromStdString(statistics->getStartDate()), now);
@@ -68,7 +68,7 @@ void StatisticsTest::testStatisticsAreProvidingStartDateMultipleTimes() {
 
 void StatisticsTest::testStatisticsAreFormatingStartTime() {
   time_facet* timeFacet = new time_facet();
-  timeFacet->format(TIME_FACET_FORMAT);
+  timeFacet->format(RS_TIME_FACET_FORMAT);
    
   STATISTICS_BUILD_CURRENT_DATETIME(now, timeFacet);
 

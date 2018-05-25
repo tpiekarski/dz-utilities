@@ -25,7 +25,7 @@ ConsoleTest::ConsoleTest(const QString logPath) {
 
 void ConsoleTest::init() {
   console = new Console(NULL, logPath);
-  TESTLOG_WRITE(QString(INITIAL_LOG_CONTENT).arg(END_OF_LINE), QFile::WriteOnly);
+  TESTLOG_WRITE(QString(INITIAL_LOG_CONTENT).arg(CONSOLE_END_OF_LINE), QFile::WriteOnly);
 }
 
 void ConsoleTest::cleanup() {
@@ -42,7 +42,7 @@ void ConsoleTest::testConsoleIsOpeningLog() {
 
 void ConsoleTest::testConsoleIsProvidingLog() {
   TESTLOG_OPEN();
-  const QString expectedString = QString(INITIAL_LOG_CONTENT).arg(END_OF_LINE);
+  const QString expectedString = QString(INITIAL_LOG_CONTENT).arg(CONSOLE_END_OF_LINE);
   const QString logContent = console->getLog();
   TESTLOG_CLOSE();
 
@@ -57,7 +57,7 @@ void ConsoleTest::testConsoleIsProvidingLogUpdates() {
   QString expectedString = UPDATED_LOG_CONTENT;
 
   TESTLOG_WRITE(expectedString, QFile::Append);
-  expectedString.append(END_OF_LINE);
+  expectedString.append(CONSOLE_END_OF_LINE);
   const QString updatedLogContent = console->getLogUpdates();
   TESTLOG_CLOSE();
 

@@ -36,15 +36,15 @@ RenderStatisticsSettingsDialog::RenderStatisticsSettingsDialog(
 
   renderImageWidthInputBox = new QSpinBox(this);
   renderImageWidthInputBox->setObjectName("RenderImageWidthInputBox");
-  renderImageWidthInputBox->setMinimum(RENDER_IMAGE_DIALOG_MIN_WIDTH);
-  renderImageWidthInputBox->setMaximum(RENDER_IMAGE_DIALOG_MAX_WIDTH);
+  renderImageWidthInputBox->setMinimum(RS_RENDER_IMAGE_DIALOG_MIN_WIDTH);
+  renderImageWidthInputBox->setMaximum(RS_RENDER_IMAGE_DIALOG_MAX_WIDTH);
   renderImageWidthInputBox->setValue(settings->getRenderImageWidth());
   addWidget(renderImageWidthInputBox);
 
   renderImageWidthLabel->setBuddy(renderImageWidthInputBox);
 
   setWindowTitle("Render Statistics Settings");
-  resize(QSize(SETTINGS_DIALOG_WIDTH, 0).expandedTo(minimumSizeHint()));
+  resize(QSize(RS_SETTINGS_DIALOG_WIDTH, 0).expandedTo(minimumSizeHint()));
   setFixedWidth(width());
   setFixedHeight(height());
 }

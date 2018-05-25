@@ -53,7 +53,7 @@ QString Console::getLogUpdates() {
 
   while (! logStream.atEnd()) {
     line.append(logStream.readLine());
-    line.append(END_OF_LINE);
+    line.append(CONSOLE_END_OF_LINE);
   }
 
   return line;

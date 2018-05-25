@@ -28,13 +28,13 @@ RenderStatisticsLogger::~RenderStatisticsLogger() {
 
 void RenderStatisticsLogger::log(const QString message) {
   if (debug) {
-    dzApp->log(QString(DEFAULT_LOGGER_FORMAT).arg(PLUGIN_NAME, message));
+    dzApp->log(QString(RS_DEFAULT_LOGGER_FORMAT).arg(PLUGIN_NAME, message));
   }
 }
 
 void RenderStatisticsLogger::log(const int number) {
   if (debug) {
-    dzApp->log(QString(DEFAULT_LOGGER_FORMAT).arg(PLUGIN_NAME, QString::number(number)));
+    dzApp->log(QString(RS_DEFAULT_LOGGER_FORMAT).arg(PLUGIN_NAME, QString::number(number)));
   }
 }
 

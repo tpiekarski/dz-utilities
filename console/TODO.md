@@ -38,6 +38,7 @@ dzUtilities::Console
 + [x] Add another linter and static code analysis tool (cppcheck and ReSharper++ integrated)
 + [x] Fix coliding constants header file in tests project
 + [x] Implement error handling inside menu actions when ConsolePane cannot be found
++ [x] Prefix all constants to avoid any future collisions with 3rd party constants
 + [x] Streamline file naming with prefix *console_* for avoiding filename collisions on the include path in the future
 + [x] Streamline naming of headers and source files to lowercased underscore
 

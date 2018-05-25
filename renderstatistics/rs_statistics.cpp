@@ -26,12 +26,12 @@ RenderStatistics::RenderStatistics(const string engine, const int nodes) {
   startDateTime = second_clock::local_time();
 
   date_facet* dateFacet = new date_facet();
-  dateFacet->format(DATE_FACET_FORMAT);
+  dateFacet->format(RS_DATE_FACET_FORMAT);
   dateStream = new stringstream;
   dateStream->imbue(locale(locale::classic(), dateFacet));
 
   time_facet* timeFacet = new time_facet();
-  timeFacet->format(TIME_FACET_FORMAT);
+  timeFacet->format(RS_TIME_FACET_FORMAT);
   timeStream = new stringstream();
   timeStream->imbue(locale(locale::classic(), timeFacet));
 
@@ -69,7 +69,7 @@ duration<double> RenderStatistics::calculateDuration() {
 
 string RenderStatistics::getDurationInSeconds() {
   stringstream stringStream;
-  stringStream.precision(DURATION_DISPLAY_PRECISION);
+  stringStream.precision(RS_DURATION_DISPLAY_PRECISION);
   stringStream << renderingDuration.count();
 
   return stringStream.str();

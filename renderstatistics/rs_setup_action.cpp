@@ -27,7 +27,7 @@ void RenderStatisticsSetupAction::executeAction() {
   DzPane* pane = dzApp->getInterface()->getPaneMgr()->findPane("RenderStatisticsPane");
 
   if (pane == nullptr) {
-    QMessageBox::warning(0, this->objectName(), QString(RENDERSTATISTICS_PANE_NOT_FOUND_MSG), QMessageBox::Ok);
+    QMessageBox::warning(0, this->objectName(), QString(RS_PANE_NOT_FOUND_MSG), QMessageBox::Ok);
 
     return;
   }

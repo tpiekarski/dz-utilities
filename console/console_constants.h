@@ -13,21 +13,20 @@
 #define H_CONSTANTS
 
 #define CONSOLE_ACTION_GROUP "Console"
-#define END_OF_LINE "\n"
-#define PANE_MIN_HEIGHT 150
-#define PANE_MIN_WIDTH 500
-#define SETTINGS_DEFAULT_FONTSIZE 10.0
-#define SETTINGS_DEFAULT_HIGHLIGHT_COLOR Qt::red
-#define SETTINGS_DIALOG_WIDTH 300
-#define SETTINGS_FONTSIZE_KEY "fontSize"
-#define SETTINGS_FONTSIZE_MAX 22.0
-#define SETTINGS_FONTSIZE_MIN 6.0
-#define SETTINGS_HIGHLIGHT_COLOR_KEY "highlightColor"
-#define SETTINGS_PATH "Console"
-
 #define CONSOLE_ACTION_PANE_NOT_FOUND_MSG "Failed finding pane."
-#define SETTINGS_FONTSIZE_INVALID_MSG "Invalid new font size, falling back to default."
-#define SETTINGS_FONTSIZE_READING_FAILED_MSG "Could not read saved font size, falling back to default."
-#define SETTINGS_HIGHLIGHT_COLOR_READIND_FAILED_MSG "Could not read saved highlight color, falling back to default."
+#define CONSOLE_END_OF_LINE "\n"
+#define CONSOLE_PANE_MIN_HEIGHT 150
+#define CONSOLE_PANE_MIN_WIDTH 500
+#define CONSOLE_SETTINGS_DEFAULT_FONTSIZE 10.0
+#define CONSOLE_SETTINGS_DEFAULT_HIGHLIGHT_COLOR Qt::red
+#define CONSOLE_SETTINGS_DIALOG_WIDTH 300
+#define CONSOLE_SETTINGS_FONTSIZE_INVALID_MSG "Invalid new font size, falling back to default."
+#define CONSOLE_SETTINGS_FONTSIZE_KEY "fontSize"
+#define CONSOLE_SETTINGS_FONTSIZE_MAX 22.0
+#define CONSOLE_SETTINGS_FONTSIZE_MIN 6.0
+#define CONSOLE_SETTINGS_FONTSIZE_READING_FAILED_MSG "Could not read saved font size, falling back to default."
+#define CONSOLE_SETTINGS_HIGHLIGHT_COLOR_KEY "highlightColor"
+#define CONSOLE_SETTINGS_HIGHLIGHT_COLOR_READIND_FAILED_MSG "Could not read saved highlight color, falling back to default."
+#define CONSOLE_SETTINGS_PATH "Console"
 
 #endif

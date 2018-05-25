@@ -21,8 +21,8 @@ QRenderImageButton::QRenderImageButton(const QString iconFullPath, RenderStatist
     icon = new QIcon(*pixmap);
     iconSize = new QSize(pixmap->width(), pixmap->height());
     buttonSize = new QSize(
-      iconSize->width() + DEFAULT_RENDERIMAGE_BUTTON_BORDER,
-      iconSize->height() + DEFAULT_RENDERIMAGE_BUTTON_BORDER
+      iconSize->width() + RS_DEFAULT_RENDERIMAGE_BUTTON_BORDER,
+      iconSize->height() + RS_DEFAULT_RENDERIMAGE_BUTTON_BORDER
     );
 
     setIcon(*icon);

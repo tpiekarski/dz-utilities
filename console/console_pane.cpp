@@ -30,7 +30,7 @@ ConsolePane::ConsolePane() : DzPane("Console") {
   paneMainLayout->setMargin(margin);
   paneMainLayout->setSpacing(margin);
   setLayout(paneMainLayout);
-  setMinimumSize(PANE_MIN_WIDTH, PANE_MIN_HEIGHT);
+  setMinimumSize(CONSOLE_PANE_MIN_WIDTH, CONSOLE_PANE_MIN_HEIGHT);
 
   paneMainLayout->addLayout(consoleSearchPane->getLayout());
   paneMainLayout->addLayout(consoleLogBrowser->getLayout());

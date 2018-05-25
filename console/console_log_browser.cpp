@@ -20,7 +20,7 @@ ConsoleLogBrowser::ConsoleLogBrowser(Console* console, ConsoleSettings* settings
   logWatched = false;
   browser = new QTextEdit();
   browser->setObjectName("LogBrowser");
-  browser->setMinimumSize(PANE_MIN_WIDTH, PANE_MIN_HEIGHT);
+  browser->setMinimumSize(CONSOLE_PANE_MIN_WIDTH, CONSOLE_PANE_MIN_HEIGHT);
   browser->setReadOnly(true);
 
   float fontSize;

@@ -81,7 +81,7 @@ void QStatisticsLayout::addHeadingRow() {
   int row = 0;
 
   for (QLabel* label : headingLabels) {
-    setLabelSize(label, DEFAULT_LABEL_SIZE);
+    setLabelSize(label, RS_DEFAULT_LABEL_SIZE);
 
     addWidget(label, 0, row++);
   }
@@ -94,7 +94,7 @@ void QStatisticsLayout::addDataRow() {
   dataRowLabelLists.append(buildLabels());
 
   for (QLabel* label : dataRowLabelLists.back()) {
-    setLabelSize(label, DEFAULT_LABEL_SIZE);
+    setLabelSize(label, RS_DEFAULT_LABEL_SIZE);
     addWidget(label, currentRow, currentColumn++);
   }
 
@@ -106,8 +106,8 @@ void QStatisticsLayout::addRenderImageButton(const int currentRow) {
 
   const QString iconFullPath = QString("%1/%2/%3").arg(
     dzApp->getPluginsPath(),
-    DEFAULT_RENDERIMAGEBUTTON_ICON_SUBDIRECTORY,
-    DEFAULT_RENDERIMAGEBUTTON_ICON_FILENAME
+    RS_DEFAULT_RENDERIMAGEBUTTON_ICON_SUBDIRECTORY,
+    RS_DEFAULT_RENDERIMAGEBUTTON_ICON_FILENAME
   );
 
   QRenderImageButton* newButton = new QRenderImageButton(iconFullPath, logger);
@@ -182,7 +182,7 @@ QList<QLabel*> QStatisticsLayout::buildLabels() {
       QLabel* label = outputLabels.at(n);
       if (label != nullptr) {
         label->setTextFormat(Qt::RichText);
-        label->setText(QString(DEFAULT_ABORTED_FORMAT).arg(label->text()));
+        label->setText(QString(RS_DEFAULT_ABORTED_FORMAT).arg(label->text()));
       }
     }
 

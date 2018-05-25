@@ -59,7 +59,7 @@ ConsolePropertiesDialog::ConsolePropertiesDialog(
   addWidget(highlightColorButton);
 
   setWindowTitle("Console Properties");
-  resize(QSize(SETTINGS_DIALOG_WIDTH, 0).expandedTo(minimumSizeHint()));
+  resize(QSize(CONSOLE_SETTINGS_DIALOG_WIDTH, 0).expandedTo(minimumSizeHint()));
   setFixedWidth(width());
   setFixedHeight(height());
 }

@@ -44,13 +44,13 @@ dzUtilities::RenderStatistics
 + [ ] Introduce automated click-tests with AutoIt
 + [ ] Introduce namespace *utils::renderstatistics* to avoid future collisions
 + [ ] Migrate and integrate new logger library
-+ [ ] Prefix all constants to avoid any future collisions with 3rd party constants
 + [ ] Use signal/slot-based updating of the settings instead of updating the values after the settings dialog closed
 + [x] Add linters and static code analysis tools (cppcheck and ReSharper++ integrated)
 + [x] Check possibility to reduce boost packages
 + [x] Collect all defined constants in one central constants header file
 + [x] Extend logging with debug switch
 + [x] Fix coliding constants header file in tests project
++ [x] Prefix all constants to avoid any future collisions with 3rd party constants
 + [x] Streamline file naming with prefix *rs_*  for avoiding filename collisions on the include path in the future
 + [x] Streamline naming of headers and source files to lowercased underscore
 

@@ -138,17 +138,17 @@ QPixmap RenderImageDialog::getScaledPixmap(QImage* renderImage) {
 void RenderImageDialog::addSaveRenderImageButton() {
   saveRenderImageButton = new QPushButton("Save", this);
   connect(saveRenderImageButton, SIGNAL(clicked()), this, SLOT(saveRenderImage()));
-  addButton(saveRenderImageButton, SAVE_RENDER_IMAGE_BUTTON_POS);
+  addButton(saveRenderImageButton, RS_SAVE_RENDER_IMAGE_BUTTON_POS);
 }
 
 void RenderImageDialog::addBrowseRenderImageButtons() {
   previousRenderImageButton = new QPushButton("Previous", this);
   connect(previousRenderImageButton, SIGNAL(clicked()), this, SLOT(showPreviousRenderImage()));
-  addButton(previousRenderImageButton, PREVIOUS_RENDER_IMAGE_BUTTON_POS);
+  addButton(previousRenderImageButton, RS_PREVIOUS_RENDER_IMAGE_BUTTON_POS);
 
   nextRenderImageButton = new QPushButton("Next", this);
   connect(nextRenderImageButton, SIGNAL(clicked()), this, SLOT(showNextRenderImage()));
-  addButton(nextRenderImageButton, NEXT_RENDER_IMAGE_BUTTON_POS);
+  addButton(nextRenderImageButton, RS_NEXT_RENDER_IMAGE_BUTTON_POS);
 
   updateBrowsingButtons();
 }
@@ -162,7 +162,7 @@ void RenderImageDialog::saveRenderImage() {
     return;
   }
 
-  if (!renderImage->save(fileName, DEFAULT_IMAGE_FORMAT, DEFAULT_IMAGE_QUALITY)) {
+  if (!renderImage->save(fileName, RS_DEFAULT_IMAGE_FORMAT, RS_DEFAULT_IMAGE_QUALITY)) {
     logger->log(QString("Failed saving rendering image to file %1.").arg(fileName));
   }
 

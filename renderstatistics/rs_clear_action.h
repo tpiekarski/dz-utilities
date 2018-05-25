@@ -22,7 +22,7 @@ public:
   RenderStatisticsClearAction();
 
 protected:
-  QString getActionGroup() const override { return RENDERSTATISTICS_ACTION_GROUP; };
+  QString getActionGroup() const override { return RS_ACTION_GROUP; };
   void executeAction() override;
 
 };
