@@ -54,31 +54,31 @@ RenderImageDialog::~RenderImageDialog() {
   logger->log("Destructing render image dialog.");
 
   if (renderImage != nullptr) {
-    delete(renderImage);
+    delete renderImage;
     renderImage = nullptr;
 
     if (renderImageWidget != nullptr) {
-      delete(renderImageWidget);
+      delete renderImageWidget;
       renderImageWidget = nullptr;
     }
     
     if (saveRenderImageButton != nullptr) {
-      delete(saveRenderImageButton);
+      delete saveRenderImageButton;
       saveRenderImageButton = nullptr;
     }
 
     if (previousRenderImageButton != nullptr) {
-      delete(previousRenderImageButton);
+      delete previousRenderImageButton;
       previousRenderImageButton = nullptr;
     }
 
     if (nextRenderImageButton != nullptr) {
-      delete(nextRenderImageButton);
+      delete nextRenderImageButton;
       nextRenderImageButton = nullptr;
     }
 
   } else if (errorLabel != nullptr) {
-    delete(errorLabel);
+    delete errorLabel;
     errorLabel = nullptr;
   }
 }
@@ -103,7 +103,7 @@ QWidget* RenderImageDialog::buildRenderImageWidget(const QString filePath) {
     saveRenderImageButton = nullptr;
 
     if (renderImage != nullptr) {
-      delete(renderImage);
+      delete renderImage;
       renderImage = nullptr;
     }
 
@@ -117,7 +117,7 @@ void RenderImageDialog::updateRenderImageWidget(const int newCurrent) {
   renderImageWidget->setPixmap(NULL);
 
   if (!renderImage->isNull() || renderImage != nullptr) {
-    delete(renderImage);
+    delete renderImage;
     renderImage = nullptr;
   }
 

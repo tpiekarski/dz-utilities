@@ -29,7 +29,7 @@ Console::~Console() {
   logWatcher->removePath(logFullPath);
 
   if (logWatcher != nullptr) {
-    delete(logWatcher);
+    delete logWatcher;
     logWatcher = nullptr;
   }
 }

@@ -66,32 +66,32 @@ ConsolePropertiesDialog::ConsolePropertiesDialog(
 
 ConsolePropertiesDialog::~ConsolePropertiesDialog() {
   if (highlightColorButton != nullptr) {
-    delete(highlightColorButton);
+    delete highlightColorButton;
     highlightColorButton = nullptr;
   }
   
   if (highlightColorLabel != nullptr) {
-    delete(highlightColorLabel);
+    delete highlightColorLabel;
     highlightColorLabel = nullptr;
   }
   
   if (fontSizeEditBox != nullptr) {
-    delete(fontSizeEditBox);
+    delete fontSizeEditBox;
     fontSizeEditBox = nullptr;
   }
 
   if (fontSizeLabel != nullptr) {
-    delete(fontSizeLabel);
+    delete fontSizeLabel;
     fontSizeLabel = nullptr;
   }
 
   if (logFilePathDisplayBox != nullptr) {
-    delete(logFilePathDisplayBox);
+    delete logFilePathDisplayBox;
     logFilePathDisplayBox = nullptr;
   }
 
   if (logFilePathLabel != nullptr) {
-    delete(logFilePathLabel);
+    delete logFilePathLabel;
     logFilePathLabel = nullptr;
   }
 

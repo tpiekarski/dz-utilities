@@ -45,12 +45,12 @@ RenderStatisticsPane::~RenderStatisticsPane() {
   clear();
 
   if (settings != nullptr) {
-    delete(settings);
+    delete settings;
     settings = nullptr;
   }
 
   if (logger != nullptr) {
-    delete(logger);
+    delete logger;
     logger = nullptr;
   }
 }
@@ -76,7 +76,7 @@ void RenderStatisticsPane::showSettingsDialog() {
   }
 
   if (dialog != nullptr) {
-    delete(dialog);
+    delete dialog;
     dialog = nullptr;
   }
 }

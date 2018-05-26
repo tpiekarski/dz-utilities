@@ -150,7 +150,7 @@ void QStatisticsLayout::showRendering(const int &current) {
   dialog->exec();
 
   if (dialog != nullptr) {
-    delete(dialog);
+    delete dialog;
     dialog = nullptr;
   }
 }

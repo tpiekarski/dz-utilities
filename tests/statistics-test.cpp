@@ -28,7 +28,7 @@ void StatisticsTest::cleanup() {
   }
 
   if (statistics != nullptr) {
-    delete(statistics);
+    delete statistics;
     statistics = nullptr;
   }
 }

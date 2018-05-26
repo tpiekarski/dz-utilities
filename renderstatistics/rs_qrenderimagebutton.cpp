@@ -45,29 +45,29 @@ QRenderImageButton::QRenderImageButton(const QString iconFullPath, RenderStatist
   }
 
   if (iconFile != nullptr) {
-    delete(iconFile);
+    delete iconFile;
     iconFile = nullptr;
   }
 }
 
 QRenderImageButton::~QRenderImageButton() {
   if (buttonSize != nullptr) {
-    delete(buttonSize);
+    delete buttonSize;
     buttonSize = nullptr;
   }
 
   if (iconSize != nullptr) {
-    delete(iconSize);
+    delete iconSize;
     iconSize = nullptr;
   }
 
   if (icon != nullptr) {
-    delete(icon);
+    delete icon;
     icon = nullptr;
   }
 
   if (pixmap != nullptr) {
-    delete(pixmap);
+    delete pixmap;
     pixmap = nullptr;
   }
 

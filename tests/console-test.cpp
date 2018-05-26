@@ -30,7 +30,7 @@ void ConsoleTest::init() {
 
 void ConsoleTest::cleanup() {
   if (console != nullptr) {
-    delete(console);
+    delete console;
     console = nullptr;
   }
 }

@@ -51,12 +51,12 @@ RenderStatisticsSettingsDialog::RenderStatisticsSettingsDialog(
 
 RenderStatisticsSettingsDialog::~RenderStatisticsSettingsDialog() {
   if (renderImageWidthInputBox != nullptr) {
-    delete(renderImageWidthInputBox);
+    delete renderImageWidthInputBox;
     renderImageWidthInputBox = nullptr;
   }
 
   if (renderImageWidthLabel != nullptr) {
-    delete(renderImageWidthLabel);
+    delete renderImageWidthLabel;
     renderImageWidthLabel = nullptr;
   }
 }

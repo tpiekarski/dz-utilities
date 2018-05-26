@@ -38,27 +38,27 @@ ConsolePane::ConsolePane() : DzPane("Console") {
 
 ConsolePane::~ConsolePane() {
   if (consoleSearchPane != nullptr) {
-    delete(consoleSearchPane);
+    delete consoleSearchPane;
     consoleSearchPane = nullptr;
   }
 
   if (consoleLogBrowser != nullptr) {
-    delete(consoleLogBrowser);
+    delete consoleLogBrowser;
     consoleLogBrowser = nullptr;
   }
 
   if (consoleSettings != nullptr) {
-    delete(consoleSettings);
+    delete consoleSettings;
     consoleSettings = nullptr;
   }
 
   if (console != nullptr) {
-    delete(console);
+    delete console;
     console = nullptr;
   }
 
   if (paneMainLayout != nullptr) {
-    delete(paneMainLayout);
+    delete paneMainLayout;
     paneMainLayout = nullptr;
   }
 
@@ -95,7 +95,7 @@ void ConsolePane::showProperties() {
   }
 
   if (dialog != nullptr) {
-    delete(dialog);
+    delete dialog;
     dialog = nullptr;
   }
 

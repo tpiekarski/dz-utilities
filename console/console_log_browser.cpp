@@ -42,17 +42,17 @@ ConsoleLogBrowser::~ConsoleLogBrowser() {
   console->closeLog();
 
   if (browser != nullptr) {
-    delete(browser);
+    delete browser ;
     browser = nullptr;
   }
 
   if (currentCharacterFormat != nullptr) {
-    delete(currentCharacterFormat);
+    delete currentCharacterFormat;
     currentCharacterFormat = nullptr;
   }
 
   if (layout != nullptr) {
-    delete(layout);
+    delete layout;
     layout = nullptr;
   }
 }

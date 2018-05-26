@@ -38,27 +38,27 @@ ConsoleSearchPane::ConsoleSearchPane(ConsoleLogBrowser* logBrowser) {
 
 ConsoleSearchPane::~ConsoleSearchPane() {
   if (searchEditBox != nullptr) {
-    delete(searchEditBox);
+    delete searchEditBox;
     searchEditBox = nullptr;
   }
 
   if (searchButton != nullptr) {
-    delete(searchButton);
+    delete searchButton;
     searchButton = nullptr;
   }
 
   if (highlightButton != nullptr) {
-    delete(highlightButton);
+    delete highlightButton;
     highlightButton = nullptr;
   }
 
   if (highlightFormat != nullptr) {
-    delete(highlightFormat);
+    delete highlightFormat;
     highlightFormat = nullptr;
   }
 
   if (layout != nullptr) {
-    delete(layout);
+    delete layout;
     layout = nullptr;
   }
 }

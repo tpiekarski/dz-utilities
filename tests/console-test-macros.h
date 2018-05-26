@@ -31,7 +31,7 @@
   logFile->flush(); \
   logFile->close(); \
   if (logFile != nullptr) { \
-    delete(logFile); \
+    delete logFile; \
     logFile = nullptr; \
   }
 
