@@ -22,7 +22,7 @@ class RenderStatisticsSettings : public QObject {
 
 public:
   RenderStatisticsSettings(RenderStatisticsLogger* logger);
-  ~RenderStatisticsSettings() = default;
+  ~RenderStatisticsSettings();
 
   int getRenderImageWidth() { return renderImageWidth; };
   void setRenderImageWidth(const int renderImageWidth);

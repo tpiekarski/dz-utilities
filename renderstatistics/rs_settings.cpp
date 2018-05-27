@@ -22,6 +22,13 @@ RenderStatisticsSettings::RenderStatisticsSettings(RenderStatisticsLogger* logge
   connect(dzApp, SIGNAL(closing()), this, SLOT(saveRenderImageWidth()));
 }
 
+RenderStatisticsSettings::~RenderStatisticsSettings() {
+  if (settings != nullptr) {
+    delete settings;
+    settings = nullptr;
+  }
+}
+
 void RenderStatisticsSettings::setRenderImageWidth(const int renderImageWidth) {
   this->renderImageWidth = renderImageWidth;
 }

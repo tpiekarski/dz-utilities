@@ -56,9 +56,9 @@ dzUtilities::RenderStatistics
 
 
 ##### Memory Improvements
-+ [ ] Deallocate memory for settings in RenderStatisticsSettings
 + [ ] Pass references of messages instead of copies to the logger
 + [ ] Store rendering images for browsing instead of reloading at every display
++ [x] Deallocate memory for settings in RenderStatisticsSettings
 + [x] Introduce reasonable memory deallocation
 + [x] Refactor handling of RenderStatisticsLogger
 
