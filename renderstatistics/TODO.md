@@ -25,6 +25,7 @@ dzUtilities::RenderStatistics
 + [x] Temporarily save the rendered image
 
 ##### UI
++ [ ] Lay out widgets in RenderStatisticsSettingsDialog with QFormLayout
 + [ ] Display statistics inside the render image dialog
 + [ ] Scroll-ability of the QStatisticsLayout 
 + [ ] Switch from DzBasicDialog for the render image to a more sophisticated window with scroll- and size-ability ((Handle different image sizes for browsing rendering images))

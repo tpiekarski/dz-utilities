@@ -19,6 +19,8 @@ RenderStatisticsSettings::RenderStatisticsSettings(RenderStatisticsLogger* logge
   settings = new DzAppSettings(RS_SETTINGS_PATH);
   loadRenderImageWidth();
 
+  scalingAlgorithms << QString("FastTransformation") << QString("SmoothTransformation");
+
   connect(dzApp, SIGNAL(closing()), this, SLOT(saveRenderImageWidth()));
 }
 

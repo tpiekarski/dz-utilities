@@ -41,7 +41,17 @@ RenderStatisticsSettingsDialog::RenderStatisticsSettingsDialog(
   renderImageWidthInputBox->setValue(settings->getRenderImageWidth());
   addWidget(renderImageWidthInputBox);
 
+  scalingAlgorithmLabel = new QLabel("Scaling Algorithm", this);
+  scalingAlgorithmLabel->setObjectName("ScalingAlgorithmLabel");
+  addWidget(scalingAlgorithmLabel);
+
+  scalingAlgorithmComboBox = new QComboBox(this);
+  scalingAlgorithmComboBox->setObjectName("ScalingAlgorithmComboBox");
+  scalingAlgorithmComboBox->insertItems(0, settings->getScalingAlgorithms());
+  addWidget(scalingAlgorithmComboBox);
+
   renderImageWidthLabel->setBuddy(renderImageWidthInputBox);
+  scalingAlgorithmLabel->setBuddy(scalingAlgorithmComboBox);
 
   setWindowTitle("Render Statistics Settings");
   resize(QSize(RS_SETTINGS_DIALOG_WIDTH, 0).expandedTo(minimumSizeHint()));
@@ -58,5 +68,15 @@ RenderStatisticsSettingsDialog::~RenderStatisticsSettingsDialog() {
   if (renderImageWidthLabel != nullptr) {
     delete renderImageWidthLabel;
     renderImageWidthLabel = nullptr;
+  }
+
+  if (scalingAlgorithmComboBox != nullptr) {
+    delete scalingAlgorithmComboBox;
+    scalingAlgorithmComboBox = nullptr;
+  }
+
+  if (scalingAlgorithmLabel != nullptr) {
+    delete scalingAlgorithmLabel;
+    scalingAlgorithmLabel = nullptr;
   }
 }

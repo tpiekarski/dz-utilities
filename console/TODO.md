@@ -23,6 +23,7 @@ dzUtilities::Console
 + [x] Withdraw settings when the properties dialog is canceled (highlight color)
 
 ##### UI
++ [ ] Lay out widgets in ConsoleSettingsDialog with QFormLayout
 + [x] Move control buttons into pane action menu
 
 ##### Legal issues
