@@ -48,6 +48,7 @@ RenderStatisticsSettingsDialog::RenderStatisticsSettingsDialog(
   scalingAlgorithmComboBox = new QComboBox(this);
   scalingAlgorithmComboBox->setObjectName("ScalingAlgorithmComboBox");
   scalingAlgorithmComboBox->insertItems(0, settings->getScalingAlgorithms());
+  scalingAlgorithmComboBox->setCurrentIndex(settings->getScalingAlgorithm());
   addWidget(scalingAlgorithmComboBox);
 
   renderImageWidthLabel->setBuddy(renderImageWidthInputBox);

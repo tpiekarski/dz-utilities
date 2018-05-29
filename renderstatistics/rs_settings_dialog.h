@@ -28,6 +28,7 @@ public:
   ~RenderStatisticsSettingsDialog();
 
   int getNewRenderImageWidth() { return renderImageWidthInputBox->value(); };
+  QString getSelectedScalingAlgorithm() { return scalingAlgorithmComboBox->currentText(); };
 
 private:
   RenderStatisticsSettings* settings;

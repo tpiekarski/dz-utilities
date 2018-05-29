@@ -9,13 +9,13 @@
 *
 */
 
+#include "rs_constants.h"
 #include "rs_dzstatistics.h"
 #include "rs_logger.h"
 #include "rs_pane.h"
-#include "rs_constants.h"
-#include "rs_statistics.h"
 #include "rs_settings.h"
 #include "rs_settings_dialog.h"
+#include "rs_statistics.h"
 #include <dz3dviewport.h>
 #include <dzapp.h>
 #include <dzmainwindow.h>
@@ -73,6 +73,8 @@ void RenderStatisticsPane::showSettingsDialog() {
     if (dialog->getNewRenderImageWidth() != settings->getRenderImageWidth()) {
       settings->setRenderImageWidth(dialog->getNewRenderImageWidth());
     }
+
+    settings->setScalingAlgorithm(dialog->getSelectedScalingAlgorithm());
   }
 
   if (dialog != nullptr) {

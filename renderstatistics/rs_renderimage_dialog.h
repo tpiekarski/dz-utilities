@@ -14,6 +14,7 @@
 
 #include "rs_dzstatistics.h"
 #include "rs_logger.h"
+#include "rs_settings.h"
 #include <dzbasicdialog.h>
 #include <dzstyle.h>
 #include <QtCore/qstring.h>
@@ -34,7 +35,8 @@ public:
     vector<DzRenderStatistics>* statistics,
     const int current,
     const int dialogWidth,
-    RenderStatisticsLogger* logger
+    RenderStatisticsLogger* logger,
+    RenderStatisticsSettings* settings
   );
   
   virtual ~RenderImageDialog();
@@ -46,6 +48,7 @@ private slots:
 
 private:
   RenderStatisticsLogger* logger;
+  RenderStatisticsSettings* settings;
   QImage* renderImage;
   QLabel* renderImageWidget;
   QLabel* errorLabel;

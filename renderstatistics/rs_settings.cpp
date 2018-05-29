@@ -18,8 +18,8 @@ RenderStatisticsSettings::RenderStatisticsSettings(RenderStatisticsLogger* logge
   this->logger = logger;
   settings = new DzAppSettings(RS_SETTINGS_PATH);
   loadRenderImageWidth();
-
-  scalingAlgorithms << QString("FastTransformation") << QString("SmoothTransformation");
+  scalingAlgorithm = RS_DEFAULT_SCALING_ALGORITHM;
+  scalingAlgorithms << QString(RS_SCALING_FAST_TRANSFORMATION) << QString(RS_SCALING_SMOOTH_TRANSFORMATION);
 
   connect(dzApp, SIGNAL(closing()), this, SLOT(saveRenderImageWidth()));
 }
@@ -33,6 +33,16 @@ RenderStatisticsSettings::~RenderStatisticsSettings() {
 
 void RenderStatisticsSettings::setRenderImageWidth(const int renderImageWidth) {
   this->renderImageWidth = renderImageWidth;
+}
+
+void RenderStatisticsSettings::setScalingAlgorithm(const QString scalingAlgorithm) {
+  if (scalingAlgorithm == RS_SCALING_FAST_TRANSFORMATION) {
+    this->scalingAlgorithm = Qt::TransformationMode::FastTransformation;
+  } else if (scalingAlgorithm == RS_SCALING_SMOOTH_TRANSFORMATION){
+    this->scalingAlgorithm = Qt::TransformationMode::SmoothTransformation;
+  } else {
+    this->scalingAlgorithm = RS_DEFAULT_SCALING_ALGORITHM;
+  }
 }
 
 void RenderStatisticsSettings::saveRenderImageWidth() {

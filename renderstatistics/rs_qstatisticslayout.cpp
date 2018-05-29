@@ -9,9 +9,9 @@
 *
 */
 
+#include "rs_constants.h"
 #include "rs_qstatisticslayout.h"
 #include "rs_renderimage_dialog.h"
-#include "rs_constants.h"
 #include <dzmainwindow.h>
 #include <QtGui/qcolor.h>
 #include <QtGui/qmessagebox.h>
@@ -138,7 +138,7 @@ void QStatisticsLayout::addRenderImageButton(const int currentRow) {
 
 void QStatisticsLayout::showRendering(const int &current) {
   RenderImageDialog* dialog = new RenderImageDialog(
-    dzApp->getInterface(), statistics, current, settings->getRenderImageWidth(), logger
+    dzApp->getInterface(), statistics, current, settings->getRenderImageWidth(), logger, settings
   );
 
   if (dialog == nullptr) {

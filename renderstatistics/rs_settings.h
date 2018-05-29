@@ -14,8 +14,8 @@
 
 #include "rs_logger.h"
 #include <dzappsettings.h>
-#include <QtCore/qstringlist.h>
 #include <QtCore/qobject.h>
+#include <QtCore/qstringlist.h>
 
 class RenderStatisticsSettings : public QObject {
 
@@ -28,6 +28,8 @@ public:
   int getRenderImageWidth() { return renderImageWidth; };
   void setRenderImageWidth(const int renderImageWidth);
   QStringList getScalingAlgorithms() { return scalingAlgorithms; };
+  Qt::TransformationMode getScalingAlgorithm() { return scalingAlgorithm; };
+  void setScalingAlgorithm(const QString scalingAlgorithm);
 
 private slots:
   void saveRenderImageWidth();
@@ -37,6 +39,7 @@ private:
   DzAppSettings* settings;
   int renderImageWidth;
   QStringList scalingAlgorithms;
+  Qt::TransformationMode scalingAlgorithm;
 
   void loadRenderImageWidth();
   bool validateRenderImageWidth(int newRenderImageWidth);

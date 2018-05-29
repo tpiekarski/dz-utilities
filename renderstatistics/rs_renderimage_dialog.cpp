@@ -9,8 +9,8 @@
 *
 */
 
-#include "rs_renderimage_dialog.h"
 #include "rs_constants.h"
+#include "rs_renderimage_dialog.h"
 #include <dzapp.h>
 #include <QtGui/qfiledialog.h>
 #include <QtGui/qlayout.h>
@@ -20,10 +20,12 @@ RenderImageDialog::RenderImageDialog(
   vector<DzRenderStatistics>* statistics,
   const int current,
   const int dialogWidth,
-  RenderStatisticsLogger* logger
+  RenderStatisticsLogger* logger,
+  RenderStatisticsSettings* settings
 ) : DzBasicDialog(parent, "RenderImage") {
 
   this->statistics = statistics;
+  this->settings = settings;
   this->current = current;
   this->logger = logger;
   this->dialogWidth = dialogWidth;
@@ -127,7 +129,7 @@ void RenderImageDialog::updateRenderImageWidget(const int newCurrent) {
 
 QPixmap RenderImageDialog::getScaledPixmap(QImage* renderImage) {
   if (renderImage->width() > dialogWidth) {
-    return QPixmap::fromImage(renderImage->scaledToWidth(dialogWidth, Qt::FastTransformation));
+    return QPixmap::fromImage(renderImage->scaledToWidth(dialogWidth, settings->getScalingAlgorithm()));
   }
   else {
     dialogWidth = renderImage->width();
