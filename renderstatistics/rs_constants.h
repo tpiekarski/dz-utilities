@@ -21,6 +21,7 @@
 #define RS_DEFAULT_IMAGE_QUALITY -1
 #define RS_DEFAULT_LABEL_SIZE 8
 #define RS_DEFAULT_LOGGER_FORMAT "%1: %2"
+#define RS_DEFAULT_RENDER_IMAGE_DIALOG_WIDTH 600
 #define RS_DEFAULT_RENDERIMAGE_BUTTON_BORDER 2
 #define RS_DEFAULT_RENDERIMAGEBUTTON_ICON_FILENAME "renderimage.png"
 #define RS_DEFAULT_RENDERIMAGEBUTTON_ICON_SUBDIRECTORY "renderstatistics"
@@ -33,7 +34,6 @@
 #define RS_PANE_NOT_FOUND_MSG "Failed finding pane."
 #define RS_PREVIOUS_RENDER_IMAGE_BUTTON_POS 1
 #define RS_RENDER_FILE_NAME_TEMPLATE "render-%1.png"
-#define RS_RENDER_IMAGE_DIALOG_DEFAULT_WIDTH 600
 #define RS_RENDER_IMAGE_DIALOG_MAX_WIDTH 1200
 #define RS_RENDER_IMAGE_DIALOG_MIN_WIDTH 400
 #define RS_SAVE_RENDER_IMAGE_BUTTON_POS 3
@@ -43,6 +43,8 @@
 #define RS_SETTINGS_PATH "RenderStatistics"
 #define RS_SETTINGS_RENDERIMAGE_WIDTH_KEY "renderImageWidth"
 #define RS_SETTINGS_RENDERIMAGE_WIDTH_READING_FAILED_MSG "Could not read saved render image width, falling back to default."
+#define RS_SETTINGS_SCALING_ALGORITHM_KEY "scalingAlgorithm"
+#define RS_SETTINGS_SCALING_ALGORITHM_READING_FAILED_MSG "Could not read saved scaling algoritm, falling back to default."
 #define RS_TIME_FACET_FORMAT "%H:%M"
 
 #endif

@@ -17,11 +17,10 @@ RenderStatisticsSettings::RenderStatisticsSettings(RenderStatisticsLogger* logge
   setObjectName("RenderStatisticsSettings");
   this->logger = logger;
   settings = new DzAppSettings(RS_SETTINGS_PATH);
-  loadRenderImageWidth();
-  scalingAlgorithm = RS_DEFAULT_SCALING_ALGORITHM;
   scalingAlgorithms << QString(RS_SCALING_FAST_TRANSFORMATION) << QString(RS_SCALING_SMOOTH_TRANSFORMATION);
 
-  connect(dzApp, SIGNAL(closing()), this, SLOT(saveRenderImageWidth()));
+  connect(dzApp, SIGNAL(starting()), this, SLOT(loadSettings()));
+  connect(dzApp, SIGNAL(closing()), this, SLOT(saveSettings()));
 }
 
 RenderStatisticsSettings::~RenderStatisticsSettings() {
@@ -45,21 +44,34 @@ void RenderStatisticsSettings::setScalingAlgorithm(const QString scalingAlgorith
   }
 }
 
-void RenderStatisticsSettings::saveRenderImageWidth() {
+void RenderStatisticsSettings::saveSettings() {
   settings->setIntValue(RS_SETTINGS_RENDERIMAGE_WIDTH_KEY, renderImageWidth);
+  settings->setIntValue(RS_SETTINGS_SCALING_ALGORITHM_KEY, (int) scalingAlgorithm);
 }
 
-void RenderStatisticsSettings::loadRenderImageWidth() {
+void RenderStatisticsSettings::loadSettings() {
   bool readSuccess = false;
+
   int storedRenderImageWidth = settings->getIntValue(
-    RS_SETTINGS_RENDERIMAGE_WIDTH_KEY, RS_RENDER_IMAGE_DIALOG_DEFAULT_WIDTH, &readSuccess
+    RS_SETTINGS_RENDERIMAGE_WIDTH_KEY, RS_DEFAULT_RENDER_IMAGE_DIALOG_WIDTH, &readSuccess
   );
 
   if (readSuccess && validateRenderImageWidth(storedRenderImageWidth)) {
     renderImageWidth = storedRenderImageWidth;
   } else {
     logger->log(RS_SETTINGS_RENDERIMAGE_WIDTH_READING_FAILED_MSG);
-    renderImageWidth = RS_RENDER_IMAGE_DIALOG_DEFAULT_WIDTH;
+    renderImageWidth = RS_DEFAULT_RENDER_IMAGE_DIALOG_WIDTH;
+  }
+
+  int storedScalingAlgorithm = settings->getIntValue(
+    RS_SETTINGS_SCALING_ALGORITHM_KEY, RS_DEFAULT_SCALING_ALGORITHM, &readSuccess
+  );
+
+  if (readSuccess) {
+    scalingAlgorithm = (Qt::TransformationMode) storedScalingAlgorithm;
+  } else {
+    logger->log(RS_SETTINGS_SCALING_ALGORITHM_READING_FAILED_MSG);
+    scalingAlgorithm = RS_DEFAULT_SCALING_ALGORITHM;
   }
 }
 

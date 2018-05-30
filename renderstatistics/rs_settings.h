@@ -32,7 +32,8 @@ public:
   void setScalingAlgorithm(const QString scalingAlgorithm);
 
 private slots:
-  void saveRenderImageWidth();
+  void loadSettings();
+  void saveSettings();
 
 private:
   RenderStatisticsLogger* logger;
@@ -41,7 +42,6 @@ private:
   QStringList scalingAlgorithms;
   Qt::TransformationMode scalingAlgorithm;
 
-  void loadRenderImageWidth();
   bool validateRenderImageWidth(int newRenderImageWidth);
 
 };
