@@ -8,7 +8,6 @@ dzUtilities::RenderStatistics
 + [ ] *Refactor and move to QTableView and utilize QAbstractTableModel*
 + [ ] Export images with watermarked statistics
 + [ ] Introduce a setting to deactivate the capturing data from aborted renderings
-+ [ ] Make setting for the image scaling algorithm of the rendering image display persistent
 + [ ] Package and provide pre-compiled plugin library
 + [ ] Saving active camera (by duplicating camera and adding it to a node group for render history)
 + [ ] Saving all active lights (by duplicating lights and adding them to a new node group in the render history group)
@@ -19,18 +18,19 @@ dzUtilities::RenderStatistics
 + [x] Add a settings dialog accessible by the pane actions menu
 + [x] Clearing of all statistics and the QStatisticsLayout
 + [x] Inside the QStatisticsLayout indicate aborted and finished renderings
++ [x] Make setting for the image scaling algorithm of the rendering image display persistent
 + [x] Make setting for the width of the rendering image display persistent
 + [x] Provide a setting for the image scaling algorithm of the rendering image display
 + [x] Provide a setting for the width of the rendering image display
 + [x] Temporarily save the rendered image
 
 ##### UI
-+ [ ] Lay out widgets in RenderStatisticsSettingsDialog with QFormLayout
 + [ ] Display statistics inside the render image dialog
 + [ ] Scroll-ability of the QStatisticsLayout 
 + [ ] Switch from DzBasicDialog for the render image to a more sophisticated window with scroll- and size-ability ((Handle different image sizes for browsing rendering images))
 + [x] Add buttons to display previous and next rendering images
 + [x] Avoid upscaling of smaller rendering images
++ [x] Lay out widgets in RenderStatisticsSettingsDialog with QFormLayout
 + [x] Replace show render button by iconized button
 
 

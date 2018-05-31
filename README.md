@@ -5,8 +5,8 @@ dzUtilities
 
 #|Utility Plugin|Description|Version|TODO|Source
 ---|---|---|---|---|---
-1.|[Console](#console)|Console plugin displaying DAZ Studio Log file|1.4.1|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/console/TODO.md)|[dzUtilities/console](https://github.com/tpiekarski/dzUtilities/tree/master/console)
-2.|[Render Statistics](#render-statistics)|Render data aggregation and statistics plugin|1.4.0|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/renderstatistics/TODO.md)|[dzUtilities/renderstatistics](https://github.com/tpiekarski/dzUtilities/tree/master/renderstatistics)
+1.|[Console](#console)|Console plugin displaying DAZ Studio Log file|1.4.2|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/console/TODO.md)|[dzUtilities/console](https://github.com/tpiekarski/dzUtilities/tree/master/console)
+2.|[Render Statistics](#render-statistics)|Render data aggregation and statistics plugin|1.4.2|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/renderstatistics/TODO.md)|[dzUtilities/renderstatistics](https://github.com/tpiekarski/dzUtilities/tree/master/renderstatistics)
 n.|[Tests](#tests)|Unit test project for all utility plugins|-|-|[dzUtilities/tests](https://github.com/tpiekarski/dzUtilities/tree/master/tests)
 
 #### Build process

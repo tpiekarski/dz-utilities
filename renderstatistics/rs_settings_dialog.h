@@ -15,6 +15,7 @@
 #include "rs_settings.h"
 #include <dzbasicdialog.h>
 #include <QtGui/qcombobox.h>
+#include <QtGui/qformlayout.h>
 #include <QtGui/qlabel.h>
 #include <QtGui/qspinbox.h>
 #include <QtGui/qwidget.h>
@@ -32,6 +33,7 @@ public:
 
 private:
   RenderStatisticsSettings* settings;
+  QFormLayout* settingsLayout;
   QLabel* renderImageWidthLabel;
   QSpinBox* renderImageWidthInputBox;
   QLabel* scalingAlgorithmLabel;

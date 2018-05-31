@@ -32,28 +32,34 @@ RenderStatisticsSettingsDialog::RenderStatisticsSettingsDialog(
 
   renderImageWidthLabel = new QLabel("Render Image Width", this);
   renderImageWidthLabel->setObjectName("RenderImageWidthLabel");
-  addWidget(renderImageWidthLabel);
 
   renderImageWidthInputBox = new QSpinBox(this);
   renderImageWidthInputBox->setObjectName("RenderImageWidthInputBox");
   renderImageWidthInputBox->setMinimum(RS_RENDER_IMAGE_DIALOG_MIN_WIDTH);
   renderImageWidthInputBox->setMaximum(RS_RENDER_IMAGE_DIALOG_MAX_WIDTH);
   renderImageWidthInputBox->setValue(settings->getRenderImageWidth());
-  addWidget(renderImageWidthInputBox);
+  renderImageWidthInputBox->setToolTip(
+    QString("The value must be between %1 and %2.").arg(
+      QString::number(RS_RENDER_IMAGE_DIALOG_MIN_WIDTH), 
+      QString::number(RS_RENDER_IMAGE_DIALOG_MAX_WIDTH)
+    )
+  );
 
   scalingAlgorithmLabel = new QLabel("Scaling Algorithm", this);
   scalingAlgorithmLabel->setObjectName("ScalingAlgorithmLabel");
-  addWidget(scalingAlgorithmLabel);
 
   scalingAlgorithmComboBox = new QComboBox(this);
   scalingAlgorithmComboBox->setObjectName("ScalingAlgorithmComboBox");
   scalingAlgorithmComboBox->insertItems(0, settings->getScalingAlgorithms());
   scalingAlgorithmComboBox->setCurrentIndex(settings->getScalingAlgorithm());
-  addWidget(scalingAlgorithmComboBox);
 
-  renderImageWidthLabel->setBuddy(renderImageWidthInputBox);
-  scalingAlgorithmLabel->setBuddy(scalingAlgorithmComboBox);
+  settingsLayout = new QFormLayout();
+  settingsLayout->addRow(renderImageWidthLabel, renderImageWidthInputBox);
+  settingsLayout->addRow(scalingAlgorithmLabel, scalingAlgorithmComboBox);
+  settingsLayout->setMargin(RS_SETTINGS_DIALOG_MARGIN);
+  settingsLayout->setSpacing(RS_SETTINGS_DIALOG_SPACING);
 
+  addLayout(settingsLayout);
   setWindowTitle("Render Statistics Settings");
   resize(QSize(RS_SETTINGS_DIALOG_WIDTH, 0).expandedTo(minimumSizeHint()));
   setFixedWidth(width());
@@ -62,22 +68,31 @@ RenderStatisticsSettingsDialog::RenderStatisticsSettingsDialog(
 
 RenderStatisticsSettingsDialog::~RenderStatisticsSettingsDialog() {
   if (renderImageWidthInputBox != nullptr) {
+    settingsLayout->removeWidget(renderImageWidthInputBox);
     delete renderImageWidthInputBox;
     renderImageWidthInputBox = nullptr;
   }
 
   if (renderImageWidthLabel != nullptr) {
+    settingsLayout->removeWidget(renderImageWidthLabel);
     delete renderImageWidthLabel;
     renderImageWidthLabel = nullptr;
   }
 
   if (scalingAlgorithmComboBox != nullptr) {
+    settingsLayout->removeWidget(scalingAlgorithmComboBox);
     delete scalingAlgorithmComboBox;
     scalingAlgorithmComboBox = nullptr;
   }
 
   if (scalingAlgorithmLabel != nullptr) {
+    settingsLayout->removeWidget(scalingAlgorithmLabel);
     delete scalingAlgorithmLabel;
     scalingAlgorithmLabel = nullptr;
+  }
+
+  if (settingsLayout != nullptr) {
+    delete settingsLayout;
+    settingsLayout = nullptr;
   }
 }
