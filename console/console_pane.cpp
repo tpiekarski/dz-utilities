@@ -11,7 +11,7 @@
 
 #include "console_constants.h"
 #include "console_pane.h"
-#include "console_properties_dialog.h"
+#include "console_settings_dialog.h"
 #include "console_settings.h"
 #include <dzapp.h>
 #include <dzmainwindow.h>
@@ -64,7 +64,7 @@ ConsolePane::~ConsolePane() {
 
 }
 
-void ConsolePane::showProperties() {
+void ConsolePane::showSettingsDialog() {
   DzMainWindow* mainWindow = dzApp->getInterface();
   if (mainWindow == nullptr) {
     QMessageBox::warning(0, "Error", "The main window is not available.", QMessageBox::Ok);
@@ -72,7 +72,7 @@ void ConsolePane::showProperties() {
     return;
   }
 
-  ConsolePropertiesDialog* dialog = new ConsolePropertiesDialog(mainWindow, consoleSettings);
+  ConsoleSettingsDialog* dialog = new ConsoleSettingsDialog(mainWindow, consoleSettings);
   if (dialog == nullptr) {
     QMessageBox::warning(0,"Error","The dialog for console settings could not be created.", QMessageBox::Ok);
 
@@ -104,5 +104,5 @@ void ConsolePane::showProperties() {
 void ConsolePane::buildOptionsMenu(DzActionMenu* menu) const {
   menu->insertAction("ConsoleClearAction");
   menu->insertAction("ConsoleReloadAction");
-  menu->insertAction("ConsolePropertiesAction");
+  menu->insertAction("ConsoleSettingsAction");
 }

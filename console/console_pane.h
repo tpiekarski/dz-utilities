@@ -29,7 +29,7 @@ public:
   ~ConsolePane();
 
   ConsoleLogBrowser* getConsoleLogBrowser() { return consoleLogBrowser; };
-  void showProperties();
+  void showSettingsDialog();
 
 protected:
   void buildOptionsMenu(DzActionMenu* menu) const override;

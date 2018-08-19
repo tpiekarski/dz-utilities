@@ -15,13 +15,13 @@
 #include "console_constants.h"
 #include <dzaction.h>
 
-class ConsolePropertiesAction : public DzAction {
+class ConsoleSettingsAction : public DzAction {
 
   Q_OBJECT
 
 public:
-  ConsolePropertiesAction();
-  ~ConsolePropertiesAction() = default;
+  ConsoleSettingsAction();
+  ~ConsoleSettingsAction() = default;
 
 protected:
   QString getActionGroup() const override { return CONSOLE_ACTION_GROUP; };

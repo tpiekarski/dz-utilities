@@ -11,19 +11,19 @@
 
 #include "console_constants.h"
 #include "console_pane.h"
-#include "console_properties_action.h"
+#include "console_settings_action.h"
 #include <dzapp.h>
 #include <dzmainwindow.h>
 #include <dzpanemgr.h>
 #include <QtGui/qmessagebox.h>
 
-ConsolePropertiesAction::ConsolePropertiesAction() 
-  : DzAction("Properties", "Properties log file") 
+ConsoleSettingsAction::ConsoleSettingsAction() 
+  : DzAction("Settings", "Console Settings") 
 {
-  setObjectName("ConsolePropertiesAction");
+  setObjectName("ConsoleSettingsAction");
 }
 
-void ConsolePropertiesAction::executeAction() {
+void ConsoleSettingsAction::executeAction() {
   DzPane* pane = dzApp->getInterface()->getPaneMgr()->findPane("ConsolePane");
 
   if (pane == nullptr) {
@@ -33,6 +33,6 @@ void ConsolePropertiesAction::executeAction() {
   }
 
   ConsolePane* consolePane = dynamic_cast<ConsolePane*>(pane);
-  consolePane->showProperties();
+  consolePane->showSettingsDialog();
 }
 

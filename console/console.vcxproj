@@ -393,7 +393,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
     <ClInclude Include="console.h" />
-    <CustomBuild Include="console_properties_dialog.h">
+    <CustomBuild Include="console_settings_dialog.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
       </ExcludedFromBuild>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
@@ -455,7 +455,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
-    <CustomBuild Include="console_properties_action.h">
+    <CustomBuild Include="console_settings_action.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
@@ -524,22 +524,22 @@
     <ClCompile Include="console_log_browser.cpp" />
     <ClCompile Include="console.cpp" />
     <ClCompile Include="console_pane.cpp" />
-    <ClCompile Include="console_properties_dialog.cpp" />
+    <ClCompile Include="console_settings_dialog.cpp" />
     <ClCompile Include="console_search_pane.cpp" />
     <ClCompile Include="console_settings.cpp" />
     <ClCompile Include="console_clear_action.cpp" />
-    <ClCompile Include="console_properties_action.cpp" />
+    <ClCompile Include="console_settings_action.cpp" />
+    <ClCompile Include="console_plugin.cpp" />
+    <ClCompile Include="console_reload_action.cpp" />
     <ClCompile Include="moc\console_clear_action_moc.cpp" />
     <ClCompile Include="moc\console_log_browser_moc.cpp" />
     <ClCompile Include="moc\console_pane_action_moc.cpp" />
     <ClCompile Include="moc\console_pane_moc.cpp" />
-    <ClCompile Include="moc\console_properties_action_moc.cpp" />
-    <ClCompile Include="moc\console_properties_dialog_moc.cpp" />
     <ClCompile Include="moc\console_reload_action_moc.cpp" />
     <ClCompile Include="moc\console_search_pane_moc.cpp" />
+    <ClCompile Include="moc\console_settings_action_moc.cpp" />
+    <ClCompile Include="moc\console_settings_dialog_moc.cpp" />
     <ClCompile Include="moc\console_settings_moc.cpp" />
-    <ClCompile Include="console_plugin.cpp" />
-    <ClCompile Include="console_reload_action.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.gitignore" />

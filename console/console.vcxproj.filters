@@ -50,19 +50,31 @@
     <ClCompile Include="console_clear_action.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="console_properties_action.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="console_pane.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="console_properties_dialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="console_settings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="console_log_browser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="console_search_pane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="console_plugin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="console_settings_dialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="console_settings_action.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="moc\console_clear_action_moc.cpp">
+      <Filter>Meta Object Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\console_log_browser_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
     <ClCompile Include="moc\console_pane_action_moc.cpp">
@@ -71,39 +83,24 @@
     <ClCompile Include="moc\console_pane_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
-    <ClCompile Include="moc\console_properties_action_moc.cpp">
-      <Filter>Meta Object Files</Filter>
-    </ClCompile>
-    <ClCompile Include="moc\console_properties_dialog_moc.cpp">
-      <Filter>Meta Object Files</Filter>
-    </ClCompile>
     <ClCompile Include="moc\console_reload_action_moc.cpp">
+      <Filter>Meta Object Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\console_search_pane_moc.cpp">
+      <Filter>Meta Object Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\console_settings_action_moc.cpp">
+      <Filter>Meta Object Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\console_settings_dialog_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
     <ClCompile Include="moc\console_settings_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
-    <ClCompile Include="console_log_browser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="moc\console_log_browser_moc.cpp">
-      <Filter>Meta Object Files</Filter>
-    </ClCompile>
-    <ClCompile Include="console_search_pane.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="moc\console_search_pane_moc.cpp">
-      <Filter>Meta Object Files</Filter>
-    </ClCompile>
-    <ClCompile Include="console_plugin.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="console_clear_action.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="console_properties_action.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="console_reload_action.h">
@@ -115,9 +112,6 @@
     <CustomBuild Include="console_pane_action.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="console_properties_dialog.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="console_settings.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
@@ -125,6 +119,12 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="console_search_pane.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="console_settings_dialog.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="console_settings_action.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

@@ -10,7 +10,7 @@
 */
 
 #include "console_constants.h"
-#include "console_properties_dialog.h"
+#include "console_settings_dialog.h"
 #include <dzapp.h>
 #include <dzstyle.h>
 #include <QtGui/qcolordialog.h>
@@ -19,9 +19,9 @@
 #include <QtGui/qlineedit.h>
 #include <QtGui/qpushbutton.h>
 
-ConsolePropertiesDialog::ConsolePropertiesDialog(
+ConsoleSettingsDialog::ConsoleSettingsDialog(
   QWidget* parent, ConsoleSettings* settings
-) : DzBasicDialog(parent, "ConsoleProperties") {
+) : DzBasicDialog(parent, "ConsoleSettings") {
   this->settings = settings;
   const int margin = style()->pixelMetric(DZ_PM_GeneralMargin);
 
@@ -35,19 +35,19 @@ ConsolePropertiesDialog::ConsolePropertiesDialog(
   formWidget = new QWidget(this);
   formWidget->setLayout(formLayout);
 
-  ConsolePropertiesDialog::addFilePathRow();
-  ConsolePropertiesDialog::addFontSizeRow();
-  ConsolePropertiesDialog::addHighlightColorRow();
+  ConsoleSettingsDialog::addFilePathRow();
+  ConsoleSettingsDialog::addFontSizeRow();
+  ConsoleSettingsDialog::addHighlightColorRow();
 
   addWidget(formWidget);
 
-  setWindowTitle("Console Properties");
+  setWindowTitle("Console Settings");
   resize(QSize(CONSOLE_SETTINGS_DIALOG_WIDTH, 0).expandedTo(minimumSizeHint()));
   setFixedWidth(width());
   setFixedHeight(height());
 }
 
-ConsolePropertiesDialog::~ConsolePropertiesDialog() {
+ConsoleSettingsDialog::~ConsoleSettingsDialog() {
   if (highlightColorLabel != nullptr) {
     formLayout->removeWidget(highlightColorLabel);
     delete highlightColorLabel;
@@ -95,40 +95,40 @@ ConsolePropertiesDialog::~ConsolePropertiesDialog() {
   }
 }
 
-void ConsolePropertiesDialog::selectHighlightColor() {
+void ConsoleSettingsDialog::selectHighlightColor() {
   newHighlightColor = QColorDialog::getColor(settings->getHighlightColor(), this);
 }
 
-void ConsolePropertiesDialog::addFilePathRow() {
+void ConsoleSettingsDialog::addFilePathRow() {
   logFilePathLabel = new QLabel("Log File", formWidget);
-  logFilePathLabel->setObjectName("ConsolePropertiesFilePathLabel");
+  logFilePathLabel->setObjectName("ConsoleSettingsFilePathLabel");
 
   logFilePathDisplayBox = new QLineEdit(settings->getLogFilePath(), formWidget);
-  logFilePathDisplayBox->setObjectName("ConsolePropertiesFilePathBox");
+  logFilePathDisplayBox->setObjectName("ConsoleSettingsFilePathBox");
   logFilePathDisplayBox->setReadOnly(true);
 
   formLayout->addRow(logFilePathLabel, logFilePathDisplayBox);
 }
 
-void ConsolePropertiesDialog::addFontSizeRow() {
+void ConsoleSettingsDialog::addFontSizeRow() {
   fontSizeLabel = new QLabel("Font Size", formWidget);
-  fontSizeLabel->setObjectName("ConsolePropertiesFontSizeLabel");
+  fontSizeLabel->setObjectName("ConsoleSettingsFontSizeLabel");
 
   QString fontSize = NULL;
   settings->getFontSize(&fontSize);
   fontSizeEditBox = new QLineEdit(fontSize, formWidget);
-  fontSizeEditBox->setObjectName("ConsolePropertiesFontSizeEdit");
+  fontSizeEditBox->setObjectName("ConsoleSettingsFontSizeEdit");
   fontSizeLabel->setBuddy(fontSizeEditBox);
 
   formLayout->addRow(fontSizeLabel, fontSizeEditBox);
 }
 
-void ConsolePropertiesDialog::addHighlightColorRow() {
+void ConsoleSettingsDialog::addHighlightColorRow() {
   highlightColorLabel = new QLabel("Highlight Color", formWidget);
-  highlightColorLabel->setObjectName("ConsolePropertiesHighlightColorLabel");
+  highlightColorLabel->setObjectName("ConsoleSettingsHighlightColorLabel");
 
   highlightColorButton = new QPushButton("Select color...", formWidget);
-  highlightColorButton->setObjectName("ConsolePropertiesHighlightColorButton");
+  highlightColorButton->setObjectName("ConsoleSettingsHighlightColorButton");
   connect(highlightColorButton, SIGNAL(clicked()), this, SLOT(selectHighlightColor()));
 
   formLayout->addRow(highlightColorLabel, highlightColorButton);

@@ -20,13 +20,13 @@
 #include <QtGui/qlabel.h>
 #include <QtGui/qlineedit.h>
 
-class ConsolePropertiesDialog : public DzBasicDialog {
+class ConsoleSettingsDialog : public DzBasicDialog {
 
   Q_OBJECT
 
 public:
-  ConsolePropertiesDialog(QWidget* parent, ConsoleSettings* settings);
-  ~ConsolePropertiesDialog();
+  ConsoleSettingsDialog(QWidget* parent, ConsoleSettings* settings);
+  ~ConsoleSettingsDialog();
 
   QString getNewFontSize() { return fontSizeEditBox->text(); };
   QColor getNewHighlightColor() { return newHighlightColor; };

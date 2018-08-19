@@ -19,7 +19,7 @@ dzUtilities::Console
 + [x] Include input validation for the font size and provide fallback mechanism
 + [x] Make set up highlight color persistent
 + [x] Remove most of previous signal-slot-based update connections
-+ [x] Withdraw settings when the properties dialog is canceled (highlight color)
++ [x] Withdraw settings when the settings dialog is canceled (highlight color)
 
 ##### UI
 + [ ] Change or extend input widget for the font size with increase/decrease buttons
@@ -34,21 +34,21 @@ dzUtilities::Console
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
 + [ ] Introduce namespace *utlis::console* to avoid future collisions
 + [ ] Migrate and integrate new logger library
-+ [ ] Move processing of settings in ConsolePane::showProperties to ConsolePropertiesAction::executeAction
-+ [ ] Refactor ConsoleSettings and ConsolePropertiesDialog (Restructure access to properties, remove unused methods and various other little improvements)
-+ [ ] Streamline naming with renaming ConsolePropertiesDialog to ConsoleSettingsDialog
++ [ ] Move processing of settings in ConsolePane::showSettings to ConsoleSettingsAction::executeAction
++ [ ] Refactor ConsoleSettings and ConsoleSettingsDialog (Restructure access to settings, remove unused methods and various other little improvements)
 + [x] Add another linter and static code analysis tool (cppcheck and ReSharper++ integrated)
-+ [x] Cleaning constructor of ConsolePropertiesDialog
++ [x] Cleaning constructor of ConsoleSettingsDialog
 + [x] Fix coliding constants header file in tests project
 + [x] Implement error handling inside menu actions when ConsolePane cannot be found
 + [x] Prefix all constants to avoid any future collisions with 3rd party constants
 + [x] Streamline file naming with prefix *console_* for avoiding filename collisions on the include path in the future
 + [x] Streamline naming of headers and source files to lowercased underscore
++ [x] Streamline naming with renaming ConsolePropertiesDialog to ConsoleSettingsDialog
 
 ##### Memory Improvements
 + [ ] Deallocate memory for settings in ConsoleSettings
 + [ ] Improve speed of highlighting by caching and only highlighting visible log
-+ [x] At ConsolePane::showProperties deallocate memory for the ConsolePropertiesDialog
++ [x] At ConsolePane::showSettings deallocate memory for the ConsoleSettingsDialog
 + [x] Keep log file opened instead of opening/closing at every call to displayLog (see bugs:debug and solve delaying and blocking behavior)
 
 ##### Clean code
@@ -67,7 +67,7 @@ dzUtilities::Console
 
 #### Bugs
 + [ ] Fix initial log display bug sometimes not showing the end of file (off by a few lines)
-+ [ ] Fix loosing new highlight color when ConsolePropertiesDialog is opened twice without changing color and when font size is changed and ConsoleLogBrowser::updateFontSize is called
++ [ ] Fix loosing new highlight color when ConsoleSettingsDialog is opened twice without changing color and when font size is changed and ConsoleLogBrowser::updateFontSize is called
 + [x] Debug and solve delaying and blocking behavior of QFileSystemWatcher
 + [x] Fix missing auto-reload after clearing and reloading
 + [x] Fix missing log path display in the settings dialog
