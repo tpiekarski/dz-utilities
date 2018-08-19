@@ -7,11 +7,9 @@ dzUtilities::Console
 + [ ] Add button for reseting search and highlight
 + [ ] Add buttons for previous and next search result (displayed on demand)
 + [ ] Add filter for the issuer of log messages
-+ [ ] Change or extend input widget for the font size with increase/decrease buttons
 + [ ] Create signal/slot connection between reloading log and highlighting search term
 + [ ] Implement search by regular expressions and add a checkbox for toggling
 + [ ] Improve speed of seeking to 0 when reloading log
-+ [x] Make set up highlight color persistent
 + [ ] Move from QPushButton for selecting highlight colors to DzColorPropertyWgt
 + [ ] Package and provide pre-compiled plugin library
 + [x] Add setting for the highlight color
@@ -19,11 +17,13 @@ dzUtilities::Console
 + [x] Automatically redisplay the log when new messages have been written the log file
 + [x] Highlight search results (and a separate highlight button to highlight all results)
 + [x] Include input validation for the font size and provide fallback mechanism
++ [x] Make set up highlight color persistent
 + [x] Remove most of previous signal-slot-based update connections
 + [x] Withdraw settings when the properties dialog is canceled (highlight color)
 
 ##### UI
-+ [ ] Lay out widgets in ConsoleSettingsDialog with QFormLayout
++ [ ] Change or extend input widget for the font size with increase/decrease buttons
++ [x] Lay out widgets in ConsoleSettingsDialog with QFormLayout
 + [x] Move control buttons into pane action menu
 
 ##### Legal issues
@@ -36,7 +36,9 @@ dzUtilities::Console
 + [ ] Migrate and integrate new logger library
 + [ ] Move processing of settings in ConsolePane::showProperties to ConsolePropertiesAction::executeAction
 + [ ] Refactor ConsoleSettings and ConsolePropertiesDialog (Restructure access to properties, remove unused methods and various other little improvements)
++ [ ] Streamline naming with renaming ConsolePropertiesDialog to ConsoleSettingsDialog
 + [x] Add another linter and static code analysis tool (cppcheck and ReSharper++ integrated)
++ [x] Cleaning constructor of ConsolePropertiesDialog
 + [x] Fix coliding constants header file in tests project
 + [x] Implement error handling inside menu actions when ConsolePane cannot be found
 + [x] Prefix all constants to avoid any future collisions with 3rd party constants

@@ -14,8 +14,9 @@
 
 #include "console_settings.h"
 #include <dzbasicdialog.h>
-#include <QtGui/qcolor.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qcolor.h>
+#include <QtGui/qformlayout.h>
 #include <QtGui/qlabel.h>
 #include <QtGui/qlineedit.h>
 
@@ -30,18 +31,24 @@ public:
   QString getNewFontSize() { return fontSizeEditBox->text(); };
   QColor getNewHighlightColor() { return newHighlightColor; };
 
-  private slots:
+private slots:
   void selectHighlightColor();
 
 private:
   ConsoleSettings* settings;
+  QFormLayout* formLayout;
+  QWidget* formWidget;
+  QLabel* logFilePathLabel;
+  QLineEdit* logFilePathDisplayBox;
   QLabel* fontSizeLabel;
   QLineEdit* fontSizeEditBox;
   QLabel* highlightColorLabel;
   QColor newHighlightColor;
   QPushButton* highlightColorButton;
-  QLabel* logFilePathLabel;
-  QLineEdit* logFilePathDisplayBox;
+
+  void addFilePathRow();
+  void addFontSizeRow();
+  void addHighlightColorRow();
 
 };
 
