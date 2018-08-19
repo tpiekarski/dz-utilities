@@ -66,10 +66,10 @@ ConsoleSettingsDialog::~ConsoleSettingsDialog() {
     fontSizeLabel = nullptr;
   }
 
-  if (fontSizeEditBox != nullptr) {
-    formLayout->removeWidget(fontSizeEditBox);
-    delete fontSizeEditBox;
-    fontSizeEditBox = nullptr;
+  if (fontSizeSpinBox != nullptr) {
+    formLayout->removeWidget(fontSizeSpinBox);
+    delete fontSizeSpinBox;
+    fontSizeSpinBox = nullptr;
   }
 
   if (logFilePathLabel != nullptr) {
@@ -114,13 +114,17 @@ void ConsoleSettingsDialog::addFontSizeRow() {
   fontSizeLabel = new QLabel("Font Size", formWidget);
   fontSizeLabel->setObjectName("ConsoleSettingsFontSizeLabel");
 
-  QString fontSize = NULL;
+  float fontSize = 0.0;
   settings->getFontSize(&fontSize);
-  fontSizeEditBox = new QLineEdit(fontSize, formWidget);
-  fontSizeEditBox->setObjectName("ConsoleSettingsFontSizeEdit");
-  fontSizeLabel->setBuddy(fontSizeEditBox);
+  fontSizeSpinBox = new QSpinBox(formWidget);
+  fontSizeSpinBox->setValue(static_cast<int>(fontSize));
+  fontSizeSpinBox->setMinimum(static_cast<int>(CONSOLE_SETTINGS_FONTSIZE_MIN));
+  fontSizeSpinBox->setMaximum(static_cast<int>(CONSOLE_SETTINGS_FONTSIZE_MAX));
+  fontSizeSpinBox->setSingleStep(1);
+  fontSizeSpinBox->setObjectName("ConsoleSettingsFontSizeBox");
+  fontSizeLabel->setBuddy(fontSizeSpinBox);
 
-  formLayout->addRow(fontSizeLabel, fontSizeEditBox);
+  formLayout->addRow(fontSizeLabel, fontSizeSpinBox);
 }
 
 void ConsoleSettingsDialog::addHighlightColorRow() {

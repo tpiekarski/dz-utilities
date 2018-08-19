@@ -19,6 +19,7 @@
 #include <QtGui/qformlayout.h>
 #include <QtGui/qlabel.h>
 #include <QtGui/qlineedit.h>
+#include <QtGui/qspinbox.h>
 
 class ConsoleSettingsDialog : public DzBasicDialog {
 
@@ -28,7 +29,7 @@ public:
   ConsoleSettingsDialog(QWidget* parent, ConsoleSettings* settings);
   ~ConsoleSettingsDialog();
 
-  QString getNewFontSize() { return fontSizeEditBox->text(); };
+  QString getNewFontSize() { return fontSizeSpinBox->text(); };
   QColor getNewHighlightColor() { return newHighlightColor; };
 
 private slots:
@@ -41,7 +42,7 @@ private:
   QLabel* logFilePathLabel;
   QLineEdit* logFilePathDisplayBox;
   QLabel* fontSizeLabel;
-  QLineEdit* fontSizeEditBox;
+  QSpinBox* fontSizeSpinBox;
   QLabel* highlightColorLabel;
   QColor newHighlightColor;
   QPushButton* highlightColorButton;

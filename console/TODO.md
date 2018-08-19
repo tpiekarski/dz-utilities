@@ -4,7 +4,7 @@ dzUtilities::Console
 #### TODO
 
 ##### Features
-+ [ ] Add button for reseting search and highlight
++ [ ] Add button for resetting search and highlight
 + [ ] Add buttons for previous and next search result (displayed on demand)
 + [ ] Add filter for the issuer of log messages
 + [ ] Create signal/slot connection between reloading log and highlighting search term
@@ -22,7 +22,8 @@ dzUtilities::Console
 + [x] Withdraw settings when the settings dialog is canceled (highlight color)
 
 ##### UI
-+ [ ] Change or extend input widget for the font size with increase/decrease buttons
++ [ ] Consider changing from QSpinBox to a form of a slider due to small and inconvenient sizing of increase/decrease buttons
++ [x] Change or extend input widget for the font size with increase/decrease buttons (switch to QSpinBox)
 + [x] Lay out widgets in ConsoleSettingsDialog with QFormLayout
 + [x] Move control buttons into pane action menu
 
@@ -38,7 +39,7 @@ dzUtilities::Console
 + [ ] Refactor ConsoleSettings and ConsoleSettingsDialog (Restructure access to settings, remove unused methods and various other little improvements)
 + [x] Add another linter and static code analysis tool (cppcheck and ReSharper++ integrated)
 + [x] Cleaning constructor of ConsoleSettingsDialog
-+ [x] Fix coliding constants header file in tests project
++ [x] Fix colliding constants header file in tests project
 + [x] Implement error handling inside menu actions when ConsolePane cannot be found
 + [x] Prefix all constants to avoid any future collisions with 3rd party constants
 + [x] Streamline file naming with prefix *console_* for avoiding filename collisions on the include path in the future
