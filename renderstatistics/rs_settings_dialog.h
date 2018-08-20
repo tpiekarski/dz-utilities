@@ -39,6 +39,9 @@ private:
   QLabel* scalingAlgorithmLabel;
   QComboBox* scalingAlgorithmComboBox;
 
+  void addRenderImageWidthRow();
+  void addScalingAlgorithmRow();
+
 };
 
 #endif

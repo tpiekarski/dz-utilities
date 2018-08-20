@@ -30,34 +30,12 @@ RenderStatisticsSettingsDialog::RenderStatisticsSettingsDialog(
   layout()->setSpacing(margin);
   layout()->setSizeConstraint(QLayout::SetNoConstraint);
 
-  renderImageWidthLabel = new QLabel("Render Image Width", this);
-  renderImageWidthLabel->setObjectName("RenderImageWidthLabel");
-
-  renderImageWidthInputBox = new QSpinBox(this);
-  renderImageWidthInputBox->setObjectName("RenderImageWidthInputBox");
-  renderImageWidthInputBox->setMinimum(RS_RENDER_IMAGE_DIALOG_MIN_WIDTH);
-  renderImageWidthInputBox->setMaximum(RS_RENDER_IMAGE_DIALOG_MAX_WIDTH);
-  renderImageWidthInputBox->setValue(settings->getRenderImageWidth());
-  renderImageWidthInputBox->setToolTip(
-    QString("The value must be between %1 and %2.").arg(
-      QString::number(RS_RENDER_IMAGE_DIALOG_MIN_WIDTH), 
-      QString::number(RS_RENDER_IMAGE_DIALOG_MAX_WIDTH)
-    )
-  );
-
-  scalingAlgorithmLabel = new QLabel("Scaling Algorithm", this);
-  scalingAlgorithmLabel->setObjectName("ScalingAlgorithmLabel");
-
-  scalingAlgorithmComboBox = new QComboBox(this);
-  scalingAlgorithmComboBox->setObjectName("ScalingAlgorithmComboBox");
-  scalingAlgorithmComboBox->insertItems(0, settings->getScalingAlgorithms());
-  scalingAlgorithmComboBox->setCurrentIndex(settings->getScalingAlgorithm());
-
   settingsLayout = new QFormLayout();
-  settingsLayout->addRow(renderImageWidthLabel, renderImageWidthInputBox);
-  settingsLayout->addRow(scalingAlgorithmLabel, scalingAlgorithmComboBox);
   settingsLayout->setMargin(RS_SETTINGS_DIALOG_MARGIN);
   settingsLayout->setSpacing(RS_SETTINGS_DIALOG_SPACING);
+
+  RenderStatisticsSettingsDialog::addRenderImageWidthRow();
+  RenderStatisticsSettingsDialog::addScalingAlgorithmRow();
 
   addLayout(settingsLayout);
   setWindowTitle("Render Statistics Settings");
@@ -95,4 +73,35 @@ RenderStatisticsSettingsDialog::~RenderStatisticsSettingsDialog() {
     delete settingsLayout;
     settingsLayout = nullptr;
   }
+}
+
+void RenderStatisticsSettingsDialog::addRenderImageWidthRow() {
+  renderImageWidthLabel = new QLabel("Render Image Width", this);
+  renderImageWidthLabel->setObjectName("RenderImageWidthLabel");
+
+  renderImageWidthInputBox = new QSpinBox(this);
+  renderImageWidthInputBox->setObjectName("RenderImageWidthInputBox");
+  renderImageWidthInputBox->setMinimum(RS_RENDER_IMAGE_DIALOG_MIN_WIDTH);
+  renderImageWidthInputBox->setMaximum(RS_RENDER_IMAGE_DIALOG_MAX_WIDTH);
+  renderImageWidthInputBox->setValue(settings->getRenderImageWidth());
+  renderImageWidthInputBox->setToolTip(
+    QString("The value must be between %1 and %2.").arg(
+      QString::number(RS_RENDER_IMAGE_DIALOG_MIN_WIDTH),
+      QString::number(RS_RENDER_IMAGE_DIALOG_MAX_WIDTH)
+    )
+  );
+
+  settingsLayout->addRow(renderImageWidthLabel, renderImageWidthInputBox);
+}
+
+void RenderStatisticsSettingsDialog::addScalingAlgorithmRow() {
+  scalingAlgorithmLabel = new QLabel("Scaling Algorithm", this);
+  scalingAlgorithmLabel->setObjectName("ScalingAlgorithmLabel");
+
+  scalingAlgorithmComboBox = new QComboBox(this);
+  scalingAlgorithmComboBox->setObjectName("ScalingAlgorithmComboBox");
+  scalingAlgorithmComboBox->insertItems(0, settings->getScalingAlgorithms());
+  scalingAlgorithmComboBox->setCurrentIndex(settings->getScalingAlgorithm());
+
+  settingsLayout->addRow(scalingAlgorithmLabel, scalingAlgorithmComboBox);
 }
