@@ -4,14 +4,16 @@ dzUtilities::Console
 #### TODO
 
 ##### Features
-+ [ ] Add button for resetting search and highlight
 + [ ] Add buttons for previous and next search result (displayed on demand)
 + [ ] Add filter for the issuer of log messages
 + [ ] Create signal/slot connection between reloading log and highlighting search term
 + [ ] Implement search by regular expressions and add a checkbox for toggling
 + [ ] Improve speed of seeking to 0 when reloading log
++ [ ] Introduce a non-persistent search history
 + [ ] Move from QPushButton for selecting highlight colors to DzColorPropertyWgt
 + [ ] Package and provide pre-compiled plugin library
++ [ ] Start searching for search term when return is pressed
++ [x] Add button for resetting search and highlight
 + [x] Add setting for the highlight color
 + [x] Add the possibility to search for keywords (forward and backward - starts over)
 + [x] Automatically redisplay the log when new messages have been written the log file

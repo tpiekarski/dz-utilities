@@ -35,6 +35,11 @@ private slots:
   void highlight();
   void unhighlight();
   void search();
+  void toggleResetButton(const bool& visibility);
+  void reset();
+
+signals:
+  void resetButtonToDisplay(const bool& visibility);
 
 private:
   bool startover;
@@ -43,6 +48,7 @@ private:
   QLineEdit* searchEditBox;
   QPushButton* highlightButton;
   QPushButton* searchButton;
+  QPushButton* resetButton;
   QTextCharFormat* highlightFormat;
   QTextDocument* document;
 

@@ -24,6 +24,8 @@ ConsoleSearchPane::ConsoleSearchPane(ConsoleLogBrowser* logBrowser) {
   searchButton = new QPushButton("&Search");
   highlightButton = new QPushButton("&Highlight");
   highlightButton->setCheckable(true);
+  resetButton = new QPushButton("&Reset");
+  resetButton->setVisible(false);
 
   highlightFormat = new QTextCharFormat(*logBrowser->getCurrentCharacterFormat());
 
@@ -31,9 +33,12 @@ ConsoleSearchPane::ConsoleSearchPane(ConsoleLogBrowser* logBrowser) {
   layout->addWidget(searchEditBox);
   layout->addWidget(searchButton);
   layout->addWidget(highlightButton);
+  layout->addWidget(resetButton);
 
   connect(searchButton, SIGNAL(clicked()), this, SLOT(search()));
   connect(highlightButton, SIGNAL(clicked()), this, SLOT(highlight()));
+  connect(this, SIGNAL(resetButtonToDisplay(const bool&)), this, SLOT(toggleResetButton(const bool&)));
+  connect(resetButton, SIGNAL(clicked()), this, SLOT(reset()));
 }
 
 ConsoleSearchPane::~ConsoleSearchPane() {
@@ -50,6 +55,11 @@ ConsoleSearchPane::~ConsoleSearchPane() {
   if (highlightButton != nullptr) {
     delete highlightButton;
     highlightButton = nullptr;
+  }
+
+  if (resetButton != nullptr) {
+    delete resetButton;
+    resetButton = nullptr;
   }
 
   if (highlightFormat != nullptr) {
@@ -70,6 +80,8 @@ void ConsoleSearchPane::search() {
     return;
   }
 
+  emit resetButtonToDisplay(true);
+
   if (startover) {
     logBrowser->moveCursor(QTextCursor::Start);
   }
@@ -84,6 +96,7 @@ void ConsoleSearchPane::highlight() {
     return;
   }
 
+  emit resetButtonToDisplay(true);
   updateHighlightFormat();
 
   if (highlight(searchTerm, highlightFormat)) {
@@ -130,6 +143,13 @@ bool ConsoleSearchPane::highlight(const QString searchTerm, QTextCharFormat* hig
   return highlighted;
 }
 
+void ConsoleSearchPane::reset() {
+  searchEditBox->clear();
+  unhighlight();
+  logBrowser->reloadLog();
+  emit resetButtonToDisplay(false);
+}
+
 void ConsoleSearchPane::updateHighlightFormat() {
   float fontSize = NULL;
   logBrowser->getSettings()->getFontSize(&fontSize);
@@ -138,3 +158,8 @@ void ConsoleSearchPane::updateHighlightFormat() {
   highlightFormat->setForeground(QBrush(logBrowser->getSettings()->getHighlightColor()));
 }
 
+void ConsoleSearchPane::toggleResetButton(const bool& visibility) {
+  if (resetButton->isVisible() != visibility) {
+    resetButton->setVisible(visibility);
+  }
+}
