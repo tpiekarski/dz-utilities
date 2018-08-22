@@ -35,6 +35,7 @@ ConsoleSearchPane::ConsoleSearchPane(ConsoleLogBrowser* logBrowser) {
   layout->addWidget(highlightButton);
   layout->addWidget(resetButton);
 
+  connect(searchEditBox, SIGNAL(returnPressed()), this, SLOT(search()));
   connect(searchButton, SIGNAL(clicked()), this, SLOT(search()));
   connect(highlightButton, SIGNAL(clicked()), this, SLOT(highlight()));
   connect(this, SIGNAL(resetButtonToDisplay(const bool&)), this, SLOT(toggleResetButton(const bool&)));

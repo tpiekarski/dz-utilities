@@ -6,13 +6,14 @@ dzUtilities::Console
 ##### Features
 + [ ] Add buttons for previous and next search result (displayed on demand)
 + [ ] Add filter for the issuer of log messages
++ [ ] Add keyboard bindings for next and previous search result, highlight and reset
 + [ ] Create signal/slot connection between reloading log and highlighting search term
 + [ ] Implement search by regular expressions and add a checkbox for toggling
 + [ ] Improve speed of seeking to 0 when reloading log
 + [ ] Introduce a non-persistent search history
++ [ ] Introduce setting for case-sensitive search and search by whole search terms
 + [ ] Move from QPushButton for selecting highlight colors to DzColorPropertyWgt
 + [ ] Package and provide pre-compiled plugin library
-+ [ ] Start searching for search term when return is pressed
 + [x] Add button for resetting search and highlight
 + [x] Add setting for the highlight color
 + [x] Add the possibility to search for keywords (forward and backward - starts over)
@@ -21,6 +22,7 @@ dzUtilities::Console
 + [x] Include input validation for the font size and provide fallback mechanism
 + [x] Make set up highlight color persistent
 + [x] Remove most of previous signal-slot-based update connections
++ [x] Start searching for search term when return is pressed
 + [x] Withdraw settings when the settings dialog is canceled (highlight color)
 
 ##### UI
@@ -39,6 +41,7 @@ dzUtilities::Console
 + [ ] Migrate and integrate new logger library
 + [ ] Move processing of settings in ConsolePane::showSettings to ConsoleSettingsAction::executeAction
 + [ ] Refactor ConsoleSettings and ConsoleSettingsDialog (Restructure access to settings, remove unused methods and various other little improvements)
++ [ ] Validate search term by validator or inputMask
 + [x] Add another linter and static code analysis tool (cppcheck and ReSharper++ integrated)
 + [x] Cleaning constructor of ConsoleSettingsDialog
 + [x] Fix colliding constants header file in tests project
