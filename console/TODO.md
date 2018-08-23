@@ -4,6 +4,7 @@ dzUtilities::Console
 #### TODO
 
 ##### Features
++ [ ] Add another color setting for the log text foreground color
 + [ ] Add buttons for previous and next search result (displayed on demand)
 + [ ] Add filter for the issuer of log messages
 + [ ] Add keyboard bindings for next and previous search result, highlight and reset
@@ -12,7 +13,6 @@ dzUtilities::Console
 + [ ] Improve speed of seeking to 0 when reloading log
 + [ ] Introduce a non-persistent search history
 + [ ] Introduce setting for case-sensitive search and search by whole search terms
-+ [ ] Move from QPushButton for selecting highlight colors to DzColorPropertyWgt
 + [ ] Package and provide pre-compiled plugin library
 + [x] Add button for resetting search and highlight
 + [x] Add setting for the highlight color
@@ -21,12 +21,13 @@ dzUtilities::Console
 + [x] Highlight search results (and a separate highlight button to highlight all results)
 + [x] Include input validation for the font size and provide fallback mechanism
 + [x] Make set up highlight color persistent
++ [x] Move from QPushButton for selecting highlight colors to DzColorPropertyWgt
 + [x] Remove most of previous signal-slot-based update connections
 + [x] Start searching for search term when return is pressed
 + [x] Withdraw settings when the settings dialog is canceled (highlight color)
 
 ##### UI
-+ [ ] Consider changing from QSpinBox to a form of a slider due to small and inconvenient sizing of increase/decrease buttons
++ [ ] Disable search and highlight buttons when search term is empty
 + [x] Change or extend input widget for the font size with increase/decrease buttons (switch to QSpinBox)
 + [x] Lay out widgets in ConsoleSettingsDialog with QFormLayout
 + [x] Move control buttons into pane action menu
@@ -35,6 +36,7 @@ dzUtilities::Console
 + [x] Add legal disclaimer and Mozilla Public License
 
 ##### Development Improvements
++ [ ] Consider handling of possible dzError when adding DzColorProperty to DzColorPropertyWgt
 + [ ] Develop a CLI tool for deployment and replace batch scripts
 + [ ] Integrate cloud-based build tools like AppVeyor or Travis
 + [ ] Introduce namespace *utlis::console* to avoid future collisions

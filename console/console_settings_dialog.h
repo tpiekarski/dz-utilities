@@ -14,6 +14,8 @@
 
 #include "console_settings.h"
 #include <dzbasicdialog.h>
+#include <dzcolorproperty.h>
+#include <dzcolorpropertywgt.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qcolor.h>
 #include <QtGui/qformlayout.h>
@@ -30,10 +32,7 @@ public:
   ~ConsoleSettingsDialog();
 
   QString getNewFontSize() { return fontSizeSpinBox->text(); };
-  QColor getNewHighlightColor() { return newHighlightColor; };
-
-private slots:
-  void selectHighlightColor();
+  QColor getNewHighlightColor() { return highlightColorProperty->getColorValue(); };
 
 private:
   ConsoleSettings* settings;
@@ -43,9 +42,9 @@ private:
   QLineEdit* logFilePathDisplayBox;
   QLabel* fontSizeLabel;
   QSpinBox* fontSizeSpinBox;
-  QLabel* highlightColorLabel;
-  QColor newHighlightColor;
-  QPushButton* highlightColorButton;
+  QLabel* colorsLabel;
+  DzColorProperty* highlightColorProperty;
+  DzColorPropertyWgt* highlightColorWidget;
 
   void addFilePathRow();
   void addFontSizeRow();
