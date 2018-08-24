@@ -47,6 +47,7 @@ dzUtilities::RenderStatistics
 + [ ] Introduce automated click-tests with AutoIt
 + [ ] Introduce namespace *utils::renderstatistics* to avoid future collisions
 + [ ] Migrate and integrate new logger library
++ [ ] Update boost packages
 + [ ] Use signal/slot-based updating of the settings instead of updating the values after the settings dialog closed
 + [x] Add linters and static code analysis tools (cppcheck and ReSharper++ integrated)
 + [x] Check possibility to reduce boost packages
