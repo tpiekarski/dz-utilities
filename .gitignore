@@ -1,5 +1,6 @@
 # Build
 /console/build/
+/preciment/build/
 /renderstatistics/build/
 /tests/build/
 
@@ -45,6 +46,8 @@ Generated\ Files/
 # Intermediate resource files
 /console/resource.h
 /console/RC*
+/preciment/resource.h
+/preciment/RC*
 /renderstatistics/resource.h
 /renderstatistics/RC*
 

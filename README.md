@@ -6,7 +6,8 @@ dzUtilities
 #|Utility Plugin|Description|Version|TODO|Source
 ---|---|---|---|---|---
 1.|[Console](#console)|Console plugin displaying DAZ Studio Log file|1.4.2|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/console/TODO.md)|[dzUtilities/console](https://github.com/tpiekarski/dzUtilities/tree/master/console)
-2.|[Render Statistics](#render-statistics)|Render data aggregation and statistics plugin|1.4.2|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/renderstatistics/TODO.md)|[dzUtilities/renderstatistics](https://github.com/tpiekarski/dzUtilities/tree/master/renderstatistics)
+2.|[Preciment](#preciment)|Plugin with a shortcut for precise adjustments|DEV|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/preciment/TODO.md)|[dzUtilities/preciment](https://github.com/tpiekarski/dzUtilities/tree/master/preciment)
+3.|[Render Statistics](#render-statistics)|Render data aggregation and statistics plugin|1.4.2|[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/renderstatistics/TODO.md)|[dzUtilities/renderstatistics](https://github.com/tpiekarski/dzUtilities/tree/master/renderstatistics)
 n.|[Tests](#tests)|Unit test project for all utility plugins|-|-|[dzUtilities/tests](https://github.com/tpiekarski/dzUtilities/tree/master/tests)
 
 #### Build process
@@ -67,6 +68,17 @@ encourage users to dive into developing plugins. It is challenging to work only
 with an SDK without being able to ask Google for help and turning often to the
 Header files itself and it is rewarding after hours of try-and-error to finally
 getting an idea to work or not.
+
+### Preciment
+#### Introduction
+Preciment is a plugin for a more precise adjustments of parameters. It is offering a
+shortcut to increase/decrease the nudge of all present parameter settings of the active
+node. Next to this shortcut it enables to switch resolution and subdivision levels and
+for legacy models enable/disable applied smoothing modifiers for a more responsive display
+while precisely adjusting parameters.
+
+It's still in an early stage of development, for details please see the
+[TODO](https://github.com/tpiekarski/dzUtilities/blob/master/preciment/TODO.md).
 
 ### Render Statistics
 #### Introduction

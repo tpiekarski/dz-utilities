@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "renderstatistics", "renders
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tests", "tests\tests.vcxproj", "{FC6D6973-E7D3-4BDF-9A9D-BF956191547F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "preciment", "preciment\preciment.vcxproj", "{5FC0B6AB-CA53-401C-B741-3567A35D9AB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -48,6 +50,18 @@ Global
 		{FC6D6973-E7D3-4BDF-9A9D-BF956191547F}.Tests|x64.ActiveCfg = Tests|x64
 		{FC6D6973-E7D3-4BDF-9A9D-BF956191547F}.Tests|x86.ActiveCfg = Tests|Win32
 		{FC6D6973-E7D3-4BDF-9A9D-BF956191547F}.Tests|x86.Build.0 = Tests|Win32
+		{5FC0B6AB-CA53-401C-B741-3567A35D9AB0}.Debug|x64.ActiveCfg = Debug|x64
+		{5FC0B6AB-CA53-401C-B741-3567A35D9AB0}.Debug|x64.Build.0 = Debug|x64
+		{5FC0B6AB-CA53-401C-B741-3567A35D9AB0}.Debug|x86.ActiveCfg = Debug|Win32
+		{5FC0B6AB-CA53-401C-B741-3567A35D9AB0}.Debug|x86.Build.0 = Debug|Win32
+		{5FC0B6AB-CA53-401C-B741-3567A35D9AB0}.Release|x64.ActiveCfg = Release|x64
+		{5FC0B6AB-CA53-401C-B741-3567A35D9AB0}.Release|x64.Build.0 = Release|x64
+		{5FC0B6AB-CA53-401C-B741-3567A35D9AB0}.Release|x86.ActiveCfg = Release|Win32
+		{5FC0B6AB-CA53-401C-B741-3567A35D9AB0}.Release|x86.Build.0 = Release|Win32
+		{5FC0B6AB-CA53-401C-B741-3567A35D9AB0}.Tests|x64.ActiveCfg = Release|x64
+		{5FC0B6AB-CA53-401C-B741-3567A35D9AB0}.Tests|x64.Build.0 = Release|x64
+		{5FC0B6AB-CA53-401C-B741-3567A35D9AB0}.Tests|x86.ActiveCfg = Release|Win32
+		{5FC0B6AB-CA53-401C-B741-3567A35D9AB0}.Tests|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
