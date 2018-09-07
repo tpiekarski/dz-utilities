@@ -10,20 +10,19 @@
 */
 
 #include "preciment_version.h"
-#include "preciment_control_action.h"
+#include "preciment_toggle_action.h"
 #include <dzapp.h>
 
-PrecimentControlAction::PrecimentControlAction()
-  : DzEditAction("Preciment/Control", "Control offsets for precise adjustments")
-{
+PrecimentToggleAction::PrecimentToggleAction()
+  : DzEditAction("Preciment/Toggle", "Toggle precise adjustments") {
   // todo: implement constructor
 }
 
-PrecimentControlAction::~PrecimentControlAction() {
+PrecimentToggleAction::~PrecimentToggleAction() {
   // todo: implement destructor (don't forget to clean up)
 }
 
-void PrecimentControlAction::executeAction() {
+void PrecimentToggleAction::executeAction() {
   // todo: implement execute action
 
 }

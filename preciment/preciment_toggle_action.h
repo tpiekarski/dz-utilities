@@ -9,10 +9,23 @@
 *
 */
 
-#ifndef H_PRECIMENT_GUID
-#define H_PRECIMENT_GUID
+#ifndef PRECIMENT_TOGGLE_ACTION_H
+#define PRECIMENT_TOGGLE_ACTION_H
 
-#define PRECIMENT_CONTROL_ACTION_GUID {538A52F7-C250-45A9-BD38-B71C5376D42F}
-#define PRECIMENT_TOGGLE_ACTION_GUID {C97FB64A-7E54-46C5-B4CB-01F0B9A59987}
+#include <dzaction.h>
+
+class PrecimentToggleAction : public DzEditAction {
+
+  Q_OBJECT
+
+public:
+  PrecimentToggleAction();
+  ~PrecimentToggleAction();
+
+protected:
+  virtual void executeAction();
+
+};
 
 #endif
+

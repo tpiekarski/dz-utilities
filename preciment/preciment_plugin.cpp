@@ -10,6 +10,7 @@
 */
 
 #include "preciment_control_action.h"
+#include "preciment_toggle_action.h"
 #include "preciment_guid.h"
 #include "preciment_version.h"
 #include <dzplugin.h>
@@ -28,3 +29,4 @@ DZ_PLUGIN_DESCRIPTION(QString(
 ).arg(PLUGIN_TAGLINE));
 
 DZ_PLUGIN_CLASS_GUID(PrecimentControlAction, PRECIMENT_CONTROL_ACTION_GUID);
+DZ_PLUGIN_CLASS_GUID(PrecimentToggleAction, PRECIMENT_TOGGLE_ACTION_GUID);
