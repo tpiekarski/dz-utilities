@@ -12,17 +12,27 @@
 #include "preciment_version.h"
 #include "preciment_toggle_action.h"
 #include <dzapp.h>
+#include <dznode.h>
+#include <dzscene.h>
+#include <QtCore/qobject.h>
 
-PrecimentToggleAction::PrecimentToggleAction()
-  : DzEditAction("Preciment/Toggle", "Toggle precise adjustments") {
-  // todo: implement constructor
-}
+PrecimentToggleAction::PrecimentToggleAction() 
+  : DzEditAction("Preciment/Toggle", "Toggle precise adjustments"), m_settings(), m_modifier(this) {}
 
-PrecimentToggleAction::~PrecimentToggleAction() {
-  // todo: implement destructor (don't forget to clean up)
-}
+PrecimentToggleAction::~PrecimentToggleAction() {}
 
 void PrecimentToggleAction::executeAction() {
-  // todo: implement execute action
+  dzApp->log(QString("Preciment multipliers:\nPosition (X/Y/Z): %1\nRotation (X/Y/Z): %2\nScale (X/Y/Z): %3").arg(
+    m_settings.getPositionMultiplierString(), m_settings.getRotationMultiplierString(), m_settings.getScaleMultiplierString()
+  ));
+  
+  if (dzScene->getSelectedNodeList().count() == 0) {
+    dzApp->log("Preciment: There are no nodes selected.");
+
+    return;
+  }
+
+  DzNodeListIterator nodeIterator = dzScene->selectedNodeListIterator();
+  m_modifier.modify(nodeIterator, m_settings);
 
 }

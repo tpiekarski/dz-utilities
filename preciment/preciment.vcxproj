@@ -177,13 +177,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="moc\preciment_control_action_moc.cpp" />
+    <ClCompile Include="moc\preciment_property_modifier_moc.cpp" />
     <ClCompile Include="moc\preciment_toggle_action_moc.cpp" />
+    <ClCompile Include="preciment_property_modifier.cpp" />
     <ClCompile Include="preciment_control_action.cpp" />
     <ClCompile Include="preciment_plugin.cpp" />
+    <ClCompile Include="preciment_settings.cpp" />
     <ClCompile Include="preciment_toggle_action.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="preciment_control_action.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="preciment_property_modifier.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
@@ -194,6 +202,7 @@
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
+    <ClInclude Include="preciment_settings.h" />
     <ClInclude Include="preciment_version.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>

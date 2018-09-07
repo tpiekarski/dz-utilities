@@ -25,5 +25,5 @@ PrecimentControlAction::~PrecimentControlAction() {
 
 void PrecimentControlAction::executeAction() {
   // todo: implement execute action
-
+  dzApp->log("Preciment: Control dialog for preciment not yet implemented.");
 }

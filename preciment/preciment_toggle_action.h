@@ -12,6 +12,8 @@
 #ifndef PRECIMENT_TOGGLE_ACTION_H
 #define PRECIMENT_TOGGLE_ACTION_H
 
+#include "preciment_property_modifier.h"
+#include "preciment_settings.h"
 #include <dzaction.h>
 
 class PrecimentToggleAction : public DzEditAction {
@@ -24,6 +26,10 @@ public:
 
 protected:
   virtual void executeAction();
+
+private:
+  PrecimentSettings m_settings;
+  PrecimentPropertyModifier m_modifier;
 
 };
 
