@@ -4,14 +4,14 @@ dzUtilities::Preciment
 #### TODO
 
 ##### Features
-+ [ ] Implement ParameterIterator capable of accessing the nudge values
-+ [ ] Extend ParameterIterator to alter the nudge value by a delta
 + [ ] Extend ParameterIterator to set a new value for the nudge while keeping all previous values
-+ [ ] Identify if a resolution and/or subdivision level is available
-+ [ ] Modify resolution and/or subdivision level
++ [ ] Identify if resolution and/or subdivision level is available
 + [ ] Identify if there is a smoothing modifier applied
++ [ ] Modify resolution and/or subdivision level
 + [ ] Toggle the smoothing modifier
 + [x] Add plugin skeleton and a menu entry to get things started
++ [x] Extend ParameterIterator to alter the nudge value by a delta
++ [x] Implement ParameterIterator capable of accessing the nudge values
 
 ##### UI
 + [ ] Add a dialog for settings and control of the plugin

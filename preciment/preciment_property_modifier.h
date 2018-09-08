@@ -16,25 +16,30 @@
 #include <dznode.h>
 #include <dzfloatproperty.h>
 #include <QtCore/qobject.h>
+#include <vector>
+
+using std::vector;
 
 class PrecimentPropertyModifier : public QObject {
 
   Q_OBJECT
 
 public:
-  explicit PrecimentPropertyModifier(QObject* parent) : QObject(parent) {}
+  explicit PrecimentPropertyModifier(QObject* parent) : QObject(parent), m_toggle(PrecimentSettings::INITIAL_TOGGLE) {}
   PrecimentPropertyModifier(const PrecimentPropertyModifier&) = default;
   PrecimentPropertyModifier(PrecimentPropertyModifier&&) = default;
   ~PrecimentPropertyModifier() = default;
 
-  void modify(DzNodeListIterator& nodeIterator, const PrecimentSettings& settings);
+  void modify(DzNodeListIterator& nodeIterator, const PrecimentSettings& settings, const bool& toggle);
 
 private:
-  void modifyPosition(DzNode* node, const PrecimentSettings& settings);
-  void modifyRotation(DzNode* node, const PrecimentSettings& settings);
-  void modifyScale(DzNode* node, const PrecimentSettings& settings);
-  float multiply(DzFloatProperty* property, float value);
+  void modifyPosition(DzNode* node, const vector<float> position);
+  void modifyRotation(DzNode* node, const vector<float> rotation);
+  void modifyScale(DzNode* node, const vector<float> scale);
 
+  float modify(DzFloatProperty* property, float value);
+
+  bool m_toggle;
 };
 
 #endif

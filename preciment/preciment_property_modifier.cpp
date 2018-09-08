@@ -12,55 +12,37 @@
 #include "preciment_property_modifier.h"
 #include <dzApp.h>
 
-void PrecimentPropertyModifier::modify(DzNodeListIterator& nodeIterator, const PrecimentSettings& settings) {
-  dzApp->log("Preciment: Modyfing...");
-  DzNode* currentNode = nullptr;
+void PrecimentPropertyModifier::modify(DzNodeListIterator& nodeIterator, const PrecimentSettings& settings, const bool& toggle) {
+  dzApp->log(QString("Preciment: Modyfing (%1)").arg(toggle));
+  m_toggle = toggle;
 
+  DzNode* currentNode = nullptr;
   while (nodeIterator.hasNext()) {
     currentNode = nodeIterator.next();
-    modifyPosition(currentNode, settings);
-    modifyRotation(currentNode, settings);
-    modifyScale(currentNode, settings);
+    modifyPosition(currentNode, settings.getPositionMultiplier());
+    modifyRotation(currentNode, settings.getRotationMultiplier());
+    modifyScale(currentNode, settings.getScaleMultiplier());
   }
-
 }
 
-void PrecimentPropertyModifier::modifyPosition(DzNode* node, const PrecimentSettings& settings) {
-  node->getXPosControl()->setSensitivity(multiply(
-    node->getXPosControl(), settings.getPositionMultiplier(PrecimentSettings::COORDINATE::X)
-  ));
-  node->getYPosControl()->setSensitivity(multiply(
-    node->getYPosControl(), settings.getPositionMultiplier(PrecimentSettings::COORDINATE::Y)
-  ));
-  node->getZPosControl()->setSensitivity(multiply(
-    node->getZPosControl(), settings.getPositionMultiplier(PrecimentSettings::COORDINATE::Z)
-  ));
+void PrecimentPropertyModifier::modifyPosition(DzNode* node, const vector<float> position) {
+  node->getXPosControl()->setSensitivity(modify(node->getXPosControl(), position.at(PrecimentSettings::COORDINATE::X)));
+  node->getYPosControl()->setSensitivity(modify(node->getYPosControl(), position.at(PrecimentSettings::COORDINATE::Y)));
+  node->getZPosControl()->setSensitivity(modify(node->getZPosControl(), position.at(PrecimentSettings::COORDINATE::Z)));
 }
 
-void PrecimentPropertyModifier::modifyRotation(DzNode* node, const PrecimentSettings& settings) {
-  node->getXRotControl()->setSensitivity(multiply(
-    node->getXRotControl(), settings.getRotationMultiplier(PrecimentSettings::COORDINATE::X)
-  ));
-  node->getYRotControl()->setSensitivity(multiply(
-    node->getYRotControl(), settings.getRotationMultiplier(PrecimentSettings::COORDINATE::Y)
-  ));
-  node->getZRotControl()->setSensitivity(multiply(
-    node->getZRotControl(), settings.getRotationMultiplier(PrecimentSettings::COORDINATE::Z)
-  ));
+void PrecimentPropertyModifier::modifyRotation(DzNode* node, const vector<float> rotation) {
+  node->getXRotControl()->setSensitivity(modify(node->getXRotControl(), rotation.at(PrecimentSettings::COORDINATE::X)));
+  node->getYRotControl()->setSensitivity(modify(node->getYRotControl(), rotation.at(PrecimentSettings::COORDINATE::Y)));
+  node->getZRotControl()->setSensitivity(modify(node->getZRotControl(), rotation.at(PrecimentSettings::COORDINATE::Z)));
 }
 
-void PrecimentPropertyModifier::modifyScale(DzNode* node, const PrecimentSettings& settings) {
-  node->getXScaleControl()->setSensitivity(multiply(
-    node->getXScaleControl(), settings.getScaleMultiplier(PrecimentSettings::COORDINATE::X)
-  ));
-  node->getYScaleControl()->setSensitivity(multiply(
-    node->getYScaleControl(), settings.getScaleMultiplier(PrecimentSettings::COORDINATE::Y)
-  ));
-  node->getZScaleControl()->setSensitivity(multiply(
-    node->getZScaleControl(), settings.getScaleMultiplier(PrecimentSettings::COORDINATE::Z)
-  ));
+void PrecimentPropertyModifier::modifyScale(DzNode* node, const vector<float> scale) {
+  node->getXScaleControl()->setSensitivity(modify(node->getXScaleControl(), scale.at(PrecimentSettings::COORDINATE::X)));
+  node->getYScaleControl()->setSensitivity(modify(node->getYScaleControl(), scale.at(PrecimentSettings::COORDINATE::Y)));
+  node->getZScaleControl()->setSensitivity(modify(node->getZScaleControl(), scale.at(PrecimentSettings::COORDINATE::Z)));
 }
 
-float PrecimentPropertyModifier::multiply(DzFloatProperty * currentProperty, const float value) {
-  return currentProperty->getSensitivity() * value;
+float PrecimentPropertyModifier::modify(DzFloatProperty * currentProperty, const float value) {
+  return (m_toggle) ? currentProperty->getSensitivity() * value : currentProperty->getSensitivity() / value;
 }

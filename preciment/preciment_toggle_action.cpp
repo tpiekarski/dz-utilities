@@ -17,12 +17,15 @@
 #include <QtCore/qobject.h>
 
 PrecimentToggleAction::PrecimentToggleAction() 
-  : DzEditAction("Preciment/Toggle", "Toggle precise adjustments"), m_settings(), m_modifier(this) {}
+  : DzEditAction("Preciment/Toggle", "Toggle precise adjustments"), 
+    m_settings(), 
+    m_modifier(this), 
+    m_toggle(PrecimentSettings::INITIAL_TOGGLE) {}
 
 PrecimentToggleAction::~PrecimentToggleAction() {}
 
 void PrecimentToggleAction::executeAction() {
-  dzApp->log(QString("Preciment multipliers:\nPosition (X/Y/Z): %1\nRotation (X/Y/Z): %2\nScale (X/Y/Z): %3").arg(
+  dzApp->log(QString("Preciment: Multipliers\nPosition (X/Y/Z): %1, Rotation (X/Y/Z): %2, Scale (X/Y/Z): %3").arg(
     m_settings.getPositionMultiplierString(), m_settings.getRotationMultiplierString(), m_settings.getScaleMultiplierString()
   ));
   
@@ -32,7 +35,11 @@ void PrecimentToggleAction::executeAction() {
     return;
   }
 
-  DzNodeListIterator nodeIterator = dzScene->selectedNodeListIterator();
-  m_modifier.modify(nodeIterator, m_settings);
+  m_modifier.modify(dzScene->selectedNodeListIterator(), m_settings, toggle());
+}
 
+bool PrecimentToggleAction::toggle() {
+  m_toggle = !m_toggle;
+
+  return m_toggle;
 }

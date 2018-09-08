@@ -36,6 +36,10 @@ public:
     Z = 2
   };
 
+  vector<float> getPositionMultiplier() const { return m_positionMultipliers; }
+  vector<float> getRotationMultiplier() const { return m_rotationMultipliers; }
+  vector<float> getScaleMultiplier() const { return m_scaleMultipliers; }
+
   float getPositionMultiplier(const COORDINATE coordinate) const { return m_positionMultipliers[coordinate]; }
   float getRotationMultiplier(const COORDINATE coordinate) const { return m_rotationMultipliers[coordinate]; }
   float getScaleMultiplier(const COORDINATE coordinate) const { return m_scaleMultipliers[coordinate]; }
@@ -43,6 +47,8 @@ public:
   QString getPositionMultiplierString();
   QString getRotationMultiplierString();
   QString getScaleMultiplierString();
+
+  static constexpr bool INITIAL_TOGGLE = false;
 
 private:
   static constexpr float DEFAULT_MULTIPLIER = 0.1f;

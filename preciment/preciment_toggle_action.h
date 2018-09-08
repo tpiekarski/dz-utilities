@@ -28,8 +28,10 @@ protected:
   virtual void executeAction();
 
 private:
+  bool toggle();
   PrecimentSettings m_settings;
   PrecimentPropertyModifier m_modifier;
+  bool m_toggle;
 
 };
 
