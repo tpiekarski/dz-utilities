@@ -62,6 +62,12 @@
     <ClCompile Include="moc\preciment_property_modifier_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
+    <ClCompile Include="preciment_settings_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\preciment_settings_manager_moc.cpp">
+      <Filter>Meta Object Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -90,6 +96,9 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="preciment_property_modifier.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="preciment_settings_manager.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
