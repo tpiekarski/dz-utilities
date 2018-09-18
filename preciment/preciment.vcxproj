@@ -177,9 +177,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="moc\preciment_control_action_moc.cpp" />
+    <ClCompile Include="moc\preciment_control_dialog_moc.cpp" />
     <ClCompile Include="moc\preciment_property_modifier_moc.cpp" />
     <ClCompile Include="moc\preciment_settings_manager_moc.cpp" />
     <ClCompile Include="moc\preciment_toggle_action_moc.cpp" />
+    <ClCompile Include="preciment_control_dialog.cpp" />
     <ClCompile Include="preciment_settings_manager.cpp" />
     <ClCompile Include="preciment_property_modifier.cpp" />
     <ClCompile Include="preciment_control_action.cpp" />
@@ -210,6 +212,20 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
     <ClInclude Include="preciment_settings.h" />
+    <CustomBuild Include="preciment_control_dialog.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating Meta Object File for %(Filename)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating Meta Object File for %(Filename)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating Meta Object File for %(Filename)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
+    </CustomBuild>
     <ClInclude Include="preciment_version.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>

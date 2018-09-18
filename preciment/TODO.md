@@ -14,11 +14,11 @@ dzUtilities::Preciment
 + [x] Implement ParameterIterator capable of accessing the nudge values
 
 ##### UI
-+ [ ] Add a dialog for settings and control of the plugin
 + [ ] Add a toggling button to activate/deactivate precise adjustment
 + [ ] Add a spin box for providing the nudge delta value
 + [ ] Provide a slider for selecting common delta values like 1.5, 1.25, 1, 0.5, 0.25, 0.125
 + [ ] Add a toggling button for enabling/disabling applied smoothing modifiers
++ [x] Add a dialog for settings and control of the plugin
 
 ##### Documentation
 + [ ] Write a description of the shortcut the plugin offers

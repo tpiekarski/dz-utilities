@@ -13,17 +13,12 @@
 #include "preciment_control_action.h"
 #include <dzapp.h>
 
-PrecimentControlAction::PrecimentControlAction()
-  : DzEditAction("Preciment/Control", "Control offsets for precise adjustments")
-{
-  // todo: implement constructor
-}
-
 PrecimentControlAction::~PrecimentControlAction() {
   // todo: implement destructor (don't forget to clean up)
 }
 
 void PrecimentControlAction::executeAction() {
-  // todo: implement execute action
-  dzApp->log("Preciment: Control dialog for preciment not yet implemented.");
+  // todo: implement logic for handling dialog and settings
+
+  m_dialog->exec();
 }
