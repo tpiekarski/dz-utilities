@@ -37,7 +37,77 @@ PrecimentControlDialog::PrecimentControlDialog(QWidget* parent, PrecimentSetting
 }
 
 PrecimentControlDialog::~PrecimentControlDialog() {
-  // todo: implement destructor (don't forget to clean up)
+
+  if (m_multiplierLineEdit != nullptr) {
+    m_multiplierLineEdit->setEnabled(false);
+    m_multiplierFormLayout->removeWidget(m_multiplierLineEdit);
+    delete m_multiplierLineEdit;
+    m_multiplierLineEdit = nullptr;
+  }
+
+  if (m_multiplierLabel != nullptr) {
+    m_multiplierLabel->setEnabled(false);
+    m_multiplierFormLayout->removeWidget(m_multiplierLabel);
+    delete m_multiplierLabel;
+    m_multiplierLabel = nullptr;
+  }
+
+  if (m_multiplierFormLayout != nullptr) {
+    delete m_multiplierFormLayout;
+    m_multiplierFormLayout = nullptr;
+  }
+
+  if (m_multiplierBox != nullptr) {
+    m_dialogLayout->removeWidget(m_multiplierBox);
+    delete m_multiplierBox;
+    m_multiplierBox = nullptr;
+  }
+
+  if (m_presetButtonRough != nullptr) {
+    disconnect(m_presetButtonRough);
+    m_presetButtonRough->setEnabled(false);
+    m_presetBoxLayout->removeWidget(m_presetButtonRough);
+    delete m_presetButtonRough;
+    m_presetButtonRough = nullptr;
+  }
+
+  if (m_presetButtonNormal != nullptr) {
+    disconnect(m_presetButtonNormal);
+    m_presetButtonNormal->setEnabled(false);
+    m_presetBoxLayout->removeWidget(m_presetButtonNormal);
+    delete m_presetButtonNormal;
+    m_presetButtonNormal = nullptr;
+  }
+
+  if (m_presetButtonFine != nullptr) {
+    disconnect(m_presetButtonFine);
+    m_presetButtonFine->setEnabled(false);
+    m_presetBoxLayout->removeWidget(m_presetButtonFine);
+    delete m_presetButtonFine;
+    m_presetButtonFine = nullptr;
+  }
+
+  if (m_presetBoxLayout != nullptr) {
+    delete m_presetBoxLayout;
+    m_presetBoxLayout = nullptr;
+  }
+
+  if (m_presetBox != nullptr) {
+    m_dialogLayout->removeWidget(m_presetBox);
+    delete m_presetBox;
+    m_presetBox = nullptr;
+  }
+
+  if (m_dialogLayout != nullptr) {
+    delete m_dialogLayout;
+    m_dialogLayout = nullptr;
+  }
+
+  if (m_layoutWidget != nullptr) {
+    delete m_layoutWidget;
+    m_layoutWidget = nullptr;
+  }
+
 }
 
 QGroupBox* PrecimentControlDialog::buildPresetBox() {
@@ -45,10 +115,7 @@ QGroupBox* PrecimentControlDialog::buildPresetBox() {
   m_presetBox->setTitle("Presets");
   m_presetBox->setObjectName("presetBox");
   
-  m_presetsLayout = new QHBoxLayout(m_presetBox);
-  m_presetsLayout->setObjectName("presetsLayout");
-  
-  m_presetBoxLayout = new QHBoxLayout();
+  m_presetBoxLayout = new QHBoxLayout(m_presetBox);
   m_presetBoxLayout->setObjectName("presetBoxLayout");
   
   m_presetButtonFine = new QPushButton(m_presetBox);
@@ -65,8 +132,6 @@ QGroupBox* PrecimentControlDialog::buildPresetBox() {
   m_presetButtonRough->setText("&Rough");
   m_presetButtonRough->setObjectName("presetButtonRough");
   m_presetBoxLayout->addWidget(m_presetButtonRough);
-  
-  m_presetsLayout->addLayout(m_presetBoxLayout);
 
   return m_presetBox;
 }
@@ -76,26 +141,17 @@ QGroupBox* PrecimentControlDialog::buildMultiplierBox() {
   m_multiplierBox->setTitle("Multiplier");
   m_multiplierBox->setObjectName("multiplierBox");
 
-  m_multiplierLayout = new QHBoxLayout(m_multiplierBox);
-  m_multiplierLayout->setObjectName("multiplierLayout");
-
-  m_multiplierVBoxLayout = new QVBoxLayout();
-  m_multiplierVBoxLayout->setObjectName("multiplierVBoxLayout");
-
-  m_multiplierHBoxLayout = new QHBoxLayout();
-  m_multiplierHBoxLayout->setObjectName("multiplierHBoxLayout");
+  m_multiplierFormLayout = new QFormLayout(m_multiplierBox);
+  m_multiplierFormLayout->setObjectName("multiplierFormLayout");
 
   m_multiplierLabel = new QLabel(m_multiplierBox);
   m_multiplierLabel->setText("Value");
   m_multiplierLabel->setObjectName("multiplierLabel");
-  m_multiplierHBoxLayout->addWidget(m_multiplierLabel);
 
   m_multiplierLineEdit = new QLineEdit(m_multiplierBox);
   m_multiplierLineEdit->setObjectName("multiplierLineEdit");
-  m_multiplierHBoxLayout->addWidget(m_multiplierLineEdit);
-  m_multiplierVBoxLayout->addLayout(m_multiplierHBoxLayout);
 
-  m_multiplierLayout->addLayout(m_multiplierVBoxLayout);
+  m_multiplierFormLayout->addRow(m_multiplierLabel, m_multiplierLineEdit);
 
   return m_multiplierBox;
 }

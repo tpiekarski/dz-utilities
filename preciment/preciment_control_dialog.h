@@ -15,6 +15,7 @@
 #include "preciment_settings.h"
 #include <dzbasicdialog.h>
 #include <QtGui/qboxlayout.h>
+#include <QtGui/qformlayout.h>
 #include <QtGui/qgroupbox.h>
 #include <QtGui/qlabel.h>
 #include <QtGui/qlineedit.h>
@@ -32,18 +33,15 @@ public:
 private:
   PrecimentSettings* m_settings;
 
-  QWidget *m_layoutWidget;
-  QVBoxLayout *m_dialogLayout;
+  QWidget* m_layoutWidget;
+  QVBoxLayout* m_dialogLayout;
   QGroupBox* m_presetBox;
-  QHBoxLayout* m_presetsLayout;
   QHBoxLayout* m_presetBoxLayout;
   QPushButton* m_presetButtonFine;
   QPushButton* m_presetButtonNormal;
   QPushButton* m_presetButtonRough;
   QGroupBox* m_multiplierBox;
-  QHBoxLayout* m_multiplierLayout;
-  QVBoxLayout* m_multiplierVBoxLayout;
-  QHBoxLayout* m_multiplierHBoxLayout;
+  QFormLayout* m_multiplierFormLayout;
   QLabel* m_multiplierLabel;
   QLineEdit* m_multiplierLineEdit;
 

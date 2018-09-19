@@ -14,7 +14,15 @@
 #include <dzapp.h>
 
 PrecimentControlAction::~PrecimentControlAction() {
-  // todo: implement destructor (don't forget to clean up)
+  if (m_dialog != nullptr) {
+    delete m_dialog;
+    m_dialog = nullptr;
+  }
+
+  if (m_settings != nullptr) {
+    delete m_settings;
+    m_settings = nullptr;
+  }
 }
 
 void PrecimentControlAction::executeAction() {
