@@ -11,6 +11,10 @@
 
 #include "preciment_settings.h"
 
+QString PrecimentSettings::getSingleMultiplierString() {
+  return QString::number(getSingleMultiplier());
+}
+
 QString PrecimentSettings::getPositionMultiplierString() {
   return QString(QString::fromLatin1(DEFAULT_COORDINATE_FORMAT)).arg(
     QString::number(getPositionMultiplier(COORDINATE::X)),

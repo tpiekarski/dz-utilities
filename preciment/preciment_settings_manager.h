@@ -24,12 +24,13 @@ public:
   PrecimentSettingsManager(QObject* parent);
   ~PrecimentSettingsManager();
 
+  PrecimentSettings getSettings() { return m_settings; }
+
 public slots:
   void save(const PrecimentSettings settings);
   PrecimentSettings load();
 
 private:
-  static constexpr float PRECIMENT_FALLBACK_VALUE = 0.5f;
   static constexpr char PRECIMENT_SETTINGS_PATH[] = "Preciment";
   
   QList<QString> m_keys;

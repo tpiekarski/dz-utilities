@@ -16,10 +16,11 @@
 PrecimentSettingsManager::PrecimentSettingsManager(QObject* parent) 
   : QObject(parent), m_dzAppsettings(new DzAppSettings(QString::fromLatin1(PRECIMENT_SETTINGS_PATH))) 
 {
-  m_settings = PrecimentSettingsManager::load();
   m_keys << "positionXMultiplier" << "positionYMultiplier" << "positionZMultiplier"
     << "rotationXMultiplier" << "rotationYMultiplier" << "rotationZMultiplier"
     << "scaleXMultiplier" << "scaleYMultiplier" << "scaleZMultiplier";
+
+  m_settings = PrecimentSettingsManager::load();
 }
 
 PrecimentSettingsManager::~PrecimentSettingsManager() {
@@ -27,6 +28,8 @@ PrecimentSettingsManager::~PrecimentSettingsManager() {
 }
 
 void PrecimentSettingsManager::save(const PrecimentSettings settings) {
+  m_dzAppsettings->setFloatValue("singleMultiplier", static_cast<double>(settings.getSingleMultiplier()));
+
   for (int n = 0, key = 0; key < 9; ++key) {
     const PrecimentSettings::COORDINATE coordinate = static_cast<PrecimentSettings::COORDINATE>(n);
     m_dzAppsettings->setFloatValue(m_keys.at(key), static_cast<double>(settings.getPositionMultiplier(coordinate)));
@@ -36,12 +39,14 @@ void PrecimentSettingsManager::save(const PrecimentSettings settings) {
 
 PrecimentSettings PrecimentSettingsManager::load() {
   using std::vector;
-  vector<float> values(m_keys.size(), PRECIMENT_FALLBACK_VALUE);
+  const float singleMultiplier = m_dzAppsettings->getFloatValue("singleMultiplier", PrecimentSettings::DEFAULT_MULTIPLIER);
+  vector<float> values(m_keys.size(), PrecimentSettings::DEFAULT_MULTIPLIER);
 
   for (int n = 0; n < values.size(); ++n) {
-    values[n] = static_cast<float>(m_dzAppsettings->getFloatValue(m_keys.at(n), PRECIMENT_FALLBACK_VALUE));
+    values[n] = static_cast<float>(m_dzAppsettings->getFloatValue(m_keys.at(n), PrecimentSettings::DEFAULT_MULTIPLIER));
   }
 
-  const vector<float>::iterator p = values.begin();
-  return PrecimentSettings(vector<float>(p, p + 3), vector<float>(p + 3, p + 6), vector<float>(p + 6, p + 9));
+  const vector<float>::iterator b = values.begin();
+
+  return PrecimentSettings(singleMultiplier, vector<float>(b, b + 3), vector<float>(b + 3, b + 6), vector<float>(b + 6, b + 9));
 }

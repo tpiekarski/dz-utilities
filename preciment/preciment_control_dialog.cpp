@@ -12,8 +12,8 @@
 #include "preciment_control_dialog.h"
 #include <dzstyle.h>
 
-PrecimentControlDialog::PrecimentControlDialog(QWidget* parent, PrecimentSettings* settings) 
-  : DzBasicDialog(parent, "PrecimentSettings")
+PrecimentControlDialog::PrecimentControlDialog(QWidget* parent, PrecimentSettingsManager* manager)
+  : DzBasicDialog(parent, "PrecimentSettings"), m_manager(manager)
 {
   m_layoutWidget = new QWidget(parent);
   m_layoutWidget->setObjectName("layoutWidget");
@@ -133,6 +133,11 @@ QGroupBox* PrecimentControlDialog::buildPresetBox() {
   m_presetButtonRough->setObjectName("presetButtonRough");
   m_presetBoxLayout->addWidget(m_presetButtonRough);
 
+  // todo: implement preset buttons and enable them
+  m_presetButtonFine->setEnabled(false);
+  m_presetButtonNormal->setEnabled(false);
+  m_presetButtonRough->setEnabled(false);
+
   return m_presetBox;
 }
 
@@ -150,6 +155,7 @@ QGroupBox* PrecimentControlDialog::buildMultiplierBox() {
 
   m_multiplierLineEdit = new QLineEdit(m_multiplierBox);
   m_multiplierLineEdit->setObjectName("multiplierLineEdit");
+  m_multiplierLineEdit->setText(m_manager->getSettings().getSingleMultiplierString());
 
   m_multiplierFormLayout->addRow(m_multiplierLabel, m_multiplierLineEdit);
 

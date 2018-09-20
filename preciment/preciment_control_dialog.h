@@ -12,7 +12,7 @@
 #ifndef PRECIMENT_SETTINGS_DIALOG_H
 #define PRECIMENT_SETTINGS_DIALOG_H
 
-#include "preciment_settings.h"
+#include "preciment_settings_manager.h"
 #include <dzbasicdialog.h>
 #include <QtGui/qboxlayout.h>
 #include <QtGui/qformlayout.h>
@@ -27,11 +27,11 @@ class PrecimentControlDialog : public DzBasicDialog {
   Q_OBJECT
 
 public:
-  PrecimentControlDialog(QWidget* parent, PrecimentSettings* settings);
+  PrecimentControlDialog(QWidget* parent, PrecimentSettingsManager* manager);
   ~PrecimentControlDialog();
 
 private:
-  PrecimentSettings* m_settings;
+  PrecimentSettingsManager* m_manager;
 
   QWidget* m_layoutWidget;
   QVBoxLayout* m_dialogLayout;

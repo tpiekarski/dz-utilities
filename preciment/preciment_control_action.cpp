@@ -19,14 +19,17 @@ PrecimentControlAction::~PrecimentControlAction() {
     m_dialog = nullptr;
   }
 
-  if (m_settings != nullptr) {
-    delete m_settings;
-    m_settings = nullptr;
+  if (m_manager != nullptr) {
+    delete m_manager;
+    m_manager = nullptr;
   }
 }
 
 void PrecimentControlAction::executeAction() {
-  // todo: implement logic for handling dialog and settings
+  const bool result = static_cast<bool>(m_dialog->exec());
 
-  m_dialog->exec();
+  if (result) {
+    // todo: implement processing of result and new single multiplier value
+  }
+
 }

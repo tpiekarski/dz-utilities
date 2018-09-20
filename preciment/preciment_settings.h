@@ -21,13 +21,19 @@ class PrecimentSettings {
 
 public:
   PrecimentSettings()
-    : m_positionMultipliers(3, DEFAULT_MULTIPLIER), 
-      m_rotationMultipliers(3, DEFAULT_MULTIPLIER), 
+    : m_singleMultiplier(DEFAULT_MULTIPLIER),
+      m_positionMultipliers(3, DEFAULT_MULTIPLIER),
+      m_rotationMultipliers(3, DEFAULT_MULTIPLIER),
       m_scaleMultipliers(3, DEFAULT_MULTIPLIER) { }
 
-  PrecimentSettings(vector<float> positionMultipliers, vector<float> rotationMultipliers, vector<float> scaleMultipliers)
-    : m_positionMultipliers(positionMultipliers), 
-      m_rotationMultipliers(rotationMultipliers), 
+  PrecimentSettings(
+    float singleMultiplier,
+    vector<float> positionMultipliers,
+    vector<float> rotationMultipliers,
+    vector<float> scaleMultipliers
+  ) : m_singleMultiplier(singleMultiplier),
+      m_positionMultipliers(positionMultipliers),
+      m_rotationMultipliers(rotationMultipliers),
       m_scaleMultipliers(scaleMultipliers) { }
 
   enum COORDINATE {
@@ -35,6 +41,10 @@ public:
     Y = 1,
     Z = 2
   };
+
+  static constexpr float DEFAULT_MULTIPLIER = 0.1f;
+
+  float getSingleMultiplier() const { return m_singleMultiplier; }
 
   vector<float> getPositionMultiplier() const { return m_positionMultipliers; }
   vector<float> getRotationMultiplier() const { return m_rotationMultipliers; }
@@ -44,6 +54,7 @@ public:
   float getRotationMultiplier(const COORDINATE coordinate) const { return m_rotationMultipliers[coordinate]; }
   float getScaleMultiplier(const COORDINATE coordinate) const { return m_scaleMultipliers[coordinate]; }
 
+  QString getSingleMultiplierString();
   QString getPositionMultiplierString();
   QString getRotationMultiplierString();
   QString getScaleMultiplierString();
@@ -51,9 +62,9 @@ public:
   static constexpr bool INITIAL_TOGGLE = false;
 
 private:
-  static constexpr float DEFAULT_MULTIPLIER = 0.1f;
   static constexpr char DEFAULT_COORDINATE_FORMAT[] = "%1/%2/%3";
 
+  float m_singleMultiplier;
   vector<float> m_positionMultipliers;
   vector<float> m_rotationMultipliers;
   vector<float> m_scaleMultipliers;
