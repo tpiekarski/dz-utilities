@@ -13,7 +13,7 @@
 #include <dzstyle.h>
 
 PrecimentControlDialog::PrecimentControlDialog(QWidget* parent, PrecimentSettingsManager* manager)
-  : DzBasicDialog(parent, "PrecimentSettings"), m_manager(manager)
+  : DzBasicDialog(parent, "PrecimentSettings"), m_manager(new PrecimentSettingsManager(this))
 {
   m_layoutWidget = new QWidget(parent);
   m_layoutWidget->setObjectName("layoutWidget");
@@ -34,6 +34,8 @@ PrecimentControlDialog::PrecimentControlDialog(QWidget* parent, PrecimentSetting
   resize(QSize().expandedTo(minimumSizeHint()));
   setFixedWidth(width());
   setFixedHeight(height());
+
+  connect(m_multiplierLineEdit, SIGNAL(textChanged(const QString&)), this, SLOT(updateSettings(const QString&)));
 }
 
 PrecimentControlDialog::~PrecimentControlDialog() {
@@ -108,6 +110,10 @@ PrecimentControlDialog::~PrecimentControlDialog() {
     m_layoutWidget = nullptr;
   }
 
+}
+
+void PrecimentControlDialog::updateSettings(const QString& value) {
+  m_manager->getSettings().setSingleMultiplier(value.toFloat());
 }
 
 QGroupBox* PrecimentControlDialog::buildPresetBox() {

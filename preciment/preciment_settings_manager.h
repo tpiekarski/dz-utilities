@@ -27,8 +27,8 @@ public:
   PrecimentSettings getSettings() { return m_settings; }
 
 public slots:
-  void save(const PrecimentSettings settings);
   PrecimentSettings load();
+  void save(const PrecimentSettings settings);
 
 private:
   static constexpr char PRECIMENT_SETTINGS_PATH[] = "Preciment";

@@ -29,6 +29,10 @@ class PrecimentControlDialog : public DzBasicDialog {
 public:
   PrecimentControlDialog(QWidget* parent, PrecimentSettingsManager* manager);
   ~PrecimentControlDialog();
+  PrecimentSettingsManager* getManager() { return m_manager; }
+
+public slots:
+  void updateSettings(const QString& value);
 
 private:
   PrecimentSettingsManager* m_manager;

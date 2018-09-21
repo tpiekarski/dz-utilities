@@ -11,7 +11,6 @@
 
 #include "preciment_version.h"
 #include "preciment_control_action.h"
-#include <dzapp.h>
 
 PrecimentControlAction::~PrecimentControlAction() {
   if (m_dialog != nullptr) {
@@ -29,7 +28,11 @@ void PrecimentControlAction::executeAction() {
   const bool result = static_cast<bool>(m_dialog->exec());
 
   if (result) {
-    // todo: implement processing of result and new single multiplier value
-  }
+    PrecimentSettings currentSettings = m_manager->getSettings();
+    PrecimentSettings updatedSettings = m_dialog->getManager()->getSettings();
 
+    if (currentSettings != updatedSettings) {
+      emit settingsChanged(updatedSettings);
+    }
+  }
 }

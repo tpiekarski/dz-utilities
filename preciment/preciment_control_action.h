@@ -28,6 +28,9 @@ public:
 
   ~PrecimentControlAction();
 
+signals:
+  void settingsChanged(const PrecimentSettings& settings);
+
 protected:
   virtual void executeAction();
 

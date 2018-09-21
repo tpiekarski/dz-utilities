@@ -20,6 +20,10 @@ using std::vector;
 class PrecimentSettings {
 
 public:
+  enum COORDINATE { X = 0, Y = 1, Z = 2 };
+  static constexpr float DEFAULT_MULTIPLIER = 0.1f;
+  static constexpr bool INITIAL_TOGGLE = false;
+
   PrecimentSettings()
     : m_singleMultiplier(DEFAULT_MULTIPLIER),
       m_positionMultipliers(3, DEFAULT_MULTIPLIER),
@@ -36,14 +40,10 @@ public:
       m_rotationMultipliers(rotationMultipliers),
       m_scaleMultipliers(scaleMultipliers) { }
 
-  enum COORDINATE {
-    X = 0,
-    Y = 1,
-    Z = 2
-  };
+  bool operator==(const PrecimentSettings& other) { return this->compare(other); }
+  bool operator!=(const PrecimentSettings& other) { return this->compare(other); }
 
-  static constexpr float DEFAULT_MULTIPLIER = 0.1f;
-
+  void setSingleMultiplier(float singleMultiplier) { m_singleMultiplier = singleMultiplier; }
   float getSingleMultiplier() const { return m_singleMultiplier; }
 
   vector<float> getPositionMultiplier() const { return m_positionMultipliers; }
@@ -59,8 +59,6 @@ public:
   QString getRotationMultiplierString();
   QString getScaleMultiplierString();
 
-  static constexpr bool INITIAL_TOGGLE = false;
-
 private:
   static constexpr char DEFAULT_COORDINATE_FORMAT[] = "%1/%2/%3";
 
@@ -68,6 +66,8 @@ private:
   vector<float> m_positionMultipliers;
   vector<float> m_rotationMultipliers;
   vector<float> m_scaleMultipliers;
+
+  bool compare(const PrecimentSettings& other);
 
 };
 

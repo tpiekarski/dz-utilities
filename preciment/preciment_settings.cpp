@@ -38,3 +38,16 @@ QString PrecimentSettings::getScaleMultiplierString() {
     QString::number(getScaleMultiplier(COORDINATE::Z))
   );
 }
+
+bool PrecimentSettings::compare(const PrecimentSettings & other) {
+  return (this->getSingleMultiplier() == other.getSingleMultiplier())
+    && (this->getPositionMultiplier(PrecimentSettings::X) == other.getPositionMultiplier(PrecimentSettings::X))
+    && (this->getPositionMultiplier(PrecimentSettings::Y) == other.getPositionMultiplier(PrecimentSettings::Y))
+    && (this->getPositionMultiplier(PrecimentSettings::Z) == other.getPositionMultiplier(PrecimentSettings::Z))
+    && (this->getRotationMultiplier(PrecimentSettings::X) == other.getRotationMultiplier(PrecimentSettings::X))
+    && (this->getRotationMultiplier(PrecimentSettings::Y) == other.getRotationMultiplier(PrecimentSettings::Y))
+    && (this->getRotationMultiplier(PrecimentSettings::Z) == other.getRotationMultiplier(PrecimentSettings::Z))
+    && (this->getScaleMultiplier(PrecimentSettings::X) == other.getScaleMultiplier(PrecimentSettings::X))
+    && (this->getScaleMultiplier(PrecimentSettings::Y) == other.getScaleMultiplier(PrecimentSettings::Y))
+    && (this->getScaleMultiplier(PrecimentSettings::Z) == other.getScaleMultiplier(PrecimentSettings::Z));
+}
