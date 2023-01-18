@@ -20,7 +20,10 @@
 #include <QtGui/qmessagebox.h>
 
 ConsolePane::ConsolePane() : DzPane("Console") {
-  console = new Console(this, dzApp->getAppDataPath());
+  QString appDataInstancePath = dzApp->getAppDataPath();
+  QMetaObject::invokeMethod(dzApp, "getAppDataInstancePath", Qt::DirectConnection, Q_RETURN_ARG(QString, appDataInstancePath));
+
+  console = new Console(this, appDataInstancePath);
   consoleSettings = new ConsoleSettings(console->getLogFullPath());
   consoleLogBrowser = new ConsoleLogBrowser(console, consoleSettings);
   consoleSearchPane = new ConsoleSearchPane(consoleLogBrowser);
