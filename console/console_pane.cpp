@@ -107,5 +107,6 @@ void ConsolePane::showSettingsDialog() {
 void ConsolePane::buildOptionsMenu(DzActionMenu* menu) const {
   menu->insertAction("ConsoleClearAction");
   menu->insertAction("ConsoleReloadAction");
+  menu->insertAction("ConsoleFlushLogAction");
   menu->insertAction("ConsoleSettingsAction");
 }
