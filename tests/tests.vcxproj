@@ -113,10 +113,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="console-test.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">$(QT_SDK)\bin\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">"$(QT_SDK)\bin\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">$(QT_SDK)\bin\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">"$(QT_SDK)\bin\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
@@ -130,8 +130,8 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="statistics-test.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">$(QT_SDK)\bin\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">$(QT_SDK)\bin\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">"$(QT_SDK)\bin\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">"$(QT_SDK)\bin\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
