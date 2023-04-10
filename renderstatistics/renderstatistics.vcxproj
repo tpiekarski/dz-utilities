@@ -322,27 +322,27 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="rs_clear_action.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
     <CustomBuild Include="rs_settings.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
@@ -350,16 +350,16 @@
     <ClInclude Include="rs_dzstatistics.h" />
     <ClInclude Include="rs_guid.h" />
     <CustomBuild Include="rs_pane.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
@@ -370,16 +370,16 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
     <CustomBuild Include="rs_pane_action.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\moc\%(Filename)_moc.cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
@@ -391,12 +391,12 @@
     </CustomBuild>
     <ClInclude Include="rs_logger.h" />
     <CustomBuild Include="rs_qstatisticslayout.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">Generating Meta Object File for %(Filename)...</Message>
@@ -411,12 +411,12 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
     <CustomBuild Include="rs_renderimage_dialog.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">Generating Meta Object File for %(Filename)...</Message>
@@ -431,14 +431,14 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
     <CustomBuild Include="rs_qrenderimagebutton.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating Meta Object File for %(Filename)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">Generating Meta Object File for %(Filename)...</Message>
@@ -452,12 +452,12 @@
     </CustomBuild>
     <ClInclude Include="resource.h" />
     <CustomBuild Include="rs_settings_dialog.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
     <CustomBuild Include="rs_setup_action.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DAZ_SDK)\bin\$(Platform)\moc "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(DAZ_SDK)\bin\$(Platform)\moc" "%(FullPath)" -o .\moc\%(Filename)_moc.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating Meta Object File for %(Filename)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\%(Filename)_moc.cpp</Outputs>
     </CustomBuild>
