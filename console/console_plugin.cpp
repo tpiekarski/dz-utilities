@@ -10,6 +10,7 @@
 */
 
 #include "console_clear_action.h"
+#include "console_flush_log_action.h"
 #include "console_pane.h"
 #include "console_pane_action.h"
 #include "console_settings_action.h"
@@ -39,3 +40,4 @@ DZ_PLUGIN_CLASS_GUID(ConsolePaneAction, CONSOLE_PANE_ACTION_CLASS_GUID);
 DZ_PLUGIN_CLASS_GUID(ConsoleClearAction, CONSOLE_CLEAR_ACTION_CLASS_GUID);
 DZ_PLUGIN_CLASS_GUID(ConsoleReloadAction, CONSOLE_RELOAD_ACTION_CLASS_GUID);
 DZ_PLUGIN_CLASS_GUID(ConsoleSettingsAction, CONSOLE_SETTINGS_ACTION_CLASS_GUID);
+DZ_PLUGIN_CLASS_GUID(ConsoleFlushLogAction, CONSOLE_FLUSH_LOG_ACTION_CLASS_GUID);

@@ -50,6 +50,9 @@
     <ClCompile Include="console_clear_action.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="console_flush_log_action.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="console_pane.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -72,6 +75,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="moc\console_clear_action_moc.cpp">
+      <Filter>Meta Object Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\console_flush_log_action_moc.cpp">
       <Filter>Meta Object Files</Filter>
     </ClCompile>
     <ClCompile Include="moc\console_log_browser_moc.cpp">
@@ -101,6 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="console_clear_action.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="console_flush_log_action.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="console_reload_action.h">
